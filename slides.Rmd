@@ -1,0 +1,18 @@
+---
+title: "Slides"
+description: |
+  Slides
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Slides
+
+[here](slides/example_slides.html)
+
+```{r}
+knitr::include_url("./slides/example_slides.html")
+```
+

@@ -1,0 +1,15 @@
+---
+title: "About this blog"
+description: |
+  Some additional details about the blog
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Greetings Adventurers,
+
+And welcome to the next iteration of my introductory R course for data visualization and analysis. Because the concepts you will learn in this course will be most useful in areas where the working language is English, this course will also be in English. But feel free to ask questions in German as well any time.
+This site will host the material you need for the
+course as well as the script and exercise solutions.

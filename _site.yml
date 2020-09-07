@@ -1,0 +1,20 @@
+name: "dataIntro20"
+title: "Introduction to Data Analysis with R"
+description: |
+  Introduction to Data Analysis with R
+output_dir: "docs"
+base_url: https://course.jmbuhr.de
+navbar:
+  right:
+    - text: "Lectures"
+      href: index.html
+    - text: "Solutions"
+      href: solutions.html
+    - text: "About"
+      href: about.html
+collections:
+  lectures:
+    share: [twitter, linkedin]
+  solutions:
+    share: [twitter, linkedin]
+output: distill::distill_article

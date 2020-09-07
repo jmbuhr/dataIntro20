@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
+  <url>
+    <loc>https://course.jmbuhr.de/about.html</loc>
+    <lastmod>2020-09-07T15:54:45+02:00</lastmod>
+  </url>
+  <url>
+    <loc>https://course.jmbuhr.de/</loc>
+    <lastmod>2020-09-07T16:13:29+02:00</lastmod>
+  </url>
+  <url>
+    <loc>https://course.jmbuhr.de/solutions.html</loc>
+    <lastmod>2020-09-07T16:13:14+02:00</lastmod>
+  </url>
+  <url>
+    <loc>https://course.jmbuhr.de/lectures/welcome/</loc>
+    <lastmod>2020-09-07T16:08:30+02:00</lastmod>
+  </url>
+  <url>
+    <loc>https://course.jmbuhr.de/solutions/welcome/</loc>
+    <lastmod>2020-09-07T16:14:43+02:00</lastmod>
+  </url>
+</urlset>

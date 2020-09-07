@@ -1,0 +1,25 @@
+---
+title: "Welcome to Introduction to Data Analysis with R"
+description: |
+  Welcome to this site!
+author:
+  - name: Jannik Buhr 
+    url: https://jmbuhr.de
+    # affiliation: Spacely Sprockets
+    # affiliation_url: https://example.com/spacelysprokets
+date: 09-07-2020
+output:
+  distill::distill_article:
+    self_contained: false
+categories:
+  - misc
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Placeholder Text
+
+Under construction.
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Introduction to Data Analysis with R</title>
+    <link>https://course.jmbuhr.de</link>
+    <atom:link href="https://course.jmbuhr.de/index.xml" rel="self" type="application/rss+xml"/>
+    <description>Introduction to Data Analysis with R
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Welcome to Introduction to Data Analysis with R</title>
+      <dc:creator>Jannik Buhr</dc:creator>
+      <link>https://course.jmbuhr.de/lectures/welcome</link>
+      <description>Welcome to this site!</description>
+      <category>misc</category>
+      <guid>https://course.jmbuhr.de/lectures/welcome</guid>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

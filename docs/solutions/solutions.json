@@ -1,0 +1,20 @@
+[
+  {
+    "path": "solutions/welcome/",
+    "title": "Solutions Placeholder",
+    "description": "",
+    "author": [
+      {
+        "name": "Jannik Buhr",
+        "url": "https://jmbuhr.de"
+      }
+    ],
+    "date": "2020-09-07",
+    "categories": [
+      "misc"
+    ],
+    "preview": {},
+    "last_modified": "2020-09-07T16:14:43+02:00",
+    "input_file": {}
+  }
+]

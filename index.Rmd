@@ -1,0 +1,5 @@
+---
+title: "Lectures"
+site: distill::distill_website
+listing: lectures
+---

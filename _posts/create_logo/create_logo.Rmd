@@ -1,0 +1,34 @@
+---
+title: "Welcome to Introduction to Data Analysis with R"
+description: |
+  Welcome to this site!
+author:
+  - name: Jannik Buhr 
+    url: https://jmbuhr.de
+date: 09-07-2020
+output:
+  distill::distill_article:
+    self_contained: false
+categories:
+  - misc
+---
+
+We need to generate a favicon for this site.
+So why not do it in R straight away?
+
+
+```{r, fig.width=5, fig.height=5, dev.args=list(bg="transparent")}
+library(tidyverse)
+
+df <- hilbeRt::get_hilbert_paths(4)
+plt <- df %>%
+  ggplot(aes(x, y, color = index)) +
+  geom_path(size = 5, show.legend = FALSE, lineend = "round") +
+  theme_void() +
+  coord_equal() +
+  scale_color_gradient2(low = "#002ab5",
+                        mid = "#8a00b5",
+                        high = "#002ab5")
+plt
+ggsave("images/favicon.png", bg = "transparent")
+```

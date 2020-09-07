@@ -19,9 +19,9 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-  <title>Welcome to Introduction to Data Analysis with R</title>
+  <title>Lecture 1</title>
 
-  <meta property="description" itemprop="description" content="Welcome to this site!"/>
+  <meta property="description" itemprop="description" content="Description 1"/>
 
 
   <!--  https://schema.org/Article -->
@@ -30,26 +30,28 @@
   <meta name="article:author" content="Jannik Buhr"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Welcome to Introduction to Data Analysis with R"/>
+  <meta property="og:title" content="Lecture 1"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Welcome to this site!"/>
+  <meta property="og:description" content="Description 1"/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Welcome to Introduction to Data Analysis with R"/>
-  <meta property="twitter:description" content="Welcome to this site!"/>
+  <meta property="twitter:title" content="Lecture 1"/>
+  <meta property="twitter:description" content="Description 1"/>
 
   <!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=Palmerpenguins: Palmer archipelago (antarctica) penguin data;citation_publication_date=2020;citation_author=Allison Horst;citation_author=Alison Hill;citation_author=Kristen Gorman"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Welcome to Introduction to Data Analysis with R"]},{"type":"character","attributes":{},"value":["Welcome to this site!\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Jannik Buhr"]},{"type":"character","attributes":{},"value":["https://jmbuhr.de"]}]}]},{"type":"character","attributes":{},"value":["09-07-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["misc"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","draft","author","date","output","categories","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["Lecture 1"]},{"type":"character","attributes":{},"value":["Description 1"]},{"type":"logical","attributes":{},"value":[true]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Jannik Buhr"]},{"type":"character","attributes":{},"value":["https://jmbuhr.de"]}]}]},{"type":"character","attributes":{},"value":["09-07-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["lecture"]},{"type":"character","attributes":{},"value":["../../references.bib"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["welcome_files/bowser-1.9.3/bowser.min.js","welcome_files/distill-2.2.21/template.v2.js","welcome_files/header-attrs-2.3/header-attrs.js","welcome_files/jquery-1.11.3/jquery.min.js","welcome_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["lecture1_files/bowser-1.9.3/bowser.min.js","lecture1_files/distill-2.2.21/template.v2.js","lecture1_files/header-attrs-2.3/header-attrs.js","lecture1_files/jquery-1.11.3/jquery.min.js","lecture1_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -280,6 +282,16 @@
     color: rgba(0, 0, 0, 1.0);
   }
 
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
 
 
   /* Tweak 1000px media break to show more text */
@@ -601,23 +613,8 @@
     // create d-appendix
     $('.d-appendix').changeElementType('d-appendix');
 
-    // create d-bibliography
-    var bibliography = $('<d-bibliography></d-bibliography>');
-    $('#distill-bibliography').wrap(bibliography);
-
     // flag indicating that we have appendix items
     var appendix = $('.appendix-bottom').children('h3').length > 0;
-
-    // replace citations with <d-cite>
-    $('.citation').each(function(i, val) {
-      appendix = true;
-      var cites = $(this).attr('data-cites').split(" ");
-      var dt_cite = $('<d-cite></d-cite>');
-      dt_cite.attr('key', cites.join());
-      $(this).replaceWith(dt_cite);
-    });
-    // remove refs
-    $('#refs').remove();
 
     // replace footnotes with <d-footnote>
     $('.footnote-ref').each(function(i, val) {
@@ -634,6 +631,9 @@
     });
     // remove footnotes
     $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
 
     $('h1.appendix, h2.appendix').each(function(i, val) {
       $(this).changeElementType('h3');
@@ -937,11 +937,11 @@
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="welcome_files/header-attrs-2.3/header-attrs.js"></script>
-  <script src="welcome_files/jquery-1.11.3/jquery.min.js"></script>
-  <script src="welcome_files/bowser-1.9.3/bowser.min.js"></script>
-  <script src="welcome_files/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="welcome_files/distill-2.2.21/template.v2.js"></script>
+  <script src="lecture1_files/header-attrs-2.3/header-attrs.js"></script>
+  <script src="lecture1_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="lecture1_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="lecture1_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="lecture1_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
@@ -953,7 +953,7 @@
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Welcome to Introduction to Data Analysis with R","description":"Welcome to this site!","authors":[{"author":"Jannik Buhr","authorURL":"https://jmbuhr.de","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-09-07T00:00:00.000+02:00","citationText":"Buhr, 2020"}
+{"title":"Lecture 1","description":"Description 1","authors":[{"author":"Jannik Buhr","authorURL":"https://jmbuhr.de","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-09-07T00:00:00.000+02:00","citationText":"Buhr, 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -963,8 +963,8 @@
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Welcome to Introduction to Data Analysis with R</h1>
-<p><p>Welcome to this site!</p></p>
+<h1>Lecture 1</h1>
+<p>Description 1</p>
 </div>
 
 <div class="d-byline">
@@ -976,6 +976,24 @@
 <div class="d-article">
 <h2 id="placeholder-text">Placeholder Text</h2>
 <p>Under construction.</p>
+<h2 id="a-grammar-of-graphics-and-palmer-penguins">A Grammar of Graphics and Palmer Penguins</h2>
+<p>See <span class="citation" data-cites="R-palmerpenguins">(Horst, Hill, and Gorman <a href="#ref-R-palmerpenguins" role="doc-biblioref">2020</a>)</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span id="fig:allison-penguins"></span>
+<img src="https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true" alt="@ArtworkAllisonHorst" class=external />
+<p class="caption">
+Figure 1: <span class="citation" data-cites="ArtworkAllisonHorst">(“Artwork by @Allison_horst” <a href="#ref-ArtworkAllisonHorst" role="doc-biblioref">2020</a>)</span>
+</p>
+</div>
+</div>
+<div id="refs" class="references hanging-indent" role="doc-bibliography">
+<div id="ref-ArtworkAllisonHorst">
+<p>“Artwork by @Allison_horst.” 2020. https://github.com/allisonhorst/stats-illustrations.</p>
+</div>
+<div id="ref-R-palmerpenguins">
+<p>Horst, Allison, Alison Hill, and Kristen Gorman. 2020. <em>Palmerpenguins: Palmer Archipelago (Antarctica) Penguin Data</em>. Manual.</p>
+</div>
+</div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -987,7 +1005,10 @@
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
-<div class="appendix-bottom"></div>
+<div class="appendix-bottom">
+<h3 id="references">References</h3>
+<div id="references-listing"></div>
+</div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <!--/radix_placeholder_navigation_after_body-->

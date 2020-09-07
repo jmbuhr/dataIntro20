@@ -1,0 +1,28 @@
+---
+title: "Lecture 1"
+description: "Description 1"
+draft: true
+author:
+  - name: Jannik Buhr 
+    url: https://jmbuhr.de
+date: 09-07-2020
+output:
+  distill::distill_article:
+    self_contained: false
+categories:
+  - lecture
+bibliography: ["../../references.bib"]
+---
+
+## Placeholder Text
+
+Under construction.
+
+## A Grammar of Graphics and Palmer Penguins
+
+See [@R-palmerpenguins]
+
+```{r allison-penguins, fig.cap="@ArtworkAllisonHorst",  out.extra="class=external"}
+knitr::include_graphics("https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true")
+```
+

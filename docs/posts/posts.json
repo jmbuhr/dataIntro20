@@ -1,6 +1,6 @@
 [
   {
-    "path": "lectures/welcome/",
+    "path": "posts/create_logo/",
     "title": "Welcome to Introduction to Data Analysis with R",
     "description": "Welcome to this site!",
     "author": [
@@ -13,8 +13,10 @@
     "categories": [
       "misc"
     ],
-    "preview": {},
-    "last_modified": "2020-09-07T16:08:30+02:00",
-    "input_file": {}
+    "preview": "posts/create_logo/create_logo_files/figure-html5/unnamed-chunk-1-1.png",
+    "last_modified": "2020-09-07T20:18:04+02:00",
+    "input_file": {},
+    "preview_width": 960,
+    "preview_height": 960
   }
 ]

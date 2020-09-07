@@ -4,19 +4,24 @@ description: |
   Introduction to Data Analysis with R
 output_dir: "docs"
 base_url: https://course.jmbuhr.de
+repository_url: https://github.com/jmbuhr/dataIntro20
 navbar:
   right:
     - text: "Lectures"
       href: index.html
-    - text: "Solutions"
-      href: solutions.html
     - text: "Slides"
       href: slides.html
     - text: "About"
       href: about.html
+    - icon: fab fa-github
+      href: https://github.com/jmbuhr/dataIntro20
 collections:
-  lectures:
+  posts:
     share: [twitter, linkedin]
-  solutions:
-    share: [twitter, linkedin]
-output: distill::distill_article
+favicon: images/favicon.png
+twitter:
+  site: "@jannikbuhr"
+creative_commons: CC BY
+output:
+  distill::distill_article:
+    css: styles.css

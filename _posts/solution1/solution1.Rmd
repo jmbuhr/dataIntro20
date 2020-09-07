@@ -1,6 +1,7 @@
 ---
 title: "Solutions Placeholder"
 description: ""
+draft: true
 author:
   - name: Jannik Buhr 
     url: https://jmbuhr.de
@@ -11,7 +12,7 @@ output:
   distill::distill_article:
     self_contained: false
 categories:
-  - misc
+  - solution
 ---
 
 ```{r setup, include=FALSE}

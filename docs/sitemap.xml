@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://course.jmbuhr.de/about.html</loc>
-    <lastmod>2020-09-07T20:47:21+02:00</lastmod>
+    <lastmod>2020-09-12T18:05:05+02:00</lastmod>
   </url>
   <url>
     <loc>https://course.jmbuhr.de/</loc>
     <lastmod>2020-09-07T19:57:39+02:00</lastmod>
   </url>
   <url>
-    <loc>https://course.jmbuhr.de/slides.html</loc>
-    <lastmod>2020-09-07T16:43:40+02:00</lastmod>
+    <loc>https://course.jmbuhr.de/README.html</loc>
+    <lastmod>2020-09-12T18:04:54+02:00</lastmod>
   </url>
   <url>
     <loc>https://course.jmbuhr.de/posts/create_logo/</loc>
-    <lastmod>2020-09-07T20:18:04+02:00</lastmod>
+    <lastmod>2020-09-12T14:53:56+02:00</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,52 @@
+---
+title: "Introduction to Data Analysis with R"
+subtitle: "Lecture 1: Getting Started" 
+author: 
+  - "Jannik Buhr"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#002ab5",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF",
+  text_font_google = google_font("Fira Sans"),
+  header_font_google = google_font("Roboto"),
+  code_font_google = google_font("Fira Mono"),
+  header_h1_font_size = "2.75rem",
+  header_h2_font_size = "1.5rem",
+  header_h3_font_size = "1rem"
+)
+
+xaringanExtra::use_tile_view()
+xaringanExtra::use_editable()
+xaringanExtra::use_animate_css()
+xaringanExtra::use_clipboard()
+```
+
+
+## What is this Course about?
+
+Content
+
+```{r}
+# code
+```
+
+
+---

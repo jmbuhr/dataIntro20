@@ -9,8 +9,6 @@ navbar:
   right:
     - text: "Lectures"
       href: index.html
-    - text: "Slides"
-      href: slides.html
     - text: "About"
       href: about.html
     - icon: fab fa-github

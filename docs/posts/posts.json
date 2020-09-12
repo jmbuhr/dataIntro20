@@ -1,8 +1,8 @@
 [
   {
     "path": "posts/create_logo/",
-    "title": "Welcome to Introduction to Data Analysis with R",
-    "description": "Welcome to this site!",
+    "title": "Generating a logo",
+    "description": "Generating a logo for this site in R.",
     "author": [
       {
         "name": "Jannik Buhr",
@@ -13,8 +13,8 @@
     "categories": [
       "misc"
     ],
-    "preview": "posts/create_logo/create_logo_files/figure-html5/unnamed-chunk-1-1.png",
-    "last_modified": "2020-09-07T20:18:04+02:00",
+    "preview": "posts/create_logo/create_logo_files/figure-html5/generate-logo-1.png",
+    "last_modified": "2020-09-12T14:53:56+02:00",
     "input_file": {},
     "preview_width": 960,
     "preview_height": 960

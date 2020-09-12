@@ -14,14 +14,14 @@
     <generator>Distill</generator>
     <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Welcome to Introduction to Data Analysis with R</title>
+      <title>Generating a logo</title>
       <dc:creator>Jannik Buhr</dc:creator>
       <link>https://course.jmbuhr.de/posts/create_logo</link>
-      <description>Welcome to this site!</description>
+      <description>Generating a logo for this site in R.</description>
       <category>misc</category>
       <guid>https://course.jmbuhr.de/posts/create_logo</guid>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
-      <media:content url="https://course.jmbuhr.de/posts/create_logo/create_logo_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="960" height="960"/>
+      <media:content url="https://course.jmbuhr.de/posts/create_logo/create_logo_files/figure-html5/generate-logo-1.png" medium="image" type="image/png" width="960" height="960"/>
     </item>
   </channel>
 </rss>

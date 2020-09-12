@@ -1,7 +1,7 @@
 ---
-title: "Welcome to Introduction to Data Analysis with R"
+title: "Generating a logo"
 description: |
-  Welcome to this site!
+  Generating a logo for this site in R.
 author:
   - name: Jannik Buhr 
     url: https://jmbuhr.de
@@ -13,11 +13,10 @@ categories:
   - misc
 ---
 
-We need to generate a favicon for this site.
+We need a favicon for this site.
 So why not do it in R straight away?
 
-
-```{r, fig.width=5, fig.height=5, dev.args=list(bg="transparent")}
+```{r generate-logo, echo=TRUE, fig.width=5, fig.height=5, dev.args=list(bg="transparent")}
 library(tidyverse)
 
 df <- hilbeRt::get_hilbert_paths(4)
@@ -30,5 +29,5 @@ plt <- df %>%
                         mid = "#8a00b5",
                         high = "#002ab5")
 plt
-ggsave("images/favicon.png", bg = "transparent")
+ggsave(here::here("images/favicon.png"), bg = "transparent")
 ```

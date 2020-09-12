@@ -1,28 +1,499 @@
 ---
 title: "Lecture 1"
-description: "Description 1"
+description: |
+  Getting started!
 draft: true
 author:
   - name: Jannik Buhr 
     url: https://jmbuhr.de
-date: 09-07-2020
+date: 11-02-2020
 output:
   distill::distill_article:
     self_contained: false
+    toc: true
 categories:
   - lecture
 bibliography: ["../../references.bib"]
 ---
 
-## Placeholder Text
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE
+)
+```
 
-Under construction.
+# Script
 
-## A Grammar of Graphics and Palmer Penguins
+## What is this Course about?
+
+Throughout your scientific career --- and potentially outside
+of it --- you will encounter various forms of data.
+Maybe you do an experiment and measured the fluorescence of
+a molecular probe, or you simply count the penguins at your local
+zoo. Everything is data in some form or another.
+But raw numbers without context are meaningless and
+tables of numbers are not only boring to look at but
+often hide the actual structure behind the numbers.
+In this course you will learn to handle different
+kinds of data. You will learn to create pretty and insightful
+visualizations, compute different statistics on your
+data and also what these statistical concepts mean.
+From penguins to p-values, we go you covered.
+
+The course will be held in English, as the concepts covered will
+directly transfer to the research you do and the papers you will
+read and write where the working language id English.
+That being said, feel free to ask questions in any language that I understand,
+so German is also fine. My Latin is a little rusty, thought.
+
+In this course, we will be using the programming
+language R. R is a language particularly well suited
+for data analysis because it was initially designed by
+statisticians and the interactive nature of the language
+makes it easier to get started.
+So don't fret if this is your first
+encounter with programming, we will take one step at a time.
+
+So let me be upfront. I am going to cheat a little.
+We are going to start with a couple of things that R is really,
+really good at to get you excited,
+before we dive into some potentially confusing details of the inner workings.
+
+## First Things First: Installing R
+
+<aside>
+![[@ArtworkAllisonHorst]](img/r_first_then.png){width='100px'}
+</aside>
+
+But I was getting ahead of myself.
+First, we need to install R.
+You can download the installer for your
+operating system here:
+[https://cran.r-project.org/](https://cran.r-project.org/).
+Feel free to post a question if you get stuck.
+This already gives you the ability
+to execute R code or use the interactive R
+console, but it is way more comfortable
+to use R inside of a so called IDE
+(Integrated Development Environment).
+IDEs give you neat things like autocompletion,
+a window for your plots and a help panel.
+The main IDE for R is called RStudio.
+We will be using it for this course and
+you can download it here:
+[https://www.rstudio.com/products/rstudio/download/#download](https://www.rstudio.com/products/rstudio/download/#download)
+
+<!-- Demonstration of Rstudio panes, -->
+<!-- Open up script -->
+
+Please refer to the video for a walkthrough
+of the different RStudio panes.
+
+## Executing R Code
+
+You can now execute commands in the R console
+in the bottom left. For example:
+
+```{r}
+1 + 1
+```
+Or generate the numbers from one to 10:
+
+```{r}
+1:10
+```
+
+But I rarely type directly into the console.
+Because we want our results to be reproducible,
+we write our code in a script first so
+that the next person ^[This will most likely
+be future You. And you will thank yourself later]
+can see what we did and replicate our
+analysis. You will see that reproducibility
+is quite near and dear to me, so it will
+pop up once or twice. And as scientists, I
+am sure you understand the importance.
+
+To create a new script, click the little button
+in the top left corner. In this script
+you can type regular R code,
+but it won't get executed straight away.
+To send a line of code to the console
+to be executed, hit **Ctrl+Enter**.
+Go ahead, try it with:
+
+```{r}
+plot(1:10)
+```
+
+You just created your first plot in R!
+We plotted values of the **vector** `1:10` vs.
+it's index (=the number of the entry).
+A vector is an ordered collection of things which
+have the same datatype, where a datatype is something
+like numbers (`numeric`), text (`character` also called `string`),
+whole numbers (`integer`).
+
+Your code can have comments to tell your future self why you wrote
+a piece of code the way you did.
+Any line starting with the number symbol `#` will be ignored by R.
+
+```{r}
+# This line will be ignored
+43 - 1 # as will be the part after this #, but not before it
+```
+
+For future reference, here are the basic datatypes
+of R
+
+### Basic Datatypes
+
+Whole numbers (`integer`)
+
+```{r, eval=FALSE}
+1L # denoted by L
+```
+
+Numbers (`numeric`, `double`)
+
+```{r, eval=FALSE}
+12
+12.5
+```
+
+Complex numbers (`complex`)
+
+```{r, eval=FALSE}
+1 + 3i # denoted by the small i for the imaginary part
+```
+
+Text (`character`, `string`)
+
+```{r, eval=FALSE}
+"It was night again."
+```
+
+Logical values (`boolean`, `logical`)
+
+```{r, eval=FALSE}
+TRUE
+FALSE
+```
+
+Special types that mix with any other type:
+
+```{r, eval=FALSE}
+# NULL for no value
+NULL
+
+# NA for Not Assigned
+NA
+```
+
+`NA` is contagious. Any computation involving `NA` will return `NA`
+(because R has no way of knowing the answer):
+
+```{r}
+NA + 1
+max(NA, 12, 1)
+```
+
+Factors (`factor`) for categorical data.
+
+```{r}
+# Factors can be ordered (like grade levels) or unordered (like gender)
+factor(c("m", "f", "f", "d", "m"))
+```
+
+### Variables
+
+Often, you will want to store the result of a computation
+for reuse, or to give it a sensible name and make your code
+more readable. This is what **variables** are for.
+We can assign a value to a variable using the
+assignment operator `<-` (In RStudio, there is a shortcut
+for it: Alt+Minus):
+
+```{r}
+my_numbers <- 1:10
+```
+
+Executing the above code will not give you any output, but when you
+use the name of the variable, you can see its content:
+
+```{r}
+my_numbers
+```
+
+And you can do operations with those variables:
+
+```{r}
+x <- 41
+y <- 1
+x + y
+```
+***
+
+> **NOTE**
+> Be careful about the order of execution!
+> R enables you to work interactively and to execute the code you
+> write in your script in any order with Ctrl+Enter, but
+> when you execute (="source") the whole script, it will
+> be executed from top to bottom.
+
+Furthermore, code is not executed again automatically, if you
+change some dependency of the expression later on. So the second
+assignment to x doesn't change y.
+
+```{r}
+x <- 1
+y <- x + 1
+x <- 1000
+y
+```
+
+***
+
+Variable names can contain letters (capitalization matters),
+numbers (but not as the first character) and underscores `_`.
+^[They can also contain dots (`.`), but it is considered bad practice
+because it can lead to some confusing edge cases.]
+
+```{r}
+# snake_case
+main_character_name <- "Kvothe"
+
+# or camelCase
+bookTitle <- "The Name of the Wind"
+
+# you can have numbers in the name
+x1 <- 12
+```
+
+### Functions and Vectors
+
+Functions are the main workhorses of our data analysis.
+For example, there are mathematical functions, like `sin`, `cos` etc.
+
+```{r}
+sin(x = 0)
+```
+
+Functions take arguments (sometimes called parameters) and
+sometimes they also return something.
+The `sin` function takes just one argument `x` and returns its sine.
+
+Note, that the `=` inside the function parenthesis
+gives `x = 0` to the function and has nothing to do with
+any `x` defined outside of the function.
+The parameter `x` used in the function is separate from
+any `x` you might have defined outside of the function. E.g.
+
+```{r}
+x <- 10
+sin(x = 0)
+# x is still 10
+x
+```
+
+If you want to know more about a function in R, execute `?` with the function
+name or press **F1** with your mouse over the function.
+
+```{r, eval = FALSE}
+?sin
+```
+
+We can pass arguments by name or by order of appearance
+
+```{r, eval=FALSE}
+sin(x = 12)
+sin(12)
+```
+
+The basic datatypes in R are all vectors, which means they can
+contain more than one entry. You can create a vector
+by combining things of the same data type with the function `c`
+for combine.
+
+```{r}
+x <- c(1,2,3,4,5,6)
+x
+```
+
+The basic mathematical operations in R are vectorized by default
+i.e. they are performed on every element of the vector.
+Here, every element is multiplied by 2 and the result printed
+to the console.
+
+```{r}
+x * 2
+```
+
+The original vector `x` was not changed in doing so.
+
+```{r}
+x
+```
+
+But we could have by assigning the result back to `x`, thus overwriting
+its previous content. The right hand side (RHS) is executed first:
+
+```{r}
+x <- x * 2
+```
+
+Now `x` changed:
+
+```{r}
+x
+```
+
+A handy way of creating vectors of numbers is with the `:` operator
+to specify a range of values:
+
+```{r}
+1:5
+```
+
+Or using the `seq` function with some additional (optional parameters):
+
+```{r}
+seq(from = 1, to = 10, by = 2)
+```
+
+## Making our lives easier: Functions and Packages
+
+You just learned about the functions `sin` and `seq` and
+briefly used the function `plot` (which didn't return anything but
+instead had the _side effect_ of printing a plot^[technically, even functions
+that don't appear to return something have a return value: `NULL`]).
+But wait, there is more! Not only in the sense that there are more
+functions in R (what kind of language would that be with only two
+verbs?!), but also in a more powerful way:
+
+We can define our own functions. The syntax (<- grammar for programming
+languages) is as follows.
+
+
+```{r}
+name_for_the_function <- function(parameter1, parameter2) { # etc.
+  # body of the function:
+  result <- parameter1 + parameter2
+  return(result)
+}
+```
+
+The function ends when it reaches the return keyword.
+It also ends when it reaches end of function body and
+implicitly returns the last expression.
+So we could have written it a bit shorter
+(you will often see people omitting the explicit return at the end):
+
+```{r}
+add <- function(x, y) {
+  x + y
+}
+```
+
+And we can call our freshly defined function:
+
+```{r}
+add(23, 19)
+```
+
+Got an error like `Error in add(23, 19) : could not find function "add"`?
+Check that you did in fact execute the code that defines
+the function (i.e. put your cursor on the line with the `function` keyword
+and hit Ctrl+Enter.).
+
+But you are not the only one using R and in fact there
+is a welcoming and helpful community out there.
+Some people also write a bunch of functions and put them
+together in a so called `package`.
+And some people even went a step further.
+The `tidyverse` is a collection of packages
+that play very well together and also iron out some of
+the quirkier ways in which R works [@wickhamWelcomeTidyverse2019b].
+They provide a consistent
+interface to enable us to do more while having to
+learn less special cases.
+The R function `install.packages("<package_name_here>")`
+installs packages from CRAN a curated set of R packages.
+
+### The Tidyverse
+
+Go ahead and install the tidyverse packages with
+
+```{r, eval=FALSE}
+install.packages("tidyverse")
+```
+
+This is one exception to our effort of having
+everything that we run in our script and not
+just in the console.
+We don't want R tryig to install
+the package every time we run the script,
+as this needs to happen only once.
+So you can either turn it into a comment,
+delete it from the script,
+or only type it in the console.
+You can also use RStudio's built-in
+panel for package installation.
+
+
+```{r}
+library(tidyverse)
+```
+
+## Literate Programming: Rmarkdown
+
+![[@ArtworkAllisonHorst]](img/rmarkdown_wizards.png)
+
+## A Grammar of Graphics and the Palmer Penguins
+
+### Translating Data into Visualizations
+
+
+### The Palmer Penguins
 
 See [@R-palmerpenguins]
 
-```{r allison-penguins, fig.cap="@ArtworkAllisonHorst",  out.extra="class=external"}
-knitr::include_graphics("https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true")
+![[@ArtworkAllisonHorst]](img/lter_penguins.png){.external}
+
+
+```{r}
+penguins <- palmerpenguins::penguins
+penguins
 ```
 
+```{r final-penguin-plot, preview=TRUE}
+ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
+  geom_point(size = 2.5) +
+  labs(x = "Flipper length [mm]",
+       y = "Bill length [mm]",
+       subtitle = "The 3 penguin species can differentiated by their flipper and bill length") +
+  theme_minimal() +
+  NULL
+```
+
+
+## The Community: There to catch You.
+
+![[@ArtworkAllisonHorst]](img/code_hero.jpg){width='50%' .external}
+
+# Materials
+
+## Video
+
+What today's video here:
+
+<iframe width="1280" height="720" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Slides
+
+Hover over the slides and press **f** for full screen.
+Press **?** for a list of keyboard shortcuts.
+
+```{r}
+knitr::include_url("slides1.html")
+```

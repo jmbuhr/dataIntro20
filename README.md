@@ -1,15 +1,7 @@
 ---
+title: Github Readme
 output: github_document
 ---
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
 
 # dataIntro20 <a href='https://jmbuhr.de/dataIntro20'><img src='images/favicon.png' align="right" height="139" /></a>
 

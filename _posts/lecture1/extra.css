@@ -1,0 +1,28 @@
+#slide-title {
+  background-color: #f9faff;
+  background-size: 100%;
+  background-position: 0 -530px;
+  background-repeat: repeat-y
+}
+.talk-title {
+  margin-bottom: 110px
+}
+.talk-meta {
+  left: 1em;
+  width: 100%
+}
+.talk-author {
+  font-size: 1em
+}
+.talk-date {
+  font-size: .8em
+}
+
+.highlight-last-item > ul > li,
+.highlight-last-item > ol > li {
+  opacity: 0.5;
+}
+.highlight-last-item > ul > li:last-of-type,
+.highlight-last-item > ol > li:last-of-type {
+  opacity: 1;
+}

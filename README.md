@@ -1,9 +1,5 @@
----
-title: Github Readme
-output: github_document
----
 
-# dataIntro20 <a href='https://jmbuhr.de/dataIntro20'><img src='images/favicon.png' align="right" height="139" /></a>
+# dataIntro20 <a href='https://jmbuhr.de/dataIntro20'><img src='images/hex.png' align="right" height="139" /></a>
 
 Greetings Adventurers,
 

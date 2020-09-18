@@ -44,12 +44,12 @@
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Generating a logo"]},{"type":"character","attributes":{},"value":["Generating a logo for this site in R.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Jannik Buhr"]},{"type":"character","attributes":{},"value":["https://jmbuhr.de"]}]}]},{"type":"character","attributes":{},"value":["09-07-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["misc"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","editor_options"]}},"value":[{"type":"character","attributes":{},"value":["Generating a logo"]},{"type":"character","attributes":{},"value":["Generating a logo for this site in R.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Jannik Buhr"]},{"type":"character","attributes":{},"value":["https://jmbuhr.de"]}]}]},{"type":"character","attributes":{},"value":["09-07-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["misc"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["chunk_output_type"]}},"value":[{"type":"character","attributes":{},"value":["inline"]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["create_logo_files/bowser-1.9.3/bowser.min.js","create_logo_files/distill-2.2.21/template.v2.js","create_logo_files/figure-html5/generate-logo-1.png","create_logo_files/figure-html5/unnamed-chunk-1-1.png","create_logo_files/header-attrs-2.3/header-attrs.js","create_logo_files/jquery-1.11.3/jquery.min.js","create_logo_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["-1.png","create_logo_files/bowser-1.9.3/bowser.min.js","create_logo_files/distill-2.2.21/template.v2.js","create_logo_files/figure-html5/generate-logo-1.png","create_logo_files/figure-html5/unnamed-chunk-1-1.png","create_logo_files/header-attrs-2.3/header-attrs.js","create_logo_files/jquery-1.11.3/jquery.min.js","create_logo_files/webcomponents-2.0.0/webcomponents.js","dataIntro20.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -976,6 +976,10 @@
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 library(tidyverse)
+library(hexSticker)
+
+# install.packages(&quot;remotes&quot;)
+# remotes::install_github(&quot;jannikbuhr/hilbeRt&quot;)
 
 df &lt;- hilbeRt::get_hilbert_paths(4)
 plt &lt;- df %&gt;%
@@ -989,7 +993,28 @@ plt &lt;- df %&gt;%
 plt</code></pre>
 <p><img src="create_logo_files/figure-html5/generate-logo-1.png" width="480" /></p>
 <pre class="r"><code>
-ggsave(here::here(&quot;images/favicon.png&quot;), bg = &quot;transparent&quot;)</code></pre>
+ggsave(here::here(&quot;images/favicon.png&quot;), plt, bg = &quot;transparent&quot;)</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+hex &lt;- sticker(plt,
+             s_x = 1,
+             s_y = 1,
+             h_color = &quot;#002ab5&quot;,
+             h_fill = &quot;transparent&quot;,
+             s_width = 1.2,
+             s_height = 1.2,
+             u_size = 3.5,
+             p_color = &quot;black&quot;,
+             p_size = 10.1,
+             p_y = 1.7,
+             url = &quot;jmbuhr.de/dataIntro20/&quot;,
+             package = &quot;dataIntro20&quot;)
+
+hex</code></pre>
+<p><img src="create_logo_files/figure-html5/unnamed-chunk-1-1.png" width="480" data-distill-preview=1 /></p>
+<pre class="r"><code>
+ggsave(here::here(&quot;images/hex.png&quot;), dpi = 72, scale = 2, hex, bg = &quot;transparent&quot;)</code></pre>
 </div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

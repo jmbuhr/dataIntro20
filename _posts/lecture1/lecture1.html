@@ -53,7 +53,7 @@
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["img/code_hero.jpg","img/ggplot2_masterpiece.png","img/lter_penguins.png","img/r_first_then.png","img/rainbowr.gif","img/rmarkdown_wizards.png","lecture1_files/bowser-1.9.3/bowser.min.js","lecture1_files/distill-2.2.21/template.v2.js","lecture1_files/figure-html5/final-penguin-plot-1.png","lecture1_files/figure-html5/unnamed-chunk-3-1.png","lecture1_files/figure-html5/unnamed-chunk-35-1.png","lecture1_files/figure-html5/unnamed-chunk-4-1.png","lecture1_files/header-attrs-2.3/header-attrs.js","lecture1_files/jquery-1.11.3/jquery.min.js","lecture1_files/webcomponents-2.0.0/webcomponents.js","libs/animate.css/animate.xaringan.css","libs/clipboard/clipboard.min.js","libs/editable/editable.css","libs/editable/editable.js","libs/header-attrs/header-attrs.js","libs/himalaya/himalaya.js","libs/himalaya/himalaya.js.map","libs/js-cookie/js.cookie.js","libs/tile-view/tile-view.css","libs/tile-view/tile-view.js","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js","slides1.html","xaringan-themer.css"]}
+  {"type":"character","attributes":{},"value":["extra.css","img/code_hero.jpg","img/ggplot2_masterpiece.png","img/lter_penguins.png","img/r_first_then.png","img/rainbowr.gif","img/Rlogo.png","img/rmarkdown_wizards.png","lecture1_files/bowser-1.9.3/bowser.min.js","lecture1_files/distill-2.2.21/template.v2.js","lecture1_files/figure-html5/final-penguin-plot-1.png","lecture1_files/figure-html5/unnamed-chunk-3-1.png","lecture1_files/figure-html5/unnamed-chunk-35-1.png","lecture1_files/figure-html5/unnamed-chunk-4-1.png","lecture1_files/header-attrs-2.3/header-attrs.js","lecture1_files/jquery-1.11.3/jquery.min.js","lecture1_files/webcomponents-2.0.0/webcomponents.js","libs/animate.css/animate.xaringan.css","libs/clipboard/clipboard.min.js","libs/editable/editable.css","libs/editable/editable.js","libs/header-attrs/header-attrs.js","libs/himalaya/himalaya.js","libs/himalaya/himalaya.js.map","libs/js-cookie/js.cookie.js","libs/tachyons/tachyons.min.css","libs/tile-view/tile-view.css","libs/tile-view/tile-view.js","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js","slides1.html","xaringan-themer.css"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -979,6 +979,11 @@
 <h3 class="d-toc-header">Table of Contents</h3>
 <nav class="d-toc" id="TOC">
 <ul>
+<li><a href="#materials">Materials</a>
+<ul>
+<li><a href="#video">Video</a></li>
+<li><a href="#slides">Slides</a></li>
+</ul></li>
 <li><a href="#script">Script</a>
 <ul>
 <li><a href="#what-is-this-course-about">What is this Course about?</a></li>
@@ -996,28 +1001,42 @@
 <li><a href="#literate-programming-rmarkdown">Literate Programming: Rmarkdown</a></li>
 <li><a href="#a-grammar-of-graphics-and-the-palmer-penguins">A Grammar of Graphics and the Palmer Penguins</a>
 <ul>
-<li><a href="#translating-data-into-visualizations">Translating Data into Visualizations</a></li>
 <li><a href="#the-palmer-penguins">The Palmer Penguins</a></li>
+<li><a href="#translating-data-into-visualizations">Translating Data into Visualizations</a></li>
 </ul></li>
 <li><a href="#the-community-there-to-catch-you.">The Community: There to catch You.</a></li>
 </ul></li>
-<li><a href="#materials">Materials</a>
+<li><a href="#resources">Resources</a>
 <ul>
-<li><a href="#video">Video</a></li>
-<li><a href="#slides">Slides</a></li>
+<li><a href="#rmarkdown">Rmarkdown</a></li>
 </ul></li>
 </ul>
 </nav>
 <hr class="d-toc-separator"/>
+<h1 id="materials">Materials</h1>
+<h2 id="video">Video</h2>
+<p>Watch today’s video here:</p>
+<iframe width="1280" height="720" src frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<h2 id="slides">Slides</h2>
+<p>Hover over the slides and press <strong>f</strong> for full screen. Press <strong>?</strong> for a list of keyboard shortcuts.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+knitr::include_url(&quot;slides1.html&quot;)</code></pre>
+<iframe src="slides1.html" width="624" height="400px">
+</iframe>
+</div>
 <h1 id="script">Script</h1>
 <h2 id="what-is-this-course-about">What is this Course about?</h2>
-<p>Throughout your scientific career — and potentially outside of it — you will encounter various forms of data. Maybe you do an experiment and measured the fluorescence of a molecular probe, or you simply count the penguins at your local zoo. Everything is data in some form or another. But raw numbers without context are meaningless and tables of numbers are not only boring to look at but often hide the actual structure behind the numbers. In this course you will learn to handle different kinds of data. You will learn to create pretty and insightful visualizations, compute different statistics on your data and also what these statistical concepts mean. From penguins to p-values, we go you covered.</p>
-<p>The course will be held in English, as the concepts covered will directly transfer to the research you do and the papers you will read and write where the working language id English. That being said, feel free to ask questions in any language that I understand, so German is also fine. My Latin is a little rusty, thought.</p>
+<p>Throughout your scientific career — and potentially outside of it — you will encounter various forms of data. Maybe you do an experiment and measured the fluorescence of a molecular probe, or you simply count the penguins at your local zoo. Everything is data in some form or another. But raw numbers without context are meaningless and tables of numbers are not only boring to look at but often hide the actual structure behind the numbers. In this course you will learn to handle different kinds of data. You will learn to create pretty and insightful visualizations, compute different statistics on your data and also what these statistical concepts mean. From penguins to p-values, I got you covered.</p>
+<p>The course will be held in English, as the concepts covered will directly transfer to the research you do and the papers you will read and write where the working language is English. That being said, feel free to ask questions in any language that I understand, so German is also fine. My Latin is a little rusty, thought.</p>
 <p>In this course, we will be using the programming language R. R is a language particularly well suited for data analysis because it was initially designed by statisticians and the interactive nature of the language makes it easier to get started. So don’t fret if this is your first encounter with programming, we will take one step at a time.</p>
 <p>So let me be upfront. I am going to cheat a little. We are going to start with a couple of things that R is really, really good at to get you excited, before we dive into some potentially confusing details of the inner workings.</p>
 <h2 id="first-things-first-installing-r">First Things First: Installing R</h2>
 <aside>
-<img src="img/r_first_then.png" title="fig:" width="100" alt="(“Artwork by @Allison_horst” 2020)" />
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="img/Rlogo.png" width="50%" /></p>
+</div>
 </aside>
 <p>But I was getting ahead of myself. First, we need to install R. You can download the installer for your operating system here: <a href="https://cran.r-project.org/">https://cran.r-project.org/</a>. Feel free to post a question if you get stuck. This already gives you the ability to execute R code or use the interactive R console, but it is way more comfortable to use R inside of a so called IDE (Integrated Development Environment). IDEs give you neat things like autocompletion, a window for your plots and a help panel. The main IDE for R is called RStudio. We will be using it for this course and you can download it here: <a href="https://www.rstudio.com/products/rstudio/download/#download">https://www.rstudio.com/products/rstudio/download/#download</a></p>
 <!-- Demonstration of Rstudio panes, -->
@@ -1043,7 +1062,7 @@
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 plot(1:10)</code></pre>
-<p><img src="lecture1_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+<p><img src="lecture1_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
 </div>
 <p>You just created your first plot in R! We plotted values of the <strong>vector</strong> <code>1:10</code> vs. it’s index (=the number of the entry). A vector is an ordered collection of things which have the same datatype, where a datatype is something like numbers (<code>numeric</code>), text (<code>character</code> also called <code>string</code>), whole numbers (<code>integer</code>).</p>
 <p>Your code can have comments to tell your future self why you wrote a piece of code the way you did. Any line starting with the number symbol <code>#</code> will be ignored by R.</p>
@@ -1103,15 +1122,7 @@ max(NA, 12, 1)</code></pre>
 <pre><code>
 [1] NA</code></pre>
 </div>
-<p>Factors (<code>factor</code>) for categorical data.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# Factors can be ordered (like grade levels) or unordered (like gender)
-factor(c(&quot;m&quot;, &quot;f&quot;, &quot;f&quot;, &quot;d&quot;, &quot;m&quot;))</code></pre>
-<pre><code>
-[1] m f f d m
-Levels: d f m</code></pre>
-</div>
+<p>There is also a concept called factors (<code>factor</code>) for categorical data, but we will talk about that later.</p>
 <h3 id="variables">Variables</h3>
 <p>Often, you will want to store the result of a computation for reuse, or to give it a sensible name and make your code more readable. This is what <strong>variables</strong> are for. We can assign a value to a variable using the assignment operator <code>&lt;-</code> (In RStudio, there is a shortcut for it: Alt+Minus):</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1134,7 +1145,6 @@ x + y</code></pre>
 <pre><code>
 [1] 42</code></pre>
 </div>
-<hr />
 <blockquote>
 <p><strong>NOTE</strong> Be careful about the order of execution! R enables you to work interactively and to execute the code you write in your script in any order with Ctrl+Enter, but when you execute (=“source”) the whole script, it will be executed from top to bottom.</p>
 </blockquote>
@@ -1148,7 +1158,6 @@ y</code></pre>
 <pre><code>
 [1] 2</code></pre>
 </div>
-<hr />
 <p>Variable names can contain letters (capitalization matters), numbers (but not as the first character) and underscores <code>_</code>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
@@ -1183,7 +1192,7 @@ x</code></pre>
 <pre><code>
 [1] 10</code></pre>
 </div>
-<p>If you want to know more about a function in R, execute <code>?</code> with the function name or press <strong>F1</strong> with your mouse over the function.</p>
+<p>If you want to know more about a function in R, execute <code>?</code> with the function name or press <strong>F1</strong> with your mouse over the function. This is actually one of the most important things to learn today, because the help pages can be incredibly helpful.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 ?sin</code></pre>
@@ -1194,10 +1203,10 @@ x</code></pre>
 sin(x = 12)
 sin(12)</code></pre>
 </div>
-<p>The basic datatypes in R are all vectors, which means they can contain more than one entry. You can create a vector by combining things of the same data type with the function <code>c</code> for combine.</p>
+<p>The basic datatypes in R are all vectors, which means they can contain more than one entry. You can create a vector by combining things of the same data type with the function <code>c</code> for <strong>combine</strong>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-x &lt;- c(1,2,3,4,5,6)
+x &lt;- c(1, 2, 3, 4, 5, 6)
 x</code></pre>
 <pre><code>
 [1] 1 2 3 4 5 6</code></pre>
@@ -1242,18 +1251,22 @@ seq(from = 1, to = 10, by = 2)</code></pre>
 <pre><code>
 [1] 1 3 5 7 9</code></pre>
 </div>
+<blockquote>
+<p><strong>Now you:</strong> Look at the documentation/help page for <code>seq</code> and find out how to create a vector of all even numbers from 1 to 100.</p>
+</blockquote>
 <h2 id="making-our-lives-easier-functions-and-packages">Making our lives easier: Functions and Packages</h2>
 <p>You just learned about the functions <code>sin</code> and <code>seq</code> and briefly used the function <code>plot</code> (which didn’t return anything but instead had the <em>side effect</em> of printing a plot<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>). But wait, there is more! Not only in the sense that there are more functions in R (what kind of language would that be with only two verbs?!), but also in a more powerful way:</p>
-<p>We can define our own functions. The syntax (&lt;- grammar for programming languages) is as follows.</p>
+<p>We can define our own functions! The syntax (&lt;- grammar for programming languages) is as follows.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 name_for_the_function &lt;- function(parameter1, parameter2) { # etc.
-  # body of the function:
+  # body of the function with some calculations:
   result &lt;- parameter1 + parameter2
+  # Something the function should return to the caller
   return(result)
 }</code></pre>
 </div>
-<p>The function ends when it reaches the return keyword. It also ends when it reaches end of function body and implicitly returns the last expression. So we could have written it a bit shorter (you will often see people omitting the explicit return at the end):</p>
+<p>The function ends when it reaches the return keyword. It also ends when it reaches the end of the function body and implicitly returns the last expression. So we could have written it a bit shorter and in fact you will often see people omitting the explicit return at the end:</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 add &lt;- function(x, y) {
@@ -1268,24 +1281,44 @@ add(23, 19)</code></pre>
 [1] 42</code></pre>
 </div>
 <p>Got an error like <code>Error in add(23, 19) : could not find function "add"</code>? Check that you did in fact execute the code that defines the function (i.e. put your cursor on the line with the <code>function</code> keyword and hit Ctrl+Enter.).</p>
-<p>But you are not the only one using R and in fact there is a welcoming and helpful community out there. Some people also write a bunch of functions and put them together in a so called <code>package</code>. And some people even went a step further. The <code>tidyverse</code> is a collection of packages that play very well together and also iron out some of the quirkier ways in which R works <span class="citation" data-cites="wickhamWelcomeTidyverse2019b">(Wickham et al. <a href="#ref-wickhamWelcomeTidyverse2019b" role="doc-biblioref">2019</a>)</span>. They provide a consistent interface to enable us to do more while having to learn less special cases. The R function <code>install.packages("&lt;package_name_here&gt;")</code> installs packages from CRAN a curated set of R packages.</p>
+<blockquote>
+<p><strong>Now you:</strong> Define a function that takes one argument, a vector of numbers, devides each element by the length of the vector (hint: <code>length</code> is the function to get the lenght) and returns the resulting scaled vector.</p>
+</blockquote>
+<p>You are not the only one using R. There is a welcoming and helpful community out there. Some people also write a bunch of functions and put them together in a so called <code>package</code>. And some people even went a step further. The <code>tidyverse</code> is a <strong>collection of packages</strong> that play very well together and also iron out some of the quirkier ways in which R works <span class="citation" data-cites="wickhamWelcomeTidyverse2019b">(Wickham et al. <a href="#ref-wickhamWelcomeTidyverse2019b" role="doc-biblioref">2019</a>)</span>. They provide a consistent interface to enable us to do more while having to learn less special cases. The R function <code>install.packages("&lt;package_name_here&gt;")</code> installs packages from CRAN a curated set of R packages.</p>
 <h3 id="the-tidyverse">The Tidyverse</h3>
 <p>Go ahead and install the tidyverse packages with</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 install.packages(&quot;tidyverse&quot;)</code></pre>
 </div>
-<p>This is one exception to our effort of having everything that we run in our script and not just in the console. We don’t want R tryig to install the package every time we run the script, as this needs to happen only once. So you can either turn it into a comment, delete it from the script, or only type it in the console. You can also use RStudio’s built-in panel for package installation.</p>
+<p>This is one exception to our effort of having everything that we run in our script and not just in the console. We don’t want R trying to install the package every time we run the script, as this needs to happen only once. So you can either turn it into a comment, delete it from the script, or only type it in the console. You can also use RStudio’s built-in panel for package installation.</p>
+<p>To make the functions from a package available to your R session, run <code>library</code> with the name of the package.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 library(tidyverse)</code></pre>
 </div>
+<p>The convention is, to keep all <code>library</code>-calls at the top of your script so that you and others can see straight away, which packages are needed.</p>
 <h2 id="literate-programming-rmarkdown">Literate Programming: Rmarkdown</h2>
 <figure>
 <img src="img/rmarkdown_wizards.png" alt="" /><figcaption><span class="citation" data-cites="ArtworkAllisonHorst">(“Artwork by @Allison_horst” <a href="#ref-ArtworkAllisonHorst" role="doc-biblioref">2020</a>)</span></figcaption>
 </figure>
+<p>There is another package I would like you to install. It is called <code>Rmarkdown</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+install.packages(&quot;rmarkdown&quot;)</code></pre>
+</div>
+<p>Rmarkdown enables you to combine text with R code and then produce a range of output formats like pdf, html, word documents, presentations etc. In fact, this whole website, including the slides, was created using Rmarkdown. Sounds exciting? Let’s dive into it! Open up a new Rmarkdown document with the file extension <code>.Rmd</code> from the New File menue in the top left corner of RStudio: <strong>File → New File → R Markdown</strong> and choose <strong>html</strong> as the output format. I particularly like html because you don’t have to worry about page breaks and it easily works on screens of different sizes like your phone.</p>
+<p>An Rmarkdown document consists of three things:</p>
+<ol type="1">
+<li>Metadata:<br />
+Information about your document such as the author or the date in a format called <code>YAML</code>. This YAML header starts and ends with three minus signs <code>---</code>.</li>
+<li>Text:<br />
+Regular text is interpreted as markdown, meaning it supports things like creating headings by prefixing a line with <code>#</code>, or text that will be bold in the output by surrounding it with <code>**</code>.</li>
+<li>Code chunks:<br />
+Starting with ```{r} and ending with ``` (backticks). They will be interpreted as R code. This is where you write the code like you did in the <code>.R</code> script file. You can insert new chunks with the button on the top right of the editor window or use the shortcut <strong>Ctrl+Alt+i</strong>.</li>
+</ol>
+<p>Use these to document your thoughts alongside your code when you are doing data analysis. Future you (and reviewer number 2) will be happy! To run code inside of chunks, use, the little play button on the chunk, the tried and true Ctrl+Enter to run one line or <strong>Ctrl+Shift+Enter</strong> to run the whole chunk. Your chunks can be as large or small as you want, but try to maintain some sensible structure.</p>
 <h2 id="a-grammar-of-graphics-and-the-palmer-penguins">A Grammar of Graphics and the Palmer Penguins</h2>
-<h3 id="translating-data-into-visualizations">Translating Data into Visualizations</h3>
 <h3 id="the-palmer-penguins">The Palmer Penguins</h3>
 <p>See <span class="citation" data-cites="R-palmerpenguins">(Horst, Hill, and Gorman <a href="#ref-R-palmerpenguins" role="doc-biblioref">2020</a>)</span></p>
 <figure>
@@ -1312,13 +1345,14 @@ penguins</code></pre>
 # … with 334 more rows, and 3 more variables: body_mass_g &lt;int&gt;,
 #   sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
 </div>
+<h3 id="translating-data-into-visualizations">Translating Data into Visualizations</h3>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
   geom_point(size = 2.5) +
   labs(x = &quot;Flipper length [mm]&quot;,
        y = &quot;Bill length [mm]&quot;,
-       subtitle = &quot;The 3 penguin species can differentiated by their flipper and bill length&quot;) +
+       subtitle = &quot;The 3 penguin species can differentiated by their flipper and bill lengths&quot;) +
   theme_minimal() +
   NULL</code></pre>
 <p><img src="lecture1_files/figure-html5/final-penguin-plot-1.png" width="624" data-distill-preview=1 /></p>
@@ -1327,19 +1361,17 @@ ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
 <figure>
 <img src="img/code_hero.jpg" class="external" style="width:50.0%" alt="" /><figcaption><span class="citation" data-cites="ArtworkAllisonHorst">(“Artwork by @Allison_horst” <a href="#ref-ArtworkAllisonHorst" role="doc-biblioref">2020</a>)</span></figcaption>
 </figure>
-<h1 id="materials">Materials</h1>
-<h2 id="video">Video</h2>
-<p>What today’s video here:</p>
-<iframe width="1280" height="720" src frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<h2 id="slides">Slides</h2>
-<p>Hover over the slides and press <strong>f</strong> for full screen. Press <strong>?</strong> for a list of keyboard shortcuts.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-knitr::include_url(&quot;slides1.html&quot;)</code></pre>
-<iframe src="slides1.html" width="624" height="400px">
-</iframe>
-</div>
+<h1 id="resources">Resources</h1>
+<h2 id="rmarkdown">Rmarkdown</h2>
+<ul>
+<li><a href="https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf" class="uri">https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf</a></li>
+<li><a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf" class="uri">https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown-cookbook/" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a></li>
+<li><a href="https://pandoc.org/MANUAL.html#pandocs-markdown" class="uri">https://pandoc.org/MANUAL.html#pandocs-markdown</a></li>
+<li><a href="https://reproducible-analysis-workshop.readthedocs.io/en/latest/6.RMarkdown-knitr.html" class="uri">https://reproducible-analysis-workshop.readthedocs.io/en/latest/6.RMarkdown-knitr.html</a></li>
+<li><a href="https://rmarkdown.rstudio.com/index.html" class="uri">https://rmarkdown.rstudio.com/index.html</a></li>
+</ul>
 <div id="refs" class="references hanging-indent" role="doc-bibliography">
 <div id="ref-ArtworkAllisonHorst">
 <p>“Artwork by @Allison_horst.” 2020. https://github.com/allisonhorst/stats-illustrations.</p>

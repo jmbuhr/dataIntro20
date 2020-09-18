@@ -22,6 +22,23 @@ knitr::opts_chunk$set(
 )
 ```
 
+# Materials
+
+## Video
+
+Watch today's video here:
+
+<iframe width="1280" height="720" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Slides
+
+Hover over the slides and press **f** for full screen.
+Press **?** for a list of keyboard shortcuts.
+
+```{r}
+knitr::include_url("slides1.html")
+```
+
 # Script
 
 ## What is this Course about?
@@ -35,16 +52,19 @@ But raw numbers without context are meaningless and
 tables of numbers are not only boring to look at but
 often hide the actual structure behind the numbers.
 In this course you will learn to handle different
-kinds of data. You will learn to create pretty and insightful
-visualizations, compute different statistics on your
-data and also what these statistical concepts mean.
-From penguins to p-values, we go you covered.
+kinds of data.
+You will learn to create pretty and insightful
+visualizations,
+compute different statistics on your data
+and also what these statistical concepts mean.
+From penguins to p-values, I got you covered.
 
 The course will be held in English, as the concepts covered will
 directly transfer to the research you do and the papers you will
-read and write where the working language id English.
+read and write where the working language is English.
 That being said, feel free to ask questions in any language that I understand,
-so German is also fine. My Latin is a little rusty, thought.
+so German is also fine.
+My Latin is a little rusty, thought.
 
 In this course, we will be using the programming
 language R. R is a language particularly well suited
@@ -62,7 +82,9 @@ before we dive into some potentially confusing details of the inner workings.
 ## First Things First: Installing R
 
 <aside>
-![[@ArtworkAllisonHorst]](img/r_first_then.png){width='100px'}
+```{r rlogo, echo=FALSE, out.width='50%'}
+knitr::include_graphics("img/Rlogo.png")
+```
 </aside>
 
 But I was getting ahead of myself.
@@ -198,12 +220,8 @@ NA + 1
 max(NA, 12, 1)
 ```
 
-Factors (`factor`) for categorical data.
-
-```{r}
-# Factors can be ordered (like grade levels) or unordered (like gender)
-factor(c("m", "f", "f", "d", "m"))
-```
+There is also a concept called factors (`factor`) for categorical data, but we will talk about that
+later.
 
 ### Variables
 
@@ -232,7 +250,6 @@ x <- 41
 y <- 1
 x + y
 ```
-***
 
 > **NOTE**
 > Be careful about the order of execution!
@@ -251,8 +268,6 @@ y <- x + 1
 x <- 1000
 y
 ```
-
-***
 
 Variable names can contain letters (capitalization matters),
 numbers (but not as the first character) and underscores `_`.
@@ -298,6 +313,8 @@ x
 
 If you want to know more about a function in R, execute `?` with the function
 name or press **F1** with your mouse over the function.
+This is actually one of the most important things to learn today,
+because the help pages can be incredibly helpful.
 
 ```{r, eval = FALSE}
 ?sin
@@ -313,10 +330,10 @@ sin(12)
 The basic datatypes in R are all vectors, which means they can
 contain more than one entry. You can create a vector
 by combining things of the same data type with the function `c`
-for combine.
+for **combine**.
 
 ```{r}
-x <- c(1,2,3,4,5,6)
+x <- c(1, 2, 3, 4, 5, 6)
 x
 ```
 
@@ -336,7 +353,8 @@ x
 ```
 
 But we could have by assigning the result back to `x`, thus overwriting
-its previous content. The right hand side (RHS) is executed first:
+its previous content.
+The right hand side (RHS) is executed first:
 
 ```{r}
 x <- x * 2
@@ -354,12 +372,15 @@ to specify a range of values:
 ```{r}
 1:5
 ```
-
 Or using the `seq` function with some additional (optional parameters):
 
 ```{r}
 seq(from = 1, to = 10, by = 2)
 ```
+
+> **Now you:** Look at the documentation/help page for
+  `seq` and find out how to create a vector of all even
+  numbers from 1 to 100.
 
 ## Making our lives easier: Functions and Packages
 
@@ -367,27 +388,32 @@ You just learned about the functions `sin` and `seq` and
 briefly used the function `plot` (which didn't return anything but
 instead had the _side effect_ of printing a plot^[technically, even functions
 that don't appear to return something have a return value: `NULL`]).
-But wait, there is more! Not only in the sense that there are more
-functions in R (what kind of language would that be with only two
-verbs?!), but also in a more powerful way:
+But wait, there is more!
+Not only in the sense that there are more
+functions in R
+(what kind of language would that be with only two
+verbs?!),
+but also in a more powerful way:
 
-We can define our own functions. The syntax (<- grammar for programming
+We can define our own functions!
+The syntax (<- grammar for programming
 languages) is as follows.
-
 
 ```{r}
 name_for_the_function <- function(parameter1, parameter2) { # etc.
-  # body of the function:
+  # body of the function with some calculations:
   result <- parameter1 + parameter2
+  # Something the function should return to the caller
   return(result)
 }
 ```
 
 The function ends when it reaches the return keyword.
-It also ends when it reaches end of function body and
+It also ends when it reaches the end of the function body and
 implicitly returns the last expression.
 So we could have written it a bit shorter
-(you will often see people omitting the explicit return at the end):
+and in fact you will often see people omitting
+the explicit return at the end:
 
 ```{r}
 add <- function(x, y) {
@@ -406,12 +432,17 @@ Check that you did in fact execute the code that defines
 the function (i.e. put your cursor on the line with the `function` keyword
 and hit Ctrl+Enter.).
 
-But you are not the only one using R and in fact there
-is a welcoming and helpful community out there.
+> **Now you:** Define a function that takes one argument, a vector
+  of numbers, devides each element by the length of the
+  vector (hint: `length` is the function to get the lenght)
+  and returns the resulting scaled vector.
+
+You are not the only one using R. 
+There is a welcoming and helpful community out there.
 Some people also write a bunch of functions and put them
 together in a so called `package`.
 And some people even went a step further.
-The `tidyverse` is a collection of packages
+The `tidyverse` is a **collection of packages**
 that play very well together and also iron out some of
 the quirkier ways in which R works [@wickhamWelcomeTidyverse2019b].
 They provide a consistent
@@ -431,7 +462,7 @@ install.packages("tidyverse")
 This is one exception to our effort of having
 everything that we run in our script and not
 just in the console.
-We don't want R tryig to install
+We don't want R trying to install
 the package every time we run the script,
 as this needs to happen only once.
 So you can either turn it into a comment,
@@ -440,19 +471,80 @@ or only type it in the console.
 You can also use RStudio's built-in
 panel for package installation.
 
+To make the functions from a package available
+to your R session, run `library` with the
+name of the package.
 
 ```{r}
 library(tidyverse)
 ```
 
+The convention is, to keep all `library`-calls
+at the top of your script so that you and others
+can see straight away, which packages are needed.
+
 ## Literate Programming: Rmarkdown
 
 ![[@ArtworkAllisonHorst]](img/rmarkdown_wizards.png)
 
+There is another package I would like you to install.
+It is called `Rmarkdown`.
+
+```{r install-rmd, eval=FALSE}
+install.packages("rmarkdown")
+```
+
+Rmarkdown enables you to combine text with R code
+and then produce a range of output formats
+like pdf, html, word documents, presentations etc.
+In fact, this whole website, including the slides,
+was created using Rmarkdown.
+Sounds exciting?
+Let's dive into it!
+Open up a new Rmarkdown document with
+the file extension `.Rmd` from the New File menue
+in the top left corner of RStudio:
+**File → New File → R Markdown** and choose
+**html** as the output format.
+I particularly like html because you don't
+have to worry about page breaks and it
+easily works on screens of different sizes like
+your phone.
+
+An Rmarkdown document consists of three things:
+
+1. Metadata:\
+  Information about your document such as the author
+  or the date in a format called `YAML`.
+  This YAML header starts and ends with three minus
+  signs `---`.
+2. Text:\
+  Regular text is interpreted as markdown,
+  meaning it supports things like creating headings
+  by prefixing a line with `#`, or text that will be bold
+  in the output by surrounding it with `**`.
+3. Code chunks:\
+  Starting with \`\`\`{r} and ending with \`\`\` (backticks).
+  They will be interpreted as R code.
+  This is where you write the code like you did in the
+  `.R` script file. You can insert new chunks with the button
+  on the top right of the editor window or use the shortcut
+  **Ctrl+Alt+i**.
+
+Use these to document your thoughts alongside
+your code when you are doing data analysis.
+Future you (and reviewer number 2) will be happy!
+To run code inside of chunks, use, the little
+play button on the chunk, the tried and true
+Ctrl+Enter to run one line or
+**Ctrl+Shift+Enter** to run the whole chunk.
+Your chunks can be as large or small as you want,
+but try to maintain some sensible structure.
+
+
+
+
 ## A Grammar of Graphics and the Palmer Penguins
-
-### Translating Data into Visualizations
-
 
 ### The Palmer Penguins
 
@@ -466,12 +558,17 @@ penguins <- palmerpenguins::penguins
 penguins
 ```
 
+
+### Translating Data into Visualizations
+
+
+
 ```{r final-penguin-plot, preview=TRUE}
 ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
   geom_point(size = 2.5) +
   labs(x = "Flipper length [mm]",
        y = "Bill length [mm]",
-       subtitle = "The 3 penguin species can differentiated by their flipper and bill length") +
+       subtitle = "The 3 penguin species can differentiated by their flipper and bill lengths") +
   theme_minimal() +
   NULL
 ```
@@ -481,19 +578,14 @@ ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
 
 ![[@ArtworkAllisonHorst]](img/code_hero.jpg){width='50%' .external}
 
-# Materials
+# Resources
 
-## Video
+## Rmarkdown
 
-What today's video here:
-
-<iframe width="1280" height="720" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-## Slides
-
-Hover over the slides and press **f** for full screen.
-Press **?** for a list of keyboard shortcuts.
-
-```{r}
-knitr::include_url("slides1.html")
-```
+- https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf
+- https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
+- https://bookdown.org/yihui/rmarkdown-cookbook/
+- https://bookdown.org/yihui/rmarkdown/
+- https://pandoc.org/MANUAL.html#pandocs-markdown
+- https://reproducible-analysis-workshop.readthedocs.io/en/latest/6.RMarkdown-knitr.html
+- https://rmarkdown.rstudio.com/index.html

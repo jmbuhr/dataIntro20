@@ -3,18 +3,20 @@ title: "Introduction to Data Analysis with R"
 description: |
   Introduction to Data Analysis with R
 output_dir: "docs"
-base_url: https://course.jmbuhr.de
+base_url: https://jmbuhr.de/dataIntro20/
 repository_url: https://github.com/jmbuhr/dataIntro20
 navbar:
+  source_url: true
+  logo:
+    image: images/hex.png
+    href: https://jmbuhr.de/dataIntro20/
   right:
     - text: "Lectures"
       href: index.html
     - text: "About"
       href: about.html
-    - icon: fab fa-github
-      href: https://github.com/jmbuhr/dataIntro20
 collections:
-  posts:
+  lectures:
     share: [twitter, linkedin]
 favicon: images/favicon.png
 twitter:
@@ -22,4 +24,6 @@ twitter:
 creative_commons: CC BY
 output:
   distill::distill_article:
+    toc: true
     css: styles.css
+    highlight: rstudio

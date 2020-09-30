@@ -1,0 +1,93 @@
+---
+title: "Lecture 2"
+description: |
+  TODO
+draft: true
+author:
+  - name: Jannik Buhr 
+    url: https://jmbuhr.de
+date: 11-02-2020
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+categories:
+  - lecture
+bibliography: ["../../references.bib"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE
+)
+```
+
+# Video
+
+Watch today's video here:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AgpWX18dby4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+# Slides
+
+Hover over the slides and press **f** for full screen.
+Press **?** for a list of keyboard shortcuts.
+
+```{r}
+knitr::include_url("slides2.html")
+```
+
+# Script
+
+## Making Ourselves at Home in RStudio
+
+### Important Settings
+
+TODO Why
+
+```{r rstudio-settings, echo=FALSE, fig.show='hold', out.width='40%', fig.cap="RStudio Settings"}
+knitr::include_graphics(c("img/RS_settings.png", "img/RS_settings2.png"))
+```
+
+### Project-based Workflow
+
+TODO
+  What is a working directory?
+  How do we handle it?
+  Why not `setwd()`?
+
+> Tradeoff of Rmarkdown vs. R Scrip
+  when it comes to working direcories
+  
+TODO `here`-package?
+
+## Reading Data with `readr`
+
+TODO readr package
+
+## Wrangling Data `dplyr`
+
+TODO dplyr
+
+## Behind the Magic 
+
+### Handling data with base-R
+
+TODO Not mutually exclusive!
+
+todo
+  subsetting, subsetting for 2D,
+  subsetting with logical vectors
+  extracting and manipulating columns
+
+## Visualizing Distributions
+
+### Datasaurus Dozen: Boxplots
+
+
+
+# Exercises
+
+# Solutions
+
+# Resources

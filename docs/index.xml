@@ -2,26 +2,26 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
     <title>Introduction to Data Analysis with R</title>
-    <link>https://course.jmbuhr.de</link>
-    <atom:link href="https://course.jmbuhr.de/index.xml" rel="self" type="application/rss+xml"/>
+    <link>https://jmbuhr.de/dataIntro20/</link>
+    <atom:link href="https://jmbuhr.de/dataIntro20/index.xml" rel="self" type="application/rss+xml"/>
     <description>Introduction to Data Analysis with R
 </description>
     <image>
       <title>Introduction to Data Analysis with R</title>
-      <url>https://course.jmbuhr.de/images/favicon.png</url>
-      <link>https://course.jmbuhr.de</link>
+      <url>https://jmbuhr.de/dataIntro20/images/favicon.png</url>
+      <link>https://jmbuhr.de/dataIntro20/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 06 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Nov 2020 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Generating a logo</title>
+      <title>Coming Soon: Lecture 1</title>
       <dc:creator>Jannik Buhr</dc:creator>
-      <link>https://course.jmbuhr.de/posts/create_logo</link>
-      <description>Generating a logo for this site in R.</description>
-      <category>misc</category>
-      <guid>https://course.jmbuhr.de/posts/create_logo</guid>
-      <pubDate>Sun, 06 Sep 2020 00:00:00 +0000</pubDate>
-      <media:content url="https://course.jmbuhr.de/posts/create_logo/create_logo_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="960" height="960"/>
+      <link>https://jmbuhr.de/dataIntro20/lectures/lecture1</link>
+      <description>Getting started!</description>
+      <category>lecture</category>
+      <guid>https://jmbuhr.de/dataIntro20/lectures/lecture1</guid>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture1/lecture1_files/figure-html5/final-penguin-plot-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
   </channel>
 </rss>

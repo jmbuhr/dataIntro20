@@ -1,0 +1,71 @@
+---
+title: "Lecture 3"
+description: |
+  TODO
+draft: true
+author:
+  - name: Jannik Buhr 
+    url: https://jmbuhr.de
+date: 11-02-2020
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+categories:
+  - lecture
+bibliography: ["../../references.bib"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+# Video
+
+Watch today's video here:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AgpWX18dby4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+# Slides
+
+Hover over the slides and press **f** for full screen.
+Press **?** for a list of keyboard shortcuts.
+
+```{r}
+knitr::include_url("slides2.html")
+```
+
+# Script
+
+## Tidy Data
+
+> "Happy families are all alike;
+  every unhappy family is unhappy in its own way."
+  $-$ Leo Tolstoy
+
+> Tidy datasets are all alike,
+  but every messy dataset is messy in its own way."
+  $-$ Hadley Wickham
+
+todo why tidy data?
+
+### Making Data Tidy
+
+with the `tidyr` package.
+
+### Data that is better in another Format
+
+e.g. matrices
+todo explain matrix, show matrix maths,
+briefly touch on arrays
+
+
+# Exercises
+
+# Solutions
+
+# Resources

@@ -1,0 +1,68 @@
+---
+title: "Generating a logo"
+description: |
+  Generating a logo for this site in R.
+draft: true
+author:
+  - name: Jannik Buhr 
+    url: https://jmbuhr.de
+date: 09-07-2020
+output:
+  distill::distill_article:
+    self_contained: false
+categories:
+  - misc
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      fig.retina = 2)
+```
+
+
+We need a favicon for this site.
+So why not do it in R straight away?
+
+```{r generate-logo, fig.width=5, fig.height=5, dev.args=list(bg="transparent")}
+library(tidyverse)
+library(hexSticker)
+
+# install.packages("remotes")
+# remotes::install_github("jannikbuhr/hilbeRt")
+
+df <- hilbeRt::get_hilbert_paths(4)
+plt <- df %>%
+  ggplot(aes(x, y, color = index)) +
+  geom_path(size = 5, show.legend = FALSE, lineend = "round") +
+  theme_void() +
+  coord_equal() +
+  scale_color_gradient2(low = "#002ab5",
+                        mid = "#8a00b5",
+                        high = "#002ab5")
+plt
+ggsave(here::here("images/favicon.png"), plt, bg = "transparent")
+```
+
+
+```{r, fig.width=5, fig.height=5, preview=TRUE}
+hex <- sticker(plt,
+             s_x = 1,
+             s_y = 1,
+             h_color = "#002ab5",
+             h_fill = "white",
+             s_width = 1.2,
+             s_height = 1.2,
+             u_size = 3.5,
+             p_color = "black",
+             p_size = 10.1,
+             p_y = 1.7,
+             url = "jmbuhr.de/dataIntro20/",
+             package = "dataIntro20")
+
+hex
+
+ggsave(here::here("images/hex.png"), dpi = 72, scale = 2, hex, bg = "transparent")
+```
+

@@ -1,0 +1,95 @@
+---
+title: "Introduction to Data Analysis with R"
+subtitle: "TODO"
+institute: "Heidelberg University, WS20/21"
+author: 
+  - "Jannik Buhr"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    seal: false
+    lib_dir: libs
+    css:
+      - "xaringan-themer.css"
+      - "extra.css"
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE, warning=FALSE}
+options(htmltools.dir.version = FALSE)
+library(knitr)
+library(xaringanthemer)
+library(tidyverse)
+
+opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.asp = 0.618033,
+  fig.align = "center",
+  out.width = "60%"
+)
+style_duo_accent(
+  primary_color = "#002ab5",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF",
+  text_font_google = google_font("Fira Sans"),
+  header_font_google = google_font("Roboto"),
+  code_font_google = google_font("Fira Mono"),
+  header_h1_font_size = "2.75rem",
+  header_h2_font_size = "1.5rem",
+  header_h3_font_size = "1rem"
+)
+
+xaringanExtra::use_xaringan_extra(c(
+  "tile_view", "editable", "animate_css",
+  "clipboard", "tachyons"
+))
+```
+
+layout: true
+class: debug 
+
+---
+
+name: title
+class: left bottom hide-count
+background-color: #FBFCFF;
+
+```{r title-slides, echo=FALSE, message = FALSE, warning = FALSE}
+htmltools::withTags(
+  div(
+    class = "talk-meta",
+    div(
+      class = "talk-title",
+      h1(rmarkdown::metadata$title),
+      p(rmarkdown::metadata$subtitle)
+    ),
+    div(
+      class = "talk-author",
+      paste(rmarkdown::metadata$author, collapse = " <br> "),
+      br(),
+      span(paste(rmarkdown::metadata$institute, collapse = ", "))
+    ),
+    div(
+      class = "talk-date",
+      knitr::knit(text = rmarkdown::metadata$date, quiet = TRUE)
+    )
+  )
+)
+```
+
+.absolute.bottom-0.right-1.mid-gray[
+With Artwork by @allison_horst
+]
+
+---
+
+class: inverse center middle
+
+# Introduction
+

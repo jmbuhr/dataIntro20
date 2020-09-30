@@ -1,0 +1,46 @@
+---
+title: "Lecture 6"
+description: |
+  TODO
+draft: true
+author:
+  - name: Jannik Buhr 
+    url: https://jmbuhr.de
+date: 11-02-2020
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+categories:
+  - lecture
+bibliography: ["../../references.bib"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE
+)
+```
+
+# Video
+
+Watch today's video here:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AgpWX18dby4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+# Slides
+
+Hover over the slides and press **f** for full screen.
+Press **?** for a list of keyboard shortcuts.
+
+```{r}
+knitr::include_url("slides2.html")
+```
+
+# Script
+
+# Exercises
+
+# Solutions
+
+# Resources

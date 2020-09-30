@@ -1,0 +1,701 @@
+---
+title: "Coming Soon: Lecture 1"
+description: |
+  Getting started!
+draft: false
+author:
+  - name: Jannik Buhr 
+    url: https://jmbuhr.de
+    orcid_id: 0000-0002-9350-2629
+date: 11-02-2020
+output:
+  distill::distill_article:
+    self_contained: false
+categories:
+  - lecture
+bibliography: ["../../references.bib"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE
+)
+```
+
+
+> # Disclaimer:
+  This is not the finished lecture, but I wanted to give you a sneak peak
+  of how the website will look. I am very much developing this in the open.
+
+# Video
+
+Watch today's video here:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AgpWX18dby4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+# Slides
+
+Hover over the slides and press **f** for full screen.
+Press **?** for a list of keyboard shortcuts.
+
+```{r slides, echo=FALSE}
+knitr::include_url("slides1.html")
+```
+
+# Script
+
+## What You will Learn
+
+Throughout your scientific career --- and potentially outside
+of it --- you will encounter various forms of data.
+Maybe you do an experiment and measured the fluorescence of
+a molecular probe, or you simply count the penguins at your local
+zoo. Everything is data in some form or another.
+But raw numbers without context are meaningless and
+tables of numbers are not only boring to look at but
+often hide the actual structure behind the numbers.
+In this course you will learn to handle different
+kinds of data.
+You will learn to create pretty and insightful
+visualizations,
+compute different statistics on your data
+and also what these statistical concepts mean.
+From penguins to p-values, I got you covered.
+
+The course will be held in English, as the concepts covered will
+directly transfer to the research you do and the papers you will
+read and write where the working language is English.
+That being said, feel free to ask questions in any language that I understand,
+so German is also fine.
+My Latin is a little rusty, thought.
+
+In this course, we will be using the programming
+language R.
+R is a language particularly well suited
+for data analysis because it was initially designed by
+statisticians and the interactive nature of the language
+makes it easier to get started.
+So don't fret if this is your first
+encounter with programming,
+we will take one step at a time.
+
+TODO: Choice of datasets, context, vote for following datasets
+
+## First Things First: Installing R
+
+<aside>
+```{r rlogo, echo=FALSE, out.width='50%'}
+knitr::include_graphics("img/Rlogo.png")
+```
+</aside>
+
+But I was getting ahead of myself.
+First, we need to install R.
+You can download the installer for your
+operating system here:
+[https://cran.r-project.org/](https://cran.r-project.org/).
+Feel free to post a question if you get stuck.
+This already gives you the ability
+to execute R code or use the interactive R
+console, but it is way more comfortable
+to use R inside of a so called IDE
+(Integrated Development Environment).
+IDEs give you neat things like autocompletion,
+a window for your plots and a help panel.
+The main IDE for R is called RStudio.
+We will be using it for this course and
+you can download it here:
+[https://www.rstudio.com/products/rstudio/download/#download](https://www.rstudio.com/products/rstudio/download/#download)
+
+<aside>
+```{r rs-logo, echo=FALSE, out.width='50%'}
+knitr::include_graphics("https://rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png")
+```
+</aside>
+
+<!-- Demonstration of Rstudio panes, -->
+<!-- Open up script -->
+
+Please refer to the video for a walkthrough
+of the different RStudio panes.
+
+## Executing R Code
+
+You can now execute commands in the R console
+in the bottom left. For example:
+
+```{r}
+1 + 1
+```
+
+Or generate the numbers from one to 10:
+
+```{r}
+1:10
+```
+
+But I rarely type directly into the console.
+Because we want our results to be reproducible,
+we write our code in a script first so
+that the next person ^[This will most likely
+be future You. And you will thank yourself later]
+can see what we did and replicate our
+analysis. You will see that reproducibility
+is quite near and dear to me, so it will
+pop up once or twice. And as scientists, I
+am sure you understand the importance.
+
+To create a new script, click the little button
+in the top left corner. In this script
+you can type regular R code,
+but it won't get executed straight away.
+To send a line of code to the console
+to be executed, hit **Ctrl+Enter**.
+Go ahead, try it with:
+
+```{r}
+plot(1:10)
+```
+
+You just created your first plot in R!
+We plotted values of the **vector** `1:10` vs.
+it's index (=the number of the entry).
+A vector is an ordered collection of things which
+have the same datatype, where a datatype is something
+like numbers (`numeric`), text (`character` also called `string`),
+whole numbers (`integer`).
+
+Your code can have comments to tell your future self why you wrote
+a piece of code the way you did.
+Any line starting with the number symbol `#` will be ignored by R.
+
+```{r}
+# This line will be ignored
+43 - 1 # as will be the part after this #, but not before it
+```
+
+## Building Blocks of R
+
+Now it is time to introduce you to the fundamental
+datatypes of R.
+We 
+
+### Atomic Datatypes
+
+Whole numbers (`integer`)
+
+```{r, eval=FALSE}
+1L # denoted by L
+```
+
+Numbers (`numeric`, `double`)
+
+```{r, eval=FALSE}
+12
+12.5
+```
+
+Complex numbers (`complex`)
+
+```{r, eval=FALSE}
+1 + 3i # denoted by the small i for the imaginary part
+```
+
+Text (`character`, `string`)
+
+```{r, eval=FALSE}
+"It was night again."
+```
+
+Logical values (`boolean`, `logical`)
+
+```{r, eval=FALSE}
+TRUE
+FALSE
+```
+
+Special types that mix with any other type:
+
+```{r, eval=FALSE}
+# NULL for no value
+NULL
+
+# NA for Not Assigned
+NA
+```
+
+`NA` is contagious.
+Any computation involving `NA` will return `NA`
+(because R has no way of knowing the answer):
+
+```{r}
+NA + 1
+max(NA, 12, 1)
+```
+
+You can ask for the datatype of an
+object with the function `typeof`:
+
+```{r}
+typeof("hello")
+```
+
+There is also a concept called factors (`factor`) for categorical data, but we will talk about that
+later when we get deeper into vectors.
+
+### Variables
+
+Often, you will want to store the result of a computation
+for reuse, or to give it a sensible name and make your code
+more readable. This is what **variables** are for.
+We can assign a value to a variable using the
+assignment operator `<-` (In RStudio, there is a shortcut
+for it: **Alt+Minus**):
+
+```{r}
+my_number <- 42
+```
+
+Executing the above code will not give you any output,
+but when you use the name of the variable,
+you can see its content:
+
+```{r}
+my_number
+```
+
+And you can do operations with those variables:
+
+```{r}
+x <- 41
+y <- 1
+x + y
+```
+
+> **NOTE**
+> Be careful about the order of execution!
+> R enables you to work interactively and to execute the code you
+> write in your script in any order with Ctrl+Enter, but
+> when you execute (="source") the whole script, it will
+> be executed from top to bottom.
+
+Furthermore, code is not executed again automatically, if you
+change some dependency of the expression later on. So the second
+assignment to x doesn't change y.
+
+```{r}
+x <- 1
+y <- x + 1
+x <- 1000
+y
+```
+
+Variable names can contain letters (capitalization matters),
+numbers (but not as the first character) and underscores `_`.
+^[They can also contain dots (`.`), but it is considered bad practice
+because it can lead to some confusing edge cases.]
+
+```{r}
+# snake_case
+main_character_name <- "Kvothe"
+
+# or camelCase
+bookTitle <- "The Name of the Wind"
+
+# you can have numbers in the name
+x1 <- 12
+```
+
+### Functions
+
+Functions are the main workhorses of our data analysis.
+For example, there are mathematical functions, like `sin`, `cos` etc.
+
+```{r}
+sin(x = 0)
+```
+
+Functions take arguments (sometimes called parameters) and
+sometimes they also return something.
+The `sin` function takes just one argument `x` and returns its sine.
+
+Note, that the `=` inside the function parenthesis
+gives `x = 0` to the function and has nothing to do with
+any `x` defined outside of the function.
+The parameter `x` used in the function is separate from
+any `x` you might have defined outside of the function. E.g.
+
+```{r}
+x <- 10
+sin(x = 0)
+# x is still 10
+x
+```
+
+If you want to know more about a function in R, execute `?` with the function
+name or press **F1** with your mouse over the function.
+This is actually one of the most important things to learn today,
+because the help pages can be incredibly helpful.
+
+```{r, eval = FALSE}
+?sin
+```
+
+We can pass arguments by name or by order of appearance
+
+```{r, eval=FALSE}
+sin(x = 12)
+sin(12)
+```
+
+### Vectors
+
+The basic datatypes in R are all vectors,
+which means they can
+contain more than one entry.
+You can create a vector
+by combining things of the same data type with the function `c`
+for **combine**.
+
+```{r}
+x <- c(1, 2, 3, 4, 5, 6)
+x
+```
+
+Any atomic datatype mentioned above can
+be in a vector, but one vector can store only
+data of the same type.
+For example, you can have a character vector (=text)
+
+```{r}
+c("This", "is", "a", "character", "vector")
+```
+or a vector of logical values
+
+```{r}
+c(TRUE, FALSE, TRUE, TRUE)
+```
+But not a vector with say text and numbers.
+If you try to combine data of a different type,
+R will force all the data into the more
+permissive type.
+Because all Numbers can easily be converted into
+text, but not all text can be converted to numbers,
+this makes everything text:
+
+```{r}
+c("Some text", 42, 12)
+```
+
+Note the quotation marks around the numbers,
+indicating them as text.
+If you were to try and use them as numbers,
+you would get and error message.
+
+```{r, error=TRUE}
+"12" + 1
+```
+
+Programming
+languages are not unlike human languages and the computer
+will not always understand what you want it to do unless you
+use exactly the right grammar and vocabulary. However, R will
+sometimes tell you, that it didn't understand you through
+`error messages` and it is quite the norm to see them a lot.
+Even experienced programmers are very fond of this advice:
+
+```{r googling, echo=FALSE, fig.cap="Maybe the most important programming advice."}
+knitr::include_graphics("img/errors.jpg")
+```
+
+### Vectorization
+
+The basic mathematical operations in R and a lot of functions are vectorized.
+This means, they operate on every element of the vector.
+Here, every element is multiplied by 2 and the result is printed
+to the console.
+
+```{r}
+x * 2
+```
+
+The original vector `x` was not changed in doing so.
+
+```{r}
+x
+```
+
+But we could have by assigning the result back to `x`, thus overwriting
+its previous content.
+The right hand side (RHS) is executed first:
+
+```{r}
+x <- x * 2
+```
+
+Now `x` changed:
+
+```{r}
+x
+```
+
+A handy way of creating vectors of numbers is with the `:` operator
+to specify a range of values:
+
+```{r}
+1:5
+```
+Or using the `seq` function with some additional (optional parameters):
+
+```{r}
+seq(from = 1, to = 10, by = 2)
+```
+
+> **Now you:** Look at the documentation/help page for
+  `seq` and find out how to create a vector of all even
+  numbers from 1 to 100.
+
+## Functions and Packages -- Making our lives easier
+
+You just learned about the functions `sin` and `seq` and
+briefly used the function `plot` (which didn't return anything but
+instead had the _side effect_ of printing a plot^[technically, even functions
+that don't appear to return something have a return value: `NULL`]).
+But wait, there is more!
+Not only in the sense that there are more
+functions in R
+(what kind of language would that be with only two
+verbs?!),
+but also in a more powerful way:
+
+We can define our own functions!
+The syntax (<- grammar for programming
+languages) is as follows.
+
+```{r}
+name_for_the_function <- function(parameter1, parameter2) { # etc.
+  # body of the function with some calculations:
+  result <- parameter1 + parameter2
+  # Something the function should return to the caller
+  return(result)
+}
+```
+
+The function ends when it reaches the return keyword.
+It also ends when it reaches the end of the function body and
+implicitly returns the last expression.
+So we could have written it a bit shorter
+and in fact you will often see people omitting
+the explicit return at the end:
+
+```{r}
+add <- function(x, y) {
+  x + y
+}
+```
+
+And we can call our freshly defined function:
+
+```{r}
+add(23, 19)
+```
+
+Got an error like `Error in add(23, 19) : could not find function "add"`?
+Check that you did in fact execute the code that defines
+the function (i.e. put your cursor on the line with the `function` keyword
+and hit Ctrl+Enter.).
+
+> **Now you:** Define a function that takes one argument, a vector
+  of numbers, devides each element by the length of the
+  vector (hint: `length` is the function to get the lenght)
+  and returns the resulting scaled vector.
+
+You are not the only one using R. 
+There is a welcoming and helpful community out there.
+Some people also write a bunch of functions and put them
+together in a so called `package`.
+And some people even went a step further.
+The `tidyverse` is a **collection of packages**
+that play very well together and also iron out some of
+the quirkier ways in which R works [@wickhamWelcomeTidyverse2019b].
+They provide a consistent
+interface to enable us to do more while having to
+learn less special cases.
+The R function `install.packages("<package_name_here>")`
+installs packages from CRAN a curated set of R packages.
+
+### The Tidyverse
+
+Go ahead and install the tidyverse packages with
+
+```{r, eval=FALSE}
+install.packages("tidyverse")
+```
+
+This is one exception to our effort of having
+everything that we run in our script and not
+just in the console.
+We don't want R trying to install
+the package every time we run the script,
+as this needs to happen only once.
+So you can either turn it into a comment,
+delete it from the script,
+or only type it in the console.
+You can also use RStudio's built-in
+panel for package installation.
+
+To make the functions from a package available
+to your R session, run `library` with the
+name of the package.
+
+```{r}
+library(tidyverse)
+```
+
+The convention is, to keep all `library`-calls
+at the top of your script so that you and others
+can see straight away, which packages are needed.
+
+## Literate Programming: Rmarkdown
+
+![[@ArtworkAllisonHorst]](img/rmarkdown_wizards.png){.external}
+
+There is another package I would like you to install.
+It is called `Rmarkdown`.
+
+```{r install-rmd, eval=FALSE}
+install.packages("rmarkdown")
+```
+
+Rmarkdown enables you to combine text with R code
+and then produce a range of output formats
+like pdf, html, word documents, presentations etc.
+In fact, this whole website, including the slides,
+was created using Rmarkdown.
+Sounds exciting?
+Let's dive into it!
+Open up a new Rmarkdown document with
+the file extension `.Rmd` from the New File menue
+in the top left corner of RStudio:
+**File → New File → R Markdown** and choose
+**html** as the output format.
+I particularly like html because you don't
+have to worry about page breaks and it
+easily works on screens of different sizes like
+your phone.
+
+An Rmarkdown document consists of three things:
+
+1. Metadata:\
+  Information about your document such as the author
+  or the date in a format called `YAML`.
+  This YAML header starts and ends with three minus
+  signs `---`.
+2. Text:\
+  Regular text is interpreted as markdown,
+  meaning it supports things like creating headings
+  by prefixing a line with `#`, or text that will be bold
+  in the output by surrounding it with `**`.
+3. Code chunks:\
+  Starting with \`\`\`{r} and ending with \`\`\` (backticks).
+  They will be interpreted as R code.
+  This is where you write the code like you did in the
+  `.R` script file. You can insert new chunks with the button
+  on the top right of the editor window or use the shortcut
+  **Ctrl+Alt+i**.
+
+Use these to document your thoughts alongside
+your code when you are doing data analysis.
+Future you (and reviewer number 2) will be happy!
+To run code inside of chunks, use, the little
+play button on the chunk, the tried and true
+Ctrl+Enter to run one line or
+**Ctrl+Shift+Enter** to run the whole chunk.
+Your chunks can be as large or small as you want,
+but try to maintain some sensible structure.
+
+## Our First Dataset: The Palmer Penguins
+
+TODO explain dataset
+
+See [@R-palmerpenguins]
+
+![[@ArtworkAllisonHorst]](img/lter_penguins.png){.external}
+
+```{r}
+penguins <- palmerpenguins::penguins
+penguins
+```
+
+### Structure in 2D: data.frames and tibbles
+
+
+
+## Translating Data into Visualizations
+
+
+```{r final-penguin-plot, preview=TRUE}
+ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
+  geom_point(size = 2.5) +
+  labs(x = "Flipper length [mm]",
+       y = "Bill length [mm]",
+       subtitle = "The 3 penguin species can differentiated by their flipper and bill lengths") +
+  theme_minimal() +
+  NULL
+```
+
+
+## The Community: There to catch You.
+
+![[@ArtworkAllisonHorst]](img/code_hero.jpg){width='50%' .external}
+
+# Exercises
+
+# Solutions
+
+
+
+# Resources
+
+## Tidyverse
+
+- [R for Data Science](https://r4ds.had.co.nz/) [@wickhamDataScienceImport2017]
+- [R4DS online Community](https://www.rfordatasci.com/)
+- [RStudio Cheat Sheets!](https://www.rstudio.com/resources/cheatsheets/)
+- [The Modern Dive](https://moderndive.com/) [@kimStatisticalInferenceData2019]
+- [RStudio Education](https://education.rstudio.com/)
+
+## Rmarkdown
+
+- https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf
+- https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
+- https://bookdown.org/yihui/rmarkdown-cookbook/
+- https://bookdown.org/yihui/rmarkdown/
+- https://pandoc.org/MANUAL.html#pandocs-markdown
+- https://reproducible-analysis-workshop.readthedocs.io/en/latest/6.RMarkdown-knitr.html
+- https://rmarkdown.rstudio.com/index.html
+
+## R in general
+
+- [Advanced R](https://adv-r.hadley.nz/) [@wickhamAdvancedSecondEdition2019]
+- [Hands on Programming with R](https://rstudio-education.github.io/hopr/) [@grolemundHandsOnProgrammingWrite2014]
+- [R Packages](http://r-pkgs.had.co.nz/) [@wickhamPackagesOrganizeTest2015]
+- [Data Visualization: A Practical Introduction](https://socviz.co/index.html) [@healyDataVisualizationPractical2018]
+- [Graph Cookbook](http://www.cookbook-r.com/Graphs/) [@changGraphicsCookbookPractical2013]
+
+## Statistics
+
+- [Intuitive Biostatistics](http://www.intuitivebiostatistics.com/) [@motulskyIntuitiveBiostatisticsNonmathematical2017]
+- [Statistics Done Wrong](https://www.statisticsdonewrong.com/) [@reinhartStatisticsDoneWrong2015]
+
+### Talks, Podcasts, Blogs
+
+- [David Robinson, YouTube](https://www.youtube.com/user/safe4democracy)
+
+### Misc
+
+- [Cute and insightful illustrations](https://github.com/allisonhorst/stats-illustrations) [@ArtworkAllisonHorst]
+- [Happy Git with R](https://happygitwithr.com/)
+
+Made with the help of these amazing packages (plus documentation):
+@rcoreteamLanguageEnvironmentStatistical2020a; @R-knitr; @R-rmarkdown; @knitr2015; @xieXaringanPresentationNinja2020.

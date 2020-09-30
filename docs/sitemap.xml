@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
-    <loc>https://course.jmbuhr.de/about.html</loc>
-    <lastmod>2020-09-12T18:05:05+02:00</lastmod>
+    <loc>https://jmbuhr.de/dataIntro20/about.html</loc>
+    <lastmod>2020-09-23T17:30:31+02:00</lastmod>
   </url>
   <url>
-    <loc>https://course.jmbuhr.de/</loc>
-    <lastmod>2020-09-07T19:57:39+02:00</lastmod>
+    <loc>https://jmbuhr.de/dataIntro20/</loc>
+    <lastmod>2020-09-23T18:04:48+02:00</lastmod>
   </url>
   <url>
-    <loc>https://course.jmbuhr.de/posts/create_logo/</loc>
-    <lastmod>2020-09-15T19:43:09+02:00</lastmod>
+    <loc>https://jmbuhr.de/dataIntro20/lectures/lecture1/</loc>
+    <lastmod>2020-09-30T18:32:23+02:00</lastmod>
   </url>
 </urlset>

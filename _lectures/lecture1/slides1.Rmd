@@ -1,0 +1,198 @@
+---
+title: "Introduction to Data Analysis with R"
+subtitle: "Lecture 1: Getting Started"
+institute: "Heidelberg University, WS20/21"
+author: 
+  - "Jannik Buhr"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    seal: false
+    lib_dir: libs
+    css:
+      - "xaringan-themer.css"
+      - "extra.css"
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE, warning=FALSE}
+options(htmltools.dir.version = FALSE)
+library(knitr)
+library(xaringanthemer)
+library(tidyverse)
+
+opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE
+)
+style_duo_accent(
+  primary_color = "#002ab5",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF",
+  text_font_google = google_font("Fira Sans"),
+  header_font_google = google_font("Roboto"),
+  code_font_google = google_font("Fira Mono"),
+  header_h1_font_size = "2.75rem",
+  header_h2_font_size = "1.5rem",
+  header_h3_font_size = "1rem"
+)
+
+xaringanExtra::use_xaringan_extra(c(
+  "tile_view", "editable", "animate_css",
+  "clipboard", "tachyons"
+))
+
+xaringanExtra::use_logo(
+  image_url = "https://raw.githubusercontent.com/jmbuhr/dataIntro20/master/images/hex.png"
+)
+```
+
+layout: true
+
+.absolute.top-0.right-1.tr.w-10[
+```{r}
+include_graphics("https://raw.githubusercontent.com/jmbuhr/dataIntro20/master/images/hex.png")
+```
+]
+
+
+---
+
+name: title
+class: left bottom hide-count
+background-color: #FBFCFF;
+
+```{r title-slides, echo=FALSE, message = FALSE, warning = FALSE}
+htmltools::withTags(
+  div(
+    class = "talk-meta",
+    div(
+      class = "talk-title",
+      h1(rmarkdown::metadata$title),
+      p(rmarkdown::metadata$subtitle)
+    ),
+    div(
+      class = "talk-author",
+      paste(rmarkdown::metadata$author, collapse = " <br> "),
+      br(),
+      span(paste(rmarkdown::metadata$institute, collapse = ", "))
+    ),
+    div(
+      class = "talk-date",
+      knitr::knit(text = rmarkdown::metadata$date, quiet = TRUE)
+    )
+  )
+)
+
+penguins <- palmerpenguins::penguins
+```
+
+.absolute.bottom-0.right-1.mid-gray[
+With Artwork by @allison_horst
+]
+
+---
+
+class: inverse center middle
+
+# Introduction
+
+---
+
+
+> Hello World quote
+
+Hello World
+
+---
+
+## What You will Learn
+
+.pull-left[
+```{r}
+penguins[1:5, 1:3]
+```
+]
+
+.right-1.absolute[
+```{r final-penguin-plot2}
+ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
+  geom_point(size = 2.5) +
+  labs(x = "Flipper length [mm]",
+       y = "Bill length [mm]",
+       subtitle = "The 3 penguin species can differentiated by their flipper and bill lengths") +
+  theme_minimal() +
+  scale_color_brewer(type = "qual")
+
+```
+]
+
+???
+
+Throughout your scientific career --- and potentially outside
+of it --- you will encounter various forms of data.
+Maybe you do an experiment and measured the fluorescence of
+a molecular probe, or you simply count the penguins at your local
+zoo.
+Everything is data in some form or another.
+But raw numbers without context are meaningless and
+tables of numbers are not only boring to look at but
+often hide the actual structure behind the numbers.
+In this course you will learn to handle different
+kinds of data.
+You will learn to create pretty and insightful
+visualizations, compute different statistics on your
+data and also what these statistical concepts mean.
+From penguins to p-values, we go you covered.
+
+The course will be held in English, as the concepts covered will
+directly transfer to the research you do and the papers you will
+read and write where the working language id English.
+That being said, feel free to ask questions in any language that I understand,
+so German is also fine. My Latin is a little rusty, thought.
+
+In this course, we will be using the programming
+language R.
+
+---
+
+## What is this R?
+
+.w-10[
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 724 561">
+  <defs>
+    <linearGradient id="gradientFill-1" x1="0" x2="1" y1="0" y2="1" gradientUnits="objectBoundingBox" spreadMethod="pad">
+      <stop offset="0" stop-color="rgb(203,206,208)" stop-opacity="1"/>
+      <stop offset="1" stop-color="rgb(132,131,139)" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="gradientFill-2" x1="0" x2="1" y1="0" y2="1" gradientUnits="objectBoundingBox" spreadMethod="pad">
+      <stop offset="0" stop-color="rgb(39,109,195)" stop-opacity="1"/>
+      <stop offset="1" stop-color="rgb(22,92,170)" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <path d="M361.453,485.937 C162.329,485.937 0.906,377.828 0.906,244.469 C0.906,111.109 162.329,3.000 361.453,3.000 C560.578,3.000 722.000,111.109 722.000,244.469 C722.000,377.828 560.578,485.937 361.453,485.937 ZM416.641,97.406 C265.289,97.406 142.594,171.314 142.594,262.484 C142.594,353.654 265.289,427.562 416.641,427.562 C567.992,427.562 679.687,377.033 679.687,262.484 C679.687,147.971 567.992,97.406 416.641,97.406 Z" fill="url(#gradientFill-1)" fill-rule="evenodd"/>
+  <path d="M550.000,377.000 C550.000,377.000 571.822,383.585 584.500,390.000 C588.899,392.226 596.510,396.668 602.000,402.500 C607.378,408.212 610.000,414.000 610.000,414.000 L696.000,559.000 L557.000,559.062 L492.000,437.000 C492.000,437.000 478.690,414.131 470.500,407.500 C463.668,401.969 460.755,400.000 454.000,400.000 C449.298,400.000 420.974,400.000 420.974,400.000 L421.000,558.974 L298.000,559.026 L298.000,152.938 L545.000,152.938 C545.000,152.938 657.500,154.967 657.500,262.000 C657.500,369.033 550.000,377.000 550.000,377.000 ZM496.500,241.024 L422.037,240.976 L422.000,310.026 L496.500,310.002 C496.500,310.002 531.000,309.895 531.000,274.877 C531.000,239.155 496.500,241.024 496.500,241.024 Z" fill="url(#gradientFill-2)" fill-rule="evenodd"/>
+</svg>
+]
+
+???
+
+R is a language particularly well suited
+for data analysis because it was initially designed by
+statisticians and the interactive nature of the language
+makes it easier to get started.
+So don't fret if this is your first
+encounter with programming, we will take one step at a time.
+
+So let me be upfront. I am going to cheat a little.
+We are going to start with a couple of things that R is really,
+really good at to get you excited,
+before we dive into some potentially confusing details of the inner workings.
+
+
+---

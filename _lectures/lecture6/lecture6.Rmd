@@ -20,6 +20,7 @@ bibliography: ["../../references.bib"]
 knitr::opts_chunk$set(
   echo = TRUE
 )
+library(tidyverse)
 ```
 
 # Video
@@ -38,6 +39,84 @@ knitr::include_url("slides2.html")
 ```
 
 # Script
+
+## Dimensionality reduction: PCA
+
+Principle Component Analysis
+
+```{r, warning=FALSE, message=FALSE}
+songs <- read_csv("data/spotify_playlist.csv")
+```
+
+
+```{r}
+songs %>% 
+  ggplot(aes(track_year, track_popularity)) +
+  geom_point()
+```
+
+```{r}
+
+```
+
+
+```{r}
+library(tidymodels)
+
+songs_rec <- recipe(track_popularity ~ ., data = songs) %>% 
+  update_role(track_name, track_artists,
+              new_role = "id") %>% 
+  step_normalize(all_predictors()) %>%
+  step_pca(all_predictors())
+```
+
+```{r}
+songs_prep <- prep(songs_rec)
+tidy(songs_prep)
+```
+
+```{r}
+songs_pca <- tidy(songs_prep, 2)
+songs_pca %>% 
+  ggplot(aes(value, terms, fill = value < 0)) +
+  geom_col() +
+  facet_wrap(vars(component))
+```
+
+
+```{r}
+songs_juice <- juice(songs_prep)
+songs_juice
+```
+
+```{r}
+plt <- songs_juice %>% 
+  mutate(song = paste(track_name, ",", track_artists)) %>% 
+  ggplot(aes(PC1, PC2, label = song)) +
+  geom_point()
+plt
+```
+
+```{r}
+plotly::ggplotly(plt)
+```
+
+
+```{r}
+sdev <- songs_prep$steps[[2]]$res$sdev
+percent_variation <- sdev^2 / sum(sdev^2)
+
+tibble(
+  component = unique(songs_pca$component),
+  percent_var = percent_variation 
+) %>%
+  mutate(component = fct_inorder(component)) %>%
+  ggplot(aes(component, percent_var)) +
+  geom_col() +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(x = NULL, y = "Percent variance explained by each PCA component")
+```
+
 
 # Exercises
 

@@ -1,0 +1,53 @@
+---
+title: "Coming Soon: Lecture 1"
+description: |
+  Getting started!
+draft: false
+author:
+  - name: Jannik Buhr 
+    url: https://jmbuhr.de
+    orcid_id: 0000-0002-9350-2629
+date: 11-02-2020
+output:
+  distill::distill_article:
+    self_contained: false
+categories:
+  - lecture
+bibliography: ["../../references.bib"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE
+)
+```
+
+> # Disclaimer:
+>
+> This is not the finished lecture, but I wanted to give you a sneak peak of how the website will look.
+> I am very much developing this in the open.
+
+# Video
+
+Watch today's video here:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AgpWX18dby4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+# Slides
+
+Hover over the slides and press **f** for full screen.
+Press **?** for a list of keyboard shortcuts.
+
+```{r slides, echo=FALSE}
+knitr::include_url("example_slides.html")
+```
+
+# Script
+
+# Exercises
+
+# Solutions
+
+# Resources

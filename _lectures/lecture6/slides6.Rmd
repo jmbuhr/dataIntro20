@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Data Analysis with R"
-subtitle: "TODO"
+subtitle: "Lecture 5: Getting Started"
 institute: "Heidelberg University, WS20/21"
 author: 
   - "Jannik Buhr"
@@ -9,41 +9,18 @@ output:
   xaringan::moon_reader:
     seal: false
     lib_dir: libs
-    css:
-      - "xaringan-themer.css"
-      - "extra.css"
+    css: ["xaringan-themer.css", "extra.css"]
     nature:
       ratio: '16:9'
+      navigation:
+        scroll: false
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
 ---
 
 ```{r setup, include=FALSE, warning=FALSE}
-options(htmltools.dir.version = FALSE)
-library(knitr)
-library(xaringanthemer)
-library(tidyverse)
-
-opts_chunk$set(
-  echo = FALSE,
-  warning = FALSE,
-  message = FALSE,
-  fig.asp = 0.618033,
-  fig.align = "center",
-  out.width = "60%"
-)
-style_duo_accent(
-  primary_color = "#002ab5",
-  secondary_color = "#FF961C",
-  inverse_header_color = "#FFFFFF",
-  text_font_google = google_font("Fira Sans"),
-  header_font_google = google_font("Roboto"),
-  code_font_google = google_font("Fira Mono"),
-  header_h1_font_size = "2.75rem",
-  header_h2_font_size = "1.5rem",
-  header_h3_font_size = "1rem"
-)
+source(here::here("assets/slide-setup.R"))
 
 xaringanExtra::use_xaringan_extra(c(
   "tile_view", "editable", "animate_css",
@@ -52,7 +29,13 @@ xaringanExtra::use_xaringan_extra(c(
 ```
 
 layout: true
-class: debug 
+
+.absolute.top-0.right-1.tr.w-10[
+```{r}
+include_graphics("https://raw.githubusercontent.com/jmbuhr/dataIntro20/master/images/hex.png")
+```
+]
+
 
 ---
 

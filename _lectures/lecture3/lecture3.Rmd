@@ -41,27 +41,6 @@ knitr::include_url("slides2.html")
 
 # Script
 
-## Tidy Data
-
-> "Happy families are all alike;
-  every unhappy family is unhappy in its own way."
-  $-$ Leo Tolstoy
-
-> Tidy datasets are all alike,
-  but every messy dataset is messy in its own way."
-  $-$ Hadley Wickham
-
-todo why tidy data?
-
-### Making Data Tidy
-
-with the `tidyr` package.
-
-### Data that is better in another Format
-
-e.g. matrices
-todo explain matrix, show matrix maths,
-briefly touch on arrays
 
 
 # Exercises

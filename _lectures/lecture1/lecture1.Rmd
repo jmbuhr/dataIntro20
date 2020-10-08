@@ -48,15 +48,19 @@ knitr::include_url("slides1.html")
 
 ## What You will Learn
 
-Throughout your scientific career --- and potentially outside of it --- you will encounter various forms of data.
-Maybe you do an experiment and measured the fluorescence of a molecular probe, or you simply count the penguins at your local zoo.
+Throughout your scientific career --- and potentially outside of it ---
+you will encounter various forms of data.
+Maybe you do an experiment and measured the fluorescence of a molecular probe,
+or you simply count the penguins at your local zoo.
 Everything is data in some form or another.
 But raw numbers without context are meaningless and tables of numbers are not only boring to look at but often hide the actual structure behind the numbers.
 In this course you will learn to handle different kinds of data.
-You will learn to create pretty and insightful visualizations, compute different statistics on your data and also what these statistical concepts mean.
+You will learn to create pretty and insightful visualizations,
+compute different statistics on your data and also what these statistical concepts mean.
 From penguins to p-values, I got you covered.
 
-The course will be held in English, as the concepts covered will directly transfer to the research you do and the papers you will read and write where the working language is English.
+The course will be held in English,
+as the concepts covered will directly transfer to the research you do and the papers you will read and write where the working language is English.
 That being said, feel free to ask questions in any language that I understand, so German is also fine.
 My Latin is a little rusty, thought.
 

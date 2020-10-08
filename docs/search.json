@@ -5,14 +5,14 @@
       "title": "Greetings Adventurers",
       "author": [],
       "contents": "\nAnd welcome to the next iteration of my introductory R course for data visualization and analysis. Because the concepts you will learn in this course will be most useful in areas where the working language is English, this course will also be in English. But feel free to ask questions in German as well any time. This site will host the material you need for the course, as well as the scripts and exercise solutions. It was created with R as well, so if you are curious, you can check out the source code by clicking on the little github icon in the top right corner.\nIf you want to learn more about myself, check out my website.\n\n\n\n",
-      "last_modified": "2020-10-05T09:33:00+02:00"
+      "last_modified": "2020-10-08T14:18:15+02:00"
     },
     {
       "path": "index.html",
       "title": "Lectures",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2020-10-05T09:33:00+02:00"
+      "last_modified": "2020-10-08T14:18:16+02:00"
     }
   ],
   "collections": ["lectures/lectures.json"]

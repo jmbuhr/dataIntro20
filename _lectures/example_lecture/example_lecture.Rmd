@@ -46,6 +46,109 @@ knitr::include_url("example_slides.html")
 
 # Script
 
+## Roadmap
+
+Day 1
+
+- installing R and RStudio
+- calculator
+- datatypes
+- variables
+- functions
+- vectors
+- lists
+- dataframes
+- grammar of graphics
+- ggplot (Palmer penguins)
+- exercises
+  - 
+
+Day 2
+
+- RStudio tour
+  - settings
+  - appearance
+  - projects (and why we don't use `setwd`)
+  - folder structure
+- Reading data with `readr`
+  - https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-29
+  - from file
+  - from url
+  - download file with R
+- Workflow
+  - https://jmbuhr.de/books/dataIntro19Master/img/workflow.png
+- various states of messiness in data
+  - leading lines, comments,
+  - other formats
+    - csv2, excel, tsv
+  - import text data with RStudio
+    - always copy the code!
+- `dplyr` verbs
+  - select
+  - filter
+  - mutate
+    - introducing factors (for age)
+  - arrange
+  - summarise
+    - `n()`
+  - count
+  - group_by
+- handling data with base-R
+- tidy data
+  - definition
+  - table1 to table4
+  - advantages
+    - 1. uniformity, learning tools
+    - vectorisation
+  - reasons for untidy data
+    - data entry
+  - https://tidyr.tidyverse.org/
+  - `billboard` data
+- the pipe
+  - motivate combination of steps
+  - show pipe
+  - shortcut
+
+Day 3
+
+
+  
+Day 4
+
+- Probability
+  - Motivation: Racing game
+  - Friend got first place 6 out of 8
+    races against you.
+    Is she the better player?
+  - Introducing hypothesis tests 
+  - We are never testing what we want to known, the inverse logic of p-values
+  - pbinom, binomial probability
+  
+
+
+
+
+Day 5
+
+
+
+Day 6
+
+- Spotify data
+- tidymodels
+- PCA
+
+Day 7
+
+
+Day 8
+
+
+Unassigned
+
+- graphics devices, saving plots
+-
+
 # Exercises
 
 # Solutions

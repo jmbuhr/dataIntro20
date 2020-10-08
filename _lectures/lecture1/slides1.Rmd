@@ -79,23 +79,6 @@ class: inverse center middle
 
 ---
 
-## whoami 
-
-.profile[
-
-<img src="https://jmbuhr.de/authors/jannik/avatar_hu025880598027fd69dc9686095ad1784e_425141_270x270_fill_lanczos_center_2.png" class="profile-circle">
-
-Biochemist / Bioinformatician
-
-[`r icon::fa("envelope")`](https://jmbuhr.de/#contact)
-[`r icon::fa("twitter")`](https://twitter.com/JannikBuhr)
-[`r icon::fa("github")`](https://github.com/jmbuhr)
-[`r icon::fa("linkedin")`](https://www.linkedin.com/in/jmbuhr/)
-[`r icon::fa("stack-overflow")`](https://stackoverflow.com/users/9130337/jannik-buhr?tab=profile)
-]
-
----
-
 name: penguins
 
 ## What You will Learn
@@ -106,7 +89,7 @@ penguins %>%
   group_by(species) %>% 
   slice(1:3) %>% 
   select(species, flipper_length_mm, bill_length_mm) %>% 
-  kable(format = "html")
+  kable(format = "html", caption = "penguin data")
 ```
 ]
 
@@ -124,32 +107,31 @@ ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
 ```
 ]
 
-???
+---
 
-Throughout your scientific career --- and potentially outside
-of it --- you will encounter various forms of data.
-Maybe you do an experiment and measured the fluorescence of
-a molecular probe, or you simply count the penguins at your local
-zoo.
-Everything is data in some form or another.
-But raw numbers without context are meaningless and
-tables of numbers are not only boring to look at but
-often hide the actual structure behind the numbers.
-In this course you will learn to handle different
-kinds of data.
-You will learn to create pretty and insightful
-visualizations, compute different statistics on your
-data and also what these statistical concepts mean.
-From penguins to p-values, we go you covered.
+## whoami 
 
-The course will be held in English, as the concepts covered will
-directly transfer to the research you do and the papers you will
-read and write where the working language id English.
-That being said, feel free to ask questions in any language that I understand,
-so German is also fine. My Latin is a little rusty, thought.
+.profile[
 
-In this course, we will be using the programming
-language R.
+<img src="https://jmbuhr.de/authors/jannik/avatar_hu025880598027fd69dc9686095ad1784e_425141_270x270_fill_lanczos_center_2.png" class="profile-circle">
+
+Biochemist / Bioinformatician
+
+.f2[
+[`r icon::fa("envelope")`](https://jmbuhr.de/#contact)
+[`r icon::fa("twitter")`](https://twitter.com/JannikBuhr)
+[`r icon::fa("github")`](https://github.com/jmbuhr)
+[`r icon::fa("linkedin")`](https://www.linkedin.com/in/jmbuhr/)
+[`r icon::fa("stack-overflow")`](https://stackoverflow.com/users/9130337/jannik-buhr?tab=profile)
+]
+]
+
+---
+
+## The Course
+
+- Held in English, but you can ask questions in German as well
+- We will be using R
 
 ---
 
@@ -172,18 +154,51 @@ language R.
 </svg>
 ]
 
-???
+- A programming language invented by statisticians
+  - We will take one step at a time!
+- Designed for data analysis
+- Very interactive
 
-R is a language particularly well suited
-for data analysis because it was initially designed by
-statisticians and the interactive nature of the language
-makes it easier to get started.
-So don't fret if this is your first
-encounter with programming, we will take one step at a time.
+---
 
-So let me be upfront. I am going to cheat a little.
-We are going to start with a couple of things that R is really,
-really good at to get you excited,
-before we dive into some potentially confusing details of the inner workings.
+class: inverse center middle
+
+# Let's get into it!
+
+---
+
+## Installing R and RStudio
+
+- Download R from: <https://cran.r-project.org/>
+- Download RStudio from: <https://www.rstudio.com/products/rstudio/download/#download>
+
+- RStudio is an IDE^[Integrated Development Environment] for R.
+
+.ba.br3.f3.ph1.pv1.dib.inverse.mh-50[
+Let's jump into it!
+]
+
+---
+
+background-image: url(img/rmarkdown_wizards.png)
+background-size: cover
+
+---
+
+background-image: url(img/rmarkdown_wizards.png)
+background-size: cover
+
+---
+background-image: url(img/lter_penguins.png)
+background-size: cover
+
+---
+
+background-image: url(img/ggplot2_masterpiece.png)
+background-size: contain
+
+---
+
+
 
 ---

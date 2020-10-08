@@ -42,7 +42,7 @@ knitr::include_url("slides2.html")
 
 # Script
 
-## What is propability
+## What is probability?
 
 Say you and your friends are playing Mario Kart
 (or a similar racing game),

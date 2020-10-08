@@ -4,13 +4,13 @@
     <title>Introduction to Data Analysis with R</title>
     <meta charset="utf-8" />
     <meta name="author" content="Jannik Buhr" />
-    <meta name="date" content="2020-10-02" />
+    <meta name="date" content="2020-10-08" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
     <link href="libs/animate.css/animate.xaringan.css" rel="stylesheet" />
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x8459e48a0b445628803dd6549a30984","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x702b3169e0e42a3b0a68a5db4fcb606","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -51,7 +51,7 @@ Jannik Buhr
 <br/>
 <span>Heidelberg University, WS20/21</span>
 </div>
-<div class="talk-date">2020-10-02</div>
+<div class="talk-date">2020-10-08</div>
 </div>
 
 .absolute.bottom-0.right-1.mid-gray[
@@ -66,29 +66,13 @@ class: inverse center middle
 
 ---
 
-## whoami 
-
-.profile[
-
-&lt;img src="https://jmbuhr.de/authors/jannik/avatar_hu025880598027fd69dc9686095ad1784e_425141_270x270_fill_lanczos_center_2.png" class="profile-circle"&gt;
-
-Biochemist / Bioinformatician
-
-[<i class="fas  fa-envelope "></i>](https://jmbuhr.de/#contact)
-[<i class="fab  fa-twitter "></i>](https://twitter.com/JannikBuhr)
-[<i class="fab  fa-github "></i>](https://github.com/jmbuhr)
-[<i class="fab  fa-linkedin "></i>](https://www.linkedin.com/in/jmbuhr/)
-[<i class="fab  fa-stack-overflow "></i>](https://stackoverflow.com/users/9130337/jannik-buhr?tab=profile)
-]
-
----
-
 name: penguins
 
 ## What You will Learn
 
 .pull-left[
 &lt;table&gt;
+&lt;caption&gt;penguin data&lt;/caption&gt;
  &lt;thead&gt;
   &lt;tr&gt;
    &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
@@ -152,32 +136,31 @@ name: penguins
 &lt;img src="slides1_files/figure-html/final-penguin-plot2-1.png" width="100%" /&gt;
 ]
 
-???
+---
 
-Throughout your scientific career --- and potentially outside
-of it --- you will encounter various forms of data.
-Maybe you do an experiment and measured the fluorescence of
-a molecular probe, or you simply count the penguins at your local
-zoo.
-Everything is data in some form or another.
-But raw numbers without context are meaningless and
-tables of numbers are not only boring to look at but
-often hide the actual structure behind the numbers.
-In this course you will learn to handle different
-kinds of data.
-You will learn to create pretty and insightful
-visualizations, compute different statistics on your
-data and also what these statistical concepts mean.
-From penguins to p-values, we go you covered.
+## whoami 
 
-The course will be held in English, as the concepts covered will
-directly transfer to the research you do and the papers you will
-read and write where the working language id English.
-That being said, feel free to ask questions in any language that I understand,
-so German is also fine. My Latin is a little rusty, thought.
+.profile[
 
-In this course, we will be using the programming
-language R.
+&lt;img src="https://jmbuhr.de/authors/jannik/avatar_hu025880598027fd69dc9686095ad1784e_425141_270x270_fill_lanczos_center_2.png" class="profile-circle"&gt;
+
+Biochemist / Bioinformatician
+
+.f2[
+[<i class="fas  fa-envelope "></i>](https://jmbuhr.de/#contact)
+[<i class="fab  fa-twitter "></i>](https://twitter.com/JannikBuhr)
+[<i class="fab  fa-github "></i>](https://github.com/jmbuhr)
+[<i class="fab  fa-linkedin "></i>](https://www.linkedin.com/in/jmbuhr/)
+[<i class="fab  fa-stack-overflow "></i>](https://stackoverflow.com/users/9130337/jannik-buhr?tab=profile)
+]
+]
+
+---
+
+## The Course
+
+- Held in English, but you can ask questions in German as well
+- We will be using R
 
 ---
 
@@ -200,20 +183,37 @@ language R.
 &lt;/svg&gt;
 ]
 
-???
+- A programming language invented by statisticians
+  - We will take one step at a time!
+- Designed for data analysis
+- Very interactive
 
-R is a language particularly well suited
-for data analysis because it was initially designed by
-statisticians and the interactive nature of the language
-makes it easier to get started.
-So don't fret if this is your first
-encounter with programming, we will take one step at a time.
+---
 
-So let me be upfront. I am going to cheat a little.
-We are going to start with a couple of things that R is really,
-really good at to get you excited,
-before we dive into some potentially confusing details of the inner workings.
+## Installing R and RStudio
 
+- Download R from: &lt;https://cran.r-project.org/&gt;
+- Download RStudio from: &lt;https://www.rstudio.com/products/rstudio/download/#download&gt;
+
+- RStudio is an IDE^[Integrated Development Environment] for R.
+
+.ba.br3.f3.ph1.pv1.dib.inverse.mh-50[
+Let's jump into it!
+]
+
+---
+
+background-image: url(img/rmarkdown_wizards.png)
+background-size: cover
+
+---
+background-image: url(img/lter_penguins.png)
+background-size: cover
+
+---
+
+background-image: url(img/ggplot2_masterpiece.png)
+background-size: contain
 
 ---
     </textarea>

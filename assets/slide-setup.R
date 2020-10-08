@@ -3,6 +3,7 @@ library(knitr)
 library(here)
 library(tidyverse)
 library(xaringanthemer)
+
 opts_chunk$set(
   echo = FALSE,
   warning = FALSE,
@@ -10,9 +11,9 @@ opts_chunk$set(
   fig.retina = 3,
   comment = ""
 )
-style_duo_accent(
-  primary_color = "#002ab5",
-  secondary_color = "#FF961C",
+
+style_mono_accent(
+  "#002ab5",
   inverse_header_color = "#FFFFFF",
   text_font_google = google_font("Fira Sans"),
   header_font_google = google_font("Roboto"),

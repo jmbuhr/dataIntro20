@@ -41,6 +41,41 @@ knitr::include_url("slides2.html")
 
 # Script
 
+## Iteration
+
+### Reading in Multiple Files
+
+```{r}
+library(tidyverse)
+
+read_csv("data/Africa.csv")
+
+paths <- dir("data", full.names = TRUE)
+names(paths) <- basename(paths) %>% str_remove("\\.csv")
+
+my_data <- map(paths, read_csv)
+
+combinded_data <- my_data %>% 
+  bind_rows(.id = "continent")
+```
+
+
+```{r}
+gapminder <- map_dfr(paths, read_csv, .id = "continent")
+```
+
+
+```{r}
+results <- vector("list", length(paths))
+for (i in 1:length(paths)) {
+  data <- read_csv(paths[i])
+  data$continent <- names(paths[1])
+  results[[i]] <- data
+}
+
+dataset <- bind_rows(results)
+dataset
+```
 
 
 # Exercises

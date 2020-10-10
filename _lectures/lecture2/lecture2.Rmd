@@ -50,7 +50,7 @@ TODO Why
 knitr::include_graphics(c("img/RS_settings.png", "img/RS_settings2.png"))
 ```
 
-### Project-based Workflow
+### A Project-based Workflow
 
 TODO
   What is a working directory?
@@ -62,29 +62,24 @@ TODO
   
 TODO `here`-package?
 
+## A Data Analysis Workflow
+
+(ref:workflow) Figure from @wickhamDataScienceImport2017.
+
+```{r workflow, echo=FALSE, fig.cap="(ref:workflow)" out.extra="class=external"}
+include_graphics("img/workflow-wickham.png")
+```
+
+
 ## Reading Data with `readr`
 
 TODO readr package
 
-
 ```{r}
 library(tidyverse)
-squirrels <- read_csv("data/nyc_squirrels.csv")
-squirrels %>% 
-  select(age, above_ground_sighter_measurement) %>% 
-  mutate(age = factor(age,
-                      levels = c("Juvenile", "Adult")),
-         height = parse_number(above_ground_sighter_measurement)) %>% 
-  filter(!is.na(age), !is.na(height)) %>%
-  ggplot(aes(height, fill = age)) +
-  geom_histogram(aes(y = stat(density)),
-                 position = "identity",
-                 alpha = 0.4, color = "black",
-                 binwidth = 5) +
-  scale_fill_manual(values = c("#B00000", "#0900AB")) +
-  theme_classic() +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.05)))
+
 ```
+
 
 
 ## Wrangling Data `dplyr`

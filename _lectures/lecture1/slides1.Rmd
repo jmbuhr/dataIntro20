@@ -84,12 +84,12 @@ name: penguins
 ## What You will Learn
 
 .pull-left[
-```{r}
+```{r penguin-df, fig.cap="penguin data"}
 penguins %>%
   group_by(species) %>% 
   slice(1:3) %>% 
   select(species, flipper_length_mm, bill_length_mm) %>% 
-  kable(format = "html", caption = "penguin data")
+  kable()
 ```
 ]
 
@@ -174,14 +174,14 @@ class: inverse center middle
 
 - RStudio is an IDE^[Integrated Development Environment] for R.
 
-.ba.br3.f3.ph1.pv1.dib.inverse.mh-50[
+.ba.b--hot-pink.pa1.br3.center.cover[
 Let's jump into it!
 ]
 
 ---
 
-background-image: url(img/rmarkdown_wizards.png)
-background-size: cover
+background-image: url(img/coding_cases.png)
+background-size: contain
 
 ---
 

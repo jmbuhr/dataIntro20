@@ -12,8 +12,7 @@ opts_chunk$set(
   comment = ""
 )
 
-style_mono_accent(
-  "#002ab5",
+style_mono_accent("#3465a4",
   inverse_header_color = "#FFFFFF",
   text_font_google = google_font("Fira Sans"),
   header_font_google = google_font("Roboto"),
@@ -22,3 +21,6 @@ style_mono_accent(
   header_h2_font_size = "1.5rem",
   header_h3_font_size = "1rem"
 )
+
+# "#002ab5"
+# rgb(78, 92, 104);

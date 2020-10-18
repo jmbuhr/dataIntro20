@@ -35,12 +35,17 @@ library(hexSticker)
 df <- hilbeRt::get_hilbert_paths(4)
 plt <- df %>%
   ggplot(aes(x, y, color = index)) +
-  geom_path(size = 5, show.legend = FALSE, lineend = "round") +
+  geom_path(size = 5, show.legend = FALSE,
+            lineend = "round",
+            color = "#3465a4") +
   theme_void() +
   coord_equal() +
-  scale_color_gradient2(low = "#002ab5",
-                        mid = "#8a00b5",
-                        high = "#002ab5")
+  # scale_color_gradient2(low = "#002ab5",
+  #                       mid = "#8a00b5",
+  #                       high = "#002ab5")
+  scale_color_gradient2(low = "#BF616A",
+                        mid = "#EBCB8B",
+                        high = "#D08770")
 plt
 ggsave(here::here("images/favicon.png"), plt, bg = "transparent")
 ```
@@ -50,13 +55,14 @@ ggsave(here::here("images/favicon.png"), plt, bg = "transparent")
 hex <- sticker(plt,
              s_x = 1,
              s_y = 1,
-             h_color = "#002ab5",
-             h_fill = "white",
+             h_color = "black",
+             h_size = 1.6,
+             h_fill = "#ECEFF4",
              s_width = 1.2,
              s_height = 1.2,
              u_size = 3.5,
              p_color = "black",
-             p_size = 10.1,
+             p_size = 6.5,
              p_y = 1.7,
              url = "jmbuhr.de/dataIntro20/",
              package = "dataIntro20")

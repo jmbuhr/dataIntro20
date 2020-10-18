@@ -72,7 +72,55 @@ With Artwork by @allison_horst
 
 ---
 
-class: inverse center middle
+## A Data Analysis Workflow
 
-# Introduction
+.center.mt6[
+```{r workflow-graphic, out.width='70%'}
+include_graphics("img/workflow-wickham.png")
+```
+]
 
+
+---
+class: center, middle 
+
+## Reading Data with `readr`
+
+<a href="https://readr.tidyverse.org/">
+```{r readr-logo, echo=FALSE, out.extra='class=external'}
+include_graphics("img/readr.png")
+```
+</a>
+
+---
+class: center, middle 
+
+## Wrangling Data with `dplyr`
+
+<a href="https://dplyr.tidyverse.org/">
+```{r dplyr-logo, echo=FALSE, out.extra='class=external'}
+include_graphics("img/dplyr.png")
+```
+</a>
+
+---
+
+## The Main `dplyr` Verbs
+
+- `select`
+- `filter`
+- `mutate`
+- `arrange`
+- `summarise`
+
+
+- `group_by`
+- The pipe (` %>% `)
+
+---
+background-image: url(img/dplyr_wrangling.png)
+background-size: contain
+
+---
+background-image: url(img/dplyr_filter.jpg)
+background-size: cover

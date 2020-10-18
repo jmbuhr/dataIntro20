@@ -6,6 +6,7 @@ output_dir: "docs"
 base_url: https://jmbuhr.de/dataIntro20/
 repository_url: https://github.com/jmbuhr/dataIntro20
 navbar:
+  search: true
   source_url: true
   logo:
     image: images/hex.png
@@ -24,6 +25,7 @@ twitter:
 creative_commons: CC BY
 output:
   distill::distill_article:
-    toc: true
+    theme: theme.css
     css: styles.css
+    toc: true
     highlight: rstudio

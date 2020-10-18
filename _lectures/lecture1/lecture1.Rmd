@@ -88,11 +88,13 @@ molecular measurements.
 ## First Things First: Installing R
 
 <aside>
+<a href="https://cran.r-project.org/">
 
 ```{r rlogo, echo=FALSE, out.width='50%'}
 knitr::include_graphics("img/Rlogo.png")
 ```
 
+</a>
 </aside>
 
 But I was getting ahead of myself.
@@ -111,11 +113,13 @@ We will be using it for this course and you can download it here:
 <https://www.rstudio.com/products/rstudio/download/#download>
 
 <aside>
+<a href="https://rstudio.com/">
 
 ```{r rs-logo, echo=FALSE, out.width='50%'}
 knitr::include_graphics("https://rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png")
 ```
 
+</a>
 </aside>
 
 <!-- Demonstration of Rstudio panes, -->
@@ -534,7 +538,7 @@ The syntax ($\leftarrow$ grammar for programming languages) is as follows.
 ```{r}
 name_for_the_function <- function(parameter1, parameter2, ...) { # etc.
   # body of the function
-  # thing happen
+  # things happen
   result <- parameter1 + parameter2
   # Something the function should return to the caller
   return(result)
@@ -598,6 +602,16 @@ delete it from the script,
 or only type it in the console.
 You can also use RStudio's built-in panel for package installation.
 
+<aside>
+<a href="https://tidyverse.org/">
+
+```{r forcats-logo, echo=FALSE, out.extra="class=external"}
+include_graphics("img/tidyverse.png")
+```
+
+</a>
+</aside>
+
 To make the functions from a package available to your R session,
 run the `library` function with the name of the package.
 
@@ -607,8 +621,26 @@ library(tidyverse)
 
 The convention is, to keep all `library`-calls at the top of your script,
 so that you ,and others, can see straight away, which packages are needed.
+Don't worry about the messages that pop up.
+This is just the tidyverse telling us that
+two of it's functions (`lag` and `filter`) have
+functions with the same names in another package
+(or in this case base-R) and because we loaded the tidyverse second,
+R will now use the tidyverse
+functions.
+This is what "masking" means.
 
 ## Literate Programming: Rmarkdown
+
+<aside>
+<a href="https://rmarkdown.rstudio.com/index.html">
+
+```{r rmd-logo, echo=FALSE, out.extra="class=external"}
+include_graphics("img/rmarkdown.png")
+```
+
+</a>
+</aside>
 
 ![[@ArtworkAllisonHorst]](img/rmarkdown_wizards.png){.external}
 
@@ -765,6 +797,7 @@ of 3 different species, collected from 3 islands in the Palmer Archipelago, Anta
 
 ## Translating Data into Visualizations
 
+
 You probably took this course because you want to build
 some cool visualizations for you data.
 In order to do that, let us talk about how we can
@@ -775,6 +808,17 @@ which was then slightly modified and turned into an
 R package so that we can not only talk about
 but also create visualizations using this grammar
 [@wickhamLayeredGrammarGraphics2010].
+
+<aside>
+<a href="https://ggplot2.tidyverse.org/">
+
+```{r ggplot2-logo, echo=FALSE, out.extra="class=external"}
+include_graphics("img/ggplot2.png")
+```
+
+</a>
+</aside>
+
 The package is called `ggplot2` and we already have it
 loaded because it is included in the
 tidyverse. Before looking at the
@@ -906,22 +950,32 @@ this course.
 
 <!-- Demonstrate Rmarkdown creation and sending -->
 
-When you are done solving the exercises, hit
-the `knit` button (at the top of the editor panel)
-and send me the resulting html document via
-discord (confirm that it looks
-the way you expected beforehand).
+When you are done solving the exercises,
+hit the `knit` button (at the top of the editor panel)
+and send me the resulting html document via discord
+(confirm that it looks the way you expected beforehand).
 
-## 1) The basics
+Here are today's tasks:
+
+- Create a second variable that contains the squares of the first.
+- Create a vector of all odd numbers from 1 to 99 and store it in a variable.
+- Write a section of text about your previous experience with
+  data analysis or programming
+  (optional, but I can use this information to customize the course).
+- Write the code that loads in the tidyverse and the palmer penguins data set.
+- Produces a scatterplot (meaning a plot with points) of
+  the bill length vs. the bill depth, colorcoded by species.
+  - Bonus points if you manage to use the same colors as in the image above
+    (hint: look at the help page for `scale_color_manual()` to find out how).
+    Even more bonus points if you also look into the `theme()` function and
+    it's arguments, or the `theme_<...>()` functions to make the plot prettier.
 
 
-- Create a vector of all   odd numbers from 1 to 99 and store it in a variable.
-- create a second variable that contains the squares of the first.
-
-
-## 2) 
 
 # Solutions
+
+Office Hour for the solutions and questions is on
+Friday, Nov 6, 2020 at 10:00. Link in the discord.
 
 # Resources
 
@@ -956,11 +1010,11 @@ the way you expected beforehand).
 -   [Intuitive Biostatistics](http://www.intuitivebiostatistics.com/) [@motulskyIntuitiveBiostatisticsNonmathematical2017]
 -   [Statistics Done Wrong](https://www.statisticsdonewrong.com/) [@reinhartStatisticsDoneWrong2015]
 
-### Talks, Podcasts, Blogs
+## Talks, Podcasts, Blogs
 
 -   [David Robinson, YouTube](https://www.youtube.com/user/safe4democracy)
 
-### Misc
+## Misc
 
 -   [Cute and insightful illustrations](https://github.com/allisonhorst/stats-illustrations) [@ArtworkAllisonHorst]
 -   [Happy Git with R](https://happygitwithr.com/)

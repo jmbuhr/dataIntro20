@@ -197,8 +197,3 @@ background-size: cover
 background-image: url(img/ggplot2_masterpiece.png)
 background-size: contain
 
----
-
-
-
----

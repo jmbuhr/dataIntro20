@@ -2024,10 +2024,11 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
     --heading-font:    sans-serif;
     --mono-font:       monospace;
     --body-font:       sans-serif;
+    --navbar-font:     sans-serif;  /* websites + blogs only */
   }
 
   /*-- ARTICLE METADATA --*/
-  .d-byline {
+  d-byline {
     --heading-size:    0.6rem;
     --heading-color:   rgba(0, 0, 0, 0.5);
     --body-size:       0.8rem;
@@ -2064,7 +2065,11 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
     --text-size:        15px;
     --hover-color:      white;
     --bkgd-color:       #0F2E3D;
-  }</style>
+  }
+
+  /*-- Additional custom styles --*/
+  /* Add any additional CSS rules below                      */
+  </style>
   <style type="text/css">
   /* base variables */
 
@@ -2152,11 +2157,15 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
     --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   }
 
-  body {
+  body,
+  .posts-list .post-preview p,
+  .posts-list .description p {
     font-family: var(--body-font), var(--body-default);
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6,
+  .posts-list .post-preview h2,
+  .posts-list .description h2 {
     font-family: var(--heading-font), var(--heading-default);
   }
 
@@ -2256,16 +2265,21 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   /*-- WEBSITE HEADER + FOOTER --*/
   .distill-site-header .title {
   	font-size: var(--title-size, 18px);
+  	font-family: var(--navbar-font), var(--heading-default);
+  }
+
+  .distill-site-header a {
+    font-family: var(--navbar-font), var(--heading-default);
+  }
+
+  .distill-site-header a:hover {
+  	color: var(--hover-color, white);
   }
 
   .distill-site-header {
   	font-size: var(--text-size, 15px);
   	color: var(--text-color, rgba(255, 255, 255, 0.8));
   	background-color: var(--bkgd-color, #0F2E3D);
-  }
-
-  .distill-site-header a:hover {
-  	color: var(--hover-color, white);
   }
 
   .distill-site-footer {
@@ -2278,12 +2292,12 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   	color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs/header-attrs.js"></script>
-  <script src="site_libs/jquery/jquery.min.js"></script>
-  <script src="site_libs/anchor/anchor.min.js"></script>
-  <script src="site_libs/bowser/bowser.min.js"></script>
-  <script src="site_libs/webcomponents/webcomponents.js"></script>
-  <script src="site_libs/distill/template.v2.js"></script>
+  <script src="site_libs/header-attrs-2.4.6/header-attrs.js"></script>
+  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
+  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <style type="text/css">
   pre code {

@@ -178,6 +178,7 @@ class: inverse center middle
 Let's jump into it!
 ]
 
+
 ---
 
 background-image: url(img/coding_cases.png)

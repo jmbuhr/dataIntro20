@@ -970,8 +970,6 @@ Here are today's tasks:
     Even more bonus points if you also look into the `theme()` function and
     it's arguments, or the `theme_<...>()` functions to make the plot prettier.
 
-
-
 # Solutions
 
 Office Hour for the solutions and questions is on

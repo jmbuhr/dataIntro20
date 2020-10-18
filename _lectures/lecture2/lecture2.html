@@ -118,7 +118,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["data/country_colors.csv","data/gapminder_csv2.csv","data/gapminder_messier.csv","data/gapminder_tsv.txt","data/gapminder.csv","data/gapminder.xlsx","data/obscure_file.tsv","extra.css","img/download_repo.png","img/dplyr_filter.jpg","img/dplyr_wrangling.png","img/dplyr.png","img/forcats.png","img/github-raw.png","img/readr.png","img/RS_settings.png","img/RS_settings2.png","img/tidy-data-wickham.png","img/workflow-wickham.png","lecture2_files/anchor-4.2.2/anchor.min.js","lecture2_files/bowser-1.9.3/bowser.min.js","lecture2_files/distill-2.2.21/template.v2.js","lecture2_files/figure-html5/unnamed-chunk-43-1.png","lecture2_files/header-attrs-2.3/header-attrs.js","lecture2_files/header-attrs-2.4/header-attrs.js","lecture2_files/jquery-1.11.3/jquery.min.js","lecture2_files/webcomponents-2.0.0/webcomponents.js","libs/animate.css/animate.xaringan.css","libs/clipboard/clipboard.min.js","libs/editable/editable.css","libs/editable/editable.js","libs/header-attrs/header-attrs.js","libs/himalaya/himalaya.js","libs/himalaya/himalaya.js.map","libs/js-cookie/js.cookie.js","libs/tachyons/tachyons.min.css","libs/tile-view/tile-view.css","libs/tile-view/tile-view.js","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js","R/create_data_formats.R","slides2.html","xaringan-themer.css"]}
+  {"type":"character","attributes":{},"value":["data/country_colors.csv","data/exercise1_raw.csv","data/exercise1.txt","data/gapminder_csv2.csv","data/gapminder_messier.csv","data/gapminder_tsv.txt","data/gapminder.csv","data/gapminder.xlsx","data/obscure_file.tsv","extra.css","img/download_repo.png","img/dplyr_filter.jpg","img/dplyr_wrangling.png","img/dplyr.png","img/forcats.png","img/github-raw.png","img/readr.png","img/RS_settings.png","img/RS_settings2.png","img/tidy-data-wickham.png","img/tidyr.png","img/workflow-wickham.png","lecture2_files/anchor-4.2.2/anchor.min.js","lecture2_files/bowser-1.9.3/bowser.min.js","lecture2_files/distill-2.2.21/template.v2.js","lecture2_files/figure-html5/unnamed-chunk-43-1.png","lecture2_files/figure-html5/unnamed-chunk-48-1.png","lecture2_files/figure-html5/unnamed-chunk-53-1.png","lecture2_files/header-attrs-2.3/header-attrs.js","lecture2_files/header-attrs-2.4/header-attrs.js","lecture2_files/jquery-1.11.3/jquery.min.js","lecture2_files/webcomponents-2.0.0/webcomponents.js","libs/animate.css/animate.xaringan.css","libs/clipboard/clipboard.min.js","libs/editable/editable.css","libs/editable/editable.js","libs/header-attrs/header-attrs.js","libs/himalaya/himalaya.js","libs/himalaya/himalaya.js.map","libs/js-cookie/js.cookie.js","libs/tachyons/tachyons.min.css","libs/tile-view/tile-view.css","libs/tile-view/tile-view.js","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js","R/create_data_formats.R","slides2.html","xaringan-themer.css"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1472,20 +1472,17 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><a href="#select">select</a></li>
 <li><a href="#filter">filter</a></li>
-</ul></li>
-<li><a href="#mutate">mutate</a>
-<ul>
+<li><a href="#mutate">mutate</a></li>
 <li><a href="#interlude-begind-the-magic-handling-data-with-base-r">Interlude: Begind the magic, handling data with base-R</a></li>
-</ul></li>
 <li><a href="#the-pipe">The pipe <code>%&gt;%</code></a></li>
 <li><a href="#arrange">arrange</a></li>
 <li><a href="#summarise">summarise</a></li>
 <li><a href="#group_by">group_by</a></li>
+</ul></li>
 <li><a href="#visualization-and-our-first-encounter-with-factors">Visualization and our first encounter with <code>factor</code>s</a></li>
 <li><a href="#tidy-data">Tidy data</a>
 <ul>
 <li><a href="#making-data-tidy">Making Data Tidy</a></li>
-<li><a href="#data-that-is-better-in-another-format">Data that is better in another Format</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#exercises">Exercises</a></li>
@@ -1545,7 +1542,7 @@ I try to be vocal about what the code does in plain English while I type it and 
 <h3 id="working-in-style">Working in Style</h3>
 <p>Now that we have a cosy project for today, let’s also make sure we are working in style and are feeling right at home in RStudio. <a href="https://www.pipinghotdata.com/posts/2020-09-07-introducing-the-rstudio-ide-and-r-markdown/">This blogpost</a> provides excellent gifs for the different settings in RStudio and even for Rmarkdown troubleshooting. I am also fond of the <a href="https://github.com/gadenbuie/rsthemes">rsthemes package</a> for additional appearances.</p>
 <h2 id="a-data-analysis-workflow">A Data Analysis Workflow</h2>
-<p>We are getting close to importing our very first dataset from a file into R. Generally, this is the first thing that needs to happen with any data analysis and we will cover it today. The data I provided is already pretty tidy so we will start with that and build some visualizations. The communicate-part is also covered, because we are working in Rmarkdown after all, which is designed to communicate our findings. Later today, we will also have a look at some less tidy data, not before having defined what “tidy data” is.</p>
+<p>We are getting close to importing our very first dataset from a file into R. Generally, this is the first thing that needs to happen with any data analysis and we will cover it today. The data I provided is already pretty tidy so we will start with that and build some visualizations. The communicate-part is also covered, because we are working in Rmarkdown after all, which is designed to communicate our findings. Later, we will also have a look at some less tidy data, but not before having defined what “tidy data” is.</p>
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:workflow"></span>
@@ -1556,8 +1553,6 @@ Figure 1: Figure from <span class="citation" data-cites="wickhamDataScienceImpor
 </div>
 </div>
 <h2 id="reading-data-with-readr">Reading Data with <code>readr</code></h2>
-<p>The package responsible for loading data in the tidyverse is called <code>readr</code>, so we start by loading the whole tidyverse.</p>
-<p>Note, that in general, we could also load just the <code>readr</code> package with <code>library(readr)</code>, but we need the rest of the tidyverse later on anyways. There is also the option to not load a package at all but rather only use one function from a package by prefixing the function with the package name and two colons (<code>::</code>) Like so: <code>readr::read_csv("...")</code>.</p>
 <aside>
 <p><a href="https://readr.tidyverse.org/"></p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1565,6 +1560,8 @@ Figure 1: Figure from <span class="citation" data-cites="wickhamDataScienceImpor
 </div>
 </a>
 </aside>
+<p>The package responsible for loading data in the tidyverse is called <code>readr</code>, so we start by loading the whole tidyverse.</p>
+<p>Note, that in general, we could also load just the <code>readr</code> package with <code>library(readr)</code>, but we need the rest of the tidyverse later on anyways. There is also the option to not load a package at all but rather only use one function from a package by prefixing the function with the package name and two colons (<code>::</code>) Like so: <code>readr::read_csv("...")</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
@@ -1766,8 +1763,6 @@ Figure 1: Figure from <span class="citation" data-cites="wickhamDataScienceImpor
 </table>
 </div>
 <h2 id="wrangling-data-with-dplyr">Wrangling Data with <code>dplyr</code></h2>
-<p>There a are a number of ways in which we can manipulate data. Of course I mean manipulate in it’s original sense, not the malicious one. This is sometimes referred to as <strong>data wrangling</strong> and within the tidyverse, this is a job for the <code>dplyr</code> package (short for data plyer, the tool you see in the logo).</p>
-<p>dplyr provides functions for various operations on our data. Theses functions are sometimes also called <strong>dplyr verbs</strong>. All of them take a <code>tibble</code> or <code>data.frame</code> as input (plus additional parameters) and always return a <code>tibble</code>.</p>
 <aside>
 <p><a href="https://dplyr.tidyverse.org/"></p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1775,6 +1770,8 @@ Figure 1: Figure from <span class="citation" data-cites="wickhamDataScienceImpor
 </div>
 </a>
 </aside>
+<p>There a are a number of ways in which we can manipulate data. Of course I mean manipulate in it’s original sense, not the malicious one. This is sometimes referred to as <strong>data wrangling</strong> and within the tidyverse, this is a job for the <code>dplyr</code> package (short for data plyer, the tool you see in the logo).</p>
+<p>dplyr provides functions for various operations on our data. Theses functions are sometimes also called <strong>dplyr verbs</strong>. All of them take a <code>tibble</code> or <code>data.frame</code> as input (plus additional parameters) and always return a <code>tibble</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:dplyr-cute"></span>
 <img src="img/dplyr_wrangling.png" alt="[@ArtworkAllisonHorst]" width="956" class=external />
@@ -1878,7 +1875,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst">(“Artwork by
 11 New Zealand Oceania    2002    79.1 3908037    23190.
 12 New Zealand Oceania    2007    80.2 4115771    25185.</code></pre>
 </div>
-<h2 id="mutate">mutate</h2>
+<h3 id="mutate">mutate</h3>
 <p>We are back at manipulating columns, this time by creating new ones or changing old ones. The <code>dplyr</code> verb that does that is called <code>muate</code>. For example, we might want to calculate the total GDP from the GDP per Capita and the population:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2035,7 +2032,7 @@ R is not whitespace sensitive (like python). That means indentation doesn’t ch
 1     1     2 z2   
 2    13     3 z3   </code></pre>
 </div>
-<h2 id="the-pipe">The pipe <code>%&gt;%</code></h2>
+<h3 id="the-pipe">The pipe <code>%&gt;%</code></h3>
 <p>The tidyverse functions are easier to compose (i.e. chain together). To facilitate this, we introduce another operator, a bit like <code>+</code> for numbers or the <code>+</code> to add ggplot components, but specially for functions. The pipe, which you can either type or insert in RStudio with <strong>Ctrl+Shift+M</strong>, takes it’s left side and passes it as the first argument to the function on the right side:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2079,7 +2076,7 @@ R is not whitespace sensitive (like python). That means indentation doesn’t ch
 <p>Note:<br />
 The base-R and the tidyverse way are not mutually exclusive. Sometimes you can mix and match.</p>
 </blockquote>
-<h2 id="arrange">arrange</h2>
+<h3 id="arrange">arrange</h3>
 <p>A simple thing you might want from a table is to sort it based on some column. This is what <code>arrange</code> does:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2147,7 +2144,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 10 Afghanistan  1997   22227415
 # … with 1,694 more rows</code></pre>
 </div>
-<h2 id="summarise">summarise</h2>
+<h3 id="summarise">summarise</h3>
 <p>To condense one or multiple columns into summary values, we use <code>summarise</code>: Like with mutate, we can calculate multiple things in one step.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2165,7 +2162,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 1      2007   29601212.   52784691.</code></pre>
 </div>
 <p>But condensing whole columns into one value, flattening the tibble in the style of Super Mario jumping on mushrooms, is often not what we need. We would rather know the summaries within certain groups. For example the maximal gdp <strong>per country</strong>. This is what <code>group_by</code> is for.</p>
-<h2 id="group_by">group_by</h2>
+<h3 id="group_by">group_by</h3>
 <p><code>group_by</code> is considered an adverb, because it doesn’t change the data itself but it changes how subsequent functions handle the data. For example, if a tibble has groups, all summaries are calculated within these groups:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2383,27 +2380,124 @@ Levels: parrot cat dog bear</code></pre>
 </div>
 </a>
 </aside>
+<p>For example, the <code>fct_relevel</code> function, which keeps all levels but let’s us change the order:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>animals</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>animals</span><span class='op'>)</span>
+<span class='fu'>fct_relevel</span><span class='op'>(</span><span class='va'>animals</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"parrot"</span>, <span class='st'>"dog"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] cat         dog         parrot      whale shark bear       
+Levels: parrot dog bear cat whale shark</code></pre>
+</div>
+<p>Using this in action, we get:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>plt</span> <span class='op'>&lt;-</span> <span class='va'>gapminder</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>continent <span class='op'>=</span> <span class='fu'>fct_relevel</span><span class='op'>(</span><span class='va'>continent</span>, <span class='st'>"Europe"</span>, <span class='st'>"Oceania"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>lifeExp</span>, group <span class='op'>=</span> <span class='va'>country</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>0.3</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span> <span class='va'>continent</span><span class='op'>)</span>
+
+<span class='va'>plt</span>
+</code></pre>
+</div>
+<p><img src="lecture2_files/figure-html5/unnamed-chunk-48-1.png" width="624" /></p>
+</div>
+<p>I saved the plot to a variable called <code>plt</code> because we need it later. Let’s make this plot a bit prettier by adding color! The <code>gapminder</code> package that provided this dataset also included a nice color palette. I included it as a <code>.csv</code> file in the <code>data/</code> folder so that we can practice importing data once more. But you could also take the shortcut of getting it straight from the package (<code>gapminder::country_colors</code>). Here, we are using the <code>head</code> function to look at the first couple of rows of the tibble and to look at the first couple of elements of the named vector from the package.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>country_colors</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"data/country_colors.csv"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>country_colors</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 2
+  country          color  
+  &lt;chr&gt;            &lt;chr&gt;  
+1 Nigeria          #7F3B08
+2 Egypt            #833D07
+3 Ethiopia         #873F07
+4 Congo, Dem. Rep. #8B4107
+5 South Africa     #8F4407
+6 Sudan            #934607</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'>gapminder</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/gapminder/man/country_colors.html'>country_colors</a></span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>         Nigeria            Egypt         Ethiopia Congo, Dem. Rep. 
+       &quot;#7F3B08&quot;        &quot;#833D07&quot;        &quot;#873F07&quot;        &quot;#8B4107&quot; 
+    South Africa            Sudan 
+       &quot;#8F4407&quot;        &quot;#934607&quot; </code></pre>
+</div>
+<p>Notice, that the csv that we read in translates to a tibble with two columns, namely <code>country</code> and <code>color</code>. But what we need for ggplot to assign colors to the countries is what the gapminder package provides: a names vector. The names are the countries and the values so called hexadecimal (short Hex) color codes (<a href="https://www.w3schools.com/colors/colors_hexadecimal.asp" class="uri">https://www.w3schools.com/colors/colors_hexadecimal.asp</a>). So what we want to do is translate the tibble into a named vector:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>country_colors</span> <span class='op'>&lt;-</span> <span class='va'>country_colors</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'>set_names</span><span class='op'>(</span><span class='va'>color</span>, <span class='va'>country</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>pull</span><span class='op'>(</span><span class='va'>color</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>country_colors</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>         Nigeria            Egypt         Ethiopia Congo, Dem. Rep. 
+       &quot;#7F3B08&quot;        &quot;#833D07&quot;        &quot;#873F07&quot;        &quot;#8B4107&quot; 
+    South Africa            Sudan 
+       &quot;#8F4407&quot;        &quot;#934607&quot; </code></pre>
+</div>
+<p>Two things happened here that are sort of new. <code>set_names</code> is a handy way to take a vector and return a vector with names. It fits better into the tidyverse syntax than the “old” way of assigning to <code>names(x) &lt;- c("new", "names", "vector")</code>. And secondly <code>pull</code> can be though of as a <em>pipeable dollar</em>. It pulls out the column of a tibble or the element of a named list.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>gapminder</span><span class='op'>$</span><span class='va'>year</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 1952 1957 1962 1967 1972 1977</code></pre>
+<div class="sourceCode">
+<pre><code><span class='va'>gapminder</span> <span class='op'>%&gt;%</span> <span class='fu'>pull</span><span class='op'>(</span><span class='va'>year</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 1952 1957 1962 1967 1972 1977</code></pre>
+</div>
+<p>Now, with our color vector ready to go, we can make the plot pretty. Remember the variable we saved our plot to? We can add more ggplot functions to it just like to a regular ggplot. A <code>guide</code> is the generalization of a legend, so we are setting it to <em>none</em> because adding a legend for 142 different colors (/countries) would fill the whole plot.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>plt</span> <span class='op'>+</span>
+  <span class='fu'>aes</span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>country</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_color_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>country_colors</span>, guide <span class='op'>=</span> <span class='fu'>guide_none</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>labs</span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>""</span>,
+       y <span class='op'>=</span> <span class='st'>"Life Expectancy at Birth"</span>,
+       title <span class='op'>=</span> <span class='st'>"Life Expectancy over Time"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="lecture2_files/figure-html5/unnamed-chunk-53-1.png" width="624" /></p>
+</div>
+<p>We also added a theme and modified the axis titles. You might have already notice a number of very pronounced dips in some of the lines. We will investigate this rather bleak reality when we talk about modeling and iteration next week.</p>
+<p>TODO: Might move this to week 3 from here on.</p>
 <h2 id="tidy-data">Tidy data</h2>
+<p>There is one concept which also lends it’s name to the tidyverse that I want to talk about. <strong>Tidy Data</strong> is a way of turning your datasets into a uniform shape. This makes it easier to develop and work with tools because we get a consistent interface. Once you know how to turn any dataset into a tidy dataset, you are on home turf and can express your ideas more fluently in code. Getting there can sometimes be tricky, but I will give you the most important tools. Because…</p>
+<blockquote>
+<p>»Happy families are all alike;<br> every unhappy family is unhappy in its own way.«<br> — Leo Tolstoy</p>
+</blockquote>
+<blockquote>
+<p>»Tidy datasets are all alike,<br> but every messy dataset is messy in its own way.«<br> — Hadley Wickham</p>
+</blockquote>
+<p>So, how can we recognize tidy data?</p>
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:tidy-definition"></span>
-<img src="img/tidy-data-wickham.png" alt="Figure https://r4ds.had.co.nz/tidy-data.html (Wickham and Grolemund 2017)" width="960" class=external />
+<img src="img/tidy-data-wickham.png" alt="Figure from https://r4ds.had.co.nz/tidy-data.html (Wickham and Grolemund 2017)" width="960" class=external />
 <p class="caption">
-Figure 4: Figure <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri">https://r4ds.had.co.nz/tidy-data.html</a> <span class="citation" data-cites="wickhamDataScienceImport2017">(Wickham and Grolemund <a href="#ref-wickhamDataScienceImport2017" role="doc-biblioref">2017</a>)</span>
+Figure 4: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri">https://r4ds.had.co.nz/tidy-data.html</a> <span class="citation" data-cites="wickhamDataScienceImport2017">(Wickham and Grolemund <a href="#ref-wickhamDataScienceImport2017" role="doc-biblioref">2017</a>)</span>
 </p>
 </div>
 </div>
-<blockquote>
-<p>»Happy families are all alike; every unhappy family is unhappy in its own way.« — Leo Tolstoy</p>
-</blockquote>
-<blockquote>
-<p>»Tidy datasets are all alike, but every messy dataset is messy in its own way.« — Hadley Wickham</p>
-</blockquote>
-<p>todo why tidy data?</p>
+<p>In tidy data, each variable (feature) forms it’s own column. Each observation forms a row. And each cell is a single value (measurement).</p>
+<p>The <code>tidyr</code> package contained in the tidyverse provides small example datasets to demonstrate what this means in practice. Hadley Wickham and Garrett Grolemund use these in their book as well (<a href="https://r4ds.had.co.nz/tidy-data.html" class="uri">https://r4ds.had.co.nz/tidy-data.html</a>)<span class="citation" data-cites="wickhamDataScienceImport2017">(Wickham and Grolemund <a href="#ref-wickhamDataScienceImport2017" role="doc-biblioref">2017</a>)</span>.</p>
 <h3 id="making-data-tidy">Making Data Tidy</h3>
 <p>with the <code>tidyr</code> package.</p>
-<h3 id="data-that-is-better-in-another-format">Data that is better in another Format</h3>
-<p>e.g. matrices todo explain matrix, show matrix maths, briefly touch on arrays</p>
+<p>TODO: not mentioned: data that is better in another format, matrices, matrix math, arrays</p>
 <h1 id="exercises">Exercises</h1>
 <ul>
 <li>The file <code>exercise1.txt</code> is in an unfamiliar format. Find out how it is structured and read it as a tibble.</li>
@@ -2411,7 +2505,7 @@ Figure 4: Figure <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri">htt
 </ul>
 <h1 id="solutions">Solutions</h1>
 <h1 id="resources">Resources</h1>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div id="refs" class="references hanging-indent" role="doc-bibliography">
 <div id="ref-ArtworkAllisonHorst">
 <p>“Artwork by @Allison_horst.” 2020. https://github.com/allisonhorst/stats-illustrations.</p>

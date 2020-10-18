@@ -924,7 +924,8 @@ plt +
   scale_color_manual(values = country_colors, guide = guide_none()) +
   theme_minimal() + 
   labs(x = "",
-       y = "Life Expectancy at Birth")
+       y = "Life Expectancy at Birth",
+       title = "Life Expectancy over Time")
 ```
 
 We also added a theme and modified the axis titles.
@@ -937,21 +938,45 @@ TODO: Might move this to week 3 from here on.
 
 ## Tidy data
 
+There is one concept which also
+lends it's name to the tidyverse
+that I want to talk about.
+**Tidy Data** is a way of turning
+your datasets into a uniform shape.
+This makes it easier to develop and work with tools because we get a
+consistent interface.
+Once you know how to turn any
+dataset into a tidy dataset,
+you are on home turf and can
+express your ideas more fluently in code.
+Getting there can sometimes be tricky, but I will give you the most important tools.
+Because...
+
+
+> »Happy families are all alike;<br>
+  every unhappy family is unhappy in its own way.«<br>
+  — Leo Tolstoy
+
+> »Tidy datasets are all alike,<br>
+  but every messy dataset is messy in its own way.«<br>
+   — Hadley Wickham
+
+So, how can we recognize tidy data?
+
 (ref:tidy) Figure from https://r4ds.had.co.nz/tidy-data.html [@wickhamDataScienceImport2017] 
 
 ```{r tidy-definition, fig.cap="(ref:tidy)", out.extra="class=external", echo=FALSE}
 include_graphics("img/tidy-data-wickham.png")
 ```
 
-> »Happy families are all alike;
-  every unhappy family is unhappy in its own way.«
-  --- Leo Tolstoy
+In tidy data, each variable (feature)
+forms it's own column.
+Each observation forms a row.
+And each cell is a single value (measurement).
 
-> »Tidy datasets are all alike,
-  but every messy dataset is messy in its own way.«
-  --- Hadley Wickham
+The `tidyr` package contained in the tidyverse provides small example datasets to demonstrate what this means in practice. Hadley Wickham and Garrett Grolemund use these in their book as well (https://r4ds.had.co.nz/tidy-data.html)[@wickhamDataScienceImport2017].
 
-todo why tidy data?
+
 
 ### Making Data Tidy
 

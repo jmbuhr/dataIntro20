@@ -28,18 +28,45 @@ knitr::opts_chunk$set(
 
 Watch today's video here:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AgpWX18dby4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AgpWX18dby4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
 
 # Slides
 
-Hover over the slides and press **f** for full screen.
-Press **?** for a list of keyboard shortcuts.
+Hover over the slides and press **f** for full screen. Press **?** for a list of keyboard shortcuts.
 
 ```{r}
-knitr::include_url("slides2.html")
+knitr::include_url("slides3.html")
 ```
 
 # Script
+
+## Tidy data
+
+There is one concept which also lends it's name to the tidyverse that I want to talk about. **Tidy Data** is a way of turning your datasets into a uniform shape. This makes it easier to develop and work with tools because we get a consistent interface. Once you know how to turn any dataset into a tidy dataset, you are on home turf and can express your ideas more fluently in code. Getting there can sometimes be tricky, but I will give you the most important tools. Because...
+
+> »Happy families are all alike;<br> every unhappy family is unhappy in its own way.«<br> --- Leo Tolstoy
+
+> »Tidy datasets are all alike,<br> but every messy dataset is messy in its own way.«<br> --- Hadley Wickham
+
+So, how can we recognize tidy data?
+
+(ref:tidy) Figure from <https://r4ds.had.co.nz/tidy-data.html> [@wickhamDataScienceImport2017]
+
+```{r tidy-definition, fig.cap="(ref:tidy)", out.extra="class=external", echo=FALSE}
+include_graphics("img/tidy-data-wickham.png")
+```
+
+In tidy data, each variable (feature) forms it's own column. Each observation forms a row. And each cell is a single value (measurement).
+
+The `tidyr` package contained in the tidyverse provides small example datasets to demonstrate what this means in practice. Hadley Wickham and Garrett Grolemund use these in their book as well (<https://r4ds.had.co.nz/tidy-data.html>)[@wickhamDataScienceImport2017].
+
+### Making Data Tidy
+
+with the `tidyr` package.
+
+TODO: not mentioned: data that is better in another format, matrices, matrix math, arrays
 
 ## Iteration
 
@@ -59,11 +86,9 @@ combinded_data <- my_data %>%
   bind_rows(.id = "continent")
 ```
 
-
 ```{r}
 gapminder <- map_dfr(paths, read_csv, .id = "continent")
 ```
-
 
 ```{r}
 results <- vector("list", length(paths))
@@ -76,7 +101,6 @@ for (i in 1:length(paths)) {
 dataset <- bind_rows(results)
 dataset
 ```
-
 
 # Exercises
 

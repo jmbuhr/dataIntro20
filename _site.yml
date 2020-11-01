@@ -26,6 +26,7 @@ creative_commons: CC BY
 output:
   distill::distill_article:
     theme: theme.css
-    css: styles.css
     toc: true
+    toc_depth: 3
+    toc_float: true
     highlight: rstudio

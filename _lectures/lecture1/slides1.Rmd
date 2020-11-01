@@ -67,7 +67,7 @@ htmltools::withTags(
 penguins <- palmerpenguins::penguins
 ```
 
-.absolute.bottom-0.right-1.mid-gray[
+.left-1.mid-gray[
 With Artwork by @allison_horst
 ]
 
@@ -109,15 +109,16 @@ ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
 
 ---
 
-## whoami 
+## whoami
 
 .profile[
 
-<img src="https://jmbuhr.de/authors/jannik/avatar_hu025880598027fd69dc9686095ad1784e_425141_270x270_fill_lanczos_center_2.png" class="profile-circle">
+<img src="img/profile.png" class="profile-circle">
 
 Biochemist / Bioinformatician
 
 .f2[
+[`r icon::fa("home")`](https://jmbuhr.de/)
 [`r icon::fa("envelope")`](https://jmbuhr.de/#contact)
 [`r icon::fa("twitter")`](https://twitter.com/JannikBuhr)
 [`r icon::fa("github")`](https://github.com/jmbuhr)

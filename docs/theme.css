@@ -74,3 +74,9 @@ d-appendix {
   --hover-color:      white;
   --bkgd-color:       #002ab5;
 }
+
+/*-- code wrap
+pre code {
+  white-space: pre-wrap;
+}
+--*/

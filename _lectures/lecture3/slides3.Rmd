@@ -70,9 +70,31 @@ htmltools::withTags(
 With Artwork by @allison_horst
 ]
 
+
+---
+class: center, middle 
+
+## Tidy Data with `tidyr`
+
+<a href="https://tidyr.tidyverse.org/">
+```{r tidyr-logo, echo=FALSE, out.extra='class=external'}
+include_graphics("img/tidyr.png")
+```
+</a>
+
 ---
 
-class: inverse center middle
+## Tidy Data
 
-# Introduction
+> »Happy families are all alike;<br>
+  every unhappy family is unhappy in its own way.«<br>
+  — Leo Tolstoy
+
+--
+
+<br>
+
+> »Tidy datasets are all alike,<br>
+  but every messy dataset is messy in its own way.«<br>
+  — Hadley Wickham
 

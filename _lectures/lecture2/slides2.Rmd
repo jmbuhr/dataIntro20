@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Data Analysis with R"
-subtitle: "Lecture 2: Getting Started"
+subtitle: "Lecture 2: Wrangling Data"
 institute: "Heidelberg University, WS20/21"
 author: 
   - "Jannik Buhr"
@@ -36,7 +36,6 @@ include_graphics("https://raw.githubusercontent.com/jmbuhr/dataIntro20/master/im
 ```
 ]
 
-
 ---
 
 name: title
@@ -66,7 +65,7 @@ htmltools::withTags(
 )
 ```
 
-.absolute.bottom-0.right-1.mid-gray[
+.left-1.mid-gray[
 With Artwork by @allison_horst
 ]
 
@@ -75,7 +74,7 @@ With Artwork by @allison_horst
 ## A Data Analysis Workflow
 
 .center.mt6[
-```{r workflow-graphic, out.width='70%'}
+```{r workflow-graphic, out.width='50%'}
 include_graphics("img/workflow-wickham.png")
 ```
 ]
@@ -124,31 +123,4 @@ background-size: contain
 ---
 background-image: url(img/dplyr_filter.jpg)
 background-size: cover
-
----
-class: center, middle 
-
-## Tidy Data with `tidyr`
-
-<a href="https://tidyr.tidyverse.org/">
-```{r tidyr-logo, echo=FALSE, out.extra='class=external'}
-include_graphics("img/tidyr.png")
-```
-</a>
-
----
-
-## Tidy Data
-
-> »Happy families are all alike;<br>
-  every unhappy family is unhappy in its own way.«<br>
-  — Leo Tolstoy
-
---
-
-<br>
-
-> »Tidy datasets are all alike,<br>
-  but every messy dataset is messy in its own way.«<br>
-  — Hadley Wickham
 

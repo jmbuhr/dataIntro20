@@ -14,13 +14,17 @@
     <generator>Distill</generator>
     <lastBuildDate>Mon, 02 Nov 2020 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Coming Soon: Lecture 1</title>
+      <title>Lecture 1</title>
       <dc:creator>Jannik Buhr</dc:creator>
-      <link>https://jmbuhr.de/dataIntro20/lectures/example_lecture</link>
-      <description>Getting started!</description>
+      <link>https://jmbuhr.de/dataIntro20/lectures/lecture1</link>
+      <description>... in which we get started with R and RStudio,
+explore the basic structures and operations of R
+and build our first plot by discovering a Grammar
+of Graphics.</description>
       <category>lecture</category>
-      <guid>https://jmbuhr.de/dataIntro20/lectures/example_lecture</guid>
+      <guid>https://jmbuhr.de/dataIntro20/lectures/lecture1</guid>
       <pubDate>Mon, 02 Nov 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture1/lecture1_files/figure-html5/final-penguin-plot-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
   </channel>
 </rss>

@@ -468,22 +468,19 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
     return offset ? offset + '/' + url : url;
   }
 
-  function createIndex() {
-    var options = {
-      keys: [
-        "title",
-        "categories",
-        "description",
-        "contents"
-      ]
-    };
-    return new window.Fuse([],options);
-  }
-
   function createFuseIndex() {
 
     // create fuse index
-    var options = { keys: ["title", "description", "contents"] };
+    var options = {
+      keys: [
+        { name: 'title', weight: 20 },
+        { name: 'categories', weight: 15 },
+        { name: 'description', weight: 10 },
+        { name: 'contents', weight: 5 },
+      ],
+      ignoreLocation: true,
+      threshold: 0
+    };
     var fuse = new window.Fuse([], options);
 
     // fetch the main search.json
@@ -551,12 +548,6 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
               shouldSort: true,
               minMatchCharLength: 2,
               limit: 10,
-              keys: [
-                { name: 'title', weight: 20 },
-                { name: 'categories', weight: 15 },
-                { name: 'description', weight: 10 },
-                { name: 'contents', weight: 5 },
-              ],
             };
             var results = fuse.search(query, searchOptions);
             callback(results
@@ -854,7 +845,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   d-article pre,
   d-article div.sourceCode,
   d-article div.sourceCode pre {
-    overflow: hidden;
+    overflow: auto;
   }
 
   d-article div.sourceCode {
@@ -2146,7 +2137,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
     --text-size:        15px;
     --hover-color:      white;
     --bkgd-color:       #002ab5;
-  }</style>
+  }
+
+  /*-- code wrap
+  pre code {
+    white-space: pre-wrap;
+  }
+  --*/</style>
   <style type="text/css">
   /* base style */
 
@@ -2293,22 +2290,15 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   	color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.4.6/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.5.3/header-attrs.js"></script>
   <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
   <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
-  <style type="text/css">
-  pre code {
-    white-space: pre-wrap;
-  }
-
-  </style>
   <!--/radix_placeholder_site_in_header-->
 
-  <link rel="stylesheet" href="styles.css" type="text/css"/>
 
 </head>
 
@@ -2479,7 +2469,7 @@ function init_posts_list() {
 <div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
 <div class="posts-list">
 <h1 class="posts-list-caption" data-caption="Lectures">Lectures</h1>
-<a href="lectures/example_lecture/" class="post-preview">
+<a href="lectures/lecture1/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":["lecture"]}</script>
 <div class="metadata">
 <div class="publishedDate">Nov. 2, 2020</div>
@@ -2488,14 +2478,17 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img/>
+<img src="lectures/lecture1/lecture1_files/figure-html5/final-penguin-plot-1.png"/>
 </div>
 <div class="description">
-<h2>Coming Soon: Lecture 1</h2>
+<h2>Lecture 1</h2>
 <div class="dt-tags">
 <div class="dt-tag">lecture</div>
 </div>
-<p>Getting started!</p>
+<p>... in which we get started with R and RStudio,
+explore the basic structures and operations of R
+and build our first plot by discovering a Grammar
+of Graphics.</p>
 </div>
 </a>
 </div>

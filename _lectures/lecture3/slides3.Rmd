@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Data Analysis with R"
-subtitle: "Lecture 3: Getting Started"
+subtitle: "Lecture 3: Tidy Data and Iteration"
 institute: "Heidelberg University, WS20/21"
 author: 
   - "Jannik Buhr"
@@ -35,7 +35,6 @@ layout: true
 include_graphics("https://raw.githubusercontent.com/jmbuhr/dataIntro20/master/images/hex.png")
 ```
 ]
-
 
 ---
 

@@ -1,7 +1,9 @@
 ---
 title: "Lecture 3"
 description: |
-  TODO
+  ... in which we explore the concept of Tidy Data, discover powerfull
+  tools from functional programming to automate tedious tasks and fit
+  out first linear models.
 draft: true
 author:
   - name: Jannik Buhr 
@@ -17,6 +19,7 @@ bibliography: ["../../references.bib"]
 ---
 
 ```{r setup, include=FALSE}
+library(knitr)
 knitr::opts_chunk$set(
   echo = TRUE,
   message = FALSE,
@@ -28,9 +31,7 @@ knitr::opts_chunk$set(
 
 Watch today's video here:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AgpWX18dby4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-
-</iframe>
+<iframe height="400" src="https://www.youtube.com/embed/teusAoZ0IxI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # Slides
 
@@ -51,6 +52,40 @@ There is one concept which also lends it's name to the tidyverse that I want to 
 > »Tidy datasets are all alike,<br> but every messy dataset is messy in its own way.«<br> --- Hadley Wickham
 
 So, how can we recognize tidy data?
+
+Before I give you the definition, we can look at some example
+tibbles that are included with the `tidyr` package (in the tidyverse).
+table1, table2, table3, table4a, table4b,
+and table5 all display the number of TB cases documented by
+the World Health Organization in Afghanistan, Brazil,
+and China between 1999 and 2000.
+One of theses is in the tidy format, the others are not:
+
+```{r}
+library(tidyverse)
+
+# The kable function from the knitr package prints the tables
+# for the rmarkdown output format
+kable(table1)
+```
+
+
+```{r}
+kable(table2)
+```
+
+```{r}
+kable(table3)
+```
+
+```{r}
+kable(table4a)
+```
+
+```{r}
+kable(table4b)
+```
+
 
 (ref:tidy) Figure from <https://r4ds.had.co.nz/tidy-data.html> [@wickhamDataScienceImport2017]
 
@@ -73,8 +108,6 @@ TODO: not mentioned: data that is better in another format, matrices, matrix mat
 ### Reading in Multiple Files
 
 ```{r}
-library(tidyverse)
-
 read_csv("data/Africa.csv")
 
 paths <- dir("data", full.names = TRUE)
@@ -101,6 +134,40 @@ for (i in 1:length(paths)) {
 dataset <- bind_rows(results)
 dataset
 ```
+
+
+## TODO
+
+- tidy data
+    - definition
+    - table1 to table4
+    - advantages
+        - uniformity, learning tools
+        - vectorisation
+    - reasons for untidy data
+        - data entry
+    - [https://tidyr.tidyverse.org/](https://tidyr.tidyverse.org/)
+    - `billboard` data
+- iteration
+    - usecase 1: reading multiple files
+        - split gapminder set
+    - the tidy way
+    - imperative vs functional programming style
+    - the imperative way: for loops
+    - "Of course someone has to write for-loops.
+    It doesn't have to be you."
+    --- Jenny Bryan
+- Advanced `dplyr`
+    - `across`
+- pure functions and safer code
+    - demonstrate global state and problems
+    - define a side effect, show pure functions
+    - benefits of pure functions and debugging
+- linear models
+    - a single linar model
+    - many models
+- summary statistics (gapminder)
+
 
 # Exercises
 

@@ -257,6 +257,13 @@
       "Repository": "CRAN",
       "Hash": "eca6214674f3c1ed7add92a28e26f8ba"
     },
+    "diffobj": {
+      "Package": "diffobj",
+      "Version": "0.3.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "16533929cf545f3c9b796780cccf5eff"
+    },
     "digest": {
       "Package": "digest",
       "Version": "0.6.27",
@@ -272,9 +279,9 @@
       "RemoteUsername": "rstudio",
       "RemoteRepo": "distill",
       "RemoteRef": "master",
-      "RemoteSha": "a9675b4e121eaf9f854447f6111248fb68dd520b",
+      "RemoteSha": "cdcbd56977aa39a69cb3bc670ecfd39b8bb6bfc0",
       "RemoteHost": "api.github.com",
-      "Hash": "ec234b4b4e4525120b98a5f636972b1f"
+      "Hash": "40a01bd5d952bf64f99fa2a8086d47b7"
     },
     "downlit": {
       "Package": "downlit",
@@ -374,10 +381,10 @@
     },
     "generics": {
       "Package": "generics",
-      "Version": "0.0.2",
+      "Version": "0.1.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "b8cff1d1391fd1ad8b65877f4c7f2e53"
+      "Hash": "4d243a9c10b00589889fe32314ffd902"
     },
     "gganimate": {
       "Package": "gganimate",
@@ -898,6 +905,13 @@
       "Repository": "CRAN",
       "Hash": "c66b930d20bb6d858cd18e1cebcfae5c"
     },
+    "rematch2": {
+      "Package": "rematch2",
+      "Version": "2.1.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "76c9e04c712a05848ae7a23d2f170a40"
+    },
     "renv": {
       "Package": "renv",
       "Version": "0.12.0",
@@ -927,9 +941,9 @@
       "RemoteUsername": "rstudio",
       "RemoteRepo": "rmarkdown",
       "RemoteRef": "master",
-      "RemoteSha": "2787b5038c1080fe4dbfabcf73f76277d86df8e0",
+      "RemoteSha": "62d9b6bcf0039b0f3c6001e33be5d07e3b1523d1",
       "RemoteHost": "api.github.com",
-      "Hash": "e162beb45881babca9ada29965a43cd0"
+      "Hash": "a77d825c8c4a243cc0d6af12075f2b5f"
     },
     "rpart": {
       "Package": "rpart",
@@ -1076,10 +1090,10 @@
     },
     "testthat": {
       "Package": "testthat",
-      "Version": "2.3.2",
+      "Version": "3.0.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "0829b987b8961fb07f3b1b64a2fbc495"
+      "Hash": "13298cedd051cb7b8a8972d380b559a6"
     },
     "tibble": {
       "Package": "tibble",
@@ -1125,10 +1139,10 @@
     },
     "tinytex": {
       "Package": "tinytex",
-      "Version": "0.26",
+      "Version": "0.27",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "db6477efcfbffcd9b3758c3c2882cf58"
+      "Hash": "264b4a31d35bb6833566a7763356ab63"
     },
     "tune": {
       "Package": "tune",
@@ -1171,6 +1185,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "ce4f6271baa94776db692f1cb2055bee"
+    },
+    "waldo": {
+      "Package": "waldo",
+      "Version": "0.2.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "6aa53cb78ef07cfcd7bcee7435f1d1f5"
     },
     "warp": {
       "Package": "warp",
@@ -1240,10 +1261,10 @@
     },
     "xfun": {
       "Package": "xfun",
-      "Version": "0.18",
+      "Version": "0.19",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "d1c0b777b432e4b4c039c8aaecc54e0f"
+      "Hash": "a42372606cb76f34da9d090326e9f955"
     },
     "xml2": {
       "Package": "xml2",

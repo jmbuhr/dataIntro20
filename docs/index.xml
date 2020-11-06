@@ -26,5 +26,17 @@ of Graphics.</description>
       <pubDate>Mon, 02 Nov 2020 00:00:00 +0000</pubDate>
       <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture1/lecture1_files/figure-html5/final-penguin-plot-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
+    <item>
+      <title>Lecture 2</title>
+      <dc:creator>Jannik Buhr</dc:creator>
+      <link>https://jmbuhr.de/dataIntro20/lectures/lecture2</link>
+      <description>... in which we explore the typical data analysis workflow
+with the `tidyverse`, wrangle different kinds of data and
+learn about `factors`.</description>
+      <category>lecture</category>
+      <guid>https://jmbuhr.de/dataIntro20/lectures/lecture2</guid>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture2/img/RS_settings.png" medium="image" type="image/png" width="589" height="581"/>
+    </item>
   </channel>
 </rss>

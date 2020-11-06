@@ -4,7 +4,7 @@ description: |
   ... in which we explore the typical data analysis workflow
   with the `tidyverse`, wrangle different kinds of data and
   learn about `factors`.
-draft: true
+draft: false
 author:
   - name: Jannik Buhr 
     url: https://jmbuhr.de
@@ -16,7 +16,6 @@ output:
 categories:
   - lecture
 bibliography: ["../../references.bib"]
----/
 ---
 
 ```{r setup, include=FALSE}
@@ -28,7 +27,8 @@ knitr::opts_chunk$set(
 
 # Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AgpWX18dby4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+<iframe height="400" src="https://www.youtube.com/embed/AZse13oQJxM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
 </iframe>
 
 # Slides
@@ -214,7 +214,15 @@ We can fix this by telling R to skip the first 2 lines entirely:
 read_csv("data/gapminder_messier.csv", skip = 2, n_max = 3)
 ```
 
-I was using the `n_max` argument of the functions above to save space in this lecture script. Now, that we learned about some of the ways in which raw data can be structured, let us go back to the original data that we read in and saved in the variable `gapminder`.
+I was using the `n_max` argument of the functions above to save space in this lecture script.
+
+In the video I forgot to mention that I also included an excel file to practice. We can read it using a function from the `readxl` package. This package is automatically installed with the tidyverse, but it is not loaded along with the other packages via `library(tidyverse)`. We can either load it with `library(readxl)` or refer to a single function from the package without loading the whole thing using double colons (`::`):
+
+```{r, eval=FALSE}
+readxl::read_xlsx("./data/gapminder.xlsx")
+```
+
+Now, that we learned about some of the ways in which raw data can be structured, let us go back to the original data that we read in and saved in the variable `gapminder`.
 
 ```{r gapminder-table, echo=FALSE}
 gapminder %>% 
@@ -374,7 +382,7 @@ At first glance, the tidyverse way of doing the same is only a little bit shorte
 
 ```{r}
 filter(my_data, x < 20)
-```
+``` 
 
 ### The pipe `%>%`
 
@@ -604,12 +612,46 @@ We also added a theme and modified the axis titles. You might have already notic
 
 # Exercises
 
-<!-- TODO -->
-
--   The file `exercise1.txt` is in an unfamiliar format. Find out how it is structured and read it as a tibble.
--   Create a scatterplot of the x and y column with ggplot2.
-
-# Solutions
+- Drink a cup of coffee or tea, relax, because you
+  just worked through quite a long video.
+- Familiarize yourself with the folders on your computer.
+  Make sure you understand, where your directories and files live.
+- From RStudio, create a new RStudio project for this course.
+  - Inside the project folder, create a folder
+    for the data.
+  - Create a new Rmarkdown document at the top level of
+    your project folder for today's exercises, again including
+    questions that came up during the course.
+  - Download the data for today in one of the ways taught.
+    You can refer to the script anytime.
+  - Make sure you have all the important settings set
+    and are feeling right at home in RStudio.
+- The file `./data/exercise1.txt` is in an unfamiliar format.
+  - Find out how it is structured and read it as a tibble.
+  - Create a scatterplot of the x and y column with ggplot2.
+  - Look at the help page for `geom_point`.
+    What is the difference between `geom_point(aes(color = <something>))` and `geom_point(color = <something>)`?
+    A relevant hint is in the section about the `...`-argument.
+  - Make the plot pretty by coloring the points,
+    keeping in mind the above distinction.
+- Read in the `gapminder` dataset with `readr`
+  - Using a combination of `dplyr` verbs and / or
+    visualizations with `ggplot2`,
+    answer the following questions:
+  - Which continent had the highest life expectancy on average
+    in the most current year? There are two options here.
+    First, calculate a simple mean for the countries
+    in each continent. Then, remember that the countries
+    have different population sizes, so we really need
+    a _weighted mean_ using R's function `weighted.mean()`.
+  - Is there a relationship between the GDP per capita and
+    the life expectancy? A visualization might be helpful.
+  - How did the population of the countries change over time?
+    Make the plot more informative by adding color,
+    facets and labels (with `geom_text`). Can you find out,
+    how to add the country name label only to the last year?
+    Hint: Have a look at the `data` argument that all `geom_`-functions
+    have.
 
 # Resources
 

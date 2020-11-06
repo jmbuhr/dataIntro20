@@ -18,10 +18,76 @@
  <!--radix_placeholder_import_source-->
  <!--/radix_placeholder_import_source-->
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #545454; font-weight: bold; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #a1024a; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007faa; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #008000; } /* Char */
+code span.cn { color: #d91e18; } /* Constant */
+code span.co { color: #545454; } /* Comment */
+code span.cv { color: #545454; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #aa5d00; } /* DataType */
+code span.dv { color: #a1024a; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #a1024a; } /* Float */
+code span.fu { color: #4254a7; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #545454; font-weight: bold; } /* Information */
+code span.kw { color: #007faa; font-weight: bold; } /* Keyword */
+code span.op { color: #696969; } /* Operator */
+code span.ot { color: #007faa; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #008000; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #008000; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #008000; } /* VerbatimString */
+code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
   <!--radix_placeholder_meta_tags-->
   <title>Lecture 3</title>
 
-  <meta property="description" itemprop="description" content="TODO"/>
+  <meta property="description" itemprop="description" content="... in which we explore the concept of Tidy Data, discover powerfull&#10;tools from functional programming to automate tedious tasks and fit&#10;out first linear models."/>
 
 
   <!--  https://schema.org/Article -->
@@ -32,25 +98,26 @@
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Lecture 3"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="TODO"/>
+  <meta property="og:description" content="... in which we explore the concept of Tidy Data, discover powerfull&#10;tools from functional programming to automate tedious tasks and fit&#10;out first linear models."/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Lecture 3"/>
-  <meta property="twitter:description" content="TODO"/>
+  <meta property="twitter:description" content="... in which we explore the concept of Tidy Data, discover powerfull&#10;tools from functional programming to automate tedious tasks and fit&#10;out first linear models."/>
 
   <!--/radix_placeholder_meta_tags-->
   
+  <meta name="citation_reference" content="citation_title=R for Data Science: Import, Tidy, Transform, Visualize, and Model Data;citation_publication_date=2017;citation_publisher=O’Reilly Media;citation_author=Hadley Wickham;citation_author=Garrett Grolemund"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","draft","author","date","output","categories","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["Lecture 3"]},{"type":"character","attributes":{},"value":["TODO\n"]},{"type":"logical","attributes":{},"value":[true]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Jannik Buhr"]},{"type":"character","attributes":{},"value":["https://jmbuhr.de"]}]}]},{"type":"character","attributes":{},"value":["11-02-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["lecture"]},{"type":"character","attributes":{},"value":["../../references.bib"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","draft","author","date","output","categories","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["Lecture 3"]},{"type":"character","attributes":{},"value":["... in which we explore the concept of Tidy Data, discover powerfull\ntools from functional programming to automate tedious tasks and fit\nout first linear models.\n"]},{"type":"logical","attributes":{},"value":[true]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Jannik Buhr"]},{"type":"character","attributes":{},"value":["https://jmbuhr.de"]}]}]},{"type":"character","attributes":{},"value":["11-02-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","code_folding","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["lecture"]},{"type":"character","attributes":{},"value":["../../references.bib"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["extra.css","libs/animate.css/animate.xaringan.css","libs/clipboard/clipboard.min.js","libs/editable/editable.css","libs/editable/editable.js","libs/header-attrs/header-attrs.js","libs/himalaya/himalaya.js","libs/himalaya/himalaya.js.map","libs/js-cookie/js.cookie.js","libs/tachyons/tachyons.min.css","libs/tile-view/tile-view.css","libs/tile-view/tile-view.js","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js","xaringan-themer.css"]}
+  {"type":"character","attributes":{},"value":["data/Africa.csv","data/Americas.csv","data/Asia.csv","data/Europe.csv","data/Oceania.csv","extra.css","img/tidy-data-wickham.png","img/tidyr.png","lecture3_files/anchor-4.2.2/anchor.min.js","lecture3_files/bowser-1.9.3/bowser.min.js","lecture3_files/distill-2.2.21/template.v2.js","lecture3_files/header-attrs-2.3/header-attrs.js","lecture3_files/header-attrs-2.5.3/header-attrs.js","lecture3_files/jquery-1.11.3/jquery.min.js","lecture3_files/webcomponents-2.0.0/webcomponents.js","libs/animate.css/animate.xaringan.css","libs/clipboard/clipboard.min.js","libs/editable/editable.css","libs/editable/editable.js","libs/header-attrs/header-attrs.js","libs/himalaya/himalaya.js","libs/himalaya/himalaya.js.map","libs/js-cookie/js.cookie.js","libs/tachyons/tachyons.min.css","libs/tile-view/tile-view.css","libs/tile-view/tile-view.js","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js","R/split_gapminder.R","slides3.html","xaringan-themer.css"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -76,6 +143,51 @@
 
   .pagedtable-footer {
     font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
   }
 
   .html-widget {
@@ -117,6 +229,7 @@
   }
 
   d-article {
+    padding-top: 2.5rem;
     padding-bottom: 30px;
   }
 
@@ -128,91 +241,48 @@
     width: 100%;
   }
 
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
   d-article iframe {
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin-bottom: 2.0em;
     width: 100%;
   }
 
-  figure img.external {
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
-    padding: 18px;
-    box-sizing: border-box;
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 
-  /* CSS for table of contents */
-
-  .d-toc {
-    color: rgba(0,0,0,0.8);
-    font-size: 0.8em;
-    line-height: 1em;
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
   }
 
-  .d-toc-header {
-    font-size: 0.6rem;
-    font-weight: 400;
-    color: rgba(0, 0, 0, 0.5);
-    text-transform: uppercase;
-    margin-top: 0;
-    margin-bottom: 1.3em;
+  d-article div.sourceCode {
+    background-color: white;
   }
 
-  .d-toc a {
-    border-bottom: none;
-  }
-
-  .d-toc ul {
-    padding-left: 0;
-  }
-
-  .d-toc li>ul {
-    padding-top: 0.8em;
-    padding-left: 16px;
-    margin-bottom: 0.6em;
-  }
-
-  .d-toc ul,
-  .d-toc li {
-    list-style-type: none;
-  }
-
-  .d-toc li {
-    margin-bottom: 0.9em;
-  }
-
-  .d-toc-separator {
-    margin-top: 20px;
-    margin-bottom: 2em;
-  }
-
-  .d-article-with-toc {
-    border-top: none;
-    padding-top: 0;
-  }
-
-
-
-  /* Tweak code blocks (note that this CSS is repeated above in an injection
-     into the d-code shadow dom) */
-
-  d-code {
-    overflow-x: auto !important;
-  }
-
-  pre.d-code code.d-code {
+  d-article div.sourceCode pre {
     padding-left: 10px;
     font-size: 12px;
     border-left: 2px solid rgba(0,0,0,0.1);
   }
 
-  pre.text-output {
-
+  d-article pre {
     font-size: 12px;
     color: black;
     background: none;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    margin-top: 0;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
@@ -230,20 +300,123 @@
     hyphens: none;
   }
 
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
   @media(min-width: 768px) {
 
-  d-code {
-    overflow-x: visible !important;
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
   }
 
-  pre.d-code code.d-code  {
-      padding-left: 18px;
-      font-size: 14px;
-  }
-  pre.text-output {
+  d-article div.sourceCode pre {
+    padding-left: 18px;
     font-size: 14px;
   }
+
+  d-article pre {
+    font-size: 14px;
   }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
 
   /* Figure */
 
@@ -366,6 +539,91 @@
     word-wrap: break-word;
   }
 
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
 
   /* Social footer */
 
@@ -420,6 +678,211 @@
 
   .custom p {
     margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
   }
 
 
@@ -551,6 +1014,12 @@
     hyphens: none;
   }
 
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
   </style>
 
   <script type="application/javascript">
@@ -566,6 +1035,13 @@
 
   // show body when load is complete
   function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
 
     // set body to visible
     document.body.style.visibility = 'visible';
@@ -639,34 +1115,13 @@
     });
     $('h3.appendix').each(function(i, val) {
       var id = $(this).attr('id');
-      $('.d-toc a[href="#' + id + '"]').parent().remove();
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
       appendix = true;
       $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
     });
 
     // show d-appendix if we have appendix content
     $("d-appendix").css('display', appendix ? 'grid' : 'none');
-
-    // replace code blocks with d-code
-    $('pre>code').each(function(i, val) {
-      var code = $(this);
-      var pre = code.parent();
-      var clz = "";
-      var language = pre.attr('class');
-      if (language) {
-        // map unknown languages to "clike" (without this they just dissapear)
-        if ($.inArray(language, ["bash", "clike", "css", "go", "html",
-                                 "javascript", "js", "julia", "lua", "markdown",
-                                 "markup", "mathml", "python", "svg", "xml"]) == -1)
-          language = "clike";
-        language = ' language="' + language + '"';
-        var dt_code = $('<d-code block' + language + clz + '></d-code>');
-        dt_code.text(code.text());
-        pre.replaceWith(dt_code);
-      } else {
-        code.addClass('text-output').unwrap().changeElementType('pre');
-      }
-    });
 
     // localize layout chunks to just output
     $('.layout-chunk').each(function(i, val) {
@@ -675,7 +1130,7 @@
       var layout = $(this).attr('data-layout');
 
       // apply layout to markdown level block elements
-      var elements = $(this).children().not('d-code, pre.text-output, script');
+      var elements = $(this).children().not('div.sourceCode, pre, script');
       elements.each(function(i, el) {
         var layout_div = $('<div class="' + layout + '"></div>');
         if (layout_div.hasClass('shaded')) {
@@ -692,6 +1147,13 @@
       $(this).children().unwrap();
     });
 
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
     // load distill framework
     load_distill_framework();
 
@@ -707,12 +1169,26 @@
       if (!have_authors)
         $('d-byline').addClass('hidden');
 
-      // table of contents
-      if (have_authors) // adjust border if we are in authors
-        $('.d-toc').parent().addClass('d-article-with-toc');
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
 
       // strip links that point to #
       $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
 
       // hide elements of author/affiliations grid that have no value
       function hide_byline_column(caption) {
@@ -762,14 +1238,9 @@
         grid.children('h3:contains("Affiliations")').text('Affiliation');
       }
 
-      // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
-      $('d-code').each(function(i, val) {
-        var style = document.createElement('style');
-        style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
-                          '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
-        if (this.shadowRoot)
-          this.shadowRoot.appendChild(style);
-      });
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
 
       // move appendix-bottom entries to the bottom
       $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
@@ -805,9 +1276,7 @@
     $('.d-byline a').remove();
 
     // remove toc
-    $('.d-toc-header').remove();
-    $('.d-toc').remove();
-    $('.d-toc-separator').remove();
+    $('.d-contents').remove();
 
     // move appendix elements
     $('h1.appendix, h2.appendix').each(function(i, val) {
@@ -936,8 +1405,9 @@
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="lecture3_files/header-attrs-2.3/header-attrs.js"></script>
+  <script src="lecture3_files/header-attrs-2.5.3/header-attrs.js"></script>
   <script src="lecture3_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="lecture3_files/anchor-4.2.2/anchor.min.js"></script>
   <script src="lecture3_files/bowser-1.9.3/bowser.min.js"></script>
   <script src="lecture3_files/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="lecture3_files/distill-2.2.21/template.v2.js"></script>
@@ -952,7 +1422,7 @@
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Lecture 3","description":"TODO","authors":[{"author":"Jannik Buhr","authorURL":"https://jmbuhr.de","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-11-02T00:00:00.000+01:00","citationText":"Buhr, 2020"}
+{"title":"Lecture 3","description":"... in which we explore the concept of Tidy Data, discover powerfull\ntools from functional programming to automate tedious tasks and fit\nout first linear models.","authors":[{"author":"Jannik Buhr","authorURL":"https://jmbuhr.de","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-11-02T00:00:00.000+01:00","citationText":"Buhr, 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -963,7 +1433,12 @@
 
 <div class="d-title">
 <h1>Lecture 3</h1>
-<p><p>TODO</p></p>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">lecture</div>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>… in which we explore the concept of Tidy Data, discover powerfull tools from functional programming to automate tedious tasks and fit out first linear models.</p></p>
 </div>
 
 <div class="d-byline">
@@ -973,44 +1448,449 @@
 </div>
 
 <div class="d-article">
-<h3 class="d-toc-header">Table of Contents</h3>
-<nav class="d-toc" id="TOC">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
 <ul>
 <li><a href="#video">Video</a></li>
 <li><a href="#slides">Slides</a></li>
 <li><a href="#script">Script</a>
 <ul>
-<li><a href="#tidy-data">Tidy Data</a></li>
+<li><a href="#tidy-data">Tidy data</a>
+<ul>
+<li><a href="#making-data-tidy">Making Data Tidy</a></li>
+</ul></li>
+<li><a href="#iteration">Iteration</a>
+<ul>
+<li><a href="#reading-in-multiple-files">Reading in Multiple Files</a></li>
+</ul></li>
+<li><a href="#todo">TODO</a></li>
 </ul></li>
 <li><a href="#exercises">Exercises</a></li>
 <li><a href="#solutions">Solutions</a></li>
 <li><a href="#resources">Resources</a></li>
 </ul>
 </nav>
-<hr class="d-toc-separator"/>
+</div>
 <h1 id="video">Video</h1>
 <p>Watch today’s video here:</p>
-<iframe width="1280" height="720" src frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+<iframe height="400" src="https://www.youtube.com/embed/teusAoZ0IxI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 <h1 id="slides">Slides</h1>
 <p>Hover over the slides and press <strong>f</strong> for full screen. Press <strong>?</strong> for a list of keyboard shortcuts.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-knitr::include_url(&quot;slides2.html&quot;)</code></pre>
-<iframe src="slides2.html" width="624" height="400px">
+<div class="sourceCode">
+<pre><code><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/include_url.html'>include_url</a></span><span class='op'>(</span><span class='st'>"slides3.html"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<iframe src="slides3.html" width="624" height="400px">
 </iframe>
 </div>
 <h1 id="script">Script</h1>
-<h2 id="tidy-data">Tidy Data</h2>
+<h2 id="tidy-data">Tidy data</h2>
+<p>There is one concept which also lends it’s name to the tidyverse that I want to talk about. <strong>Tidy Data</strong> is a way of turning your datasets into a uniform shape. This makes it easier to develop and work with tools because we get a consistent interface. Once you know how to turn any dataset into a tidy dataset, you are on home turf and can express your ideas more fluently in code. Getting there can sometimes be tricky, but I will give you the most important tools. Because…</p>
 <blockquote>
-<p>“Happy families are all alike; every unhappy family is unhappy in its own way.” <span class="math inline">\(-\)</span> Leo Tolstoy</p>
+<p>»Happy families are all alike;<br> every unhappy family is unhappy in its own way.«<br> — Leo Tolstoy</p>
 </blockquote>
 <blockquote>
-<p>Tidy datasets are all alike, but every messy dataset is messy in its own way." <span class="math inline">\(-\)</span> Hadley Wickham</p>
+<p>»Tidy datasets are all alike,<br> but every messy dataset is messy in its own way.«<br> — Hadley Wickham</p>
 </blockquote>
+<p>So, how can we recognize tidy data?</p>
+<p>Before I give you the definition, we can look at some example tibbles that are included with the <code>tidyr</code> package (in the tidyverse). table1, table2, table3, table4a, table4b, and table5 all display the number of TB cases documented by the World Health Organization in Afghanistan, Brazil, and China between 1999 and 2000. One of theses is in the tidy format, the others are not:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+
+<span class='co'># The kable function from the knitr package prints the tables</span>
+<span class='co'># for the rmarkdown output format</span>
+<span class='fu'>kable</span><span class='op'>(</span><span class='va'>table1</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">country</th>
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">cases</th>
+<th style="text-align: right;">population</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: right;">1999</td>
+<td style="text-align: right;">745</td>
+<td style="text-align: right;">19987071</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">2666</td>
+<td style="text-align: right;">20595360</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brazil</td>
+<td style="text-align: right;">1999</td>
+<td style="text-align: right;">37737</td>
+<td style="text-align: right;">172006362</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brazil</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">80488</td>
+<td style="text-align: right;">174504898</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">China</td>
+<td style="text-align: right;">1999</td>
+<td style="text-align: right;">212258</td>
+<td style="text-align: right;">1272915272</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">China</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">213766</td>
+<td style="text-align: right;">1280428583</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>kable</span><span class='op'>(</span><span class='va'>table2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">country</th>
+<th style="text-align: right;">year</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: right;">1999</td>
+<td style="text-align: left;">cases</td>
+<td style="text-align: right;">745</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: right;">1999</td>
+<td style="text-align: left;">population</td>
+<td style="text-align: right;">19987071</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: left;">cases</td>
+<td style="text-align: right;">2666</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: left;">population</td>
+<td style="text-align: right;">20595360</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brazil</td>
+<td style="text-align: right;">1999</td>
+<td style="text-align: left;">cases</td>
+<td style="text-align: right;">37737</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brazil</td>
+<td style="text-align: right;">1999</td>
+<td style="text-align: left;">population</td>
+<td style="text-align: right;">172006362</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brazil</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: left;">cases</td>
+<td style="text-align: right;">80488</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brazil</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: left;">population</td>
+<td style="text-align: right;">174504898</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">China</td>
+<td style="text-align: right;">1999</td>
+<td style="text-align: left;">cases</td>
+<td style="text-align: right;">212258</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">China</td>
+<td style="text-align: right;">1999</td>
+<td style="text-align: left;">population</td>
+<td style="text-align: right;">1272915272</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">China</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: left;">cases</td>
+<td style="text-align: right;">213766</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">China</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: left;">population</td>
+<td style="text-align: right;">1280428583</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>kable</span><span class='op'>(</span><span class='va'>table3</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">country</th>
+<th style="text-align: right;">year</th>
+<th style="text-align: left;">rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: right;">1999</td>
+<td style="text-align: left;">745/19987071</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: left;">2666/20595360</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brazil</td>
+<td style="text-align: right;">1999</td>
+<td style="text-align: left;">37737/172006362</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brazil</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: left;">80488/174504898</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">China</td>
+<td style="text-align: right;">1999</td>
+<td style="text-align: left;">212258/1272915272</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">China</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: left;">213766/1280428583</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>kable</span><span class='op'>(</span><span class='va'>table4a</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">country</th>
+<th style="text-align: right;">1999</th>
+<th style="text-align: right;">2000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: right;">745</td>
+<td style="text-align: right;">2666</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brazil</td>
+<td style="text-align: right;">37737</td>
+<td style="text-align: right;">80488</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">China</td>
+<td style="text-align: right;">212258</td>
+<td style="text-align: right;">213766</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>kable</span><span class='op'>(</span><span class='va'>table4b</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">country</th>
+<th style="text-align: right;">1999</th>
+<th style="text-align: right;">2000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: right;">19987071</td>
+<td style="text-align: right;">20595360</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brazil</td>
+<td style="text-align: right;">172006362</td>
+<td style="text-align: right;">174504898</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">China</td>
+<td style="text-align: right;">1272915272</td>
+<td style="text-align: right;">1280428583</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span id="fig:tidy-definition"></span>
+<img src="img/tidy-data-wickham.png" alt="Figure from https://r4ds.had.co.nz/tidy-data.html (Wickham and Grolemund 2017)" width="960" class=external />
+<p class="caption">
+Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri">https://r4ds.had.co.nz/tidy-data.html</a> <span class="citation" data-cites="wickhamDataScienceImport2017">(<a href="#ref-wickhamDataScienceImport2017" role="doc-biblioref">Wickham and Grolemund 2017</a>)</span>
+</p>
+</div>
+</div>
+<p>In tidy data, each variable (feature) forms it’s own column. Each observation forms a row. And each cell is a single value (measurement).</p>
+<p>The <code>tidyr</code> package contained in the tidyverse provides small example datasets to demonstrate what this means in practice. Hadley Wickham and Garrett Grolemund use these in their book as well (<a href="https://r4ds.had.co.nz/tidy-data.html" class="uri">https://r4ds.had.co.nz/tidy-data.html</a>)<span class="citation" data-cites="wickhamDataScienceImport2017">(<a href="#ref-wickhamDataScienceImport2017" role="doc-biblioref">Wickham and Grolemund 2017</a>)</span>.</p>
+<h3 id="making-data-tidy">Making Data Tidy</h3>
+<p>with the <code>tidyr</code> package.</p>
+<p>TODO: not mentioned: data that is better in another format, matrices, matrix math, arrays</p>
+<h2 id="iteration">Iteration</h2>
+<h3 id="reading-in-multiple-files">Reading in Multiple Files</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"data/Africa.csv"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 624 x 5
+   country  year lifeExp      pop gdpPercap
+   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Algeria  1952    43.1  9279525     2449.
+ 2 Algeria  1957    45.7 10270856     3014.
+ 3 Algeria  1962    48.3 11000948     2551.
+ 4 Algeria  1967    51.4 12760499     3247.
+ 5 Algeria  1972    54.5 14760787     4183.
+ 6 Algeria  1977    58.0 17152804     4910.
+ 7 Algeria  1982    61.4 20033753     5745.
+ 8 Algeria  1987    65.8 23254956     5681.
+ 9 Algeria  1992    67.7 26298373     5023.
+10 Algeria  1997    69.2 29072015     4797.
+# … with 614 more rows</code></pre>
+<div class="sourceCode">
+<pre><code><span class='va'>paths</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span><span class='op'>(</span><span class='st'>"data"</span>, full.names <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>paths</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/basename.html'>basename</a></span><span class='op'>(</span><span class='va'>paths</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>str_remove</span><span class='op'>(</span><span class='st'>"\\.csv"</span><span class='op'>)</span>
+
+<span class='va'>my_data</span> <span class='op'>&lt;-</span> <span class='fu'>map</span><span class='op'>(</span><span class='va'>paths</span>, <span class='va'>read_csv</span><span class='op'>)</span>
+
+<span class='va'>combinded_data</span> <span class='op'>&lt;-</span> <span class='va'>my_data</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>bind_rows</span><span class='op'>(</span>.id <span class='op'>=</span> <span class='st'>"continent"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>gapminder</span> <span class='op'>&lt;-</span> <span class='fu'>map_dfr</span><span class='op'>(</span><span class='va'>paths</span>, <span class='va'>read_csv</span>, .id <span class='op'>=</span> <span class='st'>"continent"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>results</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>vector</a></span><span class='op'>(</span><span class='st'>"list"</span>, <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>paths</span><span class='op'>)</span><span class='op'>)</span>
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>paths</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='va'>paths</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span>
+  <span class='va'>data</span><span class='op'>$</span><span class='va'>continent</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>paths</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+  <span class='va'>results</span><span class='op'>[[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>data</span>
+<span class='op'>}</span>
+
+<span class='va'>dataset</span> <span class='op'>&lt;-</span> <span class='fu'>bind_rows</span><span class='op'>(</span><span class='va'>results</span><span class='op'>)</span>
+<span class='va'>dataset</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 1,704 x 6
+   country  year lifeExp      pop gdpPercap continent
+   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;    
+ 1 Algeria  1952    43.1  9279525     2449. Africa   
+ 2 Algeria  1957    45.7 10270856     3014. Africa   
+ 3 Algeria  1962    48.3 11000948     2551. Africa   
+ 4 Algeria  1967    51.4 12760499     3247. Africa   
+ 5 Algeria  1972    54.5 14760787     4183. Africa   
+ 6 Algeria  1977    58.0 17152804     4910. Africa   
+ 7 Algeria  1982    61.4 20033753     5745. Africa   
+ 8 Algeria  1987    65.8 23254956     5681. Africa   
+ 9 Algeria  1992    67.7 26298373     5023. Africa   
+10 Algeria  1997    69.2 29072015     4797. Africa   
+# … with 1,694 more rows</code></pre>
+</div>
+<h2 id="todo">TODO</h2>
+<ul>
+<li>tidy data
+<ul>
+<li>definition</li>
+<li>table1 to table4</li>
+<li>advantages
+<ul>
+<li>uniformity, learning tools</li>
+<li>vectorisation</li>
+</ul></li>
+<li>reasons for untidy data
+<ul>
+<li>data entry</li>
+</ul></li>
+<li><a href="https://tidyr.tidyverse.org/">https://tidyr.tidyverse.org/</a></li>
+<li><code>billboard</code> data</li>
+</ul></li>
+<li>iteration
+<ul>
+<li>usecase 1: reading multiple files
+<ul>
+<li>split gapminder set</li>
+</ul></li>
+<li>the tidy way</li>
+<li>imperative vs functional programming style</li>
+<li>the imperative way: for loops</li>
+<li>“Of course someone has to write for-loops. It doesn’t have to be you.” — Jenny Bryan</li>
+</ul></li>
+<li>Advanced <code>dplyr</code>
+<ul>
+<li><code>across</code></li>
+</ul></li>
+<li>pure functions and safer code
+<ul>
+<li>demonstrate global state and problems</li>
+<li>define a side effect, show pure functions</li>
+<li>benefits of pure functions and debugging</li>
+</ul></li>
+<li>linear models
+<ul>
+<li>a single linar model</li>
+<li>many models</li>
+</ul></li>
+<li>summary statistics (gapminder)</li>
+</ul>
 <h1 id="exercises">Exercises</h1>
 <h1 id="solutions">Solutions</h1>
 <h1 id="resources">Resources</h1>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-wickhamDataScienceImport2017" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and Garrett Grolemund. 2017. <em>R for <span>Data Science</span>: <span>Import</span>, <span>Tidy</span>, <span>Transform</span>, <span>Visualize</span>, and <span>Model Data</span></em>. 1 edition. <span>Sebastopol, CA</span>: <span>O’Reilly Media</span>.
+</div>
+</div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -1018,15 +1898,6 @@ knitr::include_url(&quot;slides2.html&quot;)</code></pre>
 <div class="d-appendix">
 </div>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

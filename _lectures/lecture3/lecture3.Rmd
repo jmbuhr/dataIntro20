@@ -20,6 +20,7 @@ bibliography: ["../../references.bib"]
 
 ```{r setup, include=FALSE}
 library(knitr)
+library(tidyverse)
 knitr::opts_chunk$set(
   echo = TRUE,
   message = FALSE,
@@ -134,7 +135,6 @@ for (i in 1:length(paths)) {
 dataset <- bind_rows(results)
 dataset
 ```
-
 
 ## TODO
 

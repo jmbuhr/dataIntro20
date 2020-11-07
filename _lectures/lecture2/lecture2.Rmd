@@ -27,8 +27,7 @@ knitr::opts_chunk$set(
 
 # Video
 
-<iframe height="400" src="https://www.youtube.com/embed/AZse13oQJxM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-
+<iframe height="400" src="https://www.youtube.com/embed/yo6uQYr8U48" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 
 # Slides

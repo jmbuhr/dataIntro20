@@ -1,0 +1,3100 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #545454; font-weight: bold; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #a1024a; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007faa; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #008000; } /* Char */
+code span.cn { color: #d91e18; } /* Constant */
+code span.co { color: #545454; } /* Comment */
+code span.cv { color: #545454; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #aa5d00; } /* DataType */
+code span.dv { color: #a1024a; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #a1024a; } /* Float */
+code span.fu { color: #4254a7; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #545454; font-weight: bold; } /* Information */
+code span.kw { color: #007faa; font-weight: bold; } /* Keyword */
+code span.op { color: #696969; } /* Operator */
+code span.ot { color: #007faa; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #008000; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #008000; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #008000; } /* VerbatimString */
+code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+<title>Introduction to Data Analysis with R: Lecture 3</title>
+
+<meta property="description" itemprop="description" content="... in which we explore the concept of Tidy Data, learn more&#10;advanced data wrangling techniques and get a sneak peak at&#10;iteration."/>
+
+<link rel="canonical" href="https://jmbuhr.de/dataIntro20/lectures/lecture3/"/>
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+<link rel="icon" type="image/png" href="../../images/favicon.png"/>
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2020-11-14"/>
+<meta property="article:created" itemprop="dateCreated" content="2020-11-14"/>
+<meta name="article:author" content="Jannik Buhr"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="Introduction to Data Analysis with R: Lecture 3"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="... in which we explore the concept of Tidy Data, learn more&#10;advanced data wrangling techniques and get a sneak peak at&#10;iteration."/>
+<meta property="og:url" content="https://jmbuhr.de/dataIntro20/lectures/lecture3/"/>
+<meta property="og:image" content="https://jmbuhr.de/dataIntro20/lectures/lecture3/img/tidy-data-wickham.png"/>
+<meta property="og:image:width" content="1920"/>
+<meta property="og:image:height" content="600"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="Introduction to Data Analysis with R"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:title" content="Introduction to Data Analysis with R: Lecture 3"/>
+<meta property="twitter:description" content="... in which we explore the concept of Tidy Data, learn more&#10;advanced data wrangling techniques and get a sneak peak at&#10;iteration."/>
+<meta property="twitter:url" content="https://jmbuhr.de/dataIntro20/lectures/lecture3/"/>
+<meta property="twitter:image" content="https://jmbuhr.de/dataIntro20/lectures/lecture3/img/tidy-data-wickham.png"/>
+<meta property="twitter:image:width" content="1920"/>
+<meta property="twitter:image:height" content="600"/>
+<meta property="twitter:site" content="@jannikbuhr"/>
+
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="Introduction to Data Analysis with R: Lecture 3"/>
+<meta name="citation_fulltext_html_url" content="https://jmbuhr.de/dataIntro20/lectures/lecture3/"/>
+<meta name="citation_fulltext_world_readable" content=""/>
+<meta name="citation_online_date" content="2020/11/14"/>
+<meta name="citation_publication_date" content="2020/11/14"/>
+<meta name="citation_author" content="Jannik Buhr"/>
+<!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=R for Data Science: Import, Tidy, Transform, Visualize, and Model Data;citation_publication_date=2017;citation_publisher=O’Reilly Media;citation_author=Hadley Wickham;citation_author=Garrett Grolemund"/>
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","draft","author","date","output","categories","bibliography","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Lecture 3"]},{"type":"character","attributes":{},"value":["... in which we explore the concept of Tidy Data, learn more\nadvanced data wrangling techniques and get a sneak peak at\niteration."]},{"type":"logical","attributes":{},"value":[false]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Jannik Buhr"]},{"type":"character","attributes":{},"value":["https://jmbuhr.de"]}]}]},{"type":"character","attributes":{},"value":["11-14-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["lecture"]},{"type":"character","attributes":{},"value":["../../references.bib"]},{"type":"character","attributes":{},"value":["https://jmbuhr.de/dataIntro20/lectures/lecture3/"]},{"type":"character","attributes":{},"value":["https://jmbuhr.de/dataIntro20/lectures/lecture3/"]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["data/airlines.csv","extra.css","img/environment.png","img/purrr.png","img/tidy-data-wickham.png","img/tidyr.png","lecture3_files/anchor-4.2.2/anchor.min.js","lecture3_files/bowser-1.9.3/bowser.min.js","lecture3_files/distill-2.2.21/template.v2.js","lecture3_files/figure-html5/unnamed-chunk-22-1.png","lecture3_files/figure-html5/unnamed-chunk-23-1.png","lecture3_files/figure-html5/unnamed-chunk-27-1.png","lecture3_files/figure-html5/unnamed-chunk-29-1.png","lecture3_files/figure-html5/unnamed-chunk-31-1.png","lecture3_files/figure-html5/unnamed-chunk-33-1.png","lecture3_files/header-attrs-2.3/header-attrs.js","lecture3_files/header-attrs-2.5.3/header-attrs.js","lecture3_files/jquery-1.11.3/jquery.min.js","lecture3_files/pagedtable-1.1/css/pagedtable.css","lecture3_files/pagedtable-1.1/js/pagedtable.js","lecture3_files/webcomponents-2.0.0/webcomponents.js","libs/animate.css/animate.xaringan.css","libs/clipboard/clipboard.min.js","libs/editable/editable.css","libs/editable/editable.js","libs/header-attrs/header-attrs.js","libs/himalaya/himalaya.js","libs/himalaya/himalaya.js.map","libs/js-cookie/js.cookie.js","libs/pagedtable/css/pagedtable.css","libs/pagedtable/js/pagedtable.js","libs/tachyons/tachyons.min.css","libs/tile-view/tile-view.css","libs/tile-view/tile-view.js","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js","R/split_gapminder.R","slides3.html","xaringan-themer.css"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+<meta name="distill:offset" content="../.."/>
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.distill-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.distill-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #0F2E3D;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.distill-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.distill-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .distill-site-nav {
+    display: none;
+  }
+}
+
+.distill-site-header {
+
+}
+
+.distill-site-footer {
+
+}
+
+
+/* Site Header */
+
+.distill-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.distill-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.distill-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.distill-site-header a,
+.distill-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.distill-site-header .title {
+  font-size: 18px;
+  min-width: 150px;
+}
+
+.distill-site-header .logo {
+  padding: 0;
+}
+
+.distill-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.distill-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .distill-site-header .logo img {
+    display: inline-block;
+  }
+  .distill-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .distill-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.distill-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .distill-site-header .title {
+    margin-left: 0;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 0;
+  }
+  .distill-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-header.responsive {position: relative; min-height: 500px; }
+  .distill-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.distill-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+</style>
+
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<script src="../../site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
+<script src="../../site_libs/fuse-6.4.1/fuse.min.js"></script>
+
+<script type="application/javascript">
+
+function getMeta(metaName) {
+  var metas = document.getElementsByTagName('meta');
+  for (let i = 0; i < metas.length; i++) {
+    if (metas[i].getAttribute('name') === metaName) {
+      return metas[i].getAttribute('content');
+    }
+  }
+  return '';
+}
+
+function offsetURL(url) {
+  var offset = getMeta('distill:offset');
+  return offset ? offset + '/' + url : url;
+}
+
+function createFuseIndex() {
+
+  // create fuse index
+  var options = {
+    keys: [
+      { name: 'title', weight: 20 },
+      { name: 'categories', weight: 15 },
+      { name: 'description', weight: 10 },
+      { name: 'contents', weight: 5 },
+    ],
+    ignoreLocation: true,
+    threshold: 0
+  };
+  var fuse = new window.Fuse([], options);
+
+  // fetch the main search.json
+  return fetch(offsetURL('search.json'))
+    .then(function(response) {
+      if (response.status == 200) {
+        return response.json().then(function(json) {
+          // index main articles
+          json.articles.forEach(function(article) {
+            fuse.add(article);
+          });
+          // download collections and index their articles
+          return Promise.all(json.collections.map(function(collection) {
+            return fetch(offsetURL(collection)).then(function(response) {
+              if (response.status === 200) {
+                return response.json().then(function(articles) {
+                  articles.forEach(function(article) {
+                    fuse.add(article);
+                  });
+                })
+              } else {
+                return Promise.reject(
+                  new Error('Unexpected status from search index request: ' +
+                            response.status)
+                );
+              }
+            });
+          })).then(function() {
+            return fuse;
+          });
+        });
+
+      } else {
+        return Promise.reject(
+          new Error('Unexpected status from search index request: ' +
+                      response.status)
+        );
+      }
+    });
+}
+
+window.document.addEventListener("DOMContentLoaded", function (event) {
+
+  // get search element (bail if we don't have one)
+  var searchEl = window.document.getElementById('distill-search');
+  if (!searchEl)
+    return;
+
+  createFuseIndex()
+    .then(function(fuse) {
+
+      // make search box visible
+      searchEl.classList.remove('hidden');
+
+      // initialize autocomplete
+      var options = {
+        autoselect: true,
+        hint: false,
+        minLength: 2,
+      };
+      window.autocomplete(searchEl, options, [{
+        source: function(query, callback) {
+          const searchOptions = {
+            isCaseSensitive: false,
+            shouldSort: true,
+            minMatchCharLength: 2,
+            limit: 10,
+          };
+          var results = fuse.search(query, searchOptions);
+          callback(results
+            .map(function(result) { return result.item; })
+            .filter(function(item) { return !!item.description; })
+          );
+        },
+        templates: {
+          suggestion: function(suggestion) {
+            var html = `
+              <div class="search-item">
+                <h3>${suggestion.title}</h3>
+                <div class="search-item-description">
+                  ${suggestion.description}
+                </div>
+                <div class="search-item-preview">
+                  <img src="${suggestion.preview ? offsetURL(suggestion.preview) : ''}"</img>
+                </div>
+              </div>
+            `;
+            return html;
+          }
+        }
+      }]).on('autocomplete:selected', function(event, suggestion) {
+        window.location.href = offsetURL(suggestion.path);
+      });
+      // remove inline display style on autocompleter (we want to
+      // manage responsive display via css)
+      $('.algolia-autocomplete').css("display", "");
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+
+});
+
+</script>
+
+<style type="text/css">
+
+/* Algolioa Autocomplete */
+
+.algolia-autocomplete {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: sub;
+  background-color: white;
+  color: black;
+  padding: 6px;
+  padding-top: 8px;
+  padding-bottom: 0;
+  border-radius: 6px;
+  border: 1px #0F2E3D solid;
+  width: 180px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-nav .algolia-autocomplete {
+    display: none;
+    visibility: hidden;
+  }
+  .distill-site-nav.responsive .algolia-autocomplete {
+    display: inline-block;
+    visibility: visible;
+  }
+  .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
+    margin-left: 0;
+    width: 400px;
+    max-height: 400px;
+  }
+}
+
+.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+  width: 90%;
+  outline: none;
+  border: none;
+}
+
+.algolia-autocomplete .aa-hint {
+  color: #999;
+}
+.algolia-autocomplete .aa-dropdown-menu {
+  width: 550px;
+  max-height: 70vh;
+  overflow-x: visible;
+  overflow-y: scroll;
+  padding: 5px;
+  margin-top: 3px;
+  margin-left: -150px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #999;
+  border-top: none;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+  cursor: pointer;
+  padding: 5px 4px;
+  border-bottom: 1px solid #eee;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
+  border-bottom: none;
+  margin-bottom: 2px;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
+  overflow: hidden;
+  font-size: 0.8em;
+  line-height: 1.4em;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
+  margin-block-start: 0;
+  margin-block-end: 5px;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
+  display: inline-block;
+  overflow: hidden;
+  height: 2.8em;
+  width: 80%;
+  margin-right: 4%;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
+  display: inline-block;
+  width: 15%;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
+  height: 3em;
+  width: auto;
+  display: none;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
+  display: initial;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+  background-color: #eee;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+</style>
+
+
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+d-byline .byline {
+  grid-template-columns: 2fr 2fr;
+}
+
+d-byline .byline h3 {
+  margin-block-start: 1.5em;
+}
+
+d-byline .byline .authors-affiliations h3 {
+  margin-block-start: 0.5em;
+}
+
+.authors-affiliations .orcid-id {
+  width: 16px;
+  height:16px;
+  margin-left: 4px;
+  margin-right: 4px;
+  vertical-align: middle;
+  padding-bottom: 2px;
+}
+
+d-title .dt-tags {
+  margin-top: 1em;
+  grid-column: text;
+}
+
+.dt-tags .dt-tag {
+  text-decoration: none;
+  display: inline-block;
+  color: rgba(0,0,0,0.6);
+  padding: 0em 0.4em;
+  margin-right: 0.5em;
+  margin-bottom: 0.4em;
+  font-size: 70%;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+d-article table.gt_table td,
+d-article table.gt_table th {
+  border-bottom: none;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-top: 2.5rem;
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article h2 {
+  margin: 1rem 0 1.5rem 0;
+}
+
+d-article h3 {
+  margin-top: 1.5rem;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+/* Tweak code blocks */
+
+d-article div.sourceCode code,
+d-article pre code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+d-article pre,
+d-article div.sourceCode,
+d-article div.sourceCode pre {
+  overflow: auto;
+}
+
+d-article div.sourceCode {
+  background-color: white;
+}
+
+d-article div.sourceCode pre {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+d-article pre {
+  font-size: 12px;
+  color: black;
+  background: none;
+  margin-top: 0;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+d-article pre a {
+  border-bottom: none;
+}
+
+d-article pre a:hover {
+  border-bottom: none;
+  text-decoration: underline;
+}
+
+@media(min-width: 768px) {
+
+d-article pre,
+d-article div.sourceCode,
+d-article div.sourceCode pre {
+  overflow: visible !important;
+}
+
+d-article div.sourceCode pre {
+  padding-left: 18px;
+  font-size: 14px;
+}
+
+d-article pre {
+  font-size: 14px;
+}
+
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for d-contents */
+
+.d-contents {
+  grid-column: text;
+  color: rgba(0,0,0,0.8);
+  font-size: 0.9em;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  padding-left: 0.25em;
+  justify-self: start;
+}
+
+@media(min-width: 1000px) {
+  .d-contents.d-contents-float {
+    height: 0;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    justify-self: center;
+    padding-right: 3em;
+    padding-left: 2em;
+  }
+}
+
+.d-contents nav h3 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.d-contents li {
+  list-style-type: none
+}
+
+.d-contents nav > ul {
+  padding-left: 0;
+}
+
+.d-contents ul {
+  padding-left: 1em
+}
+
+.d-contents nav ul li {
+  margin-top: 0.6em;
+  margin-bottom: 0.2em;
+}
+
+.d-contents nav a {
+  font-size: 13px;
+  border-bottom: none;
+  text-decoration: none
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.d-contents nav a:hover {
+  text-decoration: underline solid rgba(0, 0, 0, 0.6)
+}
+
+.d-contents nav > ul > li > a {
+  font-weight: 600;
+}
+
+.d-contents nav > ul > li > ul {
+  font-weight: inherit;
+}
+
+.d-contents nav > ul > li > ul > li {
+  margin-top: 0.2em;
+}
+
+
+.d-contents nav ul {
+  margin-top: 0;
+  margin-bottom: 0.25em;
+}
+
+.d-article-with-toc h2:nth-child(2) {
+  margin-top: 0;
+}
+
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+/* Citations */
+
+d-article .citation {
+  color: inherit;
+  cursor: inherit;
+}
+
+div.hanging-indent{
+  margin-left: 1em; text-indent: -1em;
+}
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Include appendix styles here so they can be overridden */
+
+d-appendix {
+  contain: layout style;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-top: 60px;
+  margin-bottom: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0,0,0,0.5);
+  padding-top: 60px;
+  padding-bottom: 48px;
+}
+
+d-appendix h3 {
+  grid-column: page-start / text-start;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 1em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.65);
+}
+
+d-appendix h3 + * {
+  margin-top: 1em;
+}
+
+d-appendix ol {
+  padding: 0 0 0 15px;
+}
+
+@media (min-width: 768px) {
+  d-appendix ol {
+    padding: 0 0 0 30px;
+    margin-left: -30px;
+  }
+}
+
+d-appendix li {
+  margin-bottom: 1em;
+}
+
+d-appendix a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+d-appendix > * {
+  grid-column: text;
+}
+
+d-appendix > d-footnote-list,
+d-appendix > d-citation-list,
+d-appendix > distill-appendix {
+  grid-column: screen;
+}
+
+/* Include footnote styles here so they can be overridden */
+
+d-footnote-list {
+  contain: layout style;
+}
+
+d-footnote-list > * {
+  grid-column: text;
+}
+
+d-footnote-list a.footnote-backlink {
+  color: rgba(0,0,0,0.3);
+  padding-left: 0.5em;
+}
+
+
+
+/* Anchor.js */
+
+.anchorjs-link {
+  /*transition: all .25s linear; */
+  text-decoration: none;
+  border-bottom: none;
+}
+*:hover > .anchorjs-link {
+  margin-left: -1.125em !important;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+.sidebar-section.custom {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.custom p {
+  margin-bottom: 0.5em;
+}
+
+/* Styles for listing layout (hide title) */
+.layout-listing d-title, .layout-listing .d-title {
+  display: none;
+}
+
+/* Styles for posts lists (not auto-injected) */
+
+
+.posts-with-sidebar {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.posts-list .description h2,
+.posts-list .description p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+.posts-list .description h2 {
+  font-weight: 700;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.posts-list h2.post-tag {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 12px;
+}
+.posts-list {
+  margin-top: 60px;
+  margin-bottom: 24px;
+}
+
+.posts-list .post-preview {
+  text-decoration: none;
+  overflow: hidden;
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 24px 0;
+}
+
+.post-preview-last {
+  border-bottom: none !important;
+}
+
+.posts-list .posts-list-caption {
+  grid-column: screen;
+  font-weight: 400;
+}
+
+.posts-list .post-preview h2 {
+  margin: 0 0 6px 0;
+  line-height: 1.2em;
+  font-style: normal;
+  font-size: 24px;
+}
+
+.posts-list .post-preview p {
+  margin: 0 0 12px 0;
+  line-height: 1.4em;
+  font-size: 16px;
+}
+
+.posts-list .post-preview .thumbnail {
+  box-sizing: border-box;
+  margin-bottom: 24px;
+  position: relative;
+  max-width: 500px;
+}
+.posts-list .post-preview img {
+  width: 100%;
+  display: block;
+}
+
+.posts-list .metadata {
+  font-size: 12px;
+  line-height: 1.4em;
+  margin-bottom: 18px;
+}
+
+.posts-list .metadata > * {
+  display: inline-block;
+}
+
+.posts-list .metadata .publishedDate {
+  margin-right: 2em;
+}
+
+.posts-list .metadata .dt-authors {
+  display: block;
+  margin-top: 0.3em;
+  margin-right: 2em;
+}
+
+.posts-list .dt-tags {
+  display: block;
+  line-height: 1em;
+}
+
+.posts-list .dt-tags .dt-tag {
+  display: inline-block;
+  color: rgba(0,0,0,0.6);
+  padding: 0.3em 0.4em;
+  margin-right: 0.2em;
+  margin-bottom: 0.4em;
+  font-size: 60%;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.posts-list img {
+  opacity: 1;
+}
+
+.posts-list img[data-src] {
+  opacity: 0;
+}
+
+.posts-more {
+  clear: both;
+}
+
+
+.posts-sidebar {
+  font-size: 16px;
+}
+
+.posts-sidebar h3 {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.sidebar-section {
+  margin-bottom: 30px;
+}
+
+.categories ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.categories li {
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 0;
+}
+
+.categories li>a {
+  border-bottom: none;
+}
+
+.categories li>a:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.categories .active {
+  font-weight: 600;
+}
+
+.categories .category-count {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+
+@media(min-width: 768px) {
+  .posts-list .post-preview h2 {
+    font-size: 26px;
+  }
+  .posts-list .post-preview .thumbnail {
+    float: right;
+    width: 30%;
+    margin-bottom: 0;
+  }
+  .posts-list .post-preview .description {
+    float: left;
+    width: 45%;
+  }
+  .posts-list .post-preview .metadata {
+    float: left;
+    width: 20%;
+    margin-top: 8px;
+  }
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.5em;
+    font-size: 16px;
+  }
+  .posts-with-sidebar .posts-list {
+    float: left;
+    width: 75%;
+  }
+  .posts-with-sidebar .posts-sidebar {
+    float: right;
+    width: 20%;
+    margin-top: 60px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+.downlevel .posts-list .post-preview {
+  color: inherit;
+}
+
+
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // add anchors
+  if (window.anchors) {
+    window.anchors.options.placement = 'left';
+    window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+  }
+
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  // move refs into #references-listing
+  $('#references-listing').replaceWith($('#refs'));
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-contents a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('div.sourceCode, pre, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // remove code block used to force  highlighting css
+  $('.distill-force-highlighting-css').parent().remove();
+
+  // remove empty line numbers inserted by pandoc when using a
+  // custom syntax highlighting theme
+  $('code.sourceCode a:empty').remove();
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // article with toc class
+    $('.d-contents').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // add orcid ids
+    $('.authors-affiliations').find('.author').each(function(i, el) {
+      var orcid_id = front_matter.authors[i].orcidID;
+      if (orcid_id) {
+        var a = $('<a></a>');
+        a.attr('href', 'https://orcid.org/' + orcid_id);
+        var img = $('<img></img>');
+        img.addClass('orcid-id');
+        img.attr('alt', 'ORCID ID');
+        img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+        a.append(img);
+        $(this).append(a);
+      }
+    });
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // remove d-appendix and d-footnote-list local styles
+    $('d-appendix > style:first-child').remove();
+    $('d-footnote-list > style:first-child').remove();
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-contents').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.distill-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<style type="text/css">
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+
+
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      50px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     #000000;
+  --header-color:    rgba(0, 0, 0, 0.8);
+  --body-color:      rgba(0, 0, 0, 0.8);
+  --aside-color:     rgba(0, 0, 0, 0.6);
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    sans-serif;
+  --mono-font:       monospace;
+  --body-font:       sans-serif;
+  --navbar-font:     sans-serif;  /* websites + blogs only */
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    0.6rem;
+  --heading-color:   rgba(0, 0, 0, 0.5);
+  --body-size:       0.8rem;
+  --body-color:      rgba(0, 0, 0, 0.8);
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;
+  --contents-size:   13px;
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;
+  --heading-color:   rgba(0, 0, 0, 0.65);
+  --text-size:       0.8em;
+  --text-color:      rgba(0, 0, 0, 0.5);
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+
+.distill-site-header {
+  --title-size:       18px;
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #0F2E3D;
+}
+
+.distill-site-footer {
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #0F2E3D;
+}
+
+/*-- Additional custom styles --*/
+/* Add any additional CSS rules below                      */
+</style>
+<style type="text/css">
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Fira+Mono&display=swap);
+
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      50px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     #000000;
+  --header-color:    rgba(0, 0, 0, 0.8);
+  --body-color:      rgba(0, 0, 0, 0.8);
+  --aside-color:     rgba(0, 0, 0, 0.6);
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    'Roboto', sans-serif;
+  --mono-font:       'Fira Mono', monospace;
+  --body-font:       'Fira Sans', sans-serif;
+}
+
+/*-- ARTICLE METADATA --*/
+.d-byline {
+  --heading-size:    0.6rem;
+  --heading-color:   rgba(0, 0, 0, 0.5);
+  --body-size:       0.8rem;
+  --body-color:      rgba(0, 0, 0, 0.8);
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;
+  --contents-size:   13px;
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;
+  --heading-color:   rgba(0, 0, 0, 0.65);
+  --text-size:       0.8em;
+  --text-color:      rgba(0, 0, 0, 0.5);
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+
+.distill-site-header {
+  --title-size:       18px;
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #3465a4;
+}
+
+.distill-site-footer {
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #002ab5;
+}
+
+/*-- code wrap
+pre code {
+  white-space: pre-wrap;
+}
+--*/</style>
+<style type="text/css">
+/* base style */
+
+/* FONT FAMILIES */
+
+:root {
+  --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+body,
+.posts-list .post-preview p,
+.posts-list .description p {
+  font-family: var(--body-font), var(--body-default);
+}
+
+h1, h2, h3, h4, h5, h6,
+.posts-list .post-preview h2,
+.posts-list .description h2 {
+  font-family: var(--heading-font), var(--heading-default);
+}
+
+d-article div.sourceCode code,
+d-article pre code {
+	font-family: var(--mono-font), var(--mono-default);
+}
+
+
+/*-- TITLE --*/
+d-title h1,
+.posts-list > h1 {
+  color: var(--title-color, black);
+}
+
+d-title h1 {
+  font-size: var(--title-size, 50px);
+}
+
+/*-- HEADERS --*/
+d-article h1,
+d-article h2,
+d-article h3,
+d-article h4,
+d-article h5,
+d-article h6 {
+  color: var(--header-color, rgba(0, 0, 0, 0.8));
+}
+
+/*-- BODY --*/
+/* only text inside of <p> tags */
+d-article > p {
+  color: var(--body-color, rgba(0, 0, 0, 0.8));
+  font-size: var(--body-size, 1.06rem);
+}
+
+/*-- CODE --*/
+d-article div.sourceCode code,
+d-article pre code {
+	font-size: var(--code-size, 14px);
+}
+
+/*-- ASIDE --*/
+d-article aside {
+	font-size: var(--aside-size, 12px);
+	color: var(--aside-color, rgba(0, 0, 0, 0.6));
+}
+
+/*-- FIGURE CAPTIONS --*/
+figure .caption,
+figure figcaption,
+.figure .caption {
+	font-size: var(--fig-cap-size, 13px);
+	color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
+}
+
+/*-- METADATA --*/
+d-byline h3 {
+	font-size: var(--heading-size, 0.6rem);
+	color: var(--heading-color, rgba(0, 0, 0, 0.5));
+}
+
+d-byline {
+	font-size: var(--body-size, 0.8rem);
+	color: var(--body-color, rgba(0, 0, 0, 0.8));
+}
+
+d-byline a,
+d-article d-byline a {
+	color: var(--body-color, rgba(0, 0, 0, 0.8));
+}
+
+/*-- TABLE OF CONTENTS --*/
+.d-contents nav h3 {
+	font-size: var(--heading-size, 18px);
+}
+
+.d-contents nav a {
+	font-size: var(--contents-size, 13px);
+}
+
+/*-- APPENDIX --*/
+d-appendix h3 {
+  font-size: var(--heading-size, 15px);
+	color: var(--heading-color, rgba(0, 0, 0, 0.65));
+}
+
+d-appendix {
+  font-size: var(--text-size, 0.8em);
+	color: var(--text-color, rgba(0, 0, 0, 0.5));
+}
+
+d-appendix d-footnote-list a.footnote-backlink {
+	color: var(--text-color, rgba(0, 0, 0, 0.5));
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+.distill-site-header .title {
+	font-size: var(--title-size, 18px);
+	font-family: var(--navbar-font), var(--heading-default);
+}
+
+.distill-site-header a {
+  font-family: var(--navbar-font), var(--heading-default);
+}
+
+.distill-site-header a:hover {
+	color: var(--hover-color, white);
+}
+
+.distill-site-header {
+	font-size: var(--text-size, 15px);
+	color: var(--text-color, rgba(255, 255, 255, 0.8));
+	background-color: var(--bkgd-color, #0F2E3D);
+}
+
+.distill-site-footer {
+	font-size: var(--text-size, 15px);
+	color: var(--text-color, rgba(255, 255, 255, 0.8));
+	background-color: var(--bkgd-color, #0F2E3D);
+}
+
+.distill-site-footer a:hover {
+	color: var(--hover-color, white);
+}</style>
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/header-attrs-2.5.3/header-attrs.js"></script>
+  <link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+  <script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Lecture 3","description":"... in which we explore the concept of Tidy Data, learn more\nadvanced data wrangling techniques and get a sneak peak at\niteration.","authors":[{"author":"Jannik Buhr","authorURL":"https://jmbuhr.de","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-11-14T00:00:00.000+01:00","citationText":"Buhr, 2020"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a class="logo" href="https://jmbuhr.de/dataIntro20/">
+<img src="../../images/hex.png" alt="Logo"/>
+</a>
+<a href="../../index.html" class="title">Introduction to Data Analysis with R</a>
+<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
+</div>
+<div class="nav-right">
+<a href="../../index.html">Lectures</a>
+<a href="../../about.html">About</a>
+<a href="https://github.com/jmbuhr/dataIntro20" aria-label="Link to source">
+<i class="fab fa-github" aria-hidden="true"></i>
+</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Lecture 3</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>… in which we explore the concept of Tidy Data, learn more advanced data wrangling techniques and get a sneak peak at iteration.</p></p>
+</div>
+
+<div class="d-byline">
+  Jannik Buhr <a href="https://jmbuhr.de" class="uri">https://jmbuhr.de</a> 
+  
+<br/>11-14-2020
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#video">Video</a></li>
+<li><a href="#slides">Slides</a></li>
+<li><a href="#script">Script</a>
+<ul>
+<li><a href="#tidy-data">Tidy data</a>
+<ul>
+<li><a href="#what-and-why-is-tidy-data">What and Why is Tidy Data?</a></li>
+<li><a href="#making-data-tidy">Making Data Tidy</a></li>
+<li><a href="#pivot_wider"><code>pivot_wider</code></a></li>
+<li><a href="#separate"><code>separate</code></a></li>
+<li><a href="#left_join"><code>left_join</code></a></li>
+<li><a href="#pivot_longer"><code>pivot_longer</code></a></li>
+<li><a href="#unite"><code>unite</code></a></li>
+<li><a href="#another-example">Another Example</a></li>
+</ul></li>
+<li><a href="#more-shapes-for-data">More Shapes for Data</a>
+<ul>
+<li><a href="#nested-data">Nested Data</a></li>
+</ul></li>
+<li><a href="#a-sneak-peak-at-iteration">A Sneak Peak at Iteration</a></li>
+</ul></li>
+<li><a href="#exercises">Exercises</a>
+<ul>
+<li><a href="#tidy-data-1">Tidy Data</a></li>
+<li><a href="#functions-and-iteration">Functions and Iteration</a></li>
+</ul></li>
+<li><a href="#resources">Resources</a></li>
+</ul>
+</nav>
+</div>
+<h1 id="video">Video</h1>
+<p>Watch today’s video here:</p>
+<p>COMING SOON</p>
+<!-- <iframe height="400" src="https://www.youtube.com/embed/teusAoZ0IxI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<h1 id="slides">Slides</h1>
+<p>Hover over the slides and press <strong>f</strong> for full screen. Press <strong>?</strong> for a list of keyboard shortcuts.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/include_url.html'>include_url</a></span><span class='op'>(</span><span class='st'>"slides3.html"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<iframe src="slides3.html" width="624" height="400px">
+</iframe>
+</div>
+<h1 id="script">Script</h1>
+<h2 id="tidy-data">Tidy data</h2>
+<h3 id="what-and-why-is-tidy-data">What and Why is Tidy Data?</h3>
+<p>There is one concept which also lends it’s name to the tidyverse that I want to talk about. <strong>Tidy Data</strong> is a way of turning your datasets into a uniform shape. This makes it easier to develop and work with tools because we get a consistent interface. Once you know how to turn any dataset into a tidy dataset, you are on home turf and can express your ideas more fluently in code. Getting there can sometimes be tricky, but I will give you the most important tools. Because…</p>
+<blockquote>
+<p>»Tidy datasets are all alike,<br> but every messy dataset is messy in its own way.«<br> — Hadley Wickham</p>
+</blockquote>
+<p>freely adapted from:</p>
+<blockquote>
+<p>»Happy families are all alike;<br> every unhappy family is unhappy in its own way.«<br> — Leo Tolstoy</p>
+</blockquote>
+<p>So, how can we recognize tidy data?</p>
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span id="fig:tidy-definition"></span>
+<img src="img/tidy-data-wickham.png" alt="Figure from https://r4ds.had.co.nz/tidy-data.html (Wickham and Grolemund 2017)" width="960" class=external />
+<p class="caption">
+Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri">https://r4ds.had.co.nz/tidy-data.html</a> <span class="citation" data-cites="wickhamDataScienceImport2017">(<a href="#ref-wickhamDataScienceImport2017" role="doc-biblioref">Wickham and Grolemund 2017</a>)</span>
+</p>
+</div>
+</div>
+<p>In tidy data, each variable (feature) forms it’s own column. Each observation forms a row. And each cell is a single value (measurement). Furthermore, information about the same things belongs in one table.</p>
+<p>The <code>tidyr</code> package contained in the tidyverse provides small example datasets to demonstrate what this means in practice. Hadley Wickham and Garrett Grolemund use these in their book as well (<a href="https://r4ds.had.co.nz/tidy-data.html" class="uri">https://r4ds.had.co.nz/tidy-data.html</a>)<span class="citation" data-cites="wickhamDataScienceImport2017">(<a href="#ref-wickhamDataScienceImport2017" role="doc-biblioref">Wickham and Grolemund 2017</a>)</span>.</p>
+<p><code>table1</code>, <code>table2</code>, <code>table3</code>, <code>table4a</code>, <code>table4b</code>, and <code>table5</code> all display the number of TB cases documented by the World Health Organization in Afghanistan, Brazil, and China between 1999 and 2000. The first of these is in the tidy format, the others are not:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+
+<span class='co'># The paged_table function from the rmarkdown package prints the tables</span>
+<span class='co'># for the rmarkdown html document format so that it looks nice in the script.</span>
+<span class='co'># Alternatively you could use</span>
+<span class='co'># knitr's kable function</span>
+<span class='fu'>paged_table</span><span class='op'>(</span><span class='va'>table1</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["country"],"name":[1],"type":["chr"],"align":["left"]},{"label":["year"],"name":[2],"type":["int"],"align":["right"]},{"label":["cases"],"name":[3],"type":["int"],"align":["right"]},{"label":["population"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"Afghanistan","2":"1999","3":"745","4":"19987071"},{"1":"Afghanistan","2":"2000","3":"2666","4":"20595360"},{"1":"Brazil","2":"1999","3":"37737","4":"172006362"},{"1":"Brazil","2":"2000","3":"80488","4":"174504898"},{"1":"China","2":"1999","3":"212258","4":"1272915272"},{"1":"China","2":"2000","3":"213766","4":"1280428583"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<p>This nicely qualifies as tidy data. Every row is uniquely identified by the country and year, and all other columns are properties of the specific country in this specific year.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>paged_table</span><span class='op'>(</span><span class='va'>table2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["country"],"name":[1],"type":["chr"],"align":["left"]},{"label":["year"],"name":[2],"type":["int"],"align":["right"]},{"label":["type"],"name":[3],"type":["chr"],"align":["left"]},{"label":["count"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"Afghanistan","2":"1999","3":"cases","4":"745"},{"1":"Afghanistan","2":"1999","3":"population","4":"19987071"},{"1":"Afghanistan","2":"2000","3":"cases","4":"2666"},{"1":"Afghanistan","2":"2000","3":"population","4":"20595360"},{"1":"Brazil","2":"1999","3":"cases","4":"37737"},{"1":"Brazil","2":"1999","3":"population","4":"172006362"},{"1":"Brazil","2":"2000","3":"cases","4":"80488"},{"1":"Brazil","2":"2000","3":"population","4":"174504898"},{"1":"China","2":"1999","3":"cases","4":"212258"},{"1":"China","2":"1999","3":"population","4":"1272915272"},{"1":"China","2":"2000","3":"cases","4":"213766"},{"1":"China","2":"2000","3":"population","4":"1280428583"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<p>Now it gets interesting. <code>table2</code> still looks organized, but it is not tidy (by our definition). Note, this doesn’t say the format is useless — it has it’s places — but it will not fit in as snugly with our tools. The column <code>type</code> is not a feature of the <code>country</code>, rather the actual features are hidden in that column with their values in the <code>count</code> column. In order to make it tidy, this dataset would need to get wider.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>paged_table</span><span class='op'>(</span><span class='va'>table3</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["country"],"name":[1],"type":["chr"],"align":["left"]},{"label":["year"],"name":[2],"type":["int"],"align":["right"]},{"label":["rate"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"Afghanistan","2":"1999","3":"745/19987071","_rn_":"1"},{"1":"Afghanistan","2":"2000","3":"2666/20595360","_rn_":"2"},{"1":"Brazil","2":"1999","3":"37737/172006362","_rn_":"3"},{"1":"Brazil","2":"2000","3":"80488/174504898","_rn_":"4"},{"1":"China","2":"1999","3":"212258/1272915272","_rn_":"5"},{"1":"China","2":"2000","3":"213766/1280428583","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<p>In <code>table3</code>, two features are jammed into one column. This is annoying, because we can’t easily calculate with the values; they are stored as text and separated by a slash like <code>cases/population</code>. Ideally, we would want to separate this column into two.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>paged_table</span><span class='op'>(</span><span class='va'>table4a</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["country"],"name":[1],"type":["chr"],"align":["left"]},{"label":["1999"],"name":[2],"type":["int"],"align":["right"]},{"label":["2000"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"Afghanistan","2":"745","3":"2666","_rn_":"1"},{"1":"Brazil","2":"37737","3":"80488","_rn_":"2"},{"1":"China","2":"212258","3":"213766","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>paged_table</span><span class='op'>(</span><span class='va'>table4b</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["country"],"name":[1],"type":["chr"],"align":["left"]},{"label":["1999"],"name":[2],"type":["int"],"align":["right"]},{"label":["2000"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"Afghanistan","2":"19987071","3":"20595360","_rn_":"1"},{"1":"Brazil","2":"172006362","3":"174504898","_rn_":"2"},{"1":"China","2":"1272915272","3":"1280428583","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<p><code>table4a</code> and <code>table4b</code> split the data into two different tables, which again makes it harder to calculate with. This data is so closely related, we would want it in one table. And another principle of tidy data is violated. Notice the column names? <code>1999</code> is not a feature that Afghanistan can have. Rather, it is the value for a feature (namely the <code>year</code>), while the values in the <code>1999</code> column are in fact values for the feature <code>population</code> (in <code>table4a</code>) and <code>cases</code> (in <code>table4b</code>).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>paged_table</span><span class='op'>(</span><span class='va'>table5</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["country"],"name":[1],"type":["chr"],"align":["left"]},{"label":["century"],"name":[2],"type":["chr"],"align":["left"]},{"label":["year"],"name":[3],"type":["chr"],"align":["left"]},{"label":["rate"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"Afghanistan","2":"19","3":"99","4":"745/19987071","_rn_":"1"},{"1":"Afghanistan","2":"20","3":"00","4":"2666/20595360","_rn_":"2"},{"1":"Brazil","2":"19","3":"99","4":"37737/172006362","_rn_":"3"},{"1":"Brazil","2":"20","3":"00","4":"80488/174504898","_rn_":"4"},{"1":"China","2":"19","3":"99","4":"212258/1272915272","_rn_":"5"},{"1":"China","2":"20","3":"00","4":"213766/1280428583","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<p>In <code>table5</code>, we have the same problem as in <code>table3</code> and additionally the opposite problem! This time, feature that should be one column (namely <code>year</code>) is spread across two columns (<code>century</code> and <code>year</code>). What we want to do is unite those into one.</p>
+<h3 id="making-data-tidy">Making Data Tidy</h3>
+<aside>
+<p><a href="https://tidyr.tidyverse.org/"></p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="img/tidyr.png" width="120" class=external /></p>
+</div>
+</a>
+</aside>
+<p>with the <code>tidyr</code> package.</p>
+<blockquote>
+<p><strong>Note</strong>: I do not go over data is better in another format in this course. Examples for this might involve matrices to benefit from matrix math or their multidimensional equivalent: arrays.</p>
+</blockquote>
+<p>Let’s make some data tidy!</p>
+<h3 id="pivot_wider"><code>pivot_wider</code></h3>
+<p>Starting with table2, which wants to be wider. Accordingly, we use the function <code>pivot_wider</code>. It is very powerful, but the two most important arguments (well, after the data) are which column contains the names of the new columns and which column contains the values of the newly created columns as shown below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>table2</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>pivot_wider</span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>type</span>, values_from <span class='op'>=</span> <span class='va'>count</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+<h3 id="separate"><code>separate</code></h3>
+<p>To make table3 tidy, we need the <code>separate</code> function, followed by mutate to get the new columns into the correct datatype. Run it yourself step by step to see why the mutate afterwards is necessary.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>table3</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>separate</span><span class='op'>(</span><span class='va'>rate</span>, into <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"cases"</span>, <span class='st'>"population"</span><span class='op'>)</span>, sep <span class='op'>=</span> <span class='st'>"/"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>cases <span class='op'>=</span> <span class='fu'>parse_number</span><span class='op'>(</span><span class='va'>cases</span><span class='op'>)</span>,
+         population <span class='op'>=</span> <span class='fu'>parse_number</span><span class='op'>(</span><span class='va'>population</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;int&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+<p>The <code>parse_</code> functions come from <code>readr</code>. Parsing is the act of turning raw text into usable data, and the <code>parse_number</code> function does a particularly good job at extracting numbers, where the naïve approach of <code>as.numeric</code> might fail e.g.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>some_text</span> <span class='op'>=</span> <span class='st'>"take my number: 12"</span>
+<span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>some_text</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>parse_number</span><span class='op'>(</span><span class='va'>some_text</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 12</code></pre>
+</div>
+<h3 id="left_join"><code>left_join</code></h3>
+<p>Now is the time to join <code>table4a</code> and <code>tabl4b</code> together. For this, we need an operation known from databases as a <code>join</code>. In fact, this whole concept of tidy data is closely related to databases and something called Codd`s normal forms <span class="citation" data-cites="coddRelationalModelDatabase1990 wickhamTidyData2014">(<a href="#ref-coddRelationalModelDatabase1990" role="doc-biblioref">Codd 1990</a>; <a href="#ref-wickhamTidyData2014" role="doc-biblioref">Wickham 2014</a>)</span> so I am throwing these references in here just in case you are interested in the theoretical foundations. But without further ado:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># the suffix argument is necessary because the columns</span>
+<span class='co'># in the two tables have the same names</span>
+<span class='va'>table4</span> <span class='op'>&lt;-</span> <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>table4a</span>, <span class='va'>table4b</span>, by <span class='op'>=</span> <span class='st'>"country"</span>,
+                    suffix <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"_cases"</span>, <span class='st'>"_population"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>table4</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 3 x 5
+  country  `1999_cases` `2000_cases` `1999_populatio… `2000_populatio…
+  &lt;chr&gt;           &lt;int&gt;        &lt;int&gt;            &lt;int&gt;            &lt;int&gt;
+1 Afghani…          745         2666         19987071         20595360
+2 Brazil          37737        80488        172006362        174504898
+3 China          212258       213766       1272915272       1280428583</code></pre>
+</div>
+<h3 id="pivot_longer"><code>pivot_longer</code></h3>
+<p>Now we can deal with the next problem: Making the table longer so that year, population and cases become their own columns again, because they are independent features. Consequently, we use the function <code>pivot_longer</code>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># note that cols takes what is called a tidyselect specification.</span>
+<span class='co'># you know this from the selection function and it's help page.</span>
+<span class='co'># here, I am selecting everything BUT the country column.</span>
+<span class='va'>long_table4</span> <span class='op'>&lt;-</span> <span class='va'>table4</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>pivot_longer</span><span class='op'>(</span>cols <span class='op'>=</span> <span class='op'>-</span><span class='va'>country</span><span class='op'>)</span>
+<span class='va'>long_table4</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 12 x 3
+   country     name                 value
+   &lt;chr&gt;       &lt;chr&gt;                &lt;int&gt;
+ 1 Afghanistan 1999_cases             745
+ 2 Afghanistan 2000_cases            2666
+ 3 Afghanistan 1999_population   19987071
+ 4 Afghanistan 2000_population   20595360
+ 5 Brazil      1999_cases           37737
+ 6 Brazil      2000_cases           80488
+ 7 Brazil      1999_population  172006362
+ 8 Brazil      2000_population  174504898
+ 9 China       1999_cases          212258
+10 China       2000_cases          213766
+11 China       1999_population 1272915272
+12 China       2000_population 1280428583</code></pre>
+</div>
+<p>But we are not done yet, table4 is putting all our skills to the test. There is a way to do the following steps with <code>pivot_wider</code> straight away, but doing it step by step should be easier to follow. You can revisit this part and check out the other arguments to <code>pivot_wider</code> if you fancy a challenge. The next step we already know: separating a column into two. Only the separator changed.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>long_table4_separated</span> <span class='op'>&lt;-</span> <span class='va'>long_table4</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>separate</span><span class='op'>(</span>col <span class='op'>=</span> <span class='va'>name</span>, into <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"year"</span>, <span class='st'>"type"</span><span class='op'>)</span>, sep <span class='op'>=</span> <span class='st'>"_"</span><span class='op'>)</span>
+<span class='va'>long_table4_separated</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 12 x 4
+   country     year  type            value
+   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;           &lt;int&gt;
+ 1 Afghanistan 1999  cases             745
+ 2 Afghanistan 2000  cases            2666
+ 3 Afghanistan 1999  population   19987071
+ 4 Afghanistan 2000  population   20595360
+ 5 Brazil      1999  cases           37737
+ 6 Brazil      2000  cases           80488
+ 7 Brazil      1999  population  172006362
+ 8 Brazil      2000  population  174504898
+ 9 China       1999  cases          212258
+10 China       2000  cases          213766
+11 China       1999  population 1272915272
+12 China       2000  population 1280428583</code></pre>
+</div>
+<p>Now we are back to the problem we had in table2, so we know how to make this table wider again:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>long_table4_separated</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>pivot_wider</span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>type</span>, values_from <span class='op'>=</span> <span class='va'>value</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 4
+  country     year   cases population
+  &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt;      &lt;int&gt;
+1 Afghanistan 1999     745   19987071
+2 Afghanistan 2000    2666   20595360
+3 Brazil      1999   37737  172006362
+4 Brazil      2000   80488  174504898
+5 China       1999  212258 1272915272
+6 China       2000  213766 1280428583</code></pre>
+</div>
+<p>We did it! Now one last look at <code>table5</code>, which contains a case we haven’t encountered yet: a feature is separated across two columns, so we need the opposite of <code>separeate</code>: <code>unite</code>.</p>
+<h3 id="unite"><code>unite</code></h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>table5</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>unite</span><span class='op'>(</span>col <span class='op'>=</span> <span class='va'>year</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>century</span>, <span class='va'>year</span><span class='op'>)</span>, sep <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>year <span class='op'>=</span> <span class='fu'>parse_number</span><span class='op'>(</span><span class='va'>year</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 3
+  country      year rate             
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
+1 Afghanistan  1999 745/19987071     
+2 Afghanistan  2000 2666/20595360    
+3 Brazil       1999 37737/172006362  
+4 Brazil       2000 80488/174504898  
+5 China        1999 212258/1272915272
+6 China        2000 213766/1280428583</code></pre>
+</div>
+<h3 id="another-example">Another Example</h3>
+<p>Let us look at one last example of data that needs tidying, which is also provided by the <code>tidyr</code> package as an example:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>billboard</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>paged_table</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["artist"],"name":[1],"type":["chr"],"align":["left"]},{"label":["track"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date.entered"],"name":[3],"type":["date"],"align":["right"]},{"label":["wk1"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["wk2"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wk3"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["wk4"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["wk5"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["wk6"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["wk7"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["wk8"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["wk9"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["wk10"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["wk11"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["wk12"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["wk13"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["wk14"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["wk15"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["wk16"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["wk17"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["wk18"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["wk19"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["wk20"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["wk21"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["wk22"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["wk23"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["wk24"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["wk25"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["wk26"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["wk27"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["wk28"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["wk29"],"name":[32],"type":["dbl"],"align":["right"]},{"label":["wk30"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["wk31"],"name":[34],"type":["dbl"],"align":["right"]},{"label":["wk32"],"name":[35],"type":["dbl"],"align":["right"]},{"label":["wk33"],"name":[36],"type":["dbl"],"align":["right"]},{"label":["wk34"],"name":[37],"type":["dbl"],"align":["right"]},{"label":["wk35"],"name":[38],"type":["dbl"],"align":["right"]},{"label":["wk36"],"name":[39],"type":["dbl"],"align":["right"]},{"label":["wk37"],"name":[40],"type":["dbl"],"align":["right"]},{"label":["wk38"],"name":[41],"type":["dbl"],"align":["right"]},{"label":["wk39"],"name":[42],"type":["dbl"],"align":["right"]},{"label":["wk40"],"name":[43],"type":["dbl"],"align":["right"]},{"label":["wk41"],"name":[44],"type":["dbl"],"align":["right"]},{"label":["wk42"],"name":[45],"type":["dbl"],"align":["right"]},{"label":["wk43"],"name":[46],"type":["dbl"],"align":["right"]},{"label":["wk44"],"name":[47],"type":["dbl"],"align":["right"]},{"label":["wk45"],"name":[48],"type":["dbl"],"align":["right"]},{"label":["wk46"],"name":[49],"type":["dbl"],"align":["right"]},{"label":["wk47"],"name":[50],"type":["dbl"],"align":["right"]},{"label":["wk48"],"name":[51],"type":["dbl"],"align":["right"]},{"label":["wk49"],"name":[52],"type":["dbl"],"align":["right"]},{"label":["wk50"],"name":[53],"type":["dbl"],"align":["right"]},{"label":["wk51"],"name":[54],"type":["dbl"],"align":["right"]},{"label":["wk52"],"name":[55],"type":["dbl"],"align":["right"]},{"label":["wk53"],"name":[56],"type":["dbl"],"align":["right"]},{"label":["wk54"],"name":[57],"type":["dbl"],"align":["right"]},{"label":["wk55"],"name":[58],"type":["dbl"],"align":["right"]},{"label":["wk56"],"name":[59],"type":["dbl"],"align":["right"]},{"label":["wk57"],"name":[60],"type":["dbl"],"align":["right"]},{"label":["wk58"],"name":[61],"type":["dbl"],"align":["right"]},{"label":["wk59"],"name":[62],"type":["dbl"],"align":["right"]},{"label":["wk60"],"name":[63],"type":["dbl"],"align":["right"]},{"label":["wk61"],"name":[64],"type":["dbl"],"align":["right"]},{"label":["wk62"],"name":[65],"type":["dbl"],"align":["right"]},{"label":["wk63"],"name":[66],"type":["dbl"],"align":["right"]},{"label":["wk64"],"name":[67],"type":["dbl"],"align":["right"]},{"label":["wk65"],"name":[68],"type":["dbl"],"align":["right"]},{"label":["wk66"],"name":[69],"type":["lgl"],"align":["right"]},{"label":["wk67"],"name":[70],"type":["lgl"],"align":["right"]},{"label":["wk68"],"name":[71],"type":["lgl"],"align":["right"]},{"label":["wk69"],"name":[72],"type":["lgl"],"align":["right"]},{"label":["wk70"],"name":[73],"type":["lgl"],"align":["right"]},{"label":["wk71"],"name":[74],"type":["lgl"],"align":["right"]},{"label":["wk72"],"name":[75],"type":["lgl"],"align":["right"]},{"label":["wk73"],"name":[76],"type":["lgl"],"align":["right"]},{"label":["wk74"],"name":[77],"type":["lgl"],"align":["right"]},{"label":["wk75"],"name":[78],"type":["lgl"],"align":["right"]},{"label":["wk76"],"name":[79],"type":["lgl"],"align":["right"]}],"data":[{"1":"2 Pac","2":"Baby Don't Cry (Keep...","3":"2000-02-26","4":"87","5":"82","6":"72","7":"77","8":"87","9":"94","10":"99","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","21":"NA","22":"NA","23":"NA","24":"NA","25":"NA","26":"NA","27":"NA","28":"NA","29":"NA","30":"NA","31":"NA","32":"NA","33":"NA","34":"NA","35":"NA","36":"NA","37":"NA","38":"NA","39":"NA","40":"NA","41":"NA","42":"NA","43":"NA","44":"NA","45":"NA","46":"NA","47":"NA","48":"NA","49":"NA","50":"NA","51":"NA","52":"NA","53":"NA","54":"NA","55":"NA","56":"NA","57":"NA","58":"NA","59":"NA","60":"NA","61":"NA","62":"NA","63":"NA","64":"NA","65":"NA","66":"NA","67":"NA","68":"NA","69":"NA","70":"NA","71":"NA","72":"NA","73":"NA","74":"NA","75":"NA","76":"NA","77":"NA","78":"NA","79":"NA"},{"1":"2Ge+her","2":"The Hardest Part Of ...","3":"2000-09-02","4":"91","5":"87","6":"92","7":"NA","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","21":"NA","22":"NA","23":"NA","24":"NA","25":"NA","26":"NA","27":"NA","28":"NA","29":"NA","30":"NA","31":"NA","32":"NA","33":"NA","34":"NA","35":"NA","36":"NA","37":"NA","38":"NA","39":"NA","40":"NA","41":"NA","42":"NA","43":"NA","44":"NA","45":"NA","46":"NA","47":"NA","48":"NA","49":"NA","50":"NA","51":"NA","52":"NA","53":"NA","54":"NA","55":"NA","56":"NA","57":"NA","58":"NA","59":"NA","60":"NA","61":"NA","62":"NA","63":"NA","64":"NA","65":"NA","66":"NA","67":"NA","68":"NA","69":"NA","70":"NA","71":"NA","72":"NA","73":"NA","74":"NA","75":"NA","76":"NA","77":"NA","78":"NA","79":"NA"},{"1":"3 Doors Down","2":"Kryptonite","3":"2000-04-08","4":"81","5":"70","6":"68","7":"67","8":"66","9":"57","10":"54","11":"53","12":"51","13":"51","14":"51","15":"51","16":"47","17":"44","18":"38","19":"28","20":"22","21":"18","22":"18","23":"14","24":"12","25":"7","26":"6","27":"6","28":"6","29":"5","30":"5","31":"4","32":"4","33":"4","34":"4","35":"3","36":"3","37":"3","38":"4","39":"5","40":"5","41":"9","42":"9","43":"15","44":"14","45":"13","46":"14","47":"16","48":"17","49":"21","50":"22","51":"24","52":"28","53":"33","54":"42","55":"42","56":"49","57":"NA","58":"NA","59":"NA","60":"NA","61":"NA","62":"NA","63":"NA","64":"NA","65":"NA","66":"NA","67":"NA","68":"NA","69":"NA","70":"NA","71":"NA","72":"NA","73":"NA","74":"NA","75":"NA","76":"NA","77":"NA","78":"NA","79":"NA"},{"1":"3 Doors Down","2":"Loser","3":"2000-10-21","4":"76","5":"76","6":"72","7":"69","8":"67","9":"65","10":"55","11":"59","12":"62","13":"61","14":"61","15":"59","16":"61","17":"66","18":"72","19":"76","20":"75","21":"67","22":"73","23":"70","24":"NA","25":"NA","26":"NA","27":"NA","28":"NA","29":"NA","30":"NA","31":"NA","32":"NA","33":"NA","34":"NA","35":"NA","36":"NA","37":"NA","38":"NA","39":"NA","40":"NA","41":"NA","42":"NA","43":"NA","44":"NA","45":"NA","46":"NA","47":"NA","48":"NA","49":"NA","50":"NA","51":"NA","52":"NA","53":"NA","54":"NA","55":"NA","56":"NA","57":"NA","58":"NA","59":"NA","60":"NA","61":"NA","62":"NA","63":"NA","64":"NA","65":"NA","66":"NA","67":"NA","68":"NA","69":"NA","70":"NA","71":"NA","72":"NA","73":"NA","74":"NA","75":"NA","76":"NA","77":"NA","78":"NA","79":"NA"},{"1":"504 Boyz","2":"Wobble Wobble","3":"2000-04-15","4":"57","5":"34","6":"25","7":"17","8":"17","9":"31","10":"36","11":"49","12":"53","13":"57","14":"64","15":"70","16":"75","17":"76","18":"78","19":"85","20":"92","21":"96","22":"NA","23":"NA","24":"NA","25":"NA","26":"NA","27":"NA","28":"NA","29":"NA","30":"NA","31":"NA","32":"NA","33":"NA","34":"NA","35":"NA","36":"NA","37":"NA","38":"NA","39":"NA","40":"NA","41":"NA","42":"NA","43":"NA","44":"NA","45":"NA","46":"NA","47":"NA","48":"NA","49":"NA","50":"NA","51":"NA","52":"NA","53":"NA","54":"NA","55":"NA","56":"NA","57":"NA","58":"NA","59":"NA","60":"NA","61":"NA","62":"NA","63":"NA","64":"NA","65":"NA","66":"NA","67":"NA","68":"NA","69":"NA","70":"NA","71":"NA","72":"NA","73":"NA","74":"NA","75":"NA","76":"NA","77":"NA","78":"NA","79":"NA"},{"1":"98^0","2":"Give Me Just One Nig...","3":"2000-08-19","4":"51","5":"39","6":"34","7":"26","8":"26","9":"19","10":"2","11":"2","12":"3","13":"6","14":"7","15":"22","16":"29","17":"36","18":"47","19":"67","20":"66","21":"84","22":"93","23":"94","24":"NA","25":"NA","26":"NA","27":"NA","28":"NA","29":"NA","30":"NA","31":"NA","32":"NA","33":"NA","34":"NA","35":"NA","36":"NA","37":"NA","38":"NA","39":"NA","40":"NA","41":"NA","42":"NA","43":"NA","44":"NA","45":"NA","46":"NA","47":"NA","48":"NA","49":"NA","50":"NA","51":"NA","52":"NA","53":"NA","54":"NA","55":"NA","56":"NA","57":"NA","58":"NA","59":"NA","60":"NA","61":"NA","62":"NA","63":"NA","64":"NA","65":"NA","66":"NA","67":"NA","68":"NA","69":"NA","70":"NA","71":"NA","72":"NA","73":"NA","74":"NA","75":"NA","76":"NA","77":"NA","78":"NA","79":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<p>This is a lot of columns! For 76 weeks after a song entered the top 100 (I assume in the USA) it’s position is recorded. It might be in this format because it made data entry easier, or the previous person wanted to make plots in excel, where this wide format is used to denote multiple traces. In any event, for our style of visualizations with the grammar of graphics, we want a column to represent a feature, so this data needs to get longer:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>long_billboard</span> <span class='op'>&lt;-</span> <span class='va'>billboard</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>pivot_longer</span><span class='op'>(</span><span class='fu'>starts_with</span><span class='op'>(</span><span class='st'>"w"</span><span class='op'>)</span>,
+               names_to <span class='op'>=</span> <span class='st'>"week"</span>,
+               names_pattern <span class='op'>=</span> <span class='st'>"wk(\\d+)"</span>,
+               values_to <span class='op'>=</span> <span class='st'>"placement"</span>,
+               values_drop_na <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>week <span class='op'>=</span> <span class='fu'>parse_integer</span><span class='op'>(</span><span class='va'>week</span><span class='op'>)</span>,
+         date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='va'>date.entered</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>7</span> <span class='op'>*</span> <span class='op'>(</span><span class='va'>week</span> <span class='op'>-</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>select</span><span class='op'>(</span><span class='op'>-</span><span class='va'>date.entered</span><span class='op'>)</span>
+
+<span class='va'>long_billboard</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>paged_table</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["artist"],"name":[1],"type":["chr"],"align":["left"]},{"label":["track"],"name":[2],"type":["chr"],"align":["left"]},{"label":["week"],"name":[3],"type":["int"],"align":["right"]},{"label":["placement"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["date"],"name":[5],"type":["date"],"align":["right"]}],"data":[{"1":"2 Pac","2":"Baby Don't Cry (Keep...","3":"1","4":"87","5":"2000-02-26"},{"1":"2 Pac","2":"Baby Don't Cry (Keep...","3":"2","4":"82","5":"2000-03-04"},{"1":"2 Pac","2":"Baby Don't Cry (Keep...","3":"3","4":"72","5":"2000-03-11"},{"1":"2 Pac","2":"Baby Don't Cry (Keep...","3":"4","4":"77","5":"2000-03-18"},{"1":"2 Pac","2":"Baby Don't Cry (Keep...","3":"5","4":"87","5":"2000-03-25"},{"1":"2 Pac","2":"Baby Don't Cry (Keep...","3":"6","4":"94","5":"2000-04-01"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<blockquote>
+<p>This time I am leaving the visualisation up to you. This is a greate opportunity to play around with ggplot!</p>
+</blockquote>
+<p>This whole tidy data idea might seem like just another way of moving numbers around. But once you build the mental model for it, it will truly transform the way you are able to think about data. Both for data wrangling with dplyr, as shown last week, and also for data visualization with ggplot, a journey we began in the first week and that is still well underway.</p>
+<h2 id="more-shapes-for-data">More Shapes for Data</h2>
+<p>The <code>tidyr</code> package provides more tools for dealing with data in various shapes. We just discovered the first set of operations called <em>pivoting</em> to get a feel for tidy data and to obtain it from various formats. But data is not always rectangular like we can show it in a spreadsheet. Sometimes data already comes in a nested form, sometimes we create nested data because it serves our purpose (see next week). So, what do I mean by nested?</p>
+<h3 id="nested-data">Nested Data</h3>
+<p>Remember that <code>lists</code> can contain elements of any type, even other lists? Well, if have have a list that contains more lists, we call it nested. E.g.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,
+  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+    <span class='fl'>42</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"hi"</span>, <span class='cn'>TRUE</span><span class='op'>)</span>
+  <span class='op'>)</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[[1]]
+[1] 1 2
+
+[[2]]
+[[2]][[1]]
+[1] 42
+
+[[2]][[2]]
+[[2]][[2]][[1]]
+[1] &quot;hi&quot;
+
+[[2]][[2]][[2]]
+[1] TRUE</code></pre>
+</div>
+<p>But nested list are not always fun to work with, and when there is a straightforward way to represent the same data in a rectangular, flat format, we most likely want to do that. We will deal with data rectangling today was well. But first, there is another implication of nested lists: Because dataframes (and tibbles) are built on top of lists, we can nest them to! This can sometimes come in really handy. We a dataframe contains a column that is not an atomic vector but a list (so it is a list in a list), we call it a list column:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>example</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
+  x <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>,
+  y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"hello"</span>, <span class='cn'>TRUE</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>)</span>
+<span class='va'>example</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 3 x 2
+      x y        
+  &lt;int&gt; &lt;list&gt;   
+1     1 &lt;chr [1]&gt;
+2     2 &lt;lgl [1]&gt;
+3     3 &lt;dbl [4]&gt;</code></pre>
+</div>
+<p>Here, the output in our code only tells us, that the list column y contains an atomic character vector of length 1, a logical vector of length 1 and a double vector of length 4. The overall length of the column is 3, because it has to fit in the tibble.</p>
+<p>We can get a better view of what is in there by either pulling the column out with the subsetting functions we already learned (like <code>$</code>, <code>[[]]</code>, <code>pull</code>), using <code>str</code> to learn more about the structure or simply using RStudio’s <strong>Environment</strong> panel to inspect our variable. Click on the name to view it in a new window (the same can be done from code by using the function <code>View</code> or Ctrl+Clicking the variable name) or use the little blue arrow to expand the list.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>include_graphics</span><span class='op'>(</span><span class='st'>"img/environment.png"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="img/environment.png" width="330" /></p>
+</div>
+<p>This extends even further, we are about to go full inception on this! A list column can contain tibbles (/dataframes) as well!</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>nested_tibble</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
+  id <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>,
+  df <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+    <span class='fu'>tibble</span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, y <span class='op'>=</span> <span class='va'>x</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>,
+    <span class='fu'>tibble</span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>100</span>, <span class='fl'>3</span><span class='op'>)</span>, y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>)</span>
+<span class='op'>)</span>
+
+<span class='va'>nested_tibble</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 2 x 2
+     id df               
+  &lt;int&gt; &lt;list&gt;           
+1     1 &lt;tibble [10 × 2]&gt;
+2     2 &lt;tibble [34 × 2]&gt;</code></pre>
+</div>
+<p>We can still use the data nested in there, as long as we remember how to chain our subsetting functions together.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># take the column df, take the second element</span>
+<span class='va'>nested_tibble</span><span class='op'>$</span><span class='va'>df</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 34 x 2
+       x     y
+   &lt;dbl&gt; &lt;dbl&gt;
+ 1     1  1   
+ 2     4  2   
+ 3     7  2.65
+ 4    10  3.16
+ 5    13  3.61
+ 6    16  4   
+ 7    19  4.36
+ 8    22  4.69
+ 9    25  5   
+10    28  5.29
+# … with 24 more rows</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>nested_tibble</span><span class='op'>$</span><span class='va'>df</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="lecture3_files/figure-html5/unnamed-chunk-23-1.png" width="624" /></p>
+</div>
+<p>This will be incredibly useful next week, when we talk about <strong>iteration</strong>.</p>
+<p>Creating a tibble by hand is unlikely going to be the way that you end up with a nested tibble. Let’s create one from an already existing tibble. We can use the long version of the billboard dataset we created above.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>nested_billboard</span> <span class='op'>&lt;-</span> <span class='va'>long_billboard</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>nest</span><span class='op'>(</span><span class='op'>-</span><span class='va'>artist</span>, <span class='op'>-</span><span class='va'>track</span>, .key <span class='op'>=</span> <span class='st'>"data"</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>nested_billboard</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 3
+  artist       track                   data             
+  &lt;chr&gt;        &lt;chr&gt;                   &lt;list&gt;           
+1 2 Pac        Baby Don&#39;t Cry (Keep... &lt;tibble [7 × 3]&gt; 
+2 2Ge+her      The Hardest Part Of ... &lt;tibble [3 × 3]&gt; 
+3 3 Doors Down Kryptonite              &lt;tibble [53 × 3]&gt;
+4 3 Doors Down Loser                   &lt;tibble [20 × 3]&gt;
+5 504 Boyz     Wobble Wobble           &lt;tibble [18 × 3]&gt;
+6 98^0         Give Me Just One Nig... &lt;tibble [20 × 3]&gt;</code></pre>
+</div>
+<p>Notice, how similar this is to <code>group_by</code>, except it is much more explicit. The resulting groups are now separated into their own tibble in the list column I named <em>data</em>. Again, RStudio’s environment panel makes it easier to inspect the data.</p>
+<p>We can get back to our original shape by <strong>unnesting</strong> the tibble</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>nested_billboard</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>unnest</span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 5
+  artist track                    week placement date      
+  &lt;chr&gt;  &lt;chr&gt;                   &lt;int&gt;     &lt;dbl&gt; &lt;date&gt;    
+1 2 Pac  Baby Don&#39;t Cry (Keep...     1        87 2000-02-26
+2 2 Pac  Baby Don&#39;t Cry (Keep...     2        82 2000-03-04
+3 2 Pac  Baby Don&#39;t Cry (Keep...     3        72 2000-03-11
+4 2 Pac  Baby Don&#39;t Cry (Keep...     4        77 2000-03-18
+5 2 Pac  Baby Don&#39;t Cry (Keep...     5        87 2000-03-25
+6 2 Pac  Baby Don&#39;t Cry (Keep...     6        94 2000-04-01</code></pre>
+</div>
+<p>Unnesting is one special case for the general idea of data rectangling, for which the <code>tidyr</code> package provides more functions. Unfortunately, we can’t all explore them all today.</p>
+<h2 id="a-sneak-peak-at-iteration">A Sneak Peak at Iteration</h2>
+<p>Next week we are going to explore the concept of iteration, having R do one operation for multiple things. But today, I am already giving you a sneak peak at how nested data can help us in that respect. It will also make sure you get more comfortable with writing functions.</p>
+<p>Let us take just one dataset out of the many datasets:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>one_track</span> <span class='op'>&lt;-</span> <span class='va'>nested_billboard</span><span class='op'>$</span><span class='va'>data</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
+<span class='va'>one_track</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 7 x 3
+   week placement date      
+  &lt;int&gt;     &lt;dbl&gt; &lt;date&gt;    
+1     1        87 2000-02-26
+2     2        82 2000-03-04
+3     3        72 2000-03-11
+4     4        77 2000-03-18
+5     5        87 2000-03-25
+6     6        94 2000-04-01
+7     7        99 2000-04-08</code></pre>
+</div>
+<p>This contains the performance of one song. we can create a plot of it:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>one_track</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>week</span>, <span class='va'>placement</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_linedraw</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="lecture3_files/figure-html5/unnamed-chunk-27-1.png" width="624" /></p>
+</div>
+<p>Moreover, we can create a function, that takes some data and creates a plot from it:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>plot_song_performance</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>song_data</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>song_data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>week</span>, <span class='va'>placement</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme_linedraw</span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
+</div>
+<p>We can now pass any song data from the nested dataframe to it:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>plot_song_performance</span><span class='op'>(</span><span class='va'>nested_billboard</span><span class='op'>$</span><span class='va'>data</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="lecture3_files/figure-html5/unnamed-chunk-29-1.png" width="624" /></p>
+</div>
+<p>But we are more ambitious, we want this plot for all songs! The <code>map</code> function from the <code>purrr</code> package takes a list and a function and applies the function to all elements of the list. It is really powerful (and fun). We will learn all about it next week, but here is a preview:</p>
+<aside>
+<p><a href="https://purrr.tidyverse.org/"></p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="img/purrr.png" width="60" class=external /></p>
+</div>
+</a>
+</aside>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>song_performance</span> <span class='op'>&lt;-</span> <span class='va'>nested_billboard</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'>mutate</span><span class='op'>(</span>
+      plt <span class='op'>=</span> <span class='fu'>map</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>plot_song_performance</span><span class='op'>)</span>
+   <span class='op'>)</span>
+
+<span class='va'>song_performance</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 6 x 4
+  artist       track                   data              plt   
+  &lt;chr&gt;        &lt;chr&gt;                   &lt;list&gt;            &lt;list&gt;
+1 2 Pac        Baby Don&#39;t Cry (Keep... &lt;tibble [7 × 3]&gt;  &lt;gg&gt;  
+2 2Ge+her      The Hardest Part Of ... &lt;tibble [3 × 3]&gt;  &lt;gg&gt;  
+3 3 Doors Down Kryptonite              &lt;tibble [53 × 3]&gt; &lt;gg&gt;  
+4 3 Doors Down Loser                   &lt;tibble [20 × 3]&gt; &lt;gg&gt;  
+5 504 Boyz     Wobble Wobble           &lt;tibble [18 × 3]&gt; &lt;gg&gt;  
+6 98^0         Give Me Just One Nig... &lt;tibble [20 × 3]&gt; &lt;gg&gt;  </code></pre>
+</div>
+<p>And now we can look at individual plots:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>song_performance</span><span class='op'>$</span><span class='va'>plt</span><span class='op'>[[</span><span class='fl'>24</span><span class='op'>]</span><span class='op'>]</span>
+</code></pre>
+</div>
+<p><img src="lecture3_files/figure-html5/unnamed-chunk-31-1.png" width="624" /></p>
+</div>
+<p>It might have been handy to include a title for the plot, so let’s modify our plotting function a little bit:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>plot_song_performance</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>song_data</span>, <span class='va'>title</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>song_data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>week</span>, <span class='va'>placement</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>theme_linedraw</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='va'>title</span><span class='op'>)</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
+</div>
+<p>And now we use the function <code>map2</code> instead of <code>map</code>, which iterates over two vectors at the same time to also pass the plot title:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>song_performance</span> <span class='op'>&lt;-</span> <span class='va'>nested_billboard</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'>mutate</span><span class='op'>(</span>
+      plt <span class='op'>=</span> <span class='fu'>map2</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>track</span>,  <span class='va'>plot_song_performance</span><span class='op'>)</span>
+   <span class='op'>)</span>
+
+<span class='va'>song_performance</span><span class='op'>$</span><span class='va'>plt</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
+</code></pre>
+</div>
+<p><img src="lecture3_files/figure-html5/unnamed-chunk-33-1.png" width="624" /></p>
+</div>
+<p>When we don’t care about the return value of a function, but rather about the side-effect it has, we use the <code>walk</code> function in place of <code>map</code>. A side-effect is anything that changes the state of your program or the world around it, as opposed to pure functions, which only depend on their arguments return some value. Writing to a file for example is a side effect:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span><span class='op'>(</span><span class='st'>"plts"</span><span class='op'>)</span>
+
+<span class='va'>save_plot</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>name</span>, <span class='va'>plot</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'>ggsave</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"plts/"</span>, <span class='va'>name</span>, <span class='st'>".png"</span><span class='op'>)</span>, <span class='va'>plot</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='fu'>walk2</span><span class='op'>(</span><span class='va'>song_performance</span><span class='op'>$</span><span class='va'>track</span>, <span class='va'>song_performance</span><span class='op'>$</span><span class='va'>plt</span>, <span class='va'>save_plot</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Do try this at home, it feels quite good to achieve so much with one key-press!</p>
+<h1 id="exercises">Exercises</h1>
+<h2 id="tidy-data-1">Tidy Data</h2>
+<ol type="1">
+<li>Imagine for a second this whole pandemic thing is not going on and we are planning a vacation. Of course, we want to choose the safest airline possible, so we download data about incident reports. You can find it in the <em>data</em> folder<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
+<li>Instead of the <code>type_of_event</code> and <code>n_events</code> columns we would like to have one column per type of event, where the values are the count for this event.</li>
+<li>Which airlines had the least fatal accidents, standardized to the distance theses airlines covered, in the two time ranges?</li>
+<li>Even if something where to go wrong, which airlines have the best record when it comes to fatalities per fatal accident?</li>
+<li>Create an informative plot to highlight your discoveries. It might be beneficial to only plot e.g. the highest or lowest scoring Airlines. One of the <code>slice_</code> functions will help you there. And to make your plot prettier, you will have to look into <code>fct_reorder</code> again.</li>
+</ol>
+<h2 id="functions-and-iteration">Functions and Iteration</h2>
+<ol type="1">
+<li>You are going strong so far! Programming can sometimes be frustrating, so I think what we need is someone to motivate us. R is up to the task. Write a function that takes a name, like “Jannik” or your name, and spits out a motivational message that includes the name. Make sure to also test it and show that it works.</li>
+<li>Now that you have a motivational machine, you need to make sure to motivate the greatest amount of people. Use the <code>map</code> function to apply your function to a whole vector of names.</li>
+</ol>
+<h1 id="resources">Resources</h1>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-coddRelationalModelDatabase1990" class="csl-entry" role="doc-biblioentry">
+Codd, E. F. 1990. <em>The Relational Model for Database Management: Version 2</em>. <span>USA</span>: <span>Addison-Wesley Longman Publishing Co., Inc.</span>
+</div>
+<div id="ref-wickhamTidyData2014" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley. 2014. <span>“Tidy <span>Data</span>.”</span> <em>Journal of Statistical Software</em> 59 (1): 1–23. <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>.
+</div>
+<div id="ref-wickhamDataScienceImport2017" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and Garrett Grolemund. 2017. <em>R for <span>Data Science</span>: <span>Import</span>, <span>Tidy</span>, <span>Transform</span>, <span>Visualize</span>, and <span>Model Data</span></em>. 1 edition. <span>Sebastopol, CA</span>: <span>O’Reilly Media</span>.
+</div>
+</div>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>source: <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2018/2018-08-07">tidytuesday</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+<!--radix_placeholder_article_footer-->
+<div class="article-footer">
+  <p class="social_footer">
+    <span class="article-sharing">
+      Share: &nbsp;
+      <a href="https://twitter.com/share?text=Lecture%203&amp;url=https%3A%2F%2Fjmbuhr.de%2FdataIntro20%2Flectures%2Flecture3%2F">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fjmbuhr.de%2FdataIntro20%2Flectures%2Flecture3%2F&amp;title=Lecture%203">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </span>
+  </p>
+</div>
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+  <h3 id="references">References</h3>
+  <div id="references-listing"></div>
+  <h3 id="updates-and-corrections">Corrections</h3>
+  <p>If you see mistakes or want to suggest changes, please <a href="https://github.com/jmbuhr/dataIntro20/issues/new">create an issue</a> on the source repository.</p>
+  <h3 id="reuse">Reuse</h3>
+  <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source code is available at <a href="https://github.com/jmbuhr/dataIntro20">https://github.com/jmbuhr/dataIntro20</a>, unless otherwise noted. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Buhr (2020, Nov. 14). Introduction to Data Analysis with R: Lecture 3. Retrieved from https://jmbuhr.de/dataIntro20/lectures/lecture3/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{buhr2020lecture,
+  author = {Buhr, Jannik},
+  title = {Introduction to Data Analysis with R: Lecture 3},
+  url = {https://jmbuhr.de/dataIntro20/lectures/lecture3/},
+  year = {2020}
+}</pre>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

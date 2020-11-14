@@ -71,8 +71,21 @@ With Artwork by @allison_horst
 ]
 
 ---
+class: center, middle 
 
-class: inverse center middle
+## Functional Programming with `purrr`
 
-# Introduction
+<a href="https://purrr.tidyverse.org/">
+```{r purrr-logo, echo=FALSE, out.extra='class=external'}
+include_graphics("img/purrr.png")
+```
+</a>
 
+---
+class: center, middle
+
+.f3[
+> »Of course someone has to write for-loops.<br>
+  It doesn't have to be you."«<br> — Jenny Bryan
+  
+]

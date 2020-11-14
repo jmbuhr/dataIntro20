@@ -2,13 +2,13 @@
 title: "Lecture 2"
 description: |
   ... in which we explore the typical data analysis workflow
-  with the `tidyverse`, wrangle different kinds of data and
-  learn about `factors`.
+  with the tidyverse, wrangle different kinds of data and
+  learn about factors.
 draft: false
 author:
   - name: Jannik Buhr 
     url: https://jmbuhr.de
-date: 11-02-2020
+date: 11-07-2020
 output:
   distill::distill_article:
     self_contained: false
@@ -41,7 +41,9 @@ include_url("slides2.html")
 > **Note**:\
 > I try to be vocal about what the code does in plain English while I type it and learning the "translations" of symbols and keywords can help you, too. After a while, programming can feel a lot more like having a conversation with your digital assistant or a helpful friend. The boundary between human languages and computer languages is more blurry than you might think.
 
-Before we get deepter into R, let's talk a little bit about our Home when working with R: RStudio.
+Before we get deeper into R,
+let's talk a little bit about our Home when working with R:
+RStudio.
 
 ## Making Ourselves at Home in RStudio
 
@@ -597,7 +599,7 @@ gapminder %>% pull(year) %>% head()
 
 Now, with our color vector ready to go, we can make the plot pretty. Remember the variable we saved our plot to? We can add more ggplot functions to it just like to a regular ggplot. A `guide` is the generalization of a legend, so we are setting it to *none* because adding a legend for 142 different colors (/countries) would fill the whole plot.
 
-```{r}
+```{r prev-plt, preview=TRUE}
 plt +
   aes(color = country) +
   scale_color_manual(values = country_colors, guide = guide_none()) +

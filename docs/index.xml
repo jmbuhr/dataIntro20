@@ -12,7 +12,31 @@
       <link>https://jmbuhr.de/dataIntro20/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 02 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Lecture 3</title>
+      <dc:creator>Jannik Buhr</dc:creator>
+      <link>https://jmbuhr.de/dataIntro20/lectures/lecture3</link>
+      <description>... in which we explore the concept of Tidy Data, learn more
+advanced data wrangling techniques and get a sneak peak at
+iteration.</description>
+      <category>lecture</category>
+      <guid>https://jmbuhr.de/dataIntro20/lectures/lecture3</guid>
+      <pubDate>Fri, 13 Nov 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture3/img/tidy-data-wickham.png" medium="image" type="image/png" width="1920" height="600"/>
+    </item>
+    <item>
+      <title>Lecture 2</title>
+      <dc:creator>Jannik Buhr</dc:creator>
+      <link>https://jmbuhr.de/dataIntro20/lectures/lecture2</link>
+      <description>... in which we explore the typical data analysis workflow
+with the tidyverse, wrangle different kinds of data and
+learn about factors.</description>
+      <category>lecture</category>
+      <guid>https://jmbuhr.de/dataIntro20/lectures/lecture2</guid>
+      <pubDate>Sat, 07 Nov 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture2/lecture2_files/figure-html5/prev-plt-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Lecture 1</title>
       <dc:creator>Jannik Buhr</dc:creator>
@@ -25,18 +49,6 @@ of Graphics.</description>
       <guid>https://jmbuhr.de/dataIntro20/lectures/lecture1</guid>
       <pubDate>Mon, 02 Nov 2020 00:00:00 +0000</pubDate>
       <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture1/lecture1_files/figure-html5/final-penguin-plot-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
-    <item>
-      <title>Lecture 2</title>
-      <dc:creator>Jannik Buhr</dc:creator>
-      <link>https://jmbuhr.de/dataIntro20/lectures/lecture2</link>
-      <description>... in which we explore the typical data analysis workflow
-with the `tidyverse`, wrangle different kinds of data and
-learn about `factors`.</description>
-      <category>lecture</category>
-      <guid>https://jmbuhr.de/dataIntro20/lectures/lecture2</guid>
-      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
-      <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture2/img/RS_settings.png" medium="image" type="image/png" width="589" height="581"/>
     </item>
   </channel>
 </rss>

@@ -21,6 +21,7 @@ output:
 
 ```{r setup, include=FALSE, warning=FALSE}
 source(here::here("assets/slide-setup.R"))
+library(rmarkdown)
 
 xaringanExtra::use_xaringan_extra(c(
   "tile_view", "editable", "animate_css",
@@ -96,4 +97,81 @@ include_graphics("img/tidyr.png")
 > »Tidy datasets are all alike,<br>
   but every messy dataset is messy in its own way.«<br>
   — Hadley Wickham
+
+--
+
+```{r tidy-definition, fig.cap="Figure from https://r4ds.had.co.nz/tidy-data.html", out.extra="class=external", echo=FALSE}
+include_graphics("img/tidy-data-wickham.png")
+```
+
+---
+
+## `table1`
+
+<br>
+
+.w-50[
+```{r}
+paged_table(table1)
+```
+]
+
+- Number of TB cases documented by
+  the World Health Organization in Afghanistan, Brazil,
+  and China between 1999 and 2000.
+- The first of these is in the tidy format, the others are not:
+
+---
+
+## `table2`
+
+<br>
+
+.w-50[
+```{r}
+paged_table(table2)
+```
+]
+
+---
+
+## `table3`
+
+<br>
+
+.w-50[
+```{r}
+paged_table(table3)
+```
+]
+
+---
+
+## `table4a` and `table4b`
+
+<br>
+
+.pull-left.w-40[
+```{r}
+paged_table(table4a)
+```
+]
+
+.pull-right.w-40[
+```{r}
+paged_table(table4b)
+```
+]
+
+---
+
+## `table5`
+
+<br>
+
+.w-50[
+```{r}
+paged_table(table5)
+```
+]
 

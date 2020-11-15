@@ -6,7 +6,7 @@ description: |
   iteration.
 draft: false
 author:
-  - name: Jannik Buhr 
+  - name: Jannik Buhr
     url: https://jmbuhr.de
 date: 11-14-2020
 output:
@@ -33,9 +33,7 @@ knitr::opts_chunk$set(
 
 Watch today's video here:
 
-COMING SOON
-
-<!-- <iframe height="400" src="https://www.youtube.com/embed/teusAoZ0IxI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<iframe height="400" src="https://www.youtube.com/embed/V3AFBd5GbLw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # Slides
 
@@ -445,6 +443,14 @@ our subsetting functions together.
 nested_tibble$df[[2]]
 ```
 
+A handy way to subsett into nested structures
+is with the `pluck` function:
+
+```{r}
+nested_tibble %>% pluck("df", 2)
+```
+
+
 ```{r}
 nested_tibble$df[[2]] %>% 
   ggplot(aes(x, y)) +
@@ -465,7 +471,7 @@ billboard dataset we created above.
 
 ```{r}
 nested_billboard <- long_billboard %>% 
-  nest(-artist, -track, .key = "data")
+  nest(data = c(-artist, -track))
 
 head(nested_billboard)
 ```
@@ -663,3 +669,9 @@ to achieve so much with one key-press!
 
 
 # Resources
+
+- [tidyr documentation](https://tidyr.tidyverse.org/)
+- [purrr documentation](https://purrr.tidyverse.org/)
+- [stringr documentation](https://stringr.tidyverse.org/)
+  for working with text and a helpful cheatsheet for
+  the **regular expressions** mentioned in the video

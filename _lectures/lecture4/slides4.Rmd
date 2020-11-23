@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Data Analysis with R"
-subtitle: "Lecture 4: Getting Started"
+subtitle: "Lecture 4: Advanced Data Wrangling"
 institute: "Heidelberg University, WS20/21"
 author: 
   - "Jannik Buhr"
@@ -35,7 +35,6 @@ layout: true
 include_graphics("https://raw.githubusercontent.com/jmbuhr/dataIntro20/master/images/hex.png")
 ```
 ]
-
 
 ---
 
@@ -89,3 +88,9 @@ class: center, middle
   It doesn't have to be you."«<br> — Jenny Bryan
   
 ]
+
+---
+
+background-image: url(img/broom_package.png)
+background-size: contain
+

@@ -667,7 +667,6 @@ to achieve so much with one key-press!
   Use the `map` function to apply your function
   to a whole vector of names.
 
-
 # Resources
 
 - [tidyr documentation](https://tidyr.tidyverse.org/)

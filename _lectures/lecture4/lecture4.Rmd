@@ -353,7 +353,7 @@ The $R^2$ value tells us, how well a straight
 line fits to our data.
 It can assume values between 0 and 1.
 
-```{r}
+```{r, preview=TRUE}
 model_glance <- broom::glance(model)
 
 text <- substitute(R^2 == rsq,

@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #545454; font-weight: bold; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #a1024a; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007faa; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #008000; } /* Char */
+code span.cn { color: #d91e18; } /* Constant */
+code span.co { color: #545454; } /* Comment */
+code span.cv { color: #545454; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #aa5d00; } /* DataType */
+code span.dv { color: #a1024a; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #a1024a; } /* Float */
+code span.fu { color: #4254a7; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #545454; font-weight: bold; } /* Information */
+code span.kw { color: #007faa; font-weight: bold; } /* Keyword */
+code span.op { color: #696969; } /* Operator */
+code span.ot { color: #007faa; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #008000; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #008000; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #008000; } /* VerbatimString */
+code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Lecture 5</title>
+
+  <meta property="description" itemprop="description" content="In which we reason about the nature of randomeness and&#10;discover various statistical tests."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2020-11-02"/>
+  <meta property="article:created" itemprop="dateCreated" content="2020-11-02"/>
+  <meta name="article:author" content="Jannik Buhr"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Lecture 5"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="In which we reason about the nature of randomeness and&#10;discover various statistical tests."/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Lecture 5"/>
+  <meta property="twitter:description" content="In which we reason about the nature of randomeness and&#10;discover various statistical tests."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=Artwork by @allison_horst;citation_publication_date=2020;citation_publisher=https://github.com/allisonhorst/stats-illustrations"/>
+  <meta name="citation_reference" content="citation_title=Statistics Done Wrong: The Woefully Complete Guide;citation_publication_date=2015;citation_publisher=No Starch Press;citation_author=Alex Reinhart"/>
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","draft","author","date","output","categories","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["Lecture 5"]},{"type":"character","attributes":{},"value":["In which we reason about the nature of randomeness and\ndiscover various statistical tests.\n"]},{"type":"logical","attributes":{},"value":[true]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Jannik Buhr"]},{"type":"character","attributes":{},"value":["https://jmbuhr.de"]}]}]},{"type":"character","attributes":{},"value":["11-02-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["lecture"]},{"type":"character","attributes":{},"value":["../../references.bib"]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["extra.css","img/paste-5E31A2FF.png","img/statistically-significant.jpg","lecture5_files/anchor-4.2.2/anchor.min.js","lecture5_files/bowser-1.9.3/bowser.min.js","lecture5_files/distill-2.2.21/template.v2.js","lecture5_files/figure-html5/chess-board-1.png","lecture5_files/figure-html5/coin-8-times-1.png","lecture5_files/figure-html5/coin-n-times-1.png","lecture5_files/figure-html5/dbinom-1.png","lecture5_files/figure-html5/p-value-hist-1.png","lecture5_files/figure-html5/pbinom-1.png","lecture5_files/figure-html5/power-plot-1.png","lecture5_files/figure-html5/qbinom-1.png","lecture5_files/figure-html5/unnamed-chunk-22-1.png","lecture5_files/figure-html5/unnamed-chunk-24-1.png","lecture5_files/header-attrs-2.5.3/header-attrs.js","lecture5_files/jquery-1.11.3/jquery.min.js","lecture5_files/pagedtable-1.1/css/pagedtable.css","lecture5_files/pagedtable-1.1/js/pagedtable.js","lecture5_files/webcomponents-2.0.0/webcomponents.js","libs/animate.css/animate.xaringan.css","libs/clipboard/clipboard.min.js","libs/editable/editable.css","libs/editable/editable.js","libs/header-attrs/header-attrs.js","libs/himalaya/himalaya.js","libs/himalaya/himalaya.js.map","libs/js-cookie/js.cookie.js","libs/tachyons/tachyons.min.css","libs/tile-view/tile-view.css","libs/tile-view/tile-view.js","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js","slides5_files/figure-html/chess-board-1.png","slides5.html","xaringan-themer.css"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="lecture5_files/header-attrs-2.5.3/header-attrs.js"></script>
+  <link href="lecture5_files/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+  <script src="lecture5_files/pagedtable-1.1/js/pagedtable.js"></script>
+  <script src="lecture5_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="lecture5_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="lecture5_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="lecture5_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="lecture5_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Lecture 5","description":"In which we reason about the nature of randomeness and\ndiscover various statistical tests.","authors":[{"author":"Jannik Buhr","authorURL":"https://jmbuhr.de","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-11-02T00:00:00.000+01:00","citationText":"Buhr, 2020"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Lecture 5</h1>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">lecture</div>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>In which we reason about the nature of randomeness and discover various statistical tests.</p></p>
+</div>
+
+<div class="d-byline">
+  Jannik Buhr <a href="https://jmbuhr.de" class="uri">https://jmbuhr.de</a> 
+  
+<br/>11-02-2020
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#video">Video</a></li>
+<li><a href="#slides">Slides</a></li>
+<li><a href="#script">Script</a>
+<ul>
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#statistically-significant">Statistically Significant…</a></li>
+<li><a href="#getting-our-hands-dirty-with-probability">Getting our Hands dirty with Probability</a>
+<ul>
+<li><a href="#definitions-hypothesis">Definitions: Hypothesis</a></li>
+<li><a href="#testing-the-null-hypothesis-with-a-simulation">Testing the Null Hypothesis with a Simulation</a></li>
+<li><a href="#getting-precise-with-the-binomial-distribution">Getting precise with the Binomial Distribution</a></li>
+<li><a href="#but-how-much-better-understanding-effect-size-and-power-false-positives-and-false-negatives">But how much better? Understanding Effect Size and Power, False Positives and False Negatives</a></li>
+</ul></li>
+<li><a href="#p-value-pitfalls">P-Value Pitfalls</a>
+<ul>
+<li><a href="#multiple-testing-correction">Multiple Testing Correction</a></li>
+<li><a href="#other-forms-of-p-hacking">Other forms of p-hacking</a></li>
+</ul></li>
+<li><a href="#bayesian-statistics-and-the-base-rate-fallacy">Bayesian Statistics and the Base Rate Fallacy</a>
+<ul>
+<li><a href="#bayess-formula">Bayes’s Formula</a></li>
+</ul></li>
+<li><a href="#concepts-discussed-today">Concepts discussed today</a></li>
+</ul></li>
+<li><a href="#exercises">Exercises</a>
+<ul>
+<li><a href="#discovering-a-new-distribution">Discovering a new Distribution</a></li>
+</ul></li>
+<li><a href="#resources">Resources</a></li>
+</ul>
+</nav>
+</div>
+<h1 id="video">Video</h1>
+<p>Watch today’s video here:</p>
+<p>Video follows</p>
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/AgpWX18dby4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> -->
+<!-- </iframe> -->
+<h1 id="slides">Slides</h1>
+<p>Hover over the slides and press <strong>f</strong> for full screen. Press <strong>?</strong> for a list of keyboard shortcuts.</p>
+<div class="layout-chunk" data-layout="l-body">
+<iframe src="slides5.html" width="624" height="400px">
+</iframe>
+</div>
+<h1 id="script">Script</h1>
+<h2 id="motivation">Motivation</h2>
+<p>In the first four lectures we covered the fundamentals of handling data with R. Now, we will shift our focus away from the <strong>how</strong> and towards the <strong>why</strong> of data analysis. We will talk about different statistical tests, common mistakes, how to avoid them and how to spot them in other research. But of course, we will do so using R. So you will still learn one or the other useful function or technique along the way. In most instances it should be clear when I use R solely to demonstrate an idea from statistics and the code is just included for the curious, or whether the code is something you will likely also use for your own analysis. I am open for questions if things are unclear in any of the two cases. For purely aesthetic code I might also speed up the typing in the edit.</p>
+<blockquote>
+<p>To understand statistics means understanding the nature of randomness first.</p>
+</blockquote>
+<p>You might not be shocked that we will be using the <code>tidyverse</code> today as well, simply because it makes the data wrangling for various demonstrations easier. So if you are following along, don’t forget:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="statistically-significant">Statistically Significant…</h2>
+<blockquote>
+<p>…you keep using that word. I don’t think it means what you think it means.</p>
+</blockquote>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span id="fig:unnamed-chunk-3"></span>
+<img src="img/statistically-significant.jpg" alt="A Meme where a person says: &quot;Statistically significant. You keep using that word. I don't think it means what you think it means.&quot;" width="200" />
+<p class="caption">
+Figure 1: A Meme where a person says: “Statistically significant. You keep using that word. I don’t think it means what you think it means.”
+</p>
+</div>
+</div>
+<p>You will hear the phrases “statistically significant,” “significant” or even “very significant” thrown around quite a bit in academic literature . And while they are often used carelessly, they have a clearly defined meaning. A meaning we will uncover today. This meaning is related to the concept of so called p-values, which have an equally bad reputation for frequently being misused. The p in p-value stands for <strong>probability</strong>, so in order to understand p-values, we need to understand probability and learn how to deal with randomness, chance, or luck if you will. So…</p>
+<h2 id="getting-our-hands-dirty-with-probability">Getting our Hands dirty with Probability</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span id="fig:chess-board"></span>
+<img src="lecture5_files/figure-html5/chess-board-1.png" alt="A ggplot chessboard" width="288" />
+<p class="caption">
+Figure 2: A ggplot chessboard
+</p>
+</div>
+</div>
+<p>Say you and you friend are playing a game of chess, when your friend proudly proclaims:<br />
+“I am definitely the better player!”<br />
+“Proof it!” you reply.<br />
+“That’s easy,” she says: “I won 7 out of the 8 rounds we played to today.”<br />
+“Pah! That’s just luck.” is your less witty and slightly stubborn response.</p>
+<p>As expected, we shall be using R to resolve this vital conflict.</p>
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span id="fig:significant"></span>
+<img src="img/paste-5E31A2FF.png" alt="“Artwork by @allison_horst” (2020)" width="240" class=.external />
+<p class="caption">
+Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-ArtworkAllisonHorst" role="doc-biblioref"><span>“Artwork by @allison_horst”</span></a> (<a href="#ref-ArtworkAllisonHorst" role="doc-biblioref">2020</a>)</span>
+</p>
+</div>
+</div>
+<h3 id="definitions-hypothesis">Definitions: Hypothesis</h3>
+<p>Both of you involuntarily uttered an hypothesis, a testable assumption. And we want to test these hypothesis using statistics. The first hypothesis (“I am the better player.”) is what we call the <strong>alternative hypothesis</strong> (<span class="math inline">\(H_1\)</span>). The name can be a bit confusing, because most often, this is your actual scientific hypothesis, the thing you are interested in. So, alternative to what? It is alternative to the so called <strong>null hypothesis</strong> (<span class="math inline">\(H_0\)</span>), which is the second statement (“This is just luck”). The null hypothesis provides a sort of baseline for all our findings. It usually goes along the lines of “What if our observations are just based on chance alone?” where “chance” can be any source of random variation in our system.</p>
+<p>The tricky part is that there is no way to directly test the alternative Hypothesis, all we can test is the null hypothesis. Because for any null hypothesis we discard, there are always multiple alternative hypothesis that could explain our data. In our example, even if we end up discarding the idea of our friend’s chess success being only down to luck, this does not prove the alternative hypothesis that she is the better player (she could still be cheating for example). Do keep this in mind when we transfer this to a more scientific setting. Just because we show that something is unlikely to have arisen by chance does not mean that your favorite alternative hypothesis is automatically true.</p>
+<p>So, after these words of warning, let’s test some null hypothesis!</p>
+<h3 id="testing-the-null-hypothesis-with-a-simulation">Testing the Null Hypothesis with a Simulation</h3>
+<p>We will start off by building a little simulation. Before testing any hypothesis, it is important to have defined <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span> properly, which we did in the previous section. But we need to be a little more specific. Winning by chance would entail a completely random process, which we can model with a coin flip. R has the lovely function <code>sample</code> to take any number of things from a vector, with or without replacement after taking each thing:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>coin</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"heads"</span>, <span class='st'>"tails"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>coin</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;tails&quot; &quot;heads&quot;</code></pre>
+</div>
+<p>Not giving it a number of things to draw just shuffles the vector, which is fairly boring in the case of just two tings. We can’t sample 10 things from a vector of only two elements</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>coin</span>, size <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Error in sample.int(length(x), size, replace, prob): cannot take a sample larger than the population when &#39;replace = FALSE&#39;</code></pre>
+</div>
+<p>But we can, if we put the thing back every time:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>coin</span>, size <span class='op'>=</span> <span class='fl'>10</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] &quot;heads&quot; &quot;heads&quot; &quot;heads&quot; &quot;tails&quot; &quot;heads&quot; &quot;tails&quot; &quot;tails&quot; &quot;heads&quot;
+ [9] &quot;heads&quot; &quot;tails&quot;</code></pre>
+</div>
+<p>So, let’s make this a little more specific to our question:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>winner</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"you"</span>, <span class='st'>"friend"</span><span class='op'>)</span>
+<span class='va'>random_winners</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>winner</span>, size <span class='op'>=</span> <span class='fl'>8</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='va'>random_winners</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;friend&quot; &quot;you&quot;    &quot;you&quot;    &quot;friend&quot; &quot;you&quot;    &quot;friend&quot; &quot;friend&quot;
+[8] &quot;you&quot;   </code></pre>
+</div>
+<p>This script will look different every time I run this, so I won’t be to specific on the outcome of this. This time, you won:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>random_winners</span> <span class='op'>==</span> <span class='st'>"you"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 4</code></pre>
+</div>
+<p>times, and your friend won:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>random_winners</span> <span class='op'>==</span> <span class='st'>"friend"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 4</code></pre>
+</div>
+<p>times. If we were to run this script a million times, the resulting proportion of random wins for both of you would be very, very close to 50-50 because we used a fair coin. However, we don’t have the time to play this much Chess and we sure don’t have the money to run a million replicates for each experiment in the lab. But here, in our little simulated world, we have near infinite resources (our simulation is not to computationally costly).</p>
+<blockquote>
+<p>One trick used above: When we calculate e.g. a sum or mean, R automatically converts TRUE to 1 and FALSE to 0.</p>
+</blockquote>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>get_n_wins</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>N</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>winner</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"you"</span>, <span class='st'>"friend"</span><span class='op'>)</span>
+  <span class='va'>random_winners</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>winner</span>, size <span class='op'>=</span> <span class='va'>N</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>random_winners</span> <span class='op'>==</span> <span class='st'>"friend"</span><span class='op'>)</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
+</div>
+<p>I created a function that returns a random number of wins your friend would have gotten by pure chance for a number of rounds <code>N</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>get_n_wins</span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 2</code></pre>
+</div>
+<p>This number is different every time, so how does it change?</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>42</span><span class='op'>)</span> <span class='co'># setting a random seed for the script</span>
+             <span class='co'># this give me the same random numbers</span>
+             <span class='co'># every time</span>
+<span class='va'>number_of_wins</span> <span class='op'>&lt;-</span> <span class='fu'>map_dbl</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>8</span>, <span class='fl'>1000</span><span class='op'>)</span>, <span class='va'>get_n_wins</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>A histogram is a type of plot that shows how often each value occurs in a vector. Usually, the values are put into bins first, grouping close values together for continuous values, but in this case it makes sense to just have one value per bin because we are dealing with discrete values (e.g. no half-wins). Histograms can either display the raw counts or the frequency e.g. as a percentage. In ggplot, we use <code>geom_bar</code> when we don’t need any binning, just counting occurrences, and <code>geom_histogram</code> when we need to bin continuous values.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>tibble</span><span class='op'>(</span><span class='va'>number_of_wins</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>number_of_wins</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_x_continuous</span><span class='op'>(</span>breaks <span class='op'>=</span> <span class='fl'>0</span><span class='op'>:</span><span class='fl'>8</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Throwing a coin 8 times"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="lecture5_files/figure-html5/coin-8-times-1.png" width="624" /></p>
+</div>
+<p>As expected, the most common number of wins out of 8 is 4 (unless I got really unlucky when compiling this script). Let us see, how this <strong>distribution</strong> changes for different values of <code>N</code>. First, we set up a grid of numbers (all possible combinations) so that we can run a bunch of simulations:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>simulation</span> <span class='op'>&lt;-</span>
+  <span class='fu'>crossing</span><span class='op'>(</span>N   <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>15</span>,
+           rep <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>1000</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>
+    wins <span class='op'>=</span> <span class='fu'>map_dbl</span><span class='op'>(</span><span class='va'>N</span>, <span class='va'>get_n_wins</span><span class='op'>)</span>
+  <span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>simulation</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>rmarkdown</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rmarkdown/man/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["N"],"name":[1],"type":["int"],"align":["right"]},{"label":["rep"],"name":[2],"type":["int"],"align":["right"]},{"label":["wins"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"1","3":"0"},{"1":"1","2":"2","3":"0"},{"1":"1","2":"3","3":"1"},{"1":"1","2":"4","3":"1"},{"1":"1","2":"5","3":"0"},{"1":"1","2":"6","3":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<p>And then we use our trusty ggplot to visualize all the distributions:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>simulation</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>wins</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span> <span class='va'>N</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Throwing a coin N times"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="lecture5_files/figure-html5/coin-n-times-1.png" width="624" /></p>
+</div>
+<p>With a fair coin, the most common number of wins should be half of the number of coin flips. Note, how it is still possible to flip a coin 15 times and and not win a single time. It is just very unlikely and the bars are so small that we can’t see them.</p>
+<p>Let us go back to the original debate. The first statement: “I am better.” is something that can never be definitively proven. Because there is always the possibility, no matter how small, that the same result could have arisen by pure chance alone. Even if she wins 100 times and we don’t take a single game from her, this sort of outcome is still not <em>impossible</em> to appear just by flipping a coin. But what we can do, is calculate, how likely a certain event is under the assumption of the null hypothesis (only chance). And we can also decide on some threshold <span class="math inline">\(\alpha\)</span> at which we reject the null hypothesis. This is called the <strong>significance threshold</strong>. When we make an observation and then calculate that the probability for an observation like this or more extreme is smaller than the threshold, we deem the result <strong>statistically significant</strong>. And the probability thus created is called the <strong>p-value</strong>.</p>
+<p>From our simulation, we find the that probability to win 7 out of 8 rounds under the null hypothesis is:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>number_of_wins</span> <span class='op'>&gt;=</span> <span class='fl'>7</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.025</code></pre>
+</div>
+<p>Which is smaller than the commonly used significance threshold of <span class="math inline">\(\alpha=0.05\)</span> (i.e. <span class="math inline">\(5\%\)</span>). So with 7 out of 8 wins, we would <strong>reject the null hypothesis</strong>. Do note that this threshold, no matter how commonly and thoughtlessly it is used throughout academic research, is completely arbitrary.</p>
+<h3 id="getting-precise-with-the-binomial-distribution">Getting precise with the Binomial Distribution</h3>
+<p>Now, this was just from a simulation with 1000 trials, so the number can’t be arbitrarily precise, but there is a mathematical formula for this probability. What we created by counting the number of successes in a series of yes-no-trials is a <strong>binomial distribution</strong>. For the most common distributions, R provides a set of functions. the functions starting with <code>d</code> give us the probability density function. In the case of discrete values like counting wins, this is equivalent to the actual probability, but for continuous values we obtain the probability by taking the integral. We get these integrals with the corresponding functions starting with <code>p</code> (for probability).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>dbinom</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>7</span>, size <span class='op'>=</span> <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.03125</code></pre>
+</div>
+<p>This is the probability to win <strong>exactly 7 out of 8</strong> games. But what we wanted was the probability for <strong>7 or more out of 8</strong>! So we move to the integral. This part can get a bit confusing, because the default for <code>pbinom</code> is <code>lower.tail = TRUE</code>, which according to the help page means that probabilities are <span class="math inline">\(P[X \le x]\)</span>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>pbinom</a></span><span class='op'>(</span>q <span class='op'>=</span> <span class='fl'>7</span>, size <span class='op'>=</span> <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.9960938</code></pre>
+</div>
+<p>If we set <code>lower.tail</code> to <code>FALSE</code> , we get <span class="math inline">\(P[X &gt; x]\)</span>, so the probability for a random variable X being bigger than a number x. So to get the probability that we are interested in, we need to replace the 7 with a 6 as well:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>pbinom</a></span><span class='op'>(</span>q <span class='op'>=</span> <span class='fl'>6</span>, size <span class='op'>=</span> <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span>, lower.tail <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.03515625</code></pre>
+</div>
+<p>Our simulation was pretty close! So the exact values agrees and we reject the null hypothesis of both opponents being equally good.</p>
+<blockquote>
+<p><strong>Sidenote</strong>: For quick visualizations of function curves I sometimes use plotting functions from base-R rather than ggplot. They are not as powerful and versatile, but efficient at their own small tasks. Just make sure to note that this is not ggplot, so we can’t use our regular repertoire of themes and the likes with it.</p>
+</blockquote>
+<p>Here is the full graph for the probability density function of the binomial distribution</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>dbinom</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>,
+      type <span class='op'>=</span> <span class='st'>"s"</span>, from <span class='op'>=</span> <span class='fl'>0</span>,
+      to <span class='op'>=</span> <span class='fl'>8</span>,
+      n <span class='op'>=</span> <span class='fl'>9</span>, main <span class='op'>=</span> <span class='st'>"dbinom"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="lecture5_files/figure-html5/dbinom-1.png" width="624" /></p>
+</div>
+<p>And the integral, the probability <span class="math inline">\(P[X \le x]\)</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>pbinom</a></span><span class='op'>(</span>q <span class='op'>=</span> <span class='va'>x</span>, <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>,
+      type <span class='op'>=</span> <span class='st'>"s"</span>,
+      from <span class='op'>=</span> <span class='fl'>0</span>,
+      to <span class='op'>=</span> <span class='fl'>8</span>,
+      n <span class='op'>=</span> <span class='fl'>9</span>, main <span class='op'>=</span> <span class='st'>"pbinom"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="lecture5_files/figure-html5/pbinom-1.png" width="624" /></p>
+</div>
+<p>There is two more function I want to showcase from this family. The third is the so called <strong>quantile function</strong>. Quantiles divide a probability distribution into pieces of equal probability. One example for a quantile is the 50th percentile, also known as the median, which divides the values such that half of the values are above and half are below. And we can keep dividing the two halves as well, so that we end up with more quantiles. Eventually, we arrive at the quantile function. It is the inverse of the probability function, so you obtain it by swapping the axis.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>qbinom</a></span><span class='op'>(</span>p <span class='op'>=</span> <span class='va'>x</span>, size <span class='op'>=</span> <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>,
+      type <span class='op'>=</span> <span class='st'>"s"</span>,
+      from <span class='op'>=</span> <span class='fl'>0</span>,
+      to <span class='op'>=</span> <span class='fl'>1</span>,
+      n <span class='op'>=</span> <span class='fl'>9</span>, main <span class='op'>=</span> <span class='st'>"qbinom"</span>
+      <span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="lecture5_files/figure-html5/qbinom-1.png" width="624" /></p>
+</div>
+<p>Quantiles will also be useful for deciding if a random sample follows a certain distribution with quantile-quantile plots.</p>
+<p>Lastly, there is always also an <code>r</code> variant of the function, which gives us any number of random numbers from the distribution.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>10</span>, size <span class='op'>=</span> <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] 4 5 5 5 5 2 3 4 6 3</code></pre>
+</div>
+<h3 id="but-how-much-better-understanding-effect-size-and-power-false-positives-and-false-negatives">But how much better? Understanding Effect Size and Power, False Positives and False Negatives</h3>
+<p>We decided to abandon the null hypothesis that both players are equally good, which equates to a 50% win-chance for each player. But we have not determined <strong>how much better</strong> she is. And how much better does she need to be for us to reliably discard the null hypothesis after just 8 games? The generalization of the <strong>how much better</strong> part, the <strong>true difference</strong>, is called the <strong>effect size</strong>.</p>
+<p>Our ability to decide that something is statistically significant when there is in fact a true difference is called the statistical <strong>power</strong>. It depends on the effect size, our significance threshold <span class="math inline">\(\alpha\)</span> and the sample size <span class="math inline">\(n\)</span> (the number of games). We can explore the concept with another simulation.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>2020</span><span class='op'>)</span>
+<span class='va'>trials</span> <span class='op'>&lt;-</span> <span class='fl'>10000</span>
+<span class='va'>simulation</span> <span class='op'>&lt;-</span> <span class='fu'>crossing</span><span class='op'>(</span>
+  N <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>8</span>, <span class='fl'>100</span>, <span class='fl'>1000</span>, <span class='fl'>10000</span><span class='op'>)</span>,
+  true_prob <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.5</span>, <span class='fl'>0.8</span>, <span class='fl'>0.9</span><span class='op'>)</span>
+<span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>rowwise</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>
+    wins <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='va'>N</span>,
+                       prob <span class='op'>=</span> <span class='va'>true_prob</span>,
+                       n <span class='op'>=</span> <span class='va'>trials</span><span class='op'>)</span><span class='op'>)</span>,
+    p <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>pbinom</a></span><span class='op'>(</span>q <span class='op'>=</span> <span class='va'>wins</span> <span class='op'>-</span> <span class='fl'>1</span>,
+                    size <span class='op'>=</span> <span class='va'>N</span>,
+                    prob <span class='op'>=</span> <span class='fl'>0.5</span>, lower.tail <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span>
+    <span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ungroup</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='va'>simulation</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 12 x 4
+       N true_prob wins           p             
+   &lt;dbl&gt;     &lt;dbl&gt; &lt;list&gt;         &lt;list&gt;        
+ 1     8       0.5 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+ 2     8       0.8 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+ 3     8       0.9 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+ 4   100       0.5 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+ 5   100       0.8 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+ 6   100       0.9 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+ 7  1000       0.5 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+ 8  1000       0.8 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+ 9  1000       0.9 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+10 10000       0.5 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+11 10000       0.8 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+12 10000       0.9 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;</code></pre>
+</div>
+<p>I also introduced a new piece of advanced dplyr syntax. <code>rowwise</code> is similar to <code>group_by</code> and essentially puts each row into its own group. This can be useful when working with list columns or running a function with varying arguments and allows us to treat the inside of <code>mutate</code> a bit like as if we where using one of the <code>map</code> functions. For more information, see <a href="https://dplyr.tidyverse.org/articles/rowwise.html">the documentation article</a>.</p>
+<p>It leaves us with 10000 simulated numbers of wins at N games for different true probabilities of her winning (i.e. how much better our friend is). We then calculate the probability to have this or a greater number of wins under the null hypothesis (equal probability for win and loss), in other words: the p-value.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>simulation</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>unnest</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>wins</span>, <span class='va'>p</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>p</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_histogram</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span> <span class='va'>true_prob</span> <span class='op'>+</span> <span class='va'>N</span>,
+             labeller <span class='op'>=</span> <span class='va'>label_both</span>,
+             scales <span class='op'>=</span> <span class='st'>"free_y"</span>,
+             ncol <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_vline</span><span class='op'>(</span>xintercept <span class='op'>=</span> <span class='fl'>0.05</span>, color <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"p-value"</span>,
+       y <span class='op'>=</span> <span class='st'>"frequency"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_y_continuous</span><span class='op'>(</span>breaks <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="lecture5_files/figure-html5/p-value-hist-1.png" width="624" /></p>
+</div>
+<p>We notice a couple of things in this plot. As the number of games played approaches very high numbers, the p-values for the case where the null hypothesis is in fact true (both players have the same chance of winning), start following a uniform distribution, meaning for a true null hypothesis, all p-values are equally likely. This seems counterintuitive at first, but is a direct consequence of the definition of the p-value. The consequence of this is, that if we apply our regular significance threshold of 5%, by definition we will say that there is a true difference, even though there is none (i.e. the null hypothesis is true but we falsely reject it and favor of our alternative hypothesis). This is called a <strong>false positive</strong>. By definition, we will get at least <span class="math inline">\(\alpha\)</span> false positives in all of our experiments. Later, we will learn, why the real number of false positives is even higher. Another name for false positives is <strong>Type I errors</strong>.</p>
+<p>On the other side of the coin, there are also cases where there is a true difference (we used winning probabilities of 0.8 and 0.9), but we don’t reject the null hypothesis because we get a p-values larger than <span class="math inline">\(alpha\)</span>. These are all <strong>false negatives</strong> and their rate is sometimes referred to as <span class="math inline">\(\beta\)</span>. Another name for false negatives is <strong>Type II errors</strong>. People don’t particularly like talking about negative things like errors, so instead you will often see the inverse of <span class="math inline">\(\beta\)</span>, the <strong>Statistical Power</strong> <span class="math inline">\(1-\beta\)</span>. The proportion of correctly identified positives out of the actual positives is also shown on the plot below. For example, say her true win probability is 90% and we play 8 games. If this experiment runs in an infinite number of parallel universes, we will conclude that she is better than chance in 80% of those. We could set our significance threshold higher to detect more of the true positives, but this would also increase our false positives.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>simulation</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>unnest</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>wins</span>, <span class='va'>p</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>true_prob</span>, <span class='va'>N</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>summarise</span><span class='op'>(</span>signif <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>p</span> <span class='op'>&lt;=</span> <span class='fl'>0.05</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>true_prob</span>, <span class='va'>signif</span>, fill <span class='op'>=</span> <span class='va'>true_prob</span> <span class='op'>==</span> <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_col</span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"black"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_text</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>label <span class='op'>=</span> <span class='va'>signif</span><span class='op'>)</span>, vjust <span class='op'>=</span> <span class='op'>-</span><span class='fl'>0.2</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span><span class='va'>N</span>,
+             labeller <span class='op'>=</span> <span class='va'>label_both</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_y_continuous</span><span class='op'>(</span>expand <span class='op'>=</span> <span class='fu'>expansion</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_viridis_d</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>y <span class='op'>=</span> <span class='st'>"Proportion of significant results"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="lecture5_files/figure-html5/power-plot-1.png" width="624" /></p>
+</div>
+<blockquote>
+<p>Unfortunately, there is no free lunch in statistics.</p>
+</blockquote>
+<p>There are also packages out there, which have a function to compute the power for the binomial test, but I think the simulation was way more approachable. The cool thing about simulations is also, that they work even when there is no analytical solution, so you can use them to play around when planning an experiment.</p>
+<h2 id="p-value-pitfalls">P-Value Pitfalls</h2>
+<p>Let us look into some of the pitfalls of p-values. Remember from the definition of p-values, that we will get a significant result even if there is no true difference in 5% of cases (assuming we use this as our alpha)? Well, what if we test a bunch of things? This is called <strong>Multiple Testing</strong> and there is a problem associated with it:</p>
+<p>If you test 20 different things, and your statistical test will produce a significant result by chance alone in 5% of cases, the expected number of significant results is 1. So we are not very surprised. Speaking of surprised: In his book, available for free online, <a href="https://www.statisticsdonewrong.com/">“Statistics done wrong”</a>, Alex Reinhart describes p-values as a “measure of surprise”:</p>
+<blockquote>
+<p>»A p value is not a measure of how right you are, or how significant the difference is; it’s a measure of how surprised you should be if there is no actual difference between the groups, but you got data suggesting there is. A bigger difference, or one backed up by more data, suggests more surprise and a smaller p value.« — Alex Reinhart <span class="citation" data-cites="reinhartStatisticsDoneWrong2015">(<a href="#ref-reinhartStatisticsDoneWrong2015" role="doc-biblioref">Reinhart 2015</a>)</span></p>
+</blockquote>
+<p>So, we are not very surprised, but if you focus to hard on the one significant result, trouble ensues. In a “publish or perish” mentality, this can easily happen, and negative findings are not published nearly enough, so most published findings are likely exaggerated. John Bohannon showcased this beautifully by running a study on chocolate consumption and getting it published: <a href="https://io9.gizmodo.com/i-fooled-millions-into-thinking-chocolate-helps-weight-1707251800">I Fooled Millions Into Thinking Chocolate Helps Weight Loss. Here’s How.</a></p>
+<p>What can we do about this?</p>
+<h3 id="multiple-testing-correction">Multiple Testing Correction</h3>
+<p>The simplest approach is to take all p-values calculate when running a large number of comparisons and dividing them by the number of tests performed. This is called the <strong>Bonferroni correction</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>p_values</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.5</span>, <span class='fl'>0.05</span>, <span class='fl'>0.3</span>, <span class='fl'>0.001</span>, <span class='fl'>0.003</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/p.adjust.html'>p.adjust</a></span><span class='op'>(</span><span class='va'>p_values</span>, method <span class='op'>=</span> <span class='st'>"bonferroni"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 1.000 0.250 1.000 0.005 0.015</code></pre>
+</div>
+<p>Of course, this looses some statistical power (remember, no free lunch). A slightly more sophisticated approach to controlling the false discovery rate (FDR) is the Benjamini-Hochberg procedure. It retains a bit more power. Here is what happens:</p>
+<ul>
+<li>Sort all p-values in ascending order.</li>
+<li>Choose a FDR <span class="math inline">\(q\)</span> you are willing to accept and call the number of tests done <span class="math inline">\(m\)</span>.</li>
+<li>Find the largest p-value with: <span class="math inline">\(p \leq iq/m\)</span> with its index <span class="math inline">\(i\)</span>.</li>
+<li>This is your new threshold for significance</li>
+<li>Scale the p-values accordingly</li>
+</ul>
+<p>And this is how you do it in R:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/stats/p.adjust.html'>p.adjust</a></span><span class='op'>(</span><span class='va'>p_values</span>, method <span class='op'>=</span> <span class='st'>"BH"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.50000000 0.08333333 0.37500000 0.00500000 0.00750000</code></pre>
+</div>
+<h3 id="other-forms-of-p-hacking">Other forms of p-hacking</h3>
+<p>This sort of multiple testing is fairly obvious. You will notice it, when you end up with a large number of p-values, for example when doing a genetic screening and testing thousands of genes. Other related problems are harder to spot. For a single research question there are often different statistical tests that you could run, but trying them all out and then choosing the one that best agrees with your hypothesis is not an option! Likewise, simply looking at your data is a form of comparison if it influences your choice of statistical test. Ideally, you first run some exploratory experiments that are not meant to test your hypothesis, then decide on the tests you need, the sample size you want for a particular power and then run the actual experiments designed to test your hypothesis.</p>
+<p>At this point, here is another shout-out to Alex Reinharts book <span class="citation" data-cites="reinhartStatisticsDoneWrong2015">(<a href="#ref-reinhartStatisticsDoneWrong2015" role="doc-biblioref">Reinhart 2015</a>)</span>. It is a very pleasant read and also shines more light on some of the other forms of <strong>p-hacking</strong>.</p>
+<h2 id="bayesian-statistics-and-the-base-rate-fallacy">Bayesian Statistics and the Base Rate Fallacy</h2>
+<p>There is another more subtle problem called the base rate fallacy. As an example, we assume a medical test, testing for a certain condition. In medical testing, different words are used for the same concepts we defined above<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Here, we have:</p>
+<ul>
+<li>Sensitivity = Power = true positive rate = <span class="math inline">\(1-\beta\)</span></li>
+<li>Specificity = true negative rate = <span class="math inline">\(1-\alpha\)</span></li>
+</ul>
+<p>Let us assume a test with a sensitivity of 90% and a specificity of 92%. When we visit the doctor to get a test, and get a positive result, what is the probability, that we are in fact positive (i.e. a true positive)? Well, the test has a specificity of 92%, so if we where negative, it would have detected that in 92% of cases, does this mean, that we can be 92% certain, that we are actually positive?</p>
+<p>Well, <strong>no</strong>. What we are ignoring here is <strong>base rate</strong>, which for diseases is called the <strong>prevalence</strong>. It is the proportion at which a disease exists in the general population.</p>
+<p>So, let us say, we are picking 1000 people at random from the population and testing them. We are dealing with a hypothetical condition that affects 1% of people, so we assume 10 people in our sample to be positive. Of those 10 people, 9 will be tested positive (due to our sensitivity), those will be our true positives. The remaining 1 will be a false negative. However, we are of course also testing the negatives (if we knew ahead of time there would be no point in testing) and of those due to our specificity, 8% will also be tested positive, which is 0.08 * 990, so we get 79 false positives. Because there are so many negatives in our sample, even a relatively high specificity will produce a lot of false positives. So that actual probability of being positive with a positive test result is</p>
+<p><span class="math display">\[\frac{true~positives}{true~positives + false~positives}=10\%\]</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="lecture5_files/figure-html5/unnamed-chunk-22-1.png" width="624" /></p>
+</div>
+<h3 id="bayess-formula">Bayes’s Formula</h3>
+<p>Formally, this is described by Bayes’s Formula</p>
+<p><span class="math display">\[P(A|B)=\frac{P(B|A)*P(A)}{P(B)}\]</span></p>
+<p>Read: The probability of A given B is the probability of B given A times the probability of A divided by the probability of B.</p>
+<p>In bayesian statistics, the prevalences are known as <strong>priors</strong>.</p>
+<h2 id="concepts-discussed-today">Concepts discussed today</h2>
+<p>After today you should be familiar with the following concepts:</p>
+<ul>
+<li>Null and alternative hypothesis</li>
+<li>P-values and statistical significance</li>
+<li>Binomial distribution</li>
+<li>Probability density, probability and quantile functions</li>
+<li>Effect size and statistical power</li>
+<li>False positives, false negatives</li>
+<li>Multiple testing and p-hacking</li>
+<li>Bayes’s Theorem</li>
+</ul>
+<h1 id="exercises">Exercises</h1>
+<p>Just by itself this is quite a bit of material to take in, so I try to limit the exercises for today.</p>
+<h2 id="discovering-a-new-distribution">Discovering a new Distribution</h2>
+<p>The binomial distribution was concerned with sampling with replacement (you can get head or tails any number of times without using up the coin). In this exercise you will explore sampling <strong>without</strong> replacement. The common model for this is an urn with two different colored balls in it. The resulting distribution is called the <strong>hypergeometric distribution</strong> and the corresponding R functions are <code>&lt;r/d/p/q&gt;hyper</code> Unfortunately, I couldn’t think of a game that could be modeled by sampling without replacement, let me know, if you find one!</p>
+<ul>
+<li>Imagine you are a zoo manager.
+<ul>
+<li>Get yourselves in the mood by watching some cute animal videos and having a cup of tee or coffee. <a href="https://www.youtube.com/watch?v=DSehQsYU9h4">Here</a> are two red pandas having fun in the snow.</li>
+<li>We got a gift from another zoo! It consists of 8 red pandas and 2 giant pandas. What is the probability that they end up properly separated, if we randomly take 8 animals, put them in one enclosure and put the rest in another?</li>
+<li>Our penguin colony hatched eggs and we have a bunch of newcomers. We have have 15 males and 10 females. I we look at a random subset of 12 penguins, what does the distribution of the number of males look like? Which number is most likely? How likely is it, to get at least 9 males in the sample?</li>
+</ul></li>
+</ul>
+<h1 id="resources">Resources</h1>
+<ul>
+<li><a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108" class="uri">https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108</a></li>
+<li><a href="https://jimgruman.netlify.app/post/education-r/" class="uri">https://jimgruman.netlify.app/post/education-r/</a></li>
+<li><a href="http://varianceexplained.org/statistics/interpreting-pvalue-histogram/">P-Value histograms blogpost by David Robinson</a></li>
+<li><a href="https://www.statisticsdonewrong.com/">“Statistics done wrong”</a></li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-ArtworkAllisonHorst" class="csl-entry" role="doc-biblioentry">
+<span>“Artwork by @allison_horst.”</span> 2020. https://github.com/allisonhorst/stats-illustrations.
+</div>
+<div id="ref-reinhartStatisticsDoneWrong2015" class="csl-entry" role="doc-biblioentry">
+Reinhart, Alex. 2015. <em>Statistics <span>Done Wrong</span>: <span>The Woefully Complete Guide</span></em>. 1 edition. <span>San Francisco</span>: <span>No Starch Press</span>.
+</div>
+</div>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>This is a slightly annoying trend in statistics; as it enters different fields, people come up with new names for old things (perhaps the most notorious field for this is machine learning).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+<h3 id="references">References</h3>
+<div id="references-listing"></div>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

@@ -713,6 +713,7 @@ Above all, have some fun! If you make interesting
 findings along the way, go ahead and produce plots
 to highlight it.
 
+
 # Resources
 
 - [purrr documentation](https://purrr.tidyverse.org/)

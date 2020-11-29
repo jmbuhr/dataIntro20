@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Data Analysis with R"
-subtitle: "Lecture 5: Getting Started"
+subtitle: "Lecture 5: The Nature of Randomness"
 institute: "Heidelberg University, WS20/21"
 author: 
   - "Jannik Buhr"
@@ -73,5 +73,89 @@ With Artwork by @allison_horst
 
 class: inverse center middle
 
-# Introduction
+> To understand statistics means understanding the nature of randomness first.
 
+---
+
+class: inverse center middle
+
+```{r, out.width="50%"}
+include_graphics("img/statistically-significant.jpg")
+```
+
+---
+
+class: center middle
+
+```{r chess-board, echo=FALSE, fig.asp=1, fig.width=7}
+n = 8
+crossing(x = 1:n,
+         y = 1:n) %>%
+  mutate(f = xor((x %% 2 == 0), (y %% 2 == 0))) %>% 
+  ggplot(aes(x, y, fill = f)) +
+  geom_tile() +
+  coord_equal() +
+  scale_fill_brewer() +
+  theme_void() +
+  guides(fill = "none")
+```
+
+---
+
+class: center middle animated fadeInUp
+
+```{r significant, echo=FALSE, fig.cap="Artwork by @allison_horst", out.extra="class=.external"}
+include_graphics("img/paste-5E31A2FF.png")
+```
+
+---
+
+## Definitions
+
+- **alternative hypothesis** ( $H_1$ ) ("I am the better player.")
+- **null hypothesis** ( $H_0$ ) ("This is just luck")
+
+
+## $\rightarrow$ to R!
+
+
+---
+
+```{r, out.width="90%"}
+include_graphics("lecture5_files/figure-html5/coin-n-times-1.png")
+```
+
+---
+
+## Making Decisions
+
+- How likely is certain event is under the assumption of the null hypothesis (only chance)?
+- Decide on some threshold $\alpha$, at which we reject the null hypothesis.
+- This is called the **significance threshold**.
+- For $P[X \ge x]< \alpha$: **statistically significant**
+- This probability is called the **p-value**.
+
+
+---
+
+```{r, out.width="90%"}
+include_graphics("lecture5_files/figure-html5/coin-n-times-1.png")
+```
+
+
+```{r}
+knit_exit()
+```
+
+
+---
+
+```{r, out.width="90%"}
+include_graphics("lecture5_files/figure-html5/coin-n-times-1.png")
+```
+
+---
+
+```{r, out.width="90%"}
+include_graphics("lecture5_files/figure-html5/coin-n-times-1.png")
+```

@@ -3,11 +3,11 @@ title: "Lecture 5"
 description: |
   In which we reason about the nature of randomeness and
   discover various statistical tests.
-draft: true
+draft: false
 author:
   - name: Jannik Buhr 
     url: https://jmbuhr.de
-date: 11-02-2020
+date: 11-30-2020
 output:
   distill::distill_article:
     self_contained: false
@@ -32,11 +32,11 @@ theme_set(theme_linedraw())
 
 Watch today's video here:
 
-Video follows
-
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/AgpWX18dby4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> -->
-
-<!-- </iframe> -->
+```{=html}
+<iframe height="400" src="https://www.youtube.com/embed/lwnZaHczseA" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+```
 
 # Slides
 
@@ -712,7 +712,6 @@ tibble(
   transform_and_plot()
 ```
 
-### Bayes's Formula
 
 Formally, this is described by Bayes's Formula
 
@@ -770,7 +769,7 @@ let me know, if you find one!
     put them in one enclosure and put the rest in another?
   - Our penguin colony hatched eggs and we have
     a bunch of newcomers. We have have 15 males and
-    10 females. I we look at a random subset of
+    10 females. If we look at a random subset of
     12 penguins, what does the distribution of the
     number of males look like? Which number is most
     likely? How likely is it, to get at least

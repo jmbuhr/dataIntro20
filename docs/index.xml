@@ -12,7 +12,18 @@
       <link>https://jmbuhr.de/dataIntro20/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 22 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 29 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Lecture 5</title>
+      <dc:creator>Jannik Buhr</dc:creator>
+      <link>https://jmbuhr.de/dataIntro20/lectures/lecture5</link>
+      <description>In which we reason about the nature of randomeness and
+discover various statistical tests.</description>
+      <category>lecture</category>
+      <guid>https://jmbuhr.de/dataIntro20/lectures/lecture5</guid>
+      <pubDate>Sun, 29 Nov 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture5/img/statistically-significant.jpg" medium="image" type="image/jpeg"/>
+    </item>
     <item>
       <title>Lecture 4</title>
       <dc:creator>Jannik Buhr</dc:creator>

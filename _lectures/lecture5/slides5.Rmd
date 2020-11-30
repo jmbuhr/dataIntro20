@@ -118,13 +118,6 @@ include_graphics("img/paste-5E31A2FF.png")
 
 ## $\rightarrow$ to R!
 
-
----
-
-```{r, out.width="90%"}
-include_graphics("lecture5_files/figure-html5/coin-n-times-1.png")
-```
-
 ---
 
 ## Making Decisions
@@ -135,27 +128,97 @@ include_graphics("lecture5_files/figure-html5/coin-n-times-1.png")
 - For $P[X \ge x]< \alpha$: **statistically significant**
 - This probability is called the **p-value**.
 
+---
+
+class: middle
+
+> »A p value is not a measure of how right you are,
+  or how significant the difference is;
+  it’s a measure of how surprised you should be if there is no actual difference
+  between the groups, but you got data suggesting there is.
+  A bigger difference, or one backed up by more data,
+  suggests more surprise and a smaller p value.«
+> — Alex Reinhart [@reinhartStatisticsDoneWrong2015]
 
 ---
 
-```{r, out.width="90%"}
-include_graphics("lecture5_files/figure-html5/coin-n-times-1.png")
-```
+class: middle
 
-
-```{r}
-knit_exit()
-```
-
+[I Fooled Millions Into Thinking Chocolate Helps Weight Loss. Here's How.](https://io9.gizmodo.com/i-fooled-millions-into-thinking-chocolate-helps-weight-1707251800)
+by John Bohannon
 
 ---
 
-```{r, out.width="90%"}
-include_graphics("lecture5_files/figure-html5/coin-n-times-1.png")
+## Example: Medical Testing
+
+- Sensitivity = Power = true positive rate = $1-\beta$
+- Specificity = true negative rate = $1-\alpha$
+
+Let us assume a test with a
+sensitivity of 90% and a specificity
+of 92%.
+
+--
+
+- 1000 people
+- 10 positive
+- 9 tested true positive
+- 1 false negative
+- 79 false positives
+
+
+
+--
+
+```{r, echo = FALSE, fig.asp=0.1, fig.width=12, out.width="90%"}
+total <- 1000
+positives <- 10
+negatives <- total - positives
+sensitivity <- 0.9
+specificity <- 1 - 0.08
+true_positives  <- sensitivity * positives
+false_positives <- (1 - specificity) * negatives
+p_positive <- true_positives / (true_positives + false_positives)
+
+colors = c("detected positives" = "darkred",
+            "not detected positives (false negatives)" = "palevioletred1",
+            "false positives" = "red",
+            "true negatives" = "white")
+
+transform_and_plot <- function(df) {
+  long <- df %>% 
+  rowwise() %>%
+  mutate(res = list(rep(parts, times = vals))) %>% 
+  unnest()
+
+  long %>% 
+    ggplot(aes(x = 0, fill = res)) +
+    geom_bar(color = "black") +
+    theme_void() + 
+    scale_fill_manual(values = colors) +
+    coord_flip() +
+    theme(legend.position = "bottom") +
+    guides(fill = guide_legend(title = "", reverse = TRUE))
+}
+tibble(
+  parts = c("detected positives",
+            "not detected positives (false negatives)",
+            "false positives",
+            "true negatives"),
+  vals = c(true_positives,
+           positives - true_positives,
+           round(false_positives),
+           negatives)
+) %>% 
+  transform_and_plot()
 ```
 
----
+Probability of being positive after positive test:
 
-```{r, out.width="90%"}
-include_graphics("lecture5_files/figure-html5/coin-n-times-1.png")
-```
+$$\frac{true~positives}{true~positives + false~positives}=10\%$$
+
+Formally, this is described by Bayes's Formula
+
+$$P(A|B)=\frac{P(B|A)*P(A)}{P(B)}$$
+
+

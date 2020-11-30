@@ -1,7 +1,7 @@
 ---
 title: "Lecture 5"
 description: |
-  In which we reason about the nature of randomeness and
+  ... in which we reason about the nature of randomness and
   discover various statistical tests.
 draft: false
 author:

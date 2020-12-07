@@ -1071,7 +1071,7 @@ that explain most of the variance.
 We can see, which features ended up contributing
 to which components:
 
-```{r}
+```{r preview=TRUE}
 songs_compontents %>% 
   mutate(terms = tidytext::reorder_within(terms, by = value, within = component)) %>% 
   filter(component %in% paste0("PC", 1:3)) %>% 

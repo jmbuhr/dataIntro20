@@ -1,0 +1,66 @@
+---
+title: "Notepad"
+author: "Jannik"
+date: "12/1/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## The Galton Board
+
+```{r}
+n_layers <- 15
+p <- 0.5
+n_paths <- 1000
+
+get_random_path <- function(n_layers, p) {
+  s <- sample(c(-0.5, 0.5), n_layers, replace = TRUE, prob = c(p, 1 - p))
+  c(0, cumsum(s))
+}
+
+galton <- tibble(
+  trial = 1:n_paths,
+  path = map(trial, ~ get_random_path(n_layers, p))
+) %>% 
+  unnest_longer(path) %>% 
+  group_by(trial) %>% 
+  mutate(h = n():1)
+
+board <- tibble(
+  h = 1:n_layers,
+  trial = 1
+) %>% 
+  mutate(path = map(h, function(h) {
+    x <- (n_layers - h)
+    (-x/2):(x/2)
+  })) %>% 
+  unnest_longer(path) %>% 
+  mutate(h = h + 0.4)
+```
+
+```{r}
+library(gganimate)
+
+galton %>% 
+  ggplot(aes(path, h, group = trial)) +
+  geom_path(alpha = 0.1, size = 2,  lineend = "round") +
+  geom_point(data = board) +
+  theme_void() +
+  # transition_reveal(along = trial) +
+  NULL
+```
+
+```{r}
+galton %>% 
+  filter(h == 1) %>% 
+  ggplot(aes(path)) +
+  geom_histogram(aes(y = stat(count) / sum(count)), binwidth = 0.5)
+```
+
+
+
+
+

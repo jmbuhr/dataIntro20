@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Data Analysis with R"
-subtitle: "Lecture 5: Getting Started"
+subtitle: "Lecture 6: Continuous Distributions, Statistics and PCA"
 institute: "Heidelberg University, WS20/21"
 author: 
   - "Jannik Buhr"
@@ -36,7 +36,6 @@ include_graphics("https://raw.githubusercontent.com/jmbuhr/dataIntro20/master/im
 ```
 ]
 
-
 ---
 
 name: title
@@ -71,8 +70,89 @@ With Artwork by @allison_horst
 ]
 
 ---
+class: center, middle 
 
-class: inverse center middle
+## Reproducible Environments with `renv`
 
-# Introduction
+<a href="https://rstudio.github.io/renv/">
+<img src="img/renv.svg" width="40%">
+</a>
+
+---
+class: middle
+
+> »All models are wrong, but some are useful«
+> — George Box
+
+---
+
+## Types of Models
+
+1. **Descriptive Models**
+2. **Inferential Models** 
+3. **Predictive Models** 
+
+```{r echo=FALSE, fig.height=6, fig.width=12}
+mpg %>% 
+  ggplot(aes(displ, hwy)) +
+  geom_smooth() +
+  geom_point()
+```
+
+---
+
+## Boxplots
+
+```{r}
+include_graphics("lecture6_files/figure-html5/box-plot-outlier-1.png")
+```
+
+---
+
+## Mean, Variance and SD
+
+$$var(X) = \frac{\sum_{i=0}^{n}{(x_i-\bar x)^2}}{(n-1)}$$
+
+$$\sigma_X=\sqrt{var(X)}$$
+
+```{r}
+include_graphics("lecture6_files/figure-html5/valence-mean-1.png")
+```
+
+---
+
+## Standard Error of the Mean
+
+$$SEM=\sigma / \sqrt{n}$$
+
+---
+
+```{r}
+include_graphics("lecture6_files/figure-html5/horrible-plot-1.png")
+```
+
+---
+
+So the next time you see a barplot ask the question:
+
+![[@ArtworkAllisonHorst]](img/summary_statistics.png){.external}
+
+---
+
+## The t-distribution
+
+```{r}
+include_graphics("lecture6_files/figure-html5/tdist-1.png")
+```
+
+---
+background-image: url(img/whaleshark.png)
+background-size: contain
+
+
+---
+background-image: url(img/krill.png)
+background-size: contain
+
+
 

@@ -12,7 +12,19 @@
       <link>https://jmbuhr.de/dataIntro20/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 29 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Lecture 6</title>
+      <dc:creator>Jannik Buhr</dc:creator>
+      <link>https://jmbuhr.de/dataIntro20/lectures/lecture6</link>
+      <description>... in which we explore continuous distributions with spotify data,
+find out about the central limit theorem and related statistical tests
+and become N-dimensional whale sharks.</description>
+      <category>lecture</category>
+      <guid>https://jmbuhr.de/dataIntro20/lectures/lecture6</guid>
+      <pubDate>Sun, 06 Dec 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture6/lecture6_files/figure-html5/unnamed-chunk-7-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Lecture 5</title>
       <dc:creator>Jannik Buhr</dc:creator>
@@ -21,7 +33,7 @@
 discover various statistical tests.</description>
       <category>lecture</category>
       <guid>https://jmbuhr.de/dataIntro20/lectures/lecture5</guid>
-      <pubDate>Sun, 29 Nov 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
       <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture5/img/statistically-significant.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>

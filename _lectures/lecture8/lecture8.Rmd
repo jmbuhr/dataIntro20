@@ -41,6 +41,4 @@ knitr::include_url("slides2.html")
 
 # Exercises
 
-# Solutions
-
 # Resources

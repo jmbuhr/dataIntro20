@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Data Analysis with R"
-subtitle: "Lecture 7: Getting Started"
+subtitle: "Lecture 7: Stories of Warplanes, Correlation and Regression"
 institute: "Heidelberg University, WS20/21"
 author: 
   - "Jannik Buhr"
@@ -70,8 +70,97 @@ With Artwork by @allison_horst
 ]
 
 ---
+class: middle, center, inverse
 
-class: inverse center middle
+## 1943
 
-# Introduction
+---
+
+## The Story of Abraham Wald
+
+--
+
+.pull-left[
+```{r surv, echo=FALSE}
+include_graphics("img/survivorship-bias.png")
+```
+]
+
+--
+
+.pull-right[
+```{r wald,  echo=FALSE, fig.cap='Cover of "A method of estimating plane vulnerability based on damage of survivors"'}
+include_graphics("images/paste-57122EF0.png")
+```
+]
+
+--
+
+> Instead of the most-hit parts, the least-hit parts are to be reinforced.
+
+---
+
+## Before we go back to R:
+
+```{r, echo=FALSE}
+tweetrmd::include_tweet("https://twitter.com/jakevdp/status/1336343740235935744")
+```
+
+--
+
+```{r, echo=FALSE, out.width="40%"}
+include_graphics("img/survivorship-bias.png")
+```
+
+... which is why most people you follow on twitter
+have more followers than you do.
+
+---
+
+### Best Practices
+
+> **Your raw data is sacred!** Do not ever modify it or
+  save over it.
+  
+---
+
+## Covariance, Correlation and Regression
+
+![Source: https://xkcd.com/552/](img/correlation.png)
+
+---
+
+## Introducing the Dataset
+
+![I guess it is the baby yoda show now.](img/baby_yoda.gif)
+
+---
+
+$$var(X) = \frac{\sum_{i=0}^{n}{(x_i-\bar x)^2}}{(n-1)}$$
+
+
+$$cov(X,Y)=\text{E}\left[(X-\text{E}\left[X\right])(Y-\text{E}\left[Y\right])\right]$$
+
+$$corr(X,Y)=\frac{cov(X,Y)}{\sigma_{X}\sigma_{Y}}$$
+
+```{r fig.height=5, fig.width=12}
+N <- 50
+df <- tibble(
+  x = rnorm(N, 1, 0.8),
+  y = rnorm(N, 3, 1.2)
+)
+
+m_x <- mean(df$x)
+m_y <- mean(df$y)
+
+ggplot(df, aes(x, y)) +
+  geom_vline(xintercept = m_x, alpha = 0.8, color = "darkviolet") +
+  geom_hline(yintercept = m_y, alpha = 0.8, color = "darkviolet") +
+  geom_point() 
+```
+
+
+---
+
+
 

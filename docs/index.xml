@@ -12,7 +12,7 @@
       <link>https://jmbuhr.de/dataIntro20/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 06 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Dec 2020 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Lecture 6</title>
       <dc:creator>Jannik Buhr</dc:creator>
@@ -22,7 +22,7 @@ find out about the central limit theorem and related statistical tests
 and become N-dimensional whale sharks.</description>
       <category>lecture</category>
       <guid>https://jmbuhr.de/dataIntro20/lectures/lecture6</guid>
-      <pubDate>Sun, 06 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate>
       <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture6/lecture6_files/figure-html5/unnamed-chunk-38-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
@@ -83,6 +83,16 @@ of Graphics.</description>
       <guid>https://jmbuhr.de/dataIntro20/lectures/lecture1</guid>
       <pubDate>Mon, 02 Nov 2020 00:00:00 +0000</pubDate>
       <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture1/lecture1_files/figure-html5/final-penguin-plot-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Lecture 7</title>
+      <dc:creator>Jannik Buhr</dc:creator>
+      <link>https://jmbuhr.de/dataIntro20/lectures/lecture7</link>
+      <description>Stories of Warplanes, Correlation and Regression</description>
+      <category>lecture</category>
+      <guid>https://jmbuhr.de/dataIntro20/lectures/lecture7</guid>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture7/img/survivorship-bias.png" medium="image" type="image/png" width="1427" height="1063"/>
     </item>
   </channel>
 </rss>

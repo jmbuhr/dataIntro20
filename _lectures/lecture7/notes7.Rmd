@@ -1,0 +1,303 @@
+---
+title: "Notes 7"
+author: "Jannik Buhr"
+date: "12/13/2020"
+output:
+  html_document:
+    code_download: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
+## Data Considerations
+
+### 1943
+
+### The Story of Abraham Wald
+
+### Thinking further
+
+
+## Miscelaneous
+
+
+
+
+### Glue
+
+```{r}
+library(glue)
+
+glue("1 + 1 = {1 + 1}")
+
+value <- 0.04
+glue("We have a p-value of {value}!")
+paste("we have", value, "!")
+```
+
+### SVGs
+
+```{r}
+example <- ggplot(mtcars, aes(disp, mpg)) +
+  geom_point() +
+  labs(title = "titel")
+
+ggsave("plots/example.svg", example)
+```
+
+
+### Best Practices
+
+
+## Covariance, Correlation and Regression
+
+```{r}
+N <- 50
+df <- tibble(
+  x = rnorm(N, 1, 0.8),
+  y = rnorm(N, 3, 1.2)
+)
+
+m_x <- mean(df$x)
+m_y <- mean(df$y)
+
+ggplot(df, aes(x, y)) +
+  geom_vline(xintercept = m_x, alpha = 0.8, color = "darkviolet") +
+  geom_hline(yintercept = m_y, alpha = 0.8, color = "darkviolet") +
+  geom_point()
+```
+
+
+
+### Introducing the Dataset
+
+
+```{r}
+starwars
+```
+
+### Pearson vs. Spearman (not a Boxing Match)
+
+```{r}
+cor(starwars$height, starwars$mass, use = "complete.obs")
+```
+
+```{r}
+correlation_matrix <- cor(starwars[c("height", "mass")], use = "complete.obs")
+correlation_matrix
+```
+
+```{r}
+as_tibble(correlation_matrix, rownames = "feature1") %>% 
+  pivot_longer(-feature1, names_to = "feature2", values_to = "corr") %>% 
+  ggplot(aes(feature1, feature2, fill = corr, label = corr)) +
+  geom_raster() +
+  geom_text(color = "white")
+```
+
+```{r}
+cor_test <- cor.test(starwars$height, starwars$mass, use = "complete.obs")
+broom::tidy(cor_test)
+```
+
+```{r}
+pearson <- cor(starwars$height, starwars$mass, use = "complete.obs")
+label_text <- glue("Pearson correlation: {round(pearson, 2)}")
+
+jabba <- filter(starwars, str_detect(name, "Jabba"))
+jabba_text <- list(x = 1100, y = 120)
+
+
+starwars %>% 
+  ggplot(aes(mass, height)) +
+  geom_point() +
+    annotate(geom = "text", x = 500, y = 75, label = label_text,
+           hjust = 0) +
+  annotate(geom = "curve",
+           x = jabba_text$x, y = jabba_text$y,
+           xend = jabba$mass, yend = jabba$height,
+           curvature = .3,
+           arrow = arrow(length = unit(2, "mm"))) +
+  annotate(geom = "text",
+           x = jabba_text$x,
+           y = jabba_text$y, label = "Jabba the Hutt",
+           hjust = 1.1) +
+  xlim(0, 1500) +
+  labs(x = "mass [kg]",
+       y = "height [cm]")
+```
+
+
+
+```{r}
+spearman <- cor(starwars$mass, starwars$height, method = "spearman",
+                use = "complete.obs")
+
+label_text <- glue("Spearman rank correlation: {round(spearman, 2)}")
+
+starwars %>% 
+  mutate(mass = rank(mass),
+         height = rank(height)) %>% 
+  ggplot(aes(mass, height)) +
+  geom_point() +
+  annotate(geom = "text", x = 0, y = 75, label = label_text,
+           hjust = 0) +
+  labs(x = "rank(mass)",
+       y = "rank(height)")
+
+
+```
+
+
+
+### Linear Regression
+
+
+```{r}
+starwars_movies <- read_rds("data/starwars_movies.rds")
+starwars_movies
+```
+
+```{r}
+model <- lm(imdbRating ~ year, data = starwars_movies)
+
+broom::augment(model) %>% 
+  ggplot(aes(year, imdbRating)) +
+  geom_smooth(method = "lm", alpha = 0.3, color = "darkviolet") +
+  geom_point() +
+  geom_segment(aes(x = year, y = .fitted,
+                   xend = year, yend = imdbRating),
+               alpha = 0.4)
+```
+
+
+```{r}
+broom::tidy(model)
+```
+
+```{r}
+summary(model)
+```
+
+```{r}
+cor(starwars_movies$year, starwars_movies$imdbRating)^2
+```
+
+
+## Non-linear Least Squares
+
+```{r}
+puro <- as_tibble(Puromycin) %>% 
+  group_by(conc, state) %>% 
+  mutate(rep = 1:n()) %>% 
+  ungroup()
+```
+
+
+```{r}
+rate <- function(conc, Vm, K) {
+  (Vm * conc) / (K + conc)
+}
+```
+
+```{r}
+puro %>% 
+  ggplot(aes(conc, rate, color = state, group = paste(state, rep))) +
+  geom_line() +
+  geom_point() +
+  geom_function(fun = ~ rate(conc = .x, Vm = 200, K = 0.1), color = "black")
+```
+
+```{r}
+model <- nls(rate ~ rate(conc, Vm, K),
+             data = puro,
+             subset = state == "treated",
+             start = list(Vm = 200, K = 0.1))
+
+model
+```
+
+```{r}
+broom::augment(model) %>% 
+  ggplot(aes(conc, rate)) +
+  geom_point() +
+  geom_line(aes(y = .fitted))
+```
+
+```{r}
+broom::tidy(model)
+```
+
+```{r}
+predictions <- tibble(
+  conc = seq(0, 1.2, by = 0.01),
+  rate = predict(model, newdata = list(conc = conc))
+)
+
+puro %>% 
+  filter(state == "treated") %>%  
+  ggplot(aes(conc, rate)) +
+  geom_point() +
+  geom_line(data = predictions)
+```
+
+
+```{r}
+puro %>% 
+  filter(state == "treated") %>%  
+  ggplot(aes(conc, rate)) +
+  geom_point() +
+  geom_function(fun = ~ predict(model,
+                                newdata = list(conc = .x)))
+```
+
+
+```{r}
+puro_modles <-
+  puro %>% 
+  nest(-state) %>% 
+  mutate(
+    model = map(data, ~ nls(rate ~ rate(conc, Vm, K), data = .x,
+                            start = list(Vm = 200, K = 0.1))),
+    tidy = map(model, broom::tidy),
+    glance = map(model, broom::glance)
+  )
+```
+
+```{r}
+puro_modles %>% 
+  unnest(tidy)
+```
+
+
+```{r}
+puro %>% 
+  ggplot(aes(conc, rate, color = state)) +
+  geom_point() +
+  geom_smooth(method = "nls",
+              formula = y ~ rate(conc = x, Vm, K),
+              method.args = list(
+                start = list(Vm = 200, K = 0.1)
+              ),
+              se = FALSE)
+```
+
+
+
+# Exercises
+
+
+
+
+
+
+
+
+
+
+
+

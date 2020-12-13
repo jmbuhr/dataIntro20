@@ -207,7 +207,7 @@ do this with the regular install function:
 
 ```{r eval=FALSE}
 renv::install("tidyverse/purrr")
-``` = <- 
+```
 
 Giving  it just a package name installs a package from CRAN,
 a pattern of `"username/packgename"` installs from GitHub.

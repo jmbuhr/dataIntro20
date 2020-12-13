@@ -119,10 +119,10 @@
     },
     "backports": {
       "Package": "backports",
-      "Version": "1.2.0",
+      "Version": "1.2.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "fb0efa7042b45dac543dd3995a6dac0b"
+      "Hash": "644043219fc24e190c2f620c1a380a69"
     },
     "base64enc": {
       "Package": "base64enc",
@@ -245,10 +245,10 @@
     },
     "data.table": {
       "Package": "data.table",
-      "Version": "1.13.2",
+      "Version": "1.13.4",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "907b184e0fd13bc19154a8f322920015"
+      "Hash": "626afb25b020646f53105e6485e695c6"
     },
     "dbplyr": {
       "Package": "dbplyr",
@@ -293,9 +293,9 @@
       "RemoteUsername": "rstudio",
       "RemoteRepo": "distill",
       "RemoteRef": "master",
-      "RemoteSha": "875b10bf7a73181d5a6561d5cb7822d6626808c7",
+      "RemoteSha": "87d1dcbcb2635546ddfe29155627fa4890ff5a33",
       "RemoteHost": "api.github.com",
-      "Hash": "878023b2a76cf0c9aa87cf0fe8a696ea"
+      "Hash": "8dc47c690d38cb4a09b48a45679ab7b1"
     },
     "downlit": {
       "Package": "downlit",
@@ -390,10 +390,10 @@
     },
     "future": {
       "Package": "future",
-      "Version": "1.20.1",
+      "Version": "1.21.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "ba8048a1641465f807c52b78d1eae18a"
+      "Hash": "f25fad6bee82b7ab01f055e2d813b96f"
     },
     "gapminder": {
       "Package": "gapminder",
@@ -563,10 +563,10 @@
     },
     "htmlwidgets": {
       "Package": "htmlwidgets",
-      "Version": "1.5.2",
+      "Version": "1.5.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "0aaf56b7960bb066646e1868cadcaf07"
+      "Hash": "6fdaa86d0700f8b3e92ee3c445a5a10d"
     },
     "httpuv": {
       "Package": "httpuv",
@@ -584,10 +584,10 @@
     },
     "hunspell": {
       "Package": "hunspell",
-      "Version": "3.0",
+      "Version": "3.0.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "71e7853d60b6b4ba891d62ede21752e9"
+      "Hash": "3987784c19192ad0f2261c456d936df1"
     },
     "icon": {
       "Package": "icon",
@@ -645,10 +645,10 @@
     },
     "jsonlite": {
       "Package": "jsonlite",
-      "Version": "1.7.1",
+      "Version": "1.7.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "1ec84e070b88b37ed169f19def40d47c"
+      "Hash": "98138e0994d41508c7a6b84a0600cfcb"
     },
     "knitr": {
       "Package": "knitr",
@@ -778,10 +778,10 @@
     },
     "nlme": {
       "Package": "nlme",
-      "Version": "3.1-150",
+      "Version": "3.1-151",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "82e52d2c6e674764ffb122d084afa96b"
+      "Hash": "42c8ba2b6a32a6bf0874e93e3bd86a43"
     },
     "nnet": {
       "Package": "nnet",
@@ -1001,9 +1001,9 @@
       "RemoteUsername": "rstudio",
       "RemoteRepo": "rmarkdown",
       "RemoteRef": "master",
-      "RemoteSha": "29895958bad0f1990006cb09b68657cb7299cd4c",
+      "RemoteSha": "f229a13b055610cd3c7bd335539f40f4bcf063dc",
       "RemoteHost": "api.github.com",
-      "Hash": "7d2c299d82b4f2384a2bdc3d454d2074"
+      "Hash": "ee5562ab1fdcee5c2a3139fa1aa8bd1b"
     },
     "rpart": {
       "Package": "rpart",
@@ -1232,6 +1232,18 @@
       "Repository": "CRAN",
       "Hash": "fc77eb5297507cccfa3349a606061030"
     },
+    "tweetrmd": {
+      "Package": "tweetrmd",
+      "Version": "0.0.8",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "gadenbuie",
+      "RemoteRepo": "tweetrmd",
+      "RemoteRef": "master",
+      "RemoteSha": "50bcdf8fe7d289a20a974932e27a1e91d45aeae8",
+      "Hash": "af500ed102c1ac4f6f4a313e92865707"
+    },
     "utf8": {
       "Package": "utf8",
       "Version": "1.1.4",
@@ -1317,9 +1329,9 @@
       "RemoteUsername": "yihui",
       "RemoteRepo": "xaringan",
       "RemoteRef": "master",
-      "RemoteSha": "6bebaf2702f2c59ade48022aadc84164d44e9855",
+      "RemoteSha": "31090807055065fa0cd8dc8aee9bc68ff7f712e2",
       "RemoteHost": "api.github.com",
-      "Hash": "dd056181bc045ab9ed30069f9587ed33"
+      "Hash": "93ea740af69792bf2fb6533dd572b7d0"
     },
     "xaringanExtra": {
       "Package": "xaringanExtra",

@@ -12,7 +12,17 @@
       <link>https://jmbuhr.de/dataIntro20/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 12 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Lecture 8</title>
+      <dc:creator>Jannik Buhr</dc:creator>
+      <link>https://jmbuhr.de/dataIntro20/lectures/lecture8</link>
+      <description>Lecture 8: Into the Unknown — Exploring new Data</description>
+      <category>lecture</category>
+      <guid>https://jmbuhr.de/dataIntro20/lectures/lecture8</guid>
+      <pubDate>Sat, 19 Dec 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture8/lecture8_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Lecture 7</title>
       <dc:creator>Jannik Buhr</dc:creator>
@@ -20,7 +30,7 @@
       <description>Stories of Warplanes, Correlation and Regression</description>
       <category>lecture</category>
       <guid>https://jmbuhr.de/dataIntro20/lectures/lecture7</guid>
-      <pubDate>Sat, 12 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
       <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture7/img/survivorship-bias.png" medium="image" type="image/png" width="1427" height="1063"/>
     </item>
     <item>

@@ -1,0 +1,13 @@
+name: lecture8
+title: lecture8
+username:
+account: buhr
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3420230
+bundleId: 4012153
+url: https://buhr.shinyapps.io/lecture8/
+when: 1608481036.05261
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: extra.css|lecture8.html|lecture8.Rmd|xaringan-themer.css

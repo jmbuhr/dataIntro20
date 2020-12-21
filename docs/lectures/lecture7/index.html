@@ -3056,7 +3056,39 @@ Achieved convergence tolerance: 6.108e-06</code></pre>
 <ul>
 <li>What datasets would you find interesting? Maybe you already have some data you collected or maybe just an idea (in the second case I might also do an episode on getting data from the internet via webscarping), or maybe there is a dataset in the tidytuesday repository that speaks to you: <a href="https://github.com/rfordatascience/tidytuesday" class="uri">https://github.com/rfordatascience/tidytuesday</a></li>
 </ul>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/lockedata/datasauRus'>datasauRus</a></span><span class='op'>)</span>
+
+<span class='va'>datasaurus_dozen</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>dataset</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>summarize</span><span class='op'>(</span>
+    mean_x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+    mean_y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>,
+    standard_dev_x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
+    standard_dev_y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>,
+    correlation <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>x</span>,<span class='va'>y</span><span class='op'>)</span>
+  <span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 13 x 6
+   dataset    mean_x mean_y standard_dev_x standard_dev_y correlation
+   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt;       &lt;dbl&gt;
+ 1 away         54.3   47.8           16.8           26.9     -0.0641
+ 2 bullseye     54.3   47.8           16.8           26.9     -0.0686
+ 3 circle       54.3   47.8           16.8           26.9     -0.0683
+ 4 dino         54.3   47.8           16.8           26.9     -0.0645
+ 5 dots         54.3   47.8           16.8           26.9     -0.0603
+ 6 h_lines      54.3   47.8           16.8           26.9     -0.0617
+ 7 high_lines   54.3   47.8           16.8           26.9     -0.0685
+ 8 slant_down   54.3   47.8           16.8           26.9     -0.0690
+ 9 slant_up     54.3   47.8           16.8           26.9     -0.0686
+10 star         54.3   47.8           16.8           26.9     -0.0630
+11 v_lines      54.3   47.8           16.8           26.9     -0.0694
+12 wide_lines   54.3   47.8           16.8           26.9     -0.0666
+13 x_shape      54.3   47.8           16.8           26.9     -0.0656</code></pre>
+</div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-matejka2017" class="csl-entry" role="doc-biblioentry">
 Matejka, Justin, and George Fitzmaurice. 2017. <span>“The <span>Datasaurus Dozen</span> - <span>Same Stats</span>, <span>Different Graphs</span> | <span>Autodesk Research</span>.”</span> https://doi.org/<a href="http://dx.doi.org/10.1145/3025453.3025912">http://dx.doi.org/10.1145/3025453.3025912</a>.

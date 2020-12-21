@@ -320,6 +320,7 @@ so the is no baby yoda, but 87 other characters are present.
 
 ![I guess it is the baby yoda show now.](img/baby_yoda.gif)
 
+
 ```{r, eval=FALSE}
 starwars
 ```
@@ -811,6 +812,7 @@ datasauRus::box_plots
   on getting data from the internet via webscarping),
   or maybe there is a dataset in the tidytuesday repository
   that speaks to you: <https://github.com/rfordatascience/tidytuesday>
+
 
 
 

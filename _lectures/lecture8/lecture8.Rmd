@@ -1,12 +1,12 @@
 ---
 title: "Lecture 8"
 description: |
-  TODO
-draft: true
+  Lecture 8: Into the Unknown — Exploring new Data
+draft: false
 author:
   - name: Jannik Buhr 
     url: https://jmbuhr.de
-date: 11-02-2020
+date: 12-20-2020
 output:
   distill::distill_article:
     self_contained: false
@@ -18,27 +18,238 @@ bibliography: ["../../references.bib"]
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
-  echo = TRUE
+  echo = TRUE, warning = FALSE, message = FALSE
 )
 ```
+
+
+In today's lecture, the script is the result of experimenting
+with unseen data as seen in the video. You can refer back
+to it in order to get the code if the video goes to fast.
+By itself, the script will be less useful than the script
+for regular lectures. I hope you can learn something from
+how I approach a new task and how I handle mistakes and
+errors. The video is largely unedited; I only removed a
+portion where all attempts at webscraping failed for a while
+because my internet connection was gone...
 
 # Video
 
 Watch today's video here:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AgpWX18dby4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```{=html}
+<iframe height="400" src="https://www.youtube.com/embed/E-pY4da9WCc" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+```
 
 # Slides
 
-Hover over the slides and press **f** for full screen.
-Press **?** for a list of keyboard shortcuts.
-
-```{r}
-knitr::include_url("slides2.html")
-```
+This special Christmas video has no slides.
 
 # Script
 
-# Exercises
+```{r}
+library(tidyverse)
+library(rvest)
+library(glue)
+```
 
-# Resources
+## Christmas Theme!
+
+-   Christmas RStudio theme: <https://github.com/gadenbuie/rsthemes>
+
+## Advanced Rmarkdown
+
+-   Using the RStudio plugin to insert citations directly from Zotero
+    -   preview of
+        <https://blog.rstudio.com/2020/11/09/rstudio-1-4-preview-citations/>
+-   Other output formats:
+    -   <https://bookdown.org/yihui/rmarkdown/>
+    -   <https://github.com/rstudio/rticles>
+        -   note: tinytex package for pdf outputs
+
+## Finding Help Easier
+
+-   <https://reprex.tidyverse.org/>
+
+## Into the Unknown: An Example Analysis of Unseen Data
+
+![Into the Unknown, from the giphy
+api](https://media0.giphy.com/media/m8WyNwXQUtzuijrtFq/giphy-downsized-medium.gif){.external}
+
+### The Data: Fast Food Entrees
+
+Find the data
+[here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2018/2018-09-04).
+
+```{r}
+fastfood <- read_csv("data/fastfood.csv") %>% 
+  select(-salad, -X1) %>%  
+  distinct(restaurant, item, .keep_all = TRUE)
+
+fastfood
+```
+
+Watch the video to find out how these small data cleaning steps
+came about.
+
+```{r}
+fastfood %>% 
+  count(restaurant)
+```
+
+Counting things is always a good sanity check for your data.
+
+```{r}
+fastfood %>% 
+  count(restaurant, item, sort = TRUE)
+```
+
+We will need the names of the restaurants.
+
+```{r}
+restaurants <- unique(fastfood$restaurant)
+restaurants
+```
+
+This is not a very refined plot. I really wanted to get to
+to the webscraping part to show you new exciting things.
+
+```{r}
+fastfood %>% 
+  filter(restaurant == restaurants[2]) %>% 
+  pivot_longer(-c(restaurant, item)) %>% 
+  ggplot(aes(value, color = restaurant)) +
+  geom_density() +
+  facet_wrap(~ name, scales = "free")
+```
+
+### Webscraping with `rvest`
+
+-   <https://rvest.tidyverse.org/>
+
+The restaurant names on the links to
+the complaints-website are slightly different to
+the names we have in our fastfood dataset.
+Some things are just faster to do manually
+than figuring out an algorithmic way of achieving.
+Although in this case, it could have been easier
+because there is only one exception (sonic) to
+"make everything lowercase and replace space with hyphens".
+
+```{r}
+restaurant_names <- c(
+  "mcdonalds",
+  "chick-fil-a",
+  "sonic-drive-in",
+  "arbys",
+  "burger-king",
+  "dairy-queen",
+  "subway",
+  "taco-bell"
+)
+```
+
+Get some data! Try it on one example, then write a function
+to do so. Then test the function on some examples.
+
+```{r}
+n <- 1
+restaurant <- restaurant_names[8]
+url <- glue("https://www.complaintsboard.com/{restaurant}/page/{1}")
+
+get_complaints <- function(url) {
+  read_html(url) %>% 
+  html_nodes(css = ".list-text") %>% 
+  html_text()
+}
+```
+
+This chunk is set to `eval=FALSE`. Meaning we can still
+run it manually but it will not run every time we knit the
+document or press "run all chunks".
+This enables us to keep the code for a long running computation
+in the document while not having to run it every time.
+A more elegant approach would have been to refactor this
+into it's own R script after the initial exploration.
+
+```{r, eval=FALSE}
+complaints <- crossing(
+  restaurant = restaurant_names,
+  n = 1:30
+) %>% 
+  mutate(
+    url = glue("https://www.complaintsboard.com/{restaurant}/page/{n}"),
+    complaints = map(url, possibly(get_complaints, ""))
+  )
+
+write_rds(complaints, "data/complaints.rds")
+```
+
+Now we can load the scraped data.
+
+```{r}
+complaints <- read_rds("data/complaints.rds")
+```
+
+The is a lot of steps happening here.
+First, we use the `tidytext` package to extract
+words from the complaints, then we remove very
+common words called stop words. We
+then get the most commong words per restaurant
+and finally match the original restaurant names
+with the names we had to use for the webscarping links.
+
+```{r}
+names <- tibble(
+  restaurants,
+  restaurant_names
+)
+
+top_complaints <- complaints %>% 
+  unnest_longer(complaints) %>% 
+  tidytext::unnest_tokens(input = complaints, output = "word", token = "words") %>%
+  anti_join(tidytext::stop_words, by = c("word")) %>% 
+  count(restaurant, word, sort = TRUE) %>%
+  group_by(restaurant) %>% 
+  slice_max(order_by = n, n = 15) %>% 
+  ungroup() %>% 
+  left_join(names, by = c("restaurant" = "restaurant_names")) %>% 
+  select(-restaurant) %>% 
+  rename(restaurant = restaurants)
+
+top_complaints %>% 
+  rmarkdown::paged_table()
+```
+
+Next, we do a bunch of copy-pasting to quickly prototype an
+app, where the user can select a restaurant, get
+a quick overview of the feature distributions
+and see the most common words in complaints.
+
+## A shiny app
+
+<https://shiny.rstudio.com/>
+
+See `app.R` in the folder for lecture 8.
+Note, that because shiny apps are usually in
+their own project, not in some nested
+file structure of a course website,
+there are some shenanigans going on with
+the file paths. When run locally,
+R still has the working directory of the
+project. But when deployed, only
+the folder in which the app.R file lives
+is deployed, with no notion of being
+at the end of some project file path.
+So the folder where the app.R file lives
+becomes the new file path when the app is deployed
+[online](https://buhr.shinyapps.io/lecture8/).
+
+# Feedback
+
+I will send round a link with a feedback form.
+It is anonymous, so I have no way of tracking who 
+submitted it. I will just assume you all did and
+count it as a completed exercise.

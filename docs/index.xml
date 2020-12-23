@@ -17,8 +17,11 @@
       <title>Lecture 8</title>
       <dc:creator>Jannik Buhr</dc:creator>
       <link>https://jmbuhr.de/dataIntro20/lectures/lecture8</link>
-      <description>Lecture 8: Into the Unknown — Exploring new Data</description>
+      <description>&lt;p&gt;&amp;hellip; in which we venture into the unknown to show an example data
+analysis, gather more data with webscraping and build a small app.&lt;/p&gt;
+</description>
       <category>lecture</category>
+      <category>bonus</category>
       <guid>https://jmbuhr.de/dataIntro20/lectures/lecture8</guid>
       <pubDate>Sat, 19 Dec 2020 00:00:00 +0000</pubDate>
       <media:content url="https://jmbuhr.de/dataIntro20/lectures/lecture8/lecture8_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -27,7 +30,9 @@
       <title>Lecture 7</title>
       <dc:creator>Jannik Buhr</dc:creator>
       <link>https://jmbuhr.de/dataIntro20/lectures/lecture7</link>
-      <description>Stories of Warplanes, Correlation and Regression</description>
+      <description>&lt;p&gt;&amp;hellip; in which we hear Stories of Warplanes,
+Correlation and Regression and explore the Datasaurus Dozen.&lt;/p&gt;
+</description>
       <category>lecture</category>
       <guid>https://jmbuhr.de/dataIntro20/lectures/lecture7</guid>
       <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
@@ -37,9 +42,10 @@
       <title>Lecture 6</title>
       <dc:creator>Jannik Buhr</dc:creator>
       <link>https://jmbuhr.de/dataIntro20/lectures/lecture6</link>
-      <description>... in which we explore continuous distributions with spotify data,
+      <description>&lt;p&gt;&amp;hellip; in which we explore continuous distributions with spotify data,
 find out about the central limit theorem and related statistical tests
-and become N-dimensional whale sharks.</description>
+and become N-dimensional whale sharks.&lt;/p&gt;
+</description>
       <category>lecture</category>
       <guid>https://jmbuhr.de/dataIntro20/lectures/lecture6</guid>
       <pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate>
@@ -49,8 +55,9 @@ and become N-dimensional whale sharks.</description>
       <title>Lecture 5</title>
       <dc:creator>Jannik Buhr</dc:creator>
       <link>https://jmbuhr.de/dataIntro20/lectures/lecture5</link>
-      <description>... in which we reason about the nature of randomness and
-discover various statistical tests.</description>
+      <description>&lt;p&gt;&amp;hellip; in which we reason about the nature of randomness and
+discover various statistical tests.&lt;/p&gt;
+</description>
       <category>lecture</category>
       <guid>https://jmbuhr.de/dataIntro20/lectures/lecture5</guid>
       <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
@@ -60,8 +67,9 @@ discover various statistical tests.</description>
       <title>Lecture 4</title>
       <dc:creator>Jannik Buhr</dc:creator>
       <link>https://jmbuhr.de/dataIntro20/lectures/lecture4</link>
-      <description>... which is all about functions, bringing the whole tidyverse together and
-exploring advanced dplyr data wrangling techniques.</description>
+      <description>&lt;p&gt;&amp;hellip; which is all about functions, bringing the whole tidyverse together and
+exploring advanced dplyr data wrangling techniques.&lt;/p&gt;
+</description>
       <category>lecture</category>
       <guid>https://jmbuhr.de/dataIntro20/lectures/lecture4</guid>
       <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
@@ -71,9 +79,10 @@ exploring advanced dplyr data wrangling techniques.</description>
       <title>Lecture 3</title>
       <dc:creator>Jannik Buhr</dc:creator>
       <link>https://jmbuhr.de/dataIntro20/lectures/lecture3</link>
-      <description>... in which we explore the concept of Tidy Data, learn more
+      <description>&lt;p&gt;&amp;hellip; in which we explore the concept of Tidy Data, learn more
 advanced data wrangling techniques and get a sneak peak at
-iteration.</description>
+iteration.&lt;/p&gt;
+</description>
       <category>lecture</category>
       <guid>https://jmbuhr.de/dataIntro20/lectures/lecture3</guid>
       <pubDate>Sat, 14 Nov 2020 00:00:00 +0000</pubDate>
@@ -83,9 +92,10 @@ iteration.</description>
       <title>Lecture 2</title>
       <dc:creator>Jannik Buhr</dc:creator>
       <link>https://jmbuhr.de/dataIntro20/lectures/lecture2</link>
-      <description>... in which we explore the typical data analysis workflow
+      <description>&lt;p&gt;&amp;hellip; in which we explore the typical data analysis workflow
 with the tidyverse, wrangle different kinds of data and
-learn about factors.</description>
+learn about factors.&lt;/p&gt;
+</description>
       <category>lecture</category>
       <guid>https://jmbuhr.de/dataIntro20/lectures/lecture2</guid>
       <pubDate>Sat, 07 Nov 2020 00:00:00 +0000</pubDate>
@@ -95,10 +105,11 @@ learn about factors.</description>
       <title>Lecture 1</title>
       <dc:creator>Jannik Buhr</dc:creator>
       <link>https://jmbuhr.de/dataIntro20/lectures/lecture1</link>
-      <description>... in which we get started with R and RStudio,
+      <description>&lt;p&gt;&amp;hellip; in which we get started with R and RStudio,
 explore the basic structures and operations of R
 and build our first plot by discovering a Grammar
-of Graphics.</description>
+of Graphics.&lt;/p&gt;
+</description>
       <category>lecture</category>
       <guid>https://jmbuhr.de/dataIntro20/lectures/lecture1</guid>
       <pubDate>Mon, 02 Nov 2020 00:00:00 +0000</pubDate>

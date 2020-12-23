@@ -1,7 +1,8 @@
 ---
 title: "Lecture 8"
 description: |
-  Lecture 8: Into the Unknown — Exploring new Data
+  ... in which we venture into the unknown to show an example data
+  analysis, gather more data with webscraping and build a small app.
 draft: false
 author:
   - name: Jannik Buhr 
@@ -13,6 +14,7 @@ output:
     toc: true
 categories:
   - lecture
+  - bonus
 bibliography: ["../../references.bib"]
 ---
 

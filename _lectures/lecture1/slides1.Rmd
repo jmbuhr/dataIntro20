@@ -118,12 +118,12 @@ ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
 Biochemist / Bioinformatician
 
 .f2[
-[`r icon::fa("home")`](https://jmbuhr.de/)
-[`r icon::fa("envelope")`](https://jmbuhr.de/#contact)
-[`r icon::fa("twitter")`](https://twitter.com/JannikBuhr)
-[`r icon::fa("github")`](https://github.com/jmbuhr)
-[`r icon::fa("linkedin")`](https://www.linkedin.com/in/jmbuhr/)
-[`r icon::fa("stack-overflow")`](https://stackoverflow.com/users/9130337/jannik-buhr?tab=profile)
+[`r icon::fontawesome("home")`](https://jmbuhr.de/)
+[`r icon::fontawesome("envelope")`](https://jmbuhr.de/#contact)
+[`r icon::fontawesome("twitter")`](https://twitter.com/JannikBuhr)
+[`r icon::fontawesome("github")`](https://github.com/jmbuhr)
+[`r icon::fontawesome("linkedin")`](https://www.linkedin.com/in/jmbuhr/)
+[`r icon::fontawesome("stack-overflow")`](https://stackoverflow.com/users/9130337/jannik-buhr?tab=profile)
 ]
 ]
 

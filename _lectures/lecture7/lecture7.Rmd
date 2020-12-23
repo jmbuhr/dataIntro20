@@ -1,7 +1,8 @@
 ---
 title: "Lecture 7"
 description: |
-  Stories of Warplanes, Correlation and Regression
+  ... in which we hear Stories of Warplanes,
+  Correlation and Regression and explore the Datasaurus Dozen.
 draft: false
 author:
   - name: Jannik Buhr 

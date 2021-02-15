@@ -259,6 +259,7 @@ categories at once:
   just a pretty looking smooth line.
   
 <aside>
+
 ```{r echo=FALSE}
 mpg %>% 
   ggplot(aes(displ, hwy)) +

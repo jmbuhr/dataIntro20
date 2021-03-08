@@ -14,6 +14,8 @@ navbar:
   right:
     - text: "Lectures"
       href: index.html
+    - text: "Resources"
+      href: resources.html
     - text: "About"
       href: about.html
 collections:

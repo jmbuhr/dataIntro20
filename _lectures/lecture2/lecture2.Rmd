@@ -658,11 +658,11 @@ We also added a theme and modified the axis titles. You might have already notic
 
 ## Package Documentation
 
--   [The tidyverse website](https://www.tidyverse.org/)
--   [The readr package website with cheatsheet](https://readr.tidyverse.org/)
--   [The dplyr package website with cheatsheet](https://dplyr.tidyverse.org/)
+- [The tidyverse website](https://www.tidyverse.org/)
+- [The readr package website with cheatsheet](https://readr.tidyverse.org/)
+- [The dplyr package website with cheatsheet](https://dplyr.tidyverse.org/)
 
 ## Getting Help
 
--   [How to find help](https://www.tidyverse.org/help/#reprex)
--   [R4DS online learning community](https://www.rfordatasci.com/)
+- [How to find help](https://www.tidyverse.org/help/#reprex)
+- [R4DS online learning community](https://www.rfordatasci.com/)

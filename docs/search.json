@@ -5,14 +5,28 @@
       "title": "Greetings Adventurers",
       "author": [],
       "contents": "\nAnd welcome to the next iteration of my introductory R course for data visualization and analysis. Because the concepts you will learn in this course will be most useful in areas where the working language is English, this course will also be in English. But feel free to ask questions in German as well any time. This site will host the material you need for the course, as well as the scripts and exercise solutions. It was created with R as well, so if you are curious, you can check out the source code by clicking on the little github icon in the top right corner.\nIf you want to learn more about myself, check out my website.\n\n\n\n",
-      "last_modified": "2020-12-23T18:33:21+01:00"
+      "last_modified": "2021-03-08T16:29:18+01:00"
     },
     {
       "path": "index.html",
       "title": "Lectures",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2020-12-23T18:33:22+01:00"
+      "last_modified": "2021-03-08T16:30:17+01:00"
+    },
+    {
+      "path": "resources.html",
+      "title": "Resources",
+      "description": "A collection of resources to read up on topics covered or dive even deeper.\n",
+      "author": [
+        {
+          "name": "Jannik Buhr",
+          "url": "https://jmbuhr.de"
+        }
+      ],
+      "date": "11-02-2020",
+      "contents": "\n\nContents\nLinks\nLearning the tidyverse\nLearning Rmarkdown\nLearning R in general\nLearning Statistics\nTalks, Podcasts, Blogs, Videos\nMisc\nPackage Documentation\nBooks and Manuals\nGetting Help\nLists of Resources\n\n\nLinks\nLearning R can be quite the journey. This is why I am collecting useful links to more resources on this extra page. Some will help you understand the topics covered, some dive deeper and some will be interesting if you want to discover more cool things you can do with R.\nLearning the tidyverse\nR for Data Science (Wickham and Grolemund 2017)\nR4DS online Community\nRStudio Cheat Sheets!\nThe Modern Dive (Kim 2019)\nRStudio Education\nLearning Rmarkdown\nrmarkdown cheatsheet\nrmarkdown reference\npandoc manual (advanced)\nrmarkdown for reproducible analysis\nrmarkdown website\nLearning R in general\nAdvanced R (Wickham 2019)\nHands on Programming with R (Grolemund and Wickham 2014)\nR Packages (Wickham 2015)\nData Visualization: A Practical Introduction (Healy 2018)\nGraph Cookbook (Chang 2013)\nLearning Statistics\nIntuitive Biostatistics (Motulsky 2017)\nStatistics Done Wrong (Reinhart 2015)\nTalks, Podcasts, Blogs, Videos\nJust some of the people with inspiring blogposts, videos and the likes.\nDavid Robinson\nYouTube\nwebsite\n\nJulia Silge\nYouTube\nwebsite\n\nAlison Hill\nwebsite\n\nThomas Lin Pedersen\nwebsite\n\nMisc\nCute and insightful illustrations (“Artwork by @Allison_horst” 2020)\nHappy Git with R\nPackage Documentation\ntidyverse\ntidymodels\nrmarkdown\nreadr\ndplyr\nggplot\ntidyr\nstringr\npurrr\nragg\nBooks and Manuals\nTidymodels book\nggplot book\nRmarkdown Cookbook\nRmarkdown Book\nGetting Help\nHow to find help\nR4DS online learning community\nLists of Resources\nThe meta section. This is a list of lists:\nbig book of R\nr for the rest of us\n\n\n\n“Artwork by @Allison_horst.” 2020. https://github.com/allisonhorst/stats-illustrations.\n\n\nChang, Winston. 2013. R Graphics Cookbook: Practical Recipes for Visualizing Data. 1 edition. Beijing Cambridge Farnham Köln Sebastopol Tokyo: O’Reilly Media.\n\n\nGrolemund, Garrett, and Hadley Wickham. 2014. Hands-On Programming with R: Write Your Own Functions and Simulations. Sebastopol, CA: O’Reilly Media.\n\n\nHealy, Kieran. 2018. Data Visualization: A Practical Introduction. 1 edition. Princeton, NJ: Princeton University Press.\n\n\nKim, Chester Ismay and Albert Y. 2019. Statistical Inference via Data Science. CRC Press.\n\n\nMotulsky, Harvey. 2017. Intuitive Biostatistics: A Nonmathematical Guide to Statistical Thinking. 4 edition. New York: Oxford University Press.\n\n\nReinhart, Alex. 2015. Statistics Done Wrong: The Woefully Complete Guide. 1 edition. San Francisco: No Starch Press.\n\n\nWickham, Hadley. 2015. R Packages: Organize, Test, Document, and Share Your Code. 1 edition. Sebastopol, CA: O’Reilly Media.\n\n\n———. 2019. Advanced R, Second Edition. 2 edition. Boca Raton: Chapman and Hall/CRC.\n\n\nWickham, Hadley, and Garrett Grolemund. 2017. R for Data Science: Import, Tidy, Transform, Visualize, and Model Data. 1 edition. Sebastopol, CA: O’Reilly Media.\n\n\n\n\n",
+      "last_modified": "2021-03-08T16:42:56+01:00"
     }
   ],
   "collections": ["lectures/lectures.json"]

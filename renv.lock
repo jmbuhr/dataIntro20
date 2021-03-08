@@ -1021,10 +1021,10 @@
     },
     "reprex": {
       "Package": "reprex",
-      "Version": "0.3.0",
+      "Version": "1.0.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "b06bfb3504cc8a4579fd5567646f745b"
+      "Hash": "cb4d6f77f163b8d685833f2a59e7cb4c"
     },
     "rlang": {
       "Package": "rlang",

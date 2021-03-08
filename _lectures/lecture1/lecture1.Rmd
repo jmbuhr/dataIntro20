@@ -707,6 +707,8 @@ The **Office Hour** for the solutions and questions is on Friday, Nov 6, 2020 at
 
 # Resources
 
+These (and more) resources can also be found on the dedicated [resources](../../resources.html) page.
+
 ## Tidyverse
 
 -   [R for Data Science](https://r4ds.had.co.nz/) [@wickhamDataScienceImport2017]

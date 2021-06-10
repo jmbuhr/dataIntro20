@@ -724,7 +724,7 @@ These (and more) resources can also be found on the dedicated [resources](../../
 -   <https://bookdown.org/yihui/rmarkdown-cookbook/>
 -   <https://bookdown.org/yihui/rmarkdown/>
 -   <https://pandoc.org/MANUAL.html#pandocs-markdown>
--   <https://reproducible-analysis-workshop.readthedocs.io/en/latest/6.RMarkdown-knitr.html>
+-   <https://reproducible-analysis-workshop.readthedocs.io/en/latest/7.RMarkdown-knitr.html>
 -   <https://rmarkdown.rstudio.com/index.html>
 
 ## R in general

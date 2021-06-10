@@ -57,6 +57,7 @@ Some will help you understand the topics covered, some dive deeper and some will
 - [Intuitive Biostatistics](http://www.intuitivebiostatistics.com/) [@motulskyIntuitiveBiostatisticsNonmathematical2017]
 - [Statistics Done Wrong](https://www.statisticsdonewrong.com/) [@reinhartStatisticsDoneWrong2015]
 - [StatQuest!!! with Josh Starner](https://statquest.org/video-index/#statistics)
+- [Modern Statistics for Modern Biology](https://www.huber.embl.de/msmb/index.html)
 
 ## Talks, Podcasts, Blogs, Videos
 

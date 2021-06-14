@@ -23,6 +23,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -2374,10 +2375,14 @@ d-appendix d-footnote-list a.footnote-backlink {
   color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.6.4/header-attrs.js"></script>
+  <script src="../../site_libs/header-attrs-2.8/header-attrs.js"></script>
   <link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
   <script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
@@ -2473,8 +2478,8 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 <h1 id="script">Script</h1>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rvest.tidyverse.org/'>rvest</a></span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://rvest.tidyverse.org/'>rvest</a></span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tidyverse/glue'>glue</a></span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -2510,7 +2515,7 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 <p>Find the data <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2018/2018-09-04">here</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>fastfood</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"data/fastfood.csv"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>fastfood</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"data/fastfood.csv"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>select</span><span class='op'>(</span><span class='op'>-</span><span class='va'>salad</span>, <span class='op'>-</span><span class='va'>X1</span><span class='op'>)</span> <span class='op'>%&gt;%</span>  
   <span class='fu'>distinct</span><span class='op'>(</span><span class='va'>restaurant</span>, <span class='va'>item</span>, .keep_all <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
@@ -2518,18 +2523,18 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </code></pre>
 </div>
 <pre><code># A tibble: 513 x 16
-   restaurant item  calories cal_fat total_fat sat_fat trans_fat
-   &lt;chr&gt;      &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
- 1 Mcdonalds  Arti…      380      60         7       2       0  
- 2 Mcdonalds  Sing…      840     410        45      17       1.5
- 3 Mcdonalds  Doub…     1130     600        67      27       3  
- 4 Mcdonalds  Gril…      750     280        31      10       0.5
- 5 Mcdonalds  Cris…      920     410        45      12       0.5
- 6 Mcdonalds  Big …      540     250        28      10       1  
- 7 Mcdonalds  Chee…      300     100        12       5       0.5
- 8 Mcdonalds  Clas…      510     210        24       4       0  
- 9 Mcdonalds  Doub…      430     190        21      11       1  
-10 Mcdonalds  Doub…      770     400        45      21       2.5
+   restaurant item        calories cal_fat total_fat sat_fat trans_fat
+   &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Mcdonalds  Artisan Gr…      380      60         7       2       0  
+ 2 Mcdonalds  Single Bac…      840     410        45      17       1.5
+ 3 Mcdonalds  Double Bac…     1130     600        67      27       3  
+ 4 Mcdonalds  Grilled Ba…      750     280        31      10       0.5
+ 5 Mcdonalds  Crispy Bac…      920     410        45      12       0.5
+ 6 Mcdonalds  Big Mac          540     250        28      10       1  
+ 7 Mcdonalds  Cheeseburg…      300     100        12       5       0.5
+ 8 Mcdonalds  Classic Ch…      510     210        24       4       0  
+ 9 Mcdonalds  Double Che…      430     190        21      11       1  
+10 Mcdonalds  Double Qua…      770     400        45      21       2.5
 # … with 503 more rows, and 9 more variables: cholesterol &lt;dbl&gt;,
 #   sodium &lt;dbl&gt;, total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;, sugar &lt;dbl&gt;,
 #   protein &lt;dbl&gt;, vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;</code></pre>
@@ -2537,7 +2542,7 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 <p>Watch the video to find out how these small data cleaning steps came about.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>fastfood</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>fastfood</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>count</span><span class='op'>(</span><span class='va'>restaurant</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -2556,7 +2561,7 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 <p>Counting things is always a good sanity check for your data.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>fastfood</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>fastfood</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>count</span><span class='op'>(</span><span class='va'>restaurant</span>, <span class='va'>item</span>, sort <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -2578,7 +2583,7 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 <p>We will need the names of the restaurants.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>restaurants</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>fastfood</span><span class='op'>$</span><span class='va'>restaurant</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>restaurants</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>fastfood</span><span class='op'>$</span><span class='va'>restaurant</span><span class='op'>)</span>
 <span class='va'>restaurants</span>
 </code></pre>
 </div>
@@ -2588,7 +2593,7 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 <p>This is not a very refined plot. I really wanted to get to to the webscraping part to show you new exciting things.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>fastfood</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>fastfood</span> <span class='op'>%&gt;%</span> 
   <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>restaurant</span> <span class='op'>==</span> <span class='va'>restaurants</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>pivot_longer</span><span class='op'>(</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>restaurant</span>, <span class='va'>item</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>value</span>, color <span class='op'>=</span> <span class='va'>restaurant</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2605,7 +2610,7 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 <p>The restaurant names on the links to the complaints-website are slightly different to the names we have in our fastfood dataset. Some things are just faster to do manually than figuring out an algorithmic way of achieving. Although in this case, it could have been easier because there is only one exception (sonic) to “make everything lowercase and replace space with hyphens.”</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>restaurant_names</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>restaurant_names</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
   <span class='st'>"mcdonalds"</span>,
   <span class='st'>"chick-fil-a"</span>,
   <span class='st'>"sonic-drive-in"</span>,
@@ -2621,13 +2626,13 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 <p>Get some data! Try it on one example, then write a function to do so. Then test the function on some examples.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
 <span class='va'>restaurant</span> <span class='op'>&lt;-</span> <span class='va'>restaurant_names</span><span class='op'>[</span><span class='fl'>8</span><span class='op'>]</span>
 <span class='va'>url</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://glue.tidyverse.org/reference/glue.html'>glue</a></span><span class='op'>(</span><span class='st'>"https://www.complaintsboard.com/{restaurant}/page/{1}"</span><span class='op'>)</span>
 
 <span class='va'>get_complaints</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>url</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='fu'>read_html</span><span class='op'>(</span><span class='va'>url</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://rvest.tidyverse.org/reference/html_nodes.html'>html_nodes</a></span><span class='op'>(</span>css <span class='op'>=</span> <span class='st'>".list-text"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='http://xml2.r-lib.org/reference/read_xml.html'>read_html</a></span><span class='op'>(</span><span class='va'>url</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rvest.tidyverse.org/reference/rename.html'>html_nodes</a></span><span class='op'>(</span>css <span class='op'>=</span> <span class='st'>".list-text"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'><a href='https://rvest.tidyverse.org/reference/html_text.html'>html_text</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>}</span>
 </code></pre>
@@ -2636,7 +2641,7 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 <p>This chunk is set to <code>eval=FALSE</code>. Meaning we can still run it manually but it will not run every time we knit the document or press “run all chunks.” This enables us to keep the code for a long running computation in the document while not having to run it every time. A more elegant approach would have been to refactor this into it’s own R script after the initial exploration.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>complaints</span> <span class='op'>&lt;-</span> <span class='fu'>crossing</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>complaints</span> <span class='op'>&lt;-</span> <span class='fu'>crossing</span><span class='op'>(</span>
   restaurant <span class='op'>=</span> <span class='va'>restaurant_names</span>,
   n <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>30</span>
 <span class='op'>)</span> <span class='op'>%&gt;%</span> 
@@ -2652,14 +2657,14 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 <p>Now we can load the scraped data.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>complaints</span> <span class='op'>&lt;-</span> <span class='fu'>read_rds</span><span class='op'>(</span><span class='st'>"data/complaints.rds"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>complaints</span> <span class='op'>&lt;-</span> <span class='fu'>read_rds</span><span class='op'>(</span><span class='st'>"data/complaints.rds"</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
 <p>The is a lot of steps happening here. First, we use the <code>tidytext</code> package to extract words from the complaints, then we remove very common words called stop words. We then get the most commong words per restaurant and finally match the original restaurant names with the names we had to use for the webscarping links.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>names</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>names</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
   <span class='va'>restaurants</span>,
   <span class='va'>restaurant_names</span>
 <span class='op'>)</span>
@@ -2677,7 +2682,7 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
   <span class='fu'>rename</span><span class='op'>(</span>restaurant <span class='op'>=</span> <span class='va'>restaurants</span><span class='op'>)</span>
 
 <span class='va'>top_complaints</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'>rmarkdown</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rmarkdown/man/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='op'>)</span>
+  <span class='fu'>rmarkdown</span><span class='fu'>::</span><span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <div data-pagedtable="false">

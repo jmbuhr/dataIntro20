@@ -23,6 +23,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -53,35 +54,35 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #545454; font-weight: bold; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #a1024a; } /* BaseN */
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007faa; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #008000; } /* Char */
-code span.cn { color: #d91e18; } /* Constant */
-code span.co { color: #545454; } /* Comment */
-code span.cv { color: #545454; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #aa5d00; } /* DataType */
-code span.dv { color: #a1024a; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #a1024a; } /* Float */
-code span.fu { color: #4254a7; } /* Function */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
-code span.in { color: #545454; font-weight: bold; } /* Information */
-code span.kw { color: #007faa; font-weight: bold; } /* Keyword */
-code span.op { color: #696969; } /* Operator */
-code span.ot { color: #007faa; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #008000; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #008000; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #008000; } /* VerbatimString */
-code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warning */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
@@ -310,6 +311,11 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
     text-decoration: underline;
   }
 
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
   @media(min-width: 768px) {
 
   d-article pre,
@@ -464,6 +470,17 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 
   div.hanging-indent{
     margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
   }
 
 
@@ -1131,7 +1148,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
       var layout = $(this).attr('data-layout');
 
       // apply layout to markdown level block elements
-      var elements = $(this).children().not('div.sourceCode, pre, script');
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
       elements.each(function(i, el) {
         var layout_div = $('<div class="' + layout + '"></div>');
         if (layout_div.hasClass('shaded')) {
@@ -1246,6 +1263,20 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
       // move appendix-bottom entries to the bottom
       $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
       $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
 
       // clear polling timer
       clearInterval(tid);
@@ -1406,10 +1437,14 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="lecture5_files/header-attrs-2.5.3/header-attrs.js"></script>
+  <script src="lecture5_files/header-attrs-2.8/header-attrs.js"></script>
   <link href="lecture5_files/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
   <script src="lecture5_files/pagedtable-1.1/js/pagedtable.js"></script>
   <script src="lecture5_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="lecture5_files/popper-2.6.0/popper.min.js"></script>
+  <link href="lecture5_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="lecture5_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="lecture5_files/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="lecture5_files/anchor-4.2.2/anchor.min.js"></script>
   <script src="lecture5_files/bowser-1.9.3/bowser.min.js"></script>
   <script src="lecture5_files/webcomponents-2.0.0/webcomponents.js"></script>
@@ -1504,7 +1539,7 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 <p>You might not be shocked that we will be using the <code>tidyverse</code> today as well, simply because it makes the data wrangling for various demonstrations easier. So if you are following along, don’t forget:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
@@ -1514,7 +1549,7 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </blockquote>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:unnamed-chunk-3"></span>
-<img src="img/statistically-significant.jpg" alt="A Meme where a person says: &quot;Statistically significant. You keep using that word. I don't think it means what you think it means.&quot;" width="200" />
+<img src="img/statistically-significant.jpg" alt="A Meme where a person says: &quot;Statistically significant. You keep using that word. I don't think it means what you think it means.&quot;"  />
 <p class="caption">
 Figure 1: A Meme where a person says: “Statistically significant. You keep using that word. I don’t think it means what you think it means.”
 </p>
@@ -1539,9 +1574,9 @@ Figure 2: A ggplot chessboard
 
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:significant"></span>
-<img src="img/paste-5E31A2FF.png" alt="“Artwork by @allison_horst” (2020)" width="240" class=.external />
+<img src="img/paste-5E31A2FF.png" alt="“Artwork by @Allison_horst” (2020)" width="240" class=.external />
 <p class="caption">
-Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-ArtworkAllisonHorst" role="doc-biblioref"><span>“Artwork by @allison_horst”</span></a> (<a href="#ref-ArtworkAllisonHorst" role="doc-biblioref">2020</a>)</span>
+Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-ArtworkAllisonHorst" role="doc-biblioref"><span>“Artwork by @Allison_horst”</span></a> (<a href="#ref-ArtworkAllisonHorst" role="doc-biblioref">2020</a>)</span>
 </p>
 </div>
 </div>
@@ -1553,16 +1588,16 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>We will start off by building a little simulation. Before testing any hypothesis, it is important to have defined <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span> properly, which we did in the previous section. But we need to be a little more specific. Winning by chance would entail a completely random process, which we can model with a coin flip. R has the lovely function <code>sample</code> to take any number of things from a vector, with or without replacement after taking each thing:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>coin</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"heads"</span>, <span class='st'>"tails"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>coin</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"heads"</span>, <span class='st'>"tails"</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>coin</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>[1] &quot;tails&quot; &quot;heads&quot;</code></pre>
+<pre><code>[1] &quot;heads&quot; &quot;tails&quot;</code></pre>
 </div>
 <p>Not giving it a number of things to draw just shuffles the vector, which is fairly boring in the case of just two tings. We can’t sample 10 things from a vector of only two elements</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>coin</span>, size <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>coin</span>, size <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>Error in sample.int(length(x), size, replace, prob): cannot take a sample larger than the population when &#39;replace = FALSE&#39;</code></pre>
@@ -1570,38 +1605,38 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>But we can, if we put the thing back every time:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>coin</span>, size <span class='op'>=</span> <span class='fl'>10</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>coin</span>, size <span class='op'>=</span> <span class='fl'>10</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code> [1] &quot;heads&quot; &quot;heads&quot; &quot;tails&quot; &quot;tails&quot; &quot;heads&quot; &quot;heads&quot; &quot;tails&quot; &quot;tails&quot;
+<pre><code> [1] &quot;heads&quot; &quot;heads&quot; &quot;heads&quot; &quot;heads&quot; &quot;heads&quot; &quot;heads&quot; &quot;tails&quot; &quot;tails&quot;
  [9] &quot;heads&quot; &quot;heads&quot;</code></pre>
 </div>
 <p>So, let’s make this a little more specific to our question:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>winner</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"you"</span>, <span class='st'>"friend"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>winner</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"you"</span>, <span class='st'>"friend"</span><span class='op'>)</span>
 <span class='va'>random_winners</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>winner</span>, size <span class='op'>=</span> <span class='fl'>8</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 <span class='va'>random_winners</span>
 </code></pre>
 </div>
-<pre><code>[1] &quot;you&quot;    &quot;you&quot;    &quot;you&quot;    &quot;friend&quot; &quot;friend&quot; &quot;friend&quot; &quot;you&quot;   
+<pre><code>[1] &quot;friend&quot; &quot;you&quot;    &quot;you&quot;    &quot;friend&quot; &quot;you&quot;    &quot;friend&quot; &quot;friend&quot;
 [8] &quot;you&quot;   </code></pre>
 </div>
 <p>This script will look different every time I run this, so I won’t be to specific on the outcome of this. This time, you won:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>random_winners</span> <span class='op'>==</span> <span class='st'>"you"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>random_winners</span> <span class='op'>==</span> <span class='st'>"you"</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>[1] 5</code></pre>
+<pre><code>[1] 4</code></pre>
 </div>
 <p>times, and your friend won:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>random_winners</span> <span class='op'>==</span> <span class='st'>"friend"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>random_winners</span> <span class='op'>==</span> <span class='st'>"friend"</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>[1] 3</code></pre>
+<pre><code>[1] 4</code></pre>
 </div>
 <p>times. If we were to run this script a million times, the resulting proportion of random wins for both of you would be very, very close to 50-50 because we used a fair coin. However, we don’t have the time to play this much Chess and we sure don’t have the money to run a million replicates for each experiment in the lab. But here, in our little simulated world, we have near infinite resources (our simulation is not to computationally costly).</p>
 <blockquote>
@@ -1609,7 +1644,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 </blockquote>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>get_n_wins</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>N</span><span class='op'>)</span> <span class='op'>{</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>get_n_wins</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>N</span><span class='op'>)</span> <span class='op'>{</span>
   <span class='va'>winner</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"you"</span>, <span class='st'>"friend"</span><span class='op'>)</span>
   <span class='va'>random_winners</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>winner</span>, size <span class='op'>=</span> <span class='va'>N</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
   <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>random_winners</span> <span class='op'>==</span> <span class='st'>"friend"</span><span class='op'>)</span>
@@ -1620,15 +1655,15 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>I created a function that returns a random number of wins your friend would have gotten by pure chance for a number of rounds <code>N</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>get_n_wins</span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>get_n_wins</span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>[1] 7</code></pre>
+<pre><code>[1] 6</code></pre>
 </div>
 <p>This number is different every time, so how does it change?</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>42</span><span class='op'>)</span> <span class='co'># setting a random seed for the script</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>42</span><span class='op'>)</span> <span class='co'># setting a random seed for the script</span>
              <span class='co'># this give me the same random numbers</span>
              <span class='co'># every time</span>
 <span class='va'>number_of_wins</span> <span class='op'>&lt;-</span> <span class='fu'>map_dbl</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>8</span>, <span class='fl'>1000</span><span class='op'>)</span>, <span class='va'>get_n_wins</span><span class='op'>)</span>
@@ -1638,7 +1673,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>A histogram is a type of plot that shows how often each value occurs in a vector. Usually, the values are put into bins first, grouping close values together for continuous values, but in this case it makes sense to just have one value per bin because we are dealing with discrete values (e.g. no half-wins). Histograms can either display the raw counts or the frequency e.g. as a percentage. In ggplot, we use <code>geom_bar</code> when we don’t need any binning, just counting occurrences, and <code>geom_histogram</code> when we need to bin continuous values.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>tibble</span><span class='op'>(</span><span class='va'>number_of_wins</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>tibble</span><span class='op'>(</span><span class='va'>number_of_wins</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>number_of_wins</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>geom_bar</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>scale_x_continuous</span><span class='op'>(</span>breaks <span class='op'>=</span> <span class='fl'>0</span><span class='op'>:</span><span class='fl'>8</span><span class='op'>)</span> <span class='op'>+</span>
@@ -1650,14 +1685,14 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>As expected, the most common number of wins out of 8 is 4 (unless I got really unlucky when compiling this script). Let us see, how this <strong>distribution</strong> changes for different values of <code>N</code>. First, we set up a grid of numbers (all possible combinations) so that we can run a bunch of simulations:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>simulation</span> <span class='op'>&lt;-</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>simulation</span> <span class='op'>&lt;-</span>
   <span class='fu'>crossing</span><span class='op'>(</span>N   <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>15</span>,
            rep <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>1000</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>mutate</span><span class='op'>(</span>
     wins <span class='op'>=</span> <span class='fu'>map_dbl</span><span class='op'>(</span><span class='va'>N</span>, <span class='va'>get_n_wins</span><span class='op'>)</span>
   <span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>simulation</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>rmarkdown</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rmarkdown/man/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>simulation</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>rmarkdown</span><span class='fu'>::</span><span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <div data-pagedtable="false">
@@ -1669,7 +1704,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>And then we use our trusty ggplot to visualize all the distributions:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>simulation</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>simulation</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>wins</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>geom_bar</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span> <span class='va'>N</span><span class='op'>)</span> <span class='op'>+</span>
@@ -1683,7 +1718,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>From our simulation, we find the that probability to win 7 out of 8 rounds under the null hypothesis is:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>number_of_wins</span> <span class='op'>&gt;=</span> <span class='fl'>7</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>number_of_wins</span> <span class='op'>&gt;=</span> <span class='fl'>7</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] 0.025</code></pre>
@@ -1693,7 +1728,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>Now, this was just from a simulation with 1000 trials, so the number can’t be arbitrarily precise, but there is a mathematical formula for this probability. What we created by counting the number of successes in a series of yes-no-trials is a <strong>binomial distribution</strong>. For the most common distributions, R provides a set of functions. the functions starting with <code>d</code> give us the probability density function. In the case of discrete values like counting wins, this is equivalent to the actual probability, but for continuous values we obtain the probability by taking the integral. We get these integrals with the corresponding functions starting with <code>p</code> (for probability).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>dbinom</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>7</span>, size <span class='op'>=</span> <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>dbinom</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>7</span>, size <span class='op'>=</span> <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] 0.03125</code></pre>
@@ -1701,7 +1736,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>This is the probability to win <strong>exactly 7 out of 8</strong> games. But what we wanted was the probability for <strong>7 or more out of 8</strong>! So we move to the integral. This part can get a bit confusing, because the default for <code>pbinom</code> is <code>lower.tail = TRUE</code>, which according to the help page means that probabilities are <span class="math inline">\(P[X \le x]\)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>pbinom</a></span><span class='op'>(</span>q <span class='op'>=</span> <span class='fl'>7</span>, size <span class='op'>=</span> <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>pbinom</a></span><span class='op'>(</span>q <span class='op'>=</span> <span class='fl'>7</span>, size <span class='op'>=</span> <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] 0.9960938</code></pre>
@@ -1709,7 +1744,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>If we set <code>lower.tail</code> to <code>FALSE</code> , we get <span class="math inline">\(P[X &gt; x]\)</span>, so the probability for a random variable X being bigger than a number x. So to get the probability that we are interested in, we need to replace the 7 with a 6 as well:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>pbinom</a></span><span class='op'>(</span>q <span class='op'>=</span> <span class='fl'>6</span>, size <span class='op'>=</span> <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span>, lower.tail <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>pbinom</a></span><span class='op'>(</span>q <span class='op'>=</span> <span class='fl'>6</span>, size <span class='op'>=</span> <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span>, lower.tail <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] 0.03515625</code></pre>
@@ -1721,7 +1756,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>Here is the full graph for the probability density function of the binomial distribution</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>dbinom</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>,
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>dbinom</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>,
       type <span class='op'>=</span> <span class='st'>"s"</span>, from <span class='op'>=</span> <span class='fl'>0</span>,
       to <span class='op'>=</span> <span class='fl'>8</span>,
       n <span class='op'>=</span> <span class='fl'>9</span>, main <span class='op'>=</span> <span class='st'>"dbinom"</span><span class='op'>)</span>
@@ -1732,7 +1767,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>And the integral, the probability <span class="math inline">\(P[X \le x]\)</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>pbinom</a></span><span class='op'>(</span>q <span class='op'>=</span> <span class='va'>x</span>, <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>,
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>pbinom</a></span><span class='op'>(</span>q <span class='op'>=</span> <span class='va'>x</span>, <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>,
       type <span class='op'>=</span> <span class='st'>"s"</span>,
       from <span class='op'>=</span> <span class='fl'>0</span>,
       to <span class='op'>=</span> <span class='fl'>8</span>,
@@ -1744,7 +1779,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>There is two more function I want to showcase from this family. The third is the so called <strong>quantile function</strong>. Quantiles divide a probability distribution into pieces of equal probability. One example for a quantile is the 50th percentile, also known as the median, which divides the values such that half of the values are above and half are below. And we can keep dividing the two halves as well, so that we end up with more quantiles. Eventually, we arrive at the quantile function. It is the inverse of the probability function, so you obtain it by swapping the axis.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>qbinom</a></span><span class='op'>(</span>p <span class='op'>=</span> <span class='va'>x</span>, size <span class='op'>=</span> <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>,
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>qbinom</a></span><span class='op'>(</span>p <span class='op'>=</span> <span class='va'>x</span>, size <span class='op'>=</span> <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>,
       type <span class='op'>=</span> <span class='st'>"s"</span>,
       from <span class='op'>=</span> <span class='fl'>0</span>,
       to <span class='op'>=</span> <span class='fl'>1</span>,
@@ -1758,7 +1793,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>Lastly, there is always also an <code>r</code> variant of the function, which gives us any number of random numbers from the distribution.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>10</span>, size <span class='op'>=</span> <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>10</span>, size <span class='op'>=</span> <span class='fl'>8</span>, prob <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code> [1] 4 5 5 5 5 2 3 4 6 3</code></pre>
@@ -1768,7 +1803,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>Our ability to decide that something is statistically significant when there is in fact a true difference is called the statistical <strong>power</strong>. It depends on the effect size, our significance threshold <span class="math inline">\(\alpha\)</span> and the sample size <span class="math inline">\(n\)</span> (the number of games). We can explore the concept with another simulation.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>2020</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>2020</span><span class='op'>)</span>
 <span class='va'>trials</span> <span class='op'>&lt;-</span> <span class='fl'>10000</span>
 <span class='va'>simulation</span> <span class='op'>&lt;-</span> <span class='fu'>crossing</span><span class='op'>(</span>
   N <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>8</span>, <span class='fl'>100</span>, <span class='fl'>1000</span>, <span class='fl'>10000</span><span class='op'>)</span>,
@@ -1808,7 +1843,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>It leaves us with 10000 simulated numbers of wins at N games for different true probabilities of her winning (i.e. how much better our friend is). We then calculate the probability to have this or a greater number of wins under the null hypothesis (equal probability for win and loss), in other words: the p-value.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>simulation</span> <span class='op'>%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>simulation</span> <span class='op'>%&gt;%</span>
   <span class='fu'>unnest</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>wins</span>, <span class='va'>p</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>p</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>geom_histogram</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
@@ -1828,7 +1863,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>On the other side of the coin, there are also cases where there is a true difference (we used winning probabilities of 0.8 and 0.9), but we don’t reject the null hypothesis because we get a p-values larger than <span class="math inline">\(alpha\)</span>. These are all <strong>false negatives</strong> and their rate is sometimes referred to as <span class="math inline">\(\beta\)</span>. Another name for false negatives is <strong>Type II errors</strong>. People don’t particularly like talking about negative things like errors, so instead you will often see the inverse of <span class="math inline">\(\beta\)</span>, the <strong>Statistical Power</strong> <span class="math inline">\(1-\beta\)</span>. The proportion of correctly identified positives out of the actual positives is also shown on the plot below. For example, say her true win probability is 90% and we play 8 games. If this experiment runs in an infinite number of parallel universes, we will conclude that she is better than chance in 80% of those. We could set our significance threshold higher to detect more of the true positives, but this would also increase our false positives.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>simulation</span> <span class='op'>%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>simulation</span> <span class='op'>%&gt;%</span>
   <span class='fu'>unnest</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>wins</span>, <span class='va'>p</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>true_prob</span>, <span class='va'>N</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>summarise</span><span class='op'>(</span>signif <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>p</span> <span class='op'>&lt;=</span> <span class='fl'>0.05</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
@@ -1860,7 +1895,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>The simplest approach is to take all p-values calculate when running a large number of comparisons and dividing them by the number of tests performed. This is called the <strong>Bonferroni correction</strong></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>p_values</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.5</span>, <span class='fl'>0.05</span>, <span class='fl'>0.3</span>, <span class='fl'>0.001</span>, <span class='fl'>0.003</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>p_values</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.5</span>, <span class='fl'>0.05</span>, <span class='fl'>0.3</span>, <span class='fl'>0.001</span>, <span class='fl'>0.003</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/stats/p.adjust.html'>p.adjust</a></span><span class='op'>(</span><span class='va'>p_values</span>, method <span class='op'>=</span> <span class='st'>"bonferroni"</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -1877,7 +1912,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <p>And this is how you do it in R:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/stats/p.adjust.html'>p.adjust</a></span><span class='op'>(</span><span class='va'>p_values</span>, method <span class='op'>=</span> <span class='st'>"BH"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/p.adjust.html'>p.adjust</a></span><span class='op'>(</span><span class='va'>p_values</span>, method <span class='op'>=</span> <span class='st'>"BH"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] 0.50000000 0.08333333 0.37500000 0.00500000 0.00750000</code></pre>
@@ -1937,7 +1972,7 @@ Figure 3: <span class="citation" data-cites="ArtworkAllisonHorst"><a href="#ref-
 <div class="sourceCode" id="cb16"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-ArtworkAllisonHorst" class="csl-entry" role="doc-biblioentry">
-<span>“Artwork by @allison_horst.”</span> 2020. https://github.com/allisonhorst/stats-illustrations.
+<span>“Artwork by @Allison_horst.”</span> 2020. https://github.com/allisonhorst/stats-illustrations.
 </div>
 <div id="ref-reinhartStatisticsDoneWrong2015" class="csl-entry" role="doc-biblioentry">
 Reinhart, Alex. 2015. <em>Statistics <span>Done Wrong</span>: <span>The Woefully Complete Guide</span></em>. 1 edition. <span>San Francisco</span>: <span>No Starch Press</span>.

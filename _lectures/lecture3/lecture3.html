@@ -23,6 +23,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -53,35 +54,35 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #545454; font-weight: bold; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #a1024a; } /* BaseN */
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007faa; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #008000; } /* Char */
-code span.cn { color: #d91e18; } /* Constant */
-code span.co { color: #545454; } /* Comment */
-code span.cv { color: #545454; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #aa5d00; } /* DataType */
-code span.dv { color: #a1024a; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #a1024a; } /* Float */
-code span.fu { color: #4254a7; } /* Function */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
-code span.in { color: #545454; font-weight: bold; } /* Information */
-code span.kw { color: #007faa; font-weight: bold; } /* Keyword */
-code span.op { color: #696969; } /* Operator */
-code span.ot { color: #007faa; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #008000; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #008000; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #008000; } /* VerbatimString */
-code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warning */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
@@ -117,7 +118,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["data/airlines.csv","extra.css","img/environment.png","img/purrr.png","img/tidy-data-wickham.png","img/tidyr.png","lecture3_files/anchor-4.2.2/anchor.min.js","lecture3_files/bowser-1.9.3/bowser.min.js","lecture3_files/distill-2.2.21/template.v2.js","lecture3_files/figure-html5/unnamed-chunk-22-1.png","lecture3_files/figure-html5/unnamed-chunk-23-1.png","lecture3_files/figure-html5/unnamed-chunk-24-1.png","lecture3_files/figure-html5/unnamed-chunk-27-1.png","lecture3_files/figure-html5/unnamed-chunk-28-1.png","lecture3_files/figure-html5/unnamed-chunk-29-1.png","lecture3_files/figure-html5/unnamed-chunk-30-1.png","lecture3_files/figure-html5/unnamed-chunk-31-1.png","lecture3_files/figure-html5/unnamed-chunk-32-1.png","lecture3_files/figure-html5/unnamed-chunk-33-1.png","lecture3_files/figure-html5/unnamed-chunk-34-1.png","lecture3_files/header-attrs-2.3/header-attrs.js","lecture3_files/header-attrs-2.5.3/header-attrs.js","lecture3_files/jquery-1.11.3/jquery.min.js","lecture3_files/pagedtable-1.1/css/pagedtable.css","lecture3_files/pagedtable-1.1/js/pagedtable.js","lecture3_files/webcomponents-2.0.0/webcomponents.js","libs/animate.css/animate.xaringan.css","libs/clipboard/clipboard.min.js","libs/editable/editable.css","libs/editable/editable.js","libs/header-attrs/header-attrs.js","libs/himalaya/himalaya.js","libs/himalaya/himalaya.js.map","libs/js-cookie/js.cookie.js","libs/pagedtable/css/pagedtable.css","libs/pagedtable/js/pagedtable.js","libs/tachyons/tachyons.min.css","libs/tile-view/tile-view.css","libs/tile-view/tile-view.js","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js","R/split_gapminder.R","slides3.html","xaringan-themer.css"]}
+  {"type":"character","attributes":{},"value":["data/airlines.csv","extra.css","img/environment.png","img/purrr.png","img/tidy-data-wickham.png","img/tidyr.png","lecture3_files/anchor-4.2.2/anchor.min.js","lecture3_files/bowser-1.9.3/bowser.min.js","lecture3_files/distill-2.2.21/template.v2.js","lecture3_files/figure-html5/unnamed-chunk-22-1.png","lecture3_files/figure-html5/unnamed-chunk-23-1.png","lecture3_files/figure-html5/unnamed-chunk-24-1.png","lecture3_files/figure-html5/unnamed-chunk-27-1.png","lecture3_files/figure-html5/unnamed-chunk-28-1.png","lecture3_files/figure-html5/unnamed-chunk-29-1.png","lecture3_files/figure-html5/unnamed-chunk-30-1.png","lecture3_files/figure-html5/unnamed-chunk-31-1.png","lecture3_files/figure-html5/unnamed-chunk-32-1.png","lecture3_files/figure-html5/unnamed-chunk-33-1.png","lecture3_files/figure-html5/unnamed-chunk-34-1.png","lecture3_files/header-attrs-2.3/header-attrs.js","lecture3_files/header-attrs-2.5.3/header-attrs.js","lecture3_files/jquery-1.11.3/jquery.min.js","lecture3_files/pagedtable-1.1/css/pagedtable.css","lecture3_files/pagedtable-1.1/js/pagedtable.js","lecture3_files/webcomponents-2.0.0/webcomponents.js","libs/animate.css/animate.xaringan.css","libs/clipboard/clipboard.min.js","libs/editable/editable.css","libs/editable/editable.js","libs/header-attrs/header-attrs.js","libs/himalaya/himalaya.js","libs/himalaya/himalaya.js.map","libs/js-cookie/js.cookie.js","libs/pagedtable/css/pagedtable.css","libs/pagedtable/js/pagedtable.js","libs/tachyons/tachyons.min.css","libs/tile-view/tile-view.css","libs/tile-view/tile-view.js","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js","slides3.html","xaringan-themer.css"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -309,6 +310,11 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
     text-decoration: underline;
   }
 
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
   @media(min-width: 768px) {
 
   d-article pre,
@@ -463,6 +469,17 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 
   div.hanging-indent{
     margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
   }
 
 
@@ -1130,7 +1147,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
       var layout = $(this).attr('data-layout');
 
       // apply layout to markdown level block elements
-      var elements = $(this).children().not('div.sourceCode, pre, script');
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
       elements.each(function(i, el) {
         var layout_div = $('<div class="' + layout + '"></div>');
         if (layout_div.hasClass('shaded')) {
@@ -1245,6 +1262,20 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
       // move appendix-bottom entries to the bottom
       $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
       $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
 
       // clear polling timer
       clearInterval(tid);
@@ -1405,10 +1436,14 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="lecture3_files/header-attrs-2.5.3/header-attrs.js"></script>
+  <script src="lecture3_files/header-attrs-2.8/header-attrs.js"></script>
   <link href="lecture3_files/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
   <script src="lecture3_files/pagedtable-1.1/js/pagedtable.js"></script>
   <script src="lecture3_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="lecture3_files/popper-2.6.0/popper.min.js"></script>
+  <link href="lecture3_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="lecture3_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="lecture3_files/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="lecture3_files/anchor-4.2.2/anchor.min.js"></script>
   <script src="lecture3_files/bowser-1.9.3/bowser.min.js"></script>
   <script src="lecture3_files/webcomponents-2.0.0/webcomponents.js"></script>
@@ -1492,7 +1527,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <p>Hover over the slides and press <strong>f</strong> for full screen. Press <strong>?</strong> for a list of keyboard shortcuts.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/include_url.html'>include_url</a></span><span class='op'>(</span><span class='st'>"slides3.html"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/include_url.html'>include_url</a></span><span class='op'>(</span><span class='st'>"slides3.html"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <iframe src="slides3.html" width="624" height="400px">
@@ -1524,13 +1559,13 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p><code>table1</code>, <code>table2</code>, <code>table3</code>, <code>table4a</code>, <code>table4b</code>, and <code>table5</code> all display the number of TB cases documented by the World Health Organization in Afghanistan, Brazil, and China between 1999 and 2000. The first of these is in the tidy format, the others are not:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
 
 <span class='co'># The paged_table function from the rmarkdown package prints the tables</span>
 <span class='co'># for the rmarkdown html document format so that it looks nice in the script.</span>
 <span class='co'># Alternatively you could use</span>
 <span class='co'># knitr's kable function</span>
-<span class='fu'>paged_table</span><span class='op'>(</span><span class='va'>table1</span><span class='op'>)</span>
+<span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='va'>table1</span><span class='op'>)</span>
 </code></pre>
 </div>
 <div data-pagedtable="false">
@@ -1542,7 +1577,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>This nicely qualifies as tidy data. Every row is uniquely identified by the country and year, and all other columns are properties of the specific country in this specific year.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>paged_table</span><span class='op'>(</span><span class='va'>table2</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='va'>table2</span><span class='op'>)</span>
 </code></pre>
 </div>
 <div data-pagedtable="false">
@@ -1554,7 +1589,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>Now it gets interesting. <code>table2</code> still looks organized, but it is not tidy (by our definition). Note, this doesn’t say the format is useless — it has it’s places — but it will not fit in as snugly with our tools. The column <code>type</code> is not a feature of the <code>country</code>, rather the actual features are hidden in that column with their values in the <code>count</code> column. In order to make it tidy, this dataset would need to get wider.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>paged_table</span><span class='op'>(</span><span class='va'>table3</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='va'>table3</span><span class='op'>)</span>
 </code></pre>
 </div>
 <div data-pagedtable="false">
@@ -1566,7 +1601,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>In <code>table3</code>, two features are jammed into one column. This is annoying, because we can’t easily calculate with the values; they are stored as text and separated by a slash like <code>cases/population</code>. Ideally, we would want to separate this column into two.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>paged_table</span><span class='op'>(</span><span class='va'>table4a</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='va'>table4a</span><span class='op'>)</span>
 </code></pre>
 </div>
 <div data-pagedtable="false">
@@ -1577,7 +1612,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>paged_table</span><span class='op'>(</span><span class='va'>table4b</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='va'>table4b</span><span class='op'>)</span>
 </code></pre>
 </div>
 <div data-pagedtable="false">
@@ -1589,7 +1624,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p><code>table4a</code> and <code>table4b</code> split the data into two different tables, which again makes it harder to calculate with. This data is so closely related, we would want it in one table. And another principle of tidy data is violated. Notice the column names? <code>1999</code> is not a feature that Afghanistan can have. Rather, it is the value for a feature (namely the <code>year</code>), while the values in the <code>1999</code> column are in fact values for the feature <code>population</code> (in <code>table4a</code>) and <code>cases</code> (in <code>table4b</code>).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>paged_table</span><span class='op'>(</span><span class='va'>table5</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='va'>table5</span><span class='op'>)</span>
 </code></pre>
 </div>
 <div data-pagedtable="false">
@@ -1616,7 +1651,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>Starting with table2, which wants to be wider. Accordingly, we use the function <code>pivot_wider</code>. It is very powerful, but the two most important arguments (well, after the data) are which column contains the names of the new columns and which column contains the values of the newly created columns as shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>table2</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>table2</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>pivot_wider</span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>type</span>, values_from <span class='op'>=</span> <span class='va'>count</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -1634,7 +1669,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>To make table3 tidy, we need the <code>separate</code> function, followed by mutate to get the new columns into the correct datatype. Run it yourself step by step to see why the mutate afterwards is necessary.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>table3</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>table3</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>separate</span><span class='op'>(</span><span class='va'>rate</span>, into <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"cases"</span>, <span class='st'>"population"</span><span class='op'>)</span>, sep <span class='op'>=</span> <span class='st'>"/"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>mutate</span><span class='op'>(</span>cases <span class='op'>=</span> <span class='fu'>parse_number</span><span class='op'>(</span><span class='va'>cases</span><span class='op'>)</span>,
          population <span class='op'>=</span> <span class='fu'>parse_number</span><span class='op'>(</span><span class='va'>population</span><span class='op'>)</span><span class='op'>)</span>
@@ -1653,7 +1688,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>The <code>parse_</code> functions come from <code>readr</code>. Parsing is the act of turning raw text into usable data, and the <code>parse_number</code> function does a particularly good job at extracting numbers, where the naïve approach of <code>as.numeric</code> might fail e.g.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>some_text</span> <span class='op'>=</span> <span class='st'>"take my number: 12"</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>some_text</span> <span class='op'>=</span> <span class='st'>"take my number: 12"</span>
 <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>some_text</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -1661,7 +1696,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>parse_number</span><span class='op'>(</span><span class='va'>some_text</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>parse_number</span><span class='op'>(</span><span class='va'>some_text</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] 12</code></pre>
@@ -1670,7 +1705,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>Now is the time to join <code>table4a</code> and <code>tabl4b</code> together. For this, we need an operation known from databases as a <code>join</code>. In fact, this whole concept of tidy data is closely related to databases and something called Codd`s normal forms <span class="citation" data-cites="coddRelationalModelDatabase1990 wickhamTidyData2014">(<a href="#ref-coddRelationalModelDatabase1990" role="doc-biblioref">Codd 1990</a>; <a href="#ref-wickhamTidyData2014" role="doc-biblioref">Wickham 2014</a>)</span> so I am throwing these references in here just in case you are interested in the theoretical foundations. But without further ado:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='co'># the suffix argument is necessary because the columns</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># the suffix argument is necessary because the columns</span>
 <span class='co'># in the two tables have the same names</span>
 <span class='va'>table4</span> <span class='op'>&lt;-</span> <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>table4a</span>, <span class='va'>table4b</span>, by <span class='op'>=</span> <span class='st'>"country"</span>,
                     suffix <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"_cases"</span>, <span class='st'>"_population"</span><span class='op'>)</span><span class='op'>)</span>
@@ -1688,7 +1723,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>Now we can deal with the next problem: Making the table longer so that year, population and cases become their own columns again, because they are independent features. Consequently, we use the function <code>pivot_longer</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='co'># note that cols takes what is called a tidyselect specification.</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># note that cols takes what is called a tidyselect specification.</span>
 <span class='co'># you know this from the selection function and it's help page.</span>
 <span class='co'># here, I am selecting everything BUT the country column.</span>
 <span class='va'>long_table4</span> <span class='op'>&lt;-</span> <span class='va'>table4</span> <span class='op'>%&gt;%</span> 
@@ -1715,7 +1750,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>But we are not done yet, table4 is putting all our skills to the test. There is a way to do the following steps with <code>pivot_wider</code> straight away, but doing it step by step should be easier to follow. You can revisit this part and check out the other arguments to <code>pivot_wider</code> if you fancy a challenge. The next step we already know: separating a column into two. Only the separator changed.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>long_table4_separated</span> <span class='op'>&lt;-</span> <span class='va'>long_table4</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>long_table4_separated</span> <span class='op'>&lt;-</span> <span class='va'>long_table4</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>separate</span><span class='op'>(</span>col <span class='op'>=</span> <span class='va'>name</span>, into <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"year"</span>, <span class='st'>"type"</span><span class='op'>)</span>, sep <span class='op'>=</span> <span class='st'>"_"</span><span class='op'>)</span>
 <span class='va'>long_table4_separated</span>
 </code></pre>
@@ -1739,7 +1774,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>Now we are back to the problem we had in table2, so we know how to make this table wider again:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>long_table4_separated</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>long_table4_separated</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>pivot_wider</span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>type</span>, values_from <span class='op'>=</span> <span class='va'>value</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -1757,7 +1792,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <h3 id="unite"><code>unite</code></h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>table5</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>table5</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>unite</span><span class='op'>(</span>col <span class='op'>=</span> <span class='va'>year</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>century</span>, <span class='va'>year</span><span class='op'>)</span>, sep <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>mutate</span><span class='op'>(</span>year <span class='op'>=</span> <span class='fu'>parse_number</span><span class='op'>(</span><span class='va'>year</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
@@ -1776,7 +1811,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>Let us look at one last example of data that needs tidying, which is also provided by the <code>tidyr</code> package as an example:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>billboard</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>paged_table</span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>billboard</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <div data-pagedtable="false">
@@ -1788,7 +1823,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>This is a lot of columns! For 76 weeks after a song entered the top 100 (I assume in the USA) it’s position is recorded. It might be in this format because it made data entry easier, or the previous person wanted to make plots in excel, where this wide format is used to denote multiple traces. In any event, for our style of visualizations with the grammar of graphics, we want a column to represent a feature, so this data needs to get longer:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>long_billboard</span> <span class='op'>&lt;-</span> <span class='va'>billboard</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>long_billboard</span> <span class='op'>&lt;-</span> <span class='va'>billboard</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>pivot_longer</span><span class='op'>(</span><span class='fu'>starts_with</span><span class='op'>(</span><span class='st'>"w"</span><span class='op'>)</span>,
                names_to <span class='op'>=</span> <span class='st'>"week"</span>,
                names_pattern <span class='op'>=</span> <span class='st'>"wk(\\d+)"</span>,
@@ -1800,7 +1835,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 
 <span class='va'>long_billboard</span> <span class='op'>%&gt;%</span> 
   <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'>paged_table</span><span class='op'>(</span><span class='op'>)</span>
+  <span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <div data-pagedtable="false">
@@ -1819,7 +1854,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>Remember that <code>lists</code> can contain elements of any type, even other lists? Well, if have have a list that contains more lists, we call it nested. E.g.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
   <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,
   <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
     <span class='fl'>42</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"hi"</span>, <span class='cn'>TRUE</span><span class='op'>)</span>
@@ -1844,7 +1879,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>But nested list are not always fun to work with, and when there is a straightforward way to represent the same data in a rectangular, flat format, we most likely want to do that. We will deal with data rectangling today was well. But first, there is another implication of nested lists: Because dataframes (and tibbles) are built on top of lists, we can nest them to! This can sometimes come in really handy. We a dataframe contains a column that is not an atomic vector but a list (so it is a list in a list), we call it a list column:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>example</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>example</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
   x <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>,
   y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"hello"</span>, <span class='cn'>TRUE</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
 <span class='op'>)</span>
@@ -1862,7 +1897,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>We can get a better view of what is in there by either pulling the column out with the subsetting functions we already learned (like <code>$</code>, <code>[[]]</code>, <code>pull</code>), using <code>str</code> to learn more about the structure or simply using RStudio’s <strong>Environment</strong> panel to inspect our variable. Click on the name to view it in a new window (the same can be done from code by using the function <code>View</code> or Ctrl+Clicking the variable name) or use the little blue arrow to expand the list.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>include_graphics</span><span class='op'>(</span><span class='st'>"img/environment.png"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/include_graphics.html'>include_graphics</a></span><span class='op'>(</span><span class='st'>"img/environment.png"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="img/environment.png" width="330" /></p>
@@ -1870,7 +1905,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>This extends even further, we are about to go full inception on this! A list column can contain tibbles (/dataframes) as well!</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>nested_tibble</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>nested_tibble</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
   id <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>,
   df <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
     <span class='fu'>tibble</span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, y <span class='op'>=</span> <span class='va'>x</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>,
@@ -1890,7 +1925,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>We can still use the data nested in there, as long as we remember how to chain our subsetting functions together.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='co'># take the column df, take the second element</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># take the column df, take the second element</span>
 <span class='va'>nested_tibble</span><span class='op'>$</span><span class='va'>df</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span>
 </code></pre>
 </div>
@@ -1912,7 +1947,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>A handy way to subsett into nested structures is with the <code>pluck</code> function:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>nested_tibble</span> <span class='op'>%&gt;%</span> <span class='fu'>pluck</span><span class='op'>(</span><span class='st'>"df"</span>, <span class='fl'>2</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>nested_tibble</span> <span class='op'>%&gt;%</span> <span class='fu'>pluck</span><span class='op'>(</span><span class='st'>"df"</span>, <span class='fl'>2</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 34 x 2
@@ -1932,7 +1967,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>nested_tibble</span><span class='op'>$</span><span class='va'>df</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>nested_tibble</span><span class='op'>$</span><span class='va'>df</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
@@ -1945,7 +1980,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>Creating a tibble by hand is unlikely going to be the way that you end up with a nested tibble. Let’s create one from an already existing tibble. We can use the long version of the billboard dataset we created above.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>nested_billboard</span> <span class='op'>&lt;-</span> <span class='va'>long_billboard</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>nested_billboard</span> <span class='op'>&lt;-</span> <span class='va'>long_billboard</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>nest</span><span class='op'>(</span>data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>artist</span>, <span class='op'>-</span><span class='va'>track</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>nested_billboard</span><span class='op'>)</span>
@@ -1965,7 +2000,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>We can get back to our original shape by <strong>unnesting</strong> the tibble</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>nested_billboard</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>nested_billboard</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>unnest</span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
@@ -1986,7 +2021,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>Let us take just one dataset out of the many datasets:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>one_track</span> <span class='op'>&lt;-</span> <span class='va'>nested_billboard</span><span class='op'>$</span><span class='va'>data</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>one_track</span> <span class='op'>&lt;-</span> <span class='va'>nested_billboard</span><span class='op'>$</span><span class='va'>data</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
 <span class='va'>one_track</span>
 </code></pre>
 </div>
@@ -2004,7 +2039,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>This contains the performance of one song. we can create a plot of it:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>one_track</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>week</span>, <span class='va'>placement</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>one_track</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>week</span>, <span class='va'>placement</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>theme_linedraw</span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
@@ -2014,7 +2049,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>Moreover, we can create a function, that takes some data and creates a plot from it:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>plot_song_performance</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>song_data</span><span class='op'>)</span> <span class='op'>{</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot_song_performance</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>song_data</span><span class='op'>)</span> <span class='op'>{</span>
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>song_data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>week</span>, <span class='va'>placement</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'>theme_linedraw</span><span class='op'>(</span><span class='op'>)</span>
@@ -2025,7 +2060,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>We can now pass any song data from the nested dataframe to it:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>plot_song_performance</span><span class='op'>(</span><span class='va'>nested_billboard</span><span class='op'>$</span><span class='va'>data</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>plot_song_performance</span><span class='op'>(</span><span class='va'>nested_billboard</span><span class='op'>$</span><span class='va'>data</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="lecture3_files/figure-html5/unnamed-chunk-30-1.png" width="624" /></p>
@@ -2040,7 +2075,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 </aside>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>song_performance</span> <span class='op'>&lt;-</span> <span class='va'>nested_billboard</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>song_performance</span> <span class='op'>&lt;-</span> <span class='va'>nested_billboard</span> <span class='op'>%&gt;%</span> 
    <span class='fu'>mutate</span><span class='op'>(</span>
       plt <span class='op'>=</span> <span class='fu'>map</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>plot_song_performance</span><span class='op'>)</span>
    <span class='op'>)</span>
@@ -2061,7 +2096,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>And now we can look at individual plots:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>song_performance</span><span class='op'>$</span><span class='va'>plt</span><span class='op'>[[</span><span class='fl'>24</span><span class='op'>]</span><span class='op'>]</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>song_performance</span><span class='op'>$</span><span class='va'>plt</span><span class='op'>[[</span><span class='fl'>24</span><span class='op'>]</span><span class='op'>]</span>
 </code></pre>
 </div>
 <p><img src="lecture3_files/figure-html5/unnamed-chunk-32-1.png" width="624" /></p>
@@ -2069,7 +2104,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>It might have been handy to include a title for the plot, so let’s modify our plotting function a little bit:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>plot_song_performance</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>song_data</span>, <span class='va'>title</span><span class='op'>)</span> <span class='op'>{</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot_song_performance</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>song_data</span>, <span class='va'>title</span><span class='op'>)</span> <span class='op'>{</span>
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>song_data</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>week</span>, <span class='va'>placement</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'>theme_linedraw</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2081,7 +2116,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>And now we use the function <code>map2</code> instead of <code>map</code>, which iterates over two vectors at the same time to also pass the plot title:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>song_performance</span> <span class='op'>&lt;-</span> <span class='va'>nested_billboard</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>song_performance</span> <span class='op'>&lt;-</span> <span class='va'>nested_billboard</span> <span class='op'>%&gt;%</span> 
    <span class='fu'>mutate</span><span class='op'>(</span>
       plt <span class='op'>=</span> <span class='fu'>map2</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>track</span>,  <span class='va'>plot_song_performance</span><span class='op'>)</span>
    <span class='op'>)</span>
@@ -2094,7 +2129,7 @@ Figure 1: Figure from <a href="https://r4ds.had.co.nz/tidy-data.html" class="uri
 <p>When we don’t care about the return value of a function, but rather about the side-effect it has, we use the <code>walk</code> function in place of <code>map</code>. A side-effect is anything that changes the state of your program or the world around it, as opposed to pure functions, which only depend on their arguments return some value. Writing to a file for example is a side effect:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span><span class='op'>(</span><span class='st'>"plts"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span><span class='op'>(</span><span class='st'>"plts"</span><span class='op'>)</span>
 
 <span class='va'>save_plot</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>name</span>, <span class='va'>plot</span><span class='op'>)</span> <span class='op'>{</span>
   <span class='fu'>ggsave</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"plts/"</span>, <span class='va'>name</span>, <span class='st'>".png"</span><span class='op'>)</span>, <span class='va'>plot</span><span class='op'>)</span>

@@ -328,6 +328,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     text-decoration: underline;
   }
 
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
   @media(min-width: 768px) {
 
   d-article pre,
@@ -482,6 +487,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   div.hanging-indent{
     margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
   }
 
 
@@ -1149,7 +1165,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       var layout = $(this).attr('data-layout');
 
       // apply layout to markdown level block elements
-      var elements = $(this).children().not('div.sourceCode, pre, script');
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
       elements.each(function(i, el) {
         var layout_div = $('<div class="' + layout + '"></div>');
         if (layout_div.hasClass('shaded')) {
@@ -1264,6 +1280,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       // move appendix-bottom entries to the bottom
       $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
       $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
 
       // clear polling timer
       clearInterval(tid);
@@ -1424,8 +1454,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="lecture1_files/header-attrs-2.6.4/header-attrs.js"></script>
+  <script src="lecture1_files/header-attrs-2.8/header-attrs.js"></script>
   <script src="lecture1_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="lecture1_files/popper-2.6.0/popper.min.js"></script>
+  <link href="lecture1_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="lecture1_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="lecture1_files/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="lecture1_files/anchor-4.2.2/anchor.min.js"></script>
   <script src="lecture1_files/bowser-1.9.3/bowser.min.js"></script>
   <script src="lecture1_files/webcomponents-2.0.0/webcomponents.js"></script>
@@ -1547,7 +1581,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>You can now execute commands in the R console in the bottom left. For example we can calculate a mathematical expression:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fl'>1</span> <span class='op'>+</span> <span class='fl'>1</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>1</span> <span class='op'>+</span> <span class='fl'>1</span>
 </code></pre>
 </div>
 <pre><code>[1] 2</code></pre>
@@ -1555,7 +1589,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Or generate the numbers from one to 10:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>
 </code></pre>
 </div>
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
@@ -1564,7 +1598,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>To create a new script, click the little button in the top left corner. In a script you can type regular R code, but it won’t get executed straight away. To send a line of code to the console to be executed, hit <strong>Ctrl+Enter</strong>. Go ahead, try it with:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Hello"</span>, <span class='st'>"World!"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Hello"</span>, <span class='st'>"World!"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] &quot;Hello World!&quot;</code></pre>
@@ -1572,7 +1606,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>The <code>paste</code> function combines text, just like <code>+</code> combines numbers. Your code can have comments to tell your future self why you wrote a piece of code the way you did. Any line starting with the number symbol <code>#</code> will be ignored by R.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='co'># This line will be ignored</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># This line will be ignored</span>
 <span class='fl'>43</span> <span class='op'>-</span> <span class='fl'>1</span> <span class='co'># as will be the part after this #, but not before it</span>
 </code></pre>
 </div>
@@ -1584,7 +1618,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>First we have numbers (which internally are called <code>numeric</code> or <code>double</code>)</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fl'>12</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>12</span>
 <span class='fl'>12.5</span>
 </code></pre>
 </div>
@@ -1592,21 +1626,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Then, there are whole numbers (<code>integer</code>)</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fl'>1L</span> <span class='co'># denoted by L</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>1L</span> <span class='co'># denoted by L</span>
 </code></pre>
 </div>
 </div>
 <p>as well as the rarely used complex numbers (<code>complex</code>)</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fl'>1</span> <span class='op'>+</span> <span class='fl'>3i</span> <span class='co'># denoted by the small i for the imaginary part</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>1</span> <span class='op'>+</span> <span class='fl'>3i</span> <span class='co'># denoted by the small i for the imaginary part</span>
 </code></pre>
 </div>
 </div>
 <p>Text data however will be used more often (<code>character</code>, <code>string</code>). Everything enclosed in quotation marks will be treated as text. Double or single quotation marks are both fine.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='st'>"It was night again."</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='st'>"It was night again."</span>
 <span class='st'>'This is also text'</span>
 </code></pre>
 </div>
@@ -1614,7 +1648,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Logical values can only contain yes or no, or rather <code>TRUE</code> and <code>FALSE</code> in programming terms (<code>boolean</code>, <code>logical</code>).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='cn'>TRUE</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='cn'>TRUE</span>
 <span class='cn'>FALSE</span>
 </code></pre>
 </div>
@@ -1622,7 +1656,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>There are some special types that mix with any other type. Like <code>NULL</code> for no value and <code>NA</code> for Not Assigned.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='cn'>NULL</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='cn'>NULL</span>
 <span class='cn'>NA</span>
 </code></pre>
 </div>
@@ -1630,12 +1664,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p><code>NA</code> is contagious. Any computation involving <code>NA</code> will return <code>NA</code> (because R has no way of knowing the answer):</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='cn'>NA</span> <span class='op'>+</span> <span class='fl'>1</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='cn'>NA</span> <span class='op'>+</span> <span class='fl'>1</span>
 </code></pre>
 </div>
 <pre><code>[1] NA</code></pre>
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='cn'>NA</span>, <span class='fl'>12</span>, <span class='fl'>1</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='cn'>NA</span>, <span class='fl'>12</span>, <span class='fl'>1</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] NA</code></pre>
@@ -1643,7 +1677,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>But some functions can remove <code>NA</code>s before giving us an answer:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='cn'>NA</span>, <span class='fl'>12</span>, <span class='fl'>1</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='cn'>NA</span>, <span class='fl'>12</span>, <span class='fl'>1</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] 12</code></pre>
@@ -1651,7 +1685,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>You can ask for the datatype of an object with the function <code>typeof</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/typeof.html'>typeof</a></span><span class='op'>(</span><span class='st'>"hello"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/typeof.html'>typeof</a></span><span class='op'>(</span><span class='st'>"hello"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] &quot;character&quot;</code></pre>
@@ -1661,14 +1695,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Often, you will want to store the result of a computation for reuse, or to give it a sensible name and make your code more readable. This is what <strong>variables</strong> are for. We can assign a value to a variable using the assignment operator <code>&lt;-</code> (In RStudio, there is a shortcut for it: <strong>Alt+Minus</strong>):</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>my_number</span> <span class='op'>&lt;-</span> <span class='fl'>42</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>my_number</span> <span class='op'>&lt;-</span> <span class='fl'>42</span>
 </code></pre>
 </div>
 </div>
 <p>Executing the above code will not give you any output, but when you use the name of the variable, you can see its content.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>my_number</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>my_number</span>
 </code></pre>
 </div>
 <pre><code>[1] 42</code></pre>
@@ -1676,7 +1710,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>And you can do operations with those variables:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>41</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>41</span>
 <span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
 <span class='va'>x</span> <span class='op'>+</span> <span class='va'>y</span>
 </code></pre>
@@ -1689,7 +1723,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Furthermore, code is not executed again automatically, if you change some dependency of the expression later on. So the second assignment to x doesn’t change y.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
 <span class='va'>y</span> <span class='op'>&lt;-</span> <span class='va'>x</span> <span class='op'>+</span> <span class='fl'>1</span>
 <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1000</span>
 <span class='va'>y</span>
@@ -1700,7 +1734,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Variable names can contain letters (capitalization matters), numbers (but not as the first character) and underscores <code>_</code>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='co'># snake_case</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># snake_case</span>
 <span class='va'>main_character_name</span> <span class='op'>&lt;-</span> <span class='st'>"Kvothe"</span>
 
 <span class='co'># or camelCase</span>
@@ -1721,7 +1755,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Functions are the main workhorse of our data analysis. For example, there are mathematical functions, like <code>sin</code>, <code>cos</code> etc.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] 0</code></pre>
@@ -1730,13 +1764,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Note, that the <code>=</code> inside the function parenthesis gives <code>x = 0</code> to the function and is separate from any <code>x</code> defined outside of the function. For example:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>10</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>10</span>
 <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>cos</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] 1</code></pre>
 <div class="sourceCode">
-<pre><code><span class='co'># x outside of the function is still 10</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># x outside of the function is still 10</span>
 <span class='va'>x</span>
 </code></pre>
 </div>
@@ -1745,14 +1779,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>To learn more about a function in R, execute <code>?</code> with the function name or press <strong>F1</strong> with your mouse over the function. This is actually one of the most important things to learn today, because the help pages can be… well… incredibly helpful.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='op'>?</span><span class='va'>sin</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='op'>?</span><span class='va'>sin</span>
 </code></pre>
 </div>
 </div>
 <p>We can pass arguments by name or by order of appearance. The following two expressions are equivalent.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span><span class='fl'>12</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -1762,7 +1796,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>The basic datatypes in R are all vectors, which means they can contain more than one entry. You can create a vector by combining things of the same data type with the function <code>c</code> for <strong>combine</strong>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span>, <span class='fl'>6</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span>, <span class='fl'>6</span><span class='op'>)</span>
 <span class='va'>x</span>
 </code></pre>
 </div>
@@ -1771,7 +1805,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Any atomic datatype mentioned above can be in a vector, but atomic vectors can only store data of the same type. For example, you can have a character vector</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"This"</span>, <span class='st'>"is"</span>, <span class='st'>"a"</span>, <span class='st'>"character"</span>, <span class='st'>"vector"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"This"</span>, <span class='st'>"is"</span>, <span class='st'>"a"</span>, <span class='st'>"character"</span>, <span class='st'>"vector"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] &quot;This&quot;      &quot;is&quot;        &quot;a&quot;         &quot;character&quot; &quot;vector&quot;   </code></pre>
@@ -1779,7 +1813,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>or a vector of logical values</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>FALSE</span>, <span class='cn'>TRUE</span>, <span class='cn'>TRUE</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>FALSE</span>, <span class='cn'>TRUE</span>, <span class='cn'>TRUE</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1]  TRUE FALSE  TRUE  TRUE</code></pre>
@@ -1787,7 +1821,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>But not a vector with, say text and numbers. If we try to combine data of a different type, R will force all the data into the more permissive type. Because all Numbers can easily be converted into text, but not all text can be converted to numbers, this makes everything text in this example:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Some text"</span>, <span class='fl'>42</span>, <span class='fl'>12</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Some text"</span>, <span class='fl'>42</span>, <span class='fl'>12</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] &quot;Some text&quot; &quot;42&quot;        &quot;12&quot;       </code></pre>
@@ -1795,7 +1829,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Note the quotation marks around the numbers, marking them as text. If we were to try and use them as numbers, we would get and error message:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='st'>"12"</span> <span class='op'>+</span> <span class='fl'>1</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='st'>"12"</span> <span class='op'>+</span> <span class='fl'>1</span>
 </code></pre>
 </div>
 <pre><code>Error in &quot;12&quot; + 1: non-numeric argument to binary operator</code></pre>
@@ -1812,7 +1846,7 @@ Figure 1: Maybe the most important programming advice.
 <p>To solve above error message, we need to explicitly tell R to convert the text to a number:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='st'>"12"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>1</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='st'>"12"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>1</span>
 </code></pre>
 </div>
 <pre><code>[1] 13</code></pre>
@@ -1821,7 +1855,7 @@ Figure 1: Maybe the most important programming advice.
 <p>We can look at, or change, subsets of vectors using square brackets <code>[]</code> like so:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>my_elements</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"first"</span>, <span class='st'>"second"</span>, <span class='st'>"third"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>my_elements</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"first"</span>, <span class='st'>"second"</span>, <span class='st'>"third"</span><span class='op'>)</span>
 <span class='va'>my_elements</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span>
 </code></pre>
 </div>
@@ -1829,7 +1863,7 @@ Figure 1: Maybe the most important programming advice.
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>my_elements</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"new element"</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>my_elements</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"new element"</span>
 <span class='va'>my_elements</span>
 </code></pre>
 </div>
@@ -1838,7 +1872,7 @@ Figure 1: Maybe the most important programming advice.
 <p>If we assign names to the elements, we can also reference them by name.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>my_elements</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"e1"</span>, <span class='st'>"e2"</span>, <span class='st'>"e3"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>my_elements</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"e1"</span>, <span class='st'>"e2"</span>, <span class='st'>"e3"</span><span class='op'>)</span>
 <span class='va'>my_elements</span>
 </code></pre>
 </div>
@@ -1847,7 +1881,7 @@ Figure 1: Maybe the most important programming advice.
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>my_elements</span><span class='op'>[</span><span class='st'>"e3"</span><span class='op'>]</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>my_elements</span><span class='op'>[</span><span class='st'>"e3"</span><span class='op'>]</span>
 </code></pre>
 </div>
 <pre><code>           e3 
@@ -1856,7 +1890,7 @@ Figure 1: Maybe the most important programming advice.
 <p>Pass a <em>vector</em> of indices (or names) to the square brackets to get (or set) multiple elements:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>my_elements</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>3</span><span class='op'>)</span><span class='op'>]</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>my_elements</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>3</span><span class='op'>)</span><span class='op'>]</span>
 </code></pre>
 </div>
 <pre><code>           e1            e3 
@@ -1865,7 +1899,7 @@ Figure 1: Maybe the most important programming advice.
 <p>Using a logical vector yields all elements where the vector is <code>TRUE</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>my_elements</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>TRUE</span>, <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>]</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>my_elements</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>TRUE</span>, <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>]</span>
 </code></pre>
 </div>
 <pre><code>      e1       e2 
@@ -1875,7 +1909,7 @@ Figure 1: Maybe the most important programming advice.
 <p>The basic mathematical operations in R and a lot of functions are vectorized. This means, they operate on every element of the vector. Here, every element is multiplied by 2 and the result is printed to the console.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>x</span> <span class='op'>*</span> <span class='fl'>2</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>*</span> <span class='fl'>2</span>
 </code></pre>
 </div>
 <pre><code>[1]  2  4  6  8 10 12</code></pre>
@@ -1883,7 +1917,7 @@ Figure 1: Maybe the most important programming advice.
 <p>The original vector <code>x</code> was not changed in doing so.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>x</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span>
 </code></pre>
 </div>
 <pre><code>[1] 1 2 3 4 5 6</code></pre>
@@ -1891,14 +1925,14 @@ Figure 1: Maybe the most important programming advice.
 <p>But we could have, by assigning the result back to <code>x</code>, thus overwriting its previous content. The right hand side (RHS) is executed first:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='va'>x</span> <span class='op'>*</span> <span class='fl'>2</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='va'>x</span> <span class='op'>*</span> <span class='fl'>2</span>
 </code></pre>
 </div>
 </div>
 <p>Now <code>x</code> changed:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>x</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span>
 </code></pre>
 </div>
 <pre><code>[1]  2  4  6  8 10 12</code></pre>
@@ -1906,7 +1940,7 @@ Figure 1: Maybe the most important programming advice.
 <p>A handy way of creating vectors of numbers is with the <code>:</code> operator to specify a range of values:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>
 </code></pre>
 </div>
 <pre><code>[1] 1 2 3 4 5</code></pre>
@@ -1914,7 +1948,7 @@ Figure 1: Maybe the most important programming advice.
 <p>Or using the <code>seq</code> function with some additional (optional) parameters:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span>from <span class='op'>=</span> <span class='fl'>1</span>, to <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span>from <span class='op'>=</span> <span class='fl'>1</span>, to <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
@@ -1930,7 +1964,7 @@ Figure 1: Maybe the most important programming advice.
 <p>The syntax (<span class="math inline">\(\leftarrow\)</span> grammar for programming languages) is as follows.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>name_for_the_function</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>parameter1</span>, <span class='va'>parameter2</span>, <span class='va'>...</span><span class='op'>)</span> <span class='op'>{</span> <span class='co'># etc.</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>name_for_the_function</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>parameter1</span>, <span class='va'>parameter2</span>, <span class='va'>...</span><span class='op'>)</span> <span class='op'>{</span> <span class='co'># etc.</span>
   <span class='co'># body of the function</span>
   <span class='co'># things happen</span>
   <span class='va'>result</span> <span class='op'>&lt;-</span> <span class='va'>parameter1</span> <span class='op'>+</span> <span class='va'>parameter2</span>
@@ -1943,7 +1977,7 @@ Figure 1: Maybe the most important programming advice.
 <p>The function ends when it reaches the <code>return</code> keyword. It also ends when it reaches the end of the function body and implicitly returns the last expression. So we could have written it a bit shorter and in fact you will often see people omitting the explicit return at the end:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>add</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span> <span class='op'>{</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>add</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span> <span class='op'>{</span>
   <span class='va'>x</span> <span class='op'>+</span> <span class='va'>y</span>
 <span class='op'>}</span>
 </code></pre>
@@ -1952,7 +1986,7 @@ Figure 1: Maybe the most important programming advice.
 <p>And we can call our freshly defined function:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>add</span><span class='op'>(</span><span class='fl'>23</span>, <span class='fl'>19</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>add</span><span class='op'>(</span><span class='fl'>23</span>, <span class='fl'>19</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] 42</code></pre>
@@ -1966,7 +2000,7 @@ Figure 1: Maybe the most important programming advice.
 <p>Go ahead and install the tidyverse packages with</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"tidyverse"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"tidyverse"</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
@@ -1979,7 +2013,7 @@ Figure 1: Maybe the most important programming advice.
 <p>To make the functions from a package available to your R session, run the <code>library</code> function with the name of the package.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
@@ -1996,7 +2030,7 @@ Figure 1: Maybe the most important programming advice.
 <p>There is another package I would like you to install. It is called <code>Rmarkdown</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"rmarkdown"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"rmarkdown"</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
@@ -2019,14 +2053,14 @@ Starting with ```{r} and ending with ``` (backticks). They will be interpreted a
 <p>So let’s explore our first dataset together in a fresh Rmarkdown document. The <code>setup</code> chunk is special. It gets executed automatically before any other chunk in the document is run. This makes it a good place to load packages. The dataset we are working with today actually comes in its own package, so we need to install this as well (Yes, there is a lot of installing today, but you will have to do this only once):</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"palmerpenguins"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"palmerpenguins"</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
 <p>And then we populate our <code>setup</code> chunk with</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://allisonhorst.github.io/palmerpenguins/'>palmerpenguins</a></span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -2034,7 +2068,7 @@ Starting with ```{r} and ending with ``` (backticks). They will be interpreted a
 <p>This gives us the <code>penguins</code> dataset <span class="citation" data-cites="R-palmerpenguins">(<a href="#ref-R-palmerpenguins" role="doc-biblioref">Horst, Hill, and Gorman 2020</a>)</span>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>penguins</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>penguins</span>
 </code></pre>
 </div>
 </div>
@@ -2129,7 +2163,7 @@ Starting with ```{r} and ending with ``` (backticks). They will be interpreted a
 <p>Let’s talk about the shape of the <code>penguins</code> object. The <code>str</code> function reveals the <strong>structure</strong> of an object to us.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>penguins</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>penguins</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>tibble [344 × 8] (S3: tbl_df/tbl/data.frame)
@@ -2146,7 +2180,7 @@ Starting with ```{r} and ending with ``` (backticks). They will be interpreted a
 <p>Previously, we only had atomic vectors, where all elements are of the same type, like a vector of numbers, and the individual elements could not contain other things themselves (hence the name <em>atomic</em>): <code>c(1, 2, 3)</code>. The next more general thing is a <code>list</code>, which we can create with the function <code>list(...)</code>. Lists can contain arbitrary elements, even other lists:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>my_list</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='st'>"hello"</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fl'>42</span>, <span class='st'>"text"</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>my_list</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='st'>"hello"</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fl'>42</span>, <span class='st'>"text"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>my_list</span>
 </code></pre>
 </div>
@@ -2169,7 +2203,7 @@ Starting with ```{r} and ending with ``` (backticks). They will be interpreted a
 <p>The print output suggests something else: For vectors, we could subset them using <code>[]</code>, but here we will need <strong>double square brackets</strong> <code>[[]]</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>my_list</span><span class='op'>[[</span><span class='fl'>3</span><span class='op'>]</span><span class='op'>]</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>my_list</span><span class='op'>[[</span><span class='fl'>3</span><span class='op'>]</span><span class='op'>]</span>
 </code></pre>
 </div>
 <pre><code>[1] 1 2 3</code></pre>
@@ -2177,7 +2211,7 @@ Starting with ```{r} and ending with ``` (backticks). They will be interpreted a
 <p>Using single brackets would just give us a subset of the list, not the actual element of the list (yes, this can be confusing):</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>my_list</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>my_list</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span>
 </code></pre>
 </div>
 <pre><code>[[1]]
@@ -2186,7 +2220,7 @@ Starting with ```{r} and ending with ``` (backticks). They will be interpreted a
 <p>The <code>penguins</code> variable contains what is called a <code>data.frame</code>. The reason I talked about lists just now is that dataframes are built on top of lists, where the elements are the columns. Because dataframes form this rectangular data format like a spreadsheet you know from excel, the constraint is that the elements of the list need to have the same length. We can demonstrate this by creating our own dataframe from a list.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>new_list</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>42</span>, <span class='fl'>3</span><span class='op'>)</span>, third <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"hello"</span>, <span class='st'>"from"</span>, <span class='st'>"R"</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>new_list</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>42</span>, <span class='fl'>3</span><span class='op'>)</span>, third <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"hello"</span>, <span class='st'>"from"</span>, <span class='st'>"R"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>new_list</span>
 </code></pre>
 </div>
@@ -2202,7 +2236,7 @@ $third
 <p>Notice that I did another thing: I gave names to the elements of the list. This is nice because of two reasons. Firstly, as the print output already suggests, we can now use the dollar syntax <code>$</code> to refer to the individual elements by name instead of by position and RStudio’s autocomplete helps us out.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>new_list</span><span class='op'>$</span><span class='va'>x</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>new_list</span><span class='op'>$</span><span class='va'>x</span>
 </code></pre>
 </div>
 <pre><code>[1] 1 2 3</code></pre>
@@ -2210,7 +2244,7 @@ $third
 <p>Secondly, the names will become column names when we turn it into a dataframe:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>my_first_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>new_list</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>my_first_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>new_list</span><span class='op'>)</span>
 <span class='va'>my_first_df</span>
 </code></pre>
 </div>
@@ -2222,7 +2256,7 @@ $third
 <p>There is one last difference for the <code>penguins</code>. They are also a <code>tibble</code>, which is again built on top of dataframes and makes the object look nicer when we print it to the console. Compare the following when executing them in the console:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>penguins</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>penguins</span>
 <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>penguins</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -2241,7 +2275,7 @@ $third
 <!-- slides -->
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>penguins</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>flipper_length_mm</span>, <span class='va'>bill_length_mm</span>,
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>penguins</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>flipper_length_mm</span>, <span class='va'>bill_length_mm</span>,
                      color <span class='op'>=</span> <span class='va'>species</span>,
                      shape <span class='op'>=</span> <span class='va'>sex</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>geom_point</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>2.5</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2258,7 +2292,7 @@ $third
 <p>We can build this plot up step by step. The data is the foundation of our plot, but this just gives us an empty plotting canvas. I am assigning the individual steps we are going through to a variable, so that we can sequentially add elements, but you can do this in one step as shown above.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>plt</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>penguins</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plt</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>penguins</span><span class='op'>)</span>
 <span class='va'>plt</span>
 </code></pre>
 </div>
@@ -2267,7 +2301,7 @@ $third
 <p>Then, we add and <code>aesthetic mapping</code> to the plot. It creates a relation from the features of our dataset (like the flipper length of each penguin) to a visual property, like position of the x-axis, color or shape.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>plt</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>penguins</span>,
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plt</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>penguins</span>,
               <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>flipper_length_mm</span>,
                   y <span class='op'>=</span> <span class='va'>bill_length_mm</span>,
                   color <span class='op'>=</span> <span class='va'>species</span>,
@@ -2280,7 +2314,7 @@ $third
 <p>Still, the plot is empty, it only has a coordinate system with a certain scale. This is because we have no geometric objects to represent our aesthetics. Elements of the plot are added using the <code>+</code> operator and all geometric elements that ggplot knows start with <code>geom_</code>. Let’s add some points:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>plt</span> <span class='op'>&lt;-</span> <span class='va'>plt</span> <span class='op'>+</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plt</span> <span class='op'>&lt;-</span> <span class='va'>plt</span> <span class='op'>+</span>
   <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span>
 <span class='va'>plt</span>
 </code></pre>
@@ -2290,7 +2324,7 @@ $third
 <p>Look at the help page for <code>geom_point</code> to find out what aesthetics it understands. The exact way that features are mapped to aesthetics is regulated by <strong>scales</strong> starting with <code>scale_</code> and the name of an aesthetic:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>plt</span> <span class='op'>&lt;-</span> <span class='va'>plt</span> <span class='op'>+</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plt</span> <span class='op'>&lt;-</span> <span class='va'>plt</span> <span class='op'>+</span>
   <span class='fu'>scale_color_brewer</span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"qual"</span><span class='op'>)</span>
 <span class='va'>plt</span>
 </code></pre>
@@ -2300,7 +2334,7 @@ $third
 <p>We can add or change labels (like the x-axis-label) by adding the <code>labs</code> function.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>plt</span> <span class='op'>&lt;-</span> <span class='va'>plt</span> <span class='op'>+</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plt</span> <span class='op'>&lt;-</span> <span class='va'>plt</span> <span class='op'>+</span>
     <span class='fu'>labs</span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Flipper length [mm]"</span>,
          y <span class='op'>=</span> <span class='st'>"Bill length [mm]"</span>,
          title <span class='op'>=</span> <span class='st'>"Penguins!"</span>,
@@ -2311,7 +2345,7 @@ $third
 <p>The overall look of the plot is regulated by themes like the premade <code>theme_</code> functions or more finely regulated with the <code>theme()</code> function, which uses <code>element</code> functions to create the look of individual elements. Autocomplete helps us out a lot here (<strong>Ctrl+Space</strong>).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>plt</span> <span class='op'>&lt;-</span> <span class='va'>plt</span> <span class='op'>+</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plt</span> <span class='op'>&lt;-</span> <span class='va'>plt</span> <span class='op'>+</span> 
   <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>theme</span><span class='op'>(</span>legend.text <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>plt</span>
@@ -2371,7 +2405,7 @@ $third
 <li><a href="https://bookdown.org/yihui/rmarkdown-cookbook/" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/</a></li>
 <li><a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a></li>
 <li><a href="https://pandoc.org/MANUAL.html#pandocs-markdown" class="uri">https://pandoc.org/MANUAL.html#pandocs-markdown</a></li>
-<li><a href="https://reproducible-analysis-workshop.readthedocs.io/en/latest/6.RMarkdown-knitr.html" class="uri">https://reproducible-analysis-workshop.readthedocs.io/en/latest/6.RMarkdown-knitr.html</a></li>
+<li><a href="https://reproducible-analysis-workshop.readthedocs.io/en/latest/7.RMarkdown-knitr.html" class="uri">https://reproducible-analysis-workshop.readthedocs.io/en/latest/7.RMarkdown-knitr.html</a></li>
 <li><a href="https://rmarkdown.rstudio.com/index.html" class="uri">https://rmarkdown.rstudio.com/index.html</a></li>
 </ul>
 <h2 id="r-in-general">R in general</h2>

@@ -23,6 +23,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -140,7 +141,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["data/starwars_movies.rds","distill-preview.png","extra.css","images/paste-57122EF0.png","images/paste-A056063C.png","img/animation.gif","img/baby_yoda.gif","img/correlation.png","img/gganimate.png","img/survivorship-bias.png","lecture7_files/anchor-4.2.2/anchor.min.js","lecture7_files/bowser-1.9.3/bowser.min.js","lecture7_files/distill-2.2.21/template.v2.js","lecture7_files/figure-html5/unnamed-chunk-13-1.png","lecture7_files/figure-html5/unnamed-chunk-17-1.png","lecture7_files/figure-html5/unnamed-chunk-18-1.png","lecture7_files/figure-html5/unnamed-chunk-20-1.png","lecture7_files/figure-html5/unnamed-chunk-25-1.png","lecture7_files/figure-html5/unnamed-chunk-27-1.png","lecture7_files/figure-html5/unnamed-chunk-29-1.png","lecture7_files/figure-html5/unnamed-chunk-32-1.png","lecture7_files/figure-html5/unnamed-chunk-33-1.png","lecture7_files/figure-html5/unnamed-chunk-37-1.png","lecture7_files/figure-html5/unnamed-chunk-6-1.png","lecture7_files/figure-html5/unnamed-chunk-7-1.png","lecture7_files/header-attrs-2.5.3/header-attrs.js","lecture7_files/jquery-1.11.3/jquery.min.js","lecture7_files/pagedtable-1.1/css/pagedtable.css","lecture7_files/pagedtable-1.1/js/pagedtable.js","lecture7_files/twitter-widget-0.0.1/widgets.js","lecture7_files/webcomponents-2.0.0/webcomponents.js","libs/animate.css/animate.xaringan.css","libs/clipboard/clipboard.min.js","libs/editable/editable.css","libs/editable/editable.js","libs/header-attrs/header-attrs.js","libs/himalaya/himalaya.js","libs/himalaya/himalaya.js.map","libs/js-cookie/js.cookie.js","libs/tachyons/tachyons.min.css","libs/tile-view/tile-view.css","libs/tile-view/tile-view.js","libs/twitter-widget/widgets.js","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js","plots/example.svg","R/omdb_download.R","slides7_files/figure-html/unnamed-chunk-4-1.png","slides7.html","xaringan-themer.css"]}
+  {"type":"character","attributes":{},"value":["data/starwars_movies.rds","distill-preview.png","extra.css","images/paste-57122EF0.png","images/paste-A056063C.png","img/animation.gif","img/baby_yoda.gif","img/correlation.png","img/gganimate.png","img/survivorship-bias.png","lecture7_files/anchor-4.2.2/anchor.min.js","lecture7_files/bowser-1.9.3/bowser.min.js","lecture7_files/distill-2.2.21/template.v2.js","lecture7_files/figure-html5/unnamed-chunk-13-1.png","lecture7_files/figure-html5/unnamed-chunk-17-1.png","lecture7_files/figure-html5/unnamed-chunk-18-1.png","lecture7_files/figure-html5/unnamed-chunk-20-1.png","lecture7_files/figure-html5/unnamed-chunk-25-1.png","lecture7_files/figure-html5/unnamed-chunk-27-1.png","lecture7_files/figure-html5/unnamed-chunk-29-1.png","lecture7_files/figure-html5/unnamed-chunk-32-1.png","lecture7_files/figure-html5/unnamed-chunk-33-1.png","lecture7_files/figure-html5/unnamed-chunk-37-1.png","lecture7_files/figure-html5/unnamed-chunk-6-1.png","lecture7_files/figure-html5/unnamed-chunk-7-1.png","lecture7_files/header-attrs-2.5.3/header-attrs.js","lecture7_files/header-attrs-2.6.4/header-attrs.js","lecture7_files/header-attrs-2.8/header-attrs.js","lecture7_files/jquery-1.11.3/jquery.min.js","lecture7_files/pagedtable-1.1/css/pagedtable.css","lecture7_files/pagedtable-1.1/js/pagedtable.js","lecture7_files/popper-2.6.0/popper.min.js","lecture7_files/tippy-6.2.7/tippy-bundle.umd.min.js","lecture7_files/tippy-6.2.7/tippy-light-border.css","lecture7_files/tippy-6.2.7/tippy.css","lecture7_files/tippy-6.2.7/tippy.umd.min.js","lecture7_files/twitter-widget-0.0.1/widgets.js","lecture7_files/webcomponents-2.0.0/webcomponents.js","libs/animate.css/animate.xaringan.css","libs/clipboard/clipboard.min.js","libs/editable/editable.css","libs/editable/editable.js","libs/header-attrs/header-attrs.js","libs/himalaya/himalaya.js","libs/himalaya/himalaya.js.map","libs/js-cookie/js.cookie.js","libs/tachyons/tachyons.min.css","libs/tile-view/tile-view.css","libs/tile-view/tile-view.js","libs/twitter-widget/widgets.js","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css","libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js","plots/example.svg","R/omdb_download.R","slides7_files/figure-html/unnamed-chunk-4-1.png","slides7.html","xaringan-themer.css"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2378,11 +2379,15 @@ d-appendix d-footnote-list a.footnote-backlink {
   color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.6.4/header-attrs.js"></script>
+  <script src="../../site_libs/header-attrs-2.8/header-attrs.js"></script>
   <script src="../../site_libs/twitter-widget-0.0.1/widgets.js"></script>
   <link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
   <script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
@@ -2531,7 +2536,7 @@ Figure 1: Figure from Wikipedia <span class="citation" data-cites="SurvivorshipB
 <p>First up is the <code>glue</code> package. Using <code>paste</code> to create a text in which the values of variables are inserted can be painful. The <code>glue</code> package makes it a breeze. Everything inside of curly braces in the text inside of the <code>glue</code> function will be evaluated as regular R code, enabling us to write text quite naturally:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tidyverse/glue'>glue</a></span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tidyverse/glue'>glue</a></span><span class='op'>)</span>
 <span class='fu'><a href='https://glue.tidyverse.org/reference/glue.html'>glue</a></span><span class='op'>(</span><span class='st'>"1 + 1 is {1 + 1}"</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -2540,7 +2545,7 @@ Figure 1: Figure from Wikipedia <span class="citation" data-cites="SurvivorshipB
 <p>I hope you are not too confused by the package and it’s main function having the same name.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>value</span> <span class='op'>&lt;-</span> <span class='fl'>0.04</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>value</span> <span class='op'>&lt;-</span> <span class='fl'>0.04</span>
 <span class='fu'><a href='https://glue.tidyverse.org/reference/glue.html'>glue</a></span><span class='op'>(</span><span class='st'>"With a p-value of {value}!"</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -2551,7 +2556,7 @@ Figure 1: Figure from Wikipedia <span class="citation" data-cites="SurvivorshipB
 <p>Generally, there are those devices that produce pixel graphics where the information is stored as color values of the pixels. These are called raster devices. <code>ragg</code>, which I showed you last week, provides some of them. When you zoom into raster images, you can see the texts and shapes getting pixely or blurry. Another way to store information about graphs is to write a mathematical description of the lines and other shapes in the plot, which will then be interpreted by the program with which you open the vector graphic. Let me show you the most popular one called <strong>Scalable Vector Graphics</strong> (svg).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>example</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>mtcars</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>disp</span>, <span class='va'>mpg</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>example</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>mtcars</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>disp</span>, <span class='va'>mpg</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Placeholder Title"</span><span class='op'>)</span>
 
@@ -2580,7 +2585,7 @@ Figure 1: Figure from Wikipedia <span class="citation" data-cites="SurvivorshipB
 <p>Today, we are extending this idea to 2 random variables. Because the normal distribution is so common, we are using two normally distributed variables. For the fun of it, they will have different means and standard deviations (remember: SD is the square-root of the variance).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>N</span> <span class='op'>&lt;-</span> <span class='fl'>50</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>N</span> <span class='op'>&lt;-</span> <span class='fl'>50</span>
 <span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
   x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>N</span>, <span class='fl'>1</span>, <span class='fl'>0.8</span><span class='op'>)</span>,
   y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>N</span>, <span class='fl'>3</span>, <span class='fl'>1.2</span><span class='op'>)</span>
@@ -2612,7 +2617,7 @@ Figure 1: Figure from Wikipedia <span class="citation" data-cites="SurvivorshipB
 </figure>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>starwars</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>starwars</span>
 </code></pre>
 </div>
 </div>
@@ -2628,7 +2633,7 @@ Figure 1: Figure from Wikipedia <span class="citation" data-cites="SurvivorshipB
 <p>To compute pearsons correlation, we use the <code>cor</code> function in R. Instead of filtering out <code>NA</code> values beforehand, which would result in a correlation of <code>NA</code>, we can use <code>use = "complete.obs"</code> to ignore the <code>NA</code> is in the computation.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>pearson</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>starwars</span><span class='op'>$</span><span class='va'>mass</span>, <span class='va'>starwars</span><span class='op'>$</span><span class='va'>height</span>, use <span class='op'>=</span> <span class='st'>"complete.obs"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>pearson</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>starwars</span><span class='op'>$</span><span class='va'>mass</span>, <span class='va'>starwars</span><span class='op'>$</span><span class='va'>height</span>, use <span class='op'>=</span> <span class='st'>"complete.obs"</span><span class='op'>)</span>
 <span class='va'>pearson</span>
 </code></pre>
 </div>
@@ -2637,7 +2642,7 @@ Figure 1: Figure from Wikipedia <span class="citation" data-cites="SurvivorshipB
 <p>There is another way we can specify which features to correlate. <code>corr</code> also takes a matrix or data frame as it’s x argument instead of x and y:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>corr_matrix</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>starwars</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"mass"</span>, <span class='st'>"height"</span><span class='op'>)</span><span class='op'>]</span>, use <span class='op'>=</span> <span class='st'>"complete.obs"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>corr_matrix</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>starwars</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"mass"</span>, <span class='st'>"height"</span><span class='op'>)</span><span class='op'>]</span>, use <span class='op'>=</span> <span class='st'>"complete.obs"</span><span class='op'>)</span>
 <span class='va'>corr_matrix</span>
 </code></pre>
 </div>
@@ -2648,7 +2653,7 @@ height 0.1338842 1.0000000</code></pre>
 <p>This is known as a correlation matrix, and we can create it for more than two features, as long as all features are numeric (after all, what is the correlation between 1,4 and “cat” “dog?”). If you need this for your analysis, it will be handy to know how to convert this matrix to a tibble:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>corr_matrix</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>corr_matrix</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 2 x 2
@@ -2660,7 +2665,7 @@ height 0.1338842 1.0000000</code></pre>
 <p>Looses the information about the rownames, because tibbles have no rownames. However, we can tell <code>as_tibble</code> to create a new column out of what previously where rownames.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>corr_matrix</span>, rownames <span class='op'>=</span> <span class='st'>"feature1"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>corr_matrix</span>, rownames <span class='op'>=</span> <span class='st'>"feature1"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 2 x 3
@@ -2672,7 +2677,7 @@ height 0.1338842 1.0000000</code></pre>
 <p>Now we could even turn it into a tidy format to make a heatmap:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>corr_matrix</span>, rownames <span class='op'>=</span> <span class='st'>"feature1"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>corr_matrix</span>, rownames <span class='op'>=</span> <span class='st'>"feature1"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>pivot_longer</span><span class='op'>(</span><span class='op'>-</span><span class='va'>feature1</span>, names_to <span class='op'>=</span> <span class='st'>"feature2"</span>, values_to <span class='op'>=</span> <span class='st'>"corr"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>feature1</span>, <span class='va'>feature2</span>, fill <span class='op'>=</span> <span class='va'>corr</span>, label <span class='op'>=</span> <span class='va'>corr</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>geom_raster</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2685,7 +2690,7 @@ height 0.1338842 1.0000000</code></pre>
 <p>Apart from <code>cor</code>, there is also <code>cor.test</code>, which gives more information.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>cor_test</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.test.html'>cor.test</a></span><span class='op'>(</span><span class='va'>starwars</span><span class='op'>$</span><span class='va'>mass</span>, <span class='va'>starwars</span><span class='op'>$</span><span class='va'>height</span>, use <span class='op'>=</span> <span class='st'>"complete.obs"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>cor_test</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.test.html'>cor.test</a></span><span class='op'>(</span><span class='va'>starwars</span><span class='op'>$</span><span class='va'>mass</span>, <span class='va'>starwars</span><span class='op'>$</span><span class='va'>height</span>, use <span class='op'>=</span> <span class='st'>"complete.obs"</span><span class='op'>)</span>
 <span class='va'>cor_test</span>
 </code></pre>
 </div>
@@ -2704,7 +2709,7 @@ sample estimates:
 <p>If we so fancy, we can use <code>broom</code> to turn the test output into a tidy format as well:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>cor_test</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>cor_test</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
@@ -2718,7 +2723,7 @@ sample estimates:
 <p>When I first did this I was surprised that the correlation was so low. We are after all talking about height and mass, which I assumed to be highly correlated. Let us look at the data to see what is going on.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>label_text</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://glue.tidyverse.org/reference/glue.html'>glue</a></span><span class='op'>(</span><span class='st'>"Pearson correlation: {round(pearson, 2)}"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>label_text</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://glue.tidyverse.org/reference/glue.html'>glue</a></span><span class='op'>(</span><span class='st'>"Pearson correlation: {round(pearson, 2)}"</span><span class='op'>)</span>
 
 <span class='va'>jabba</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>starwars</span>, <span class='fu'>str_detect</span><span class='op'>(</span><span class='va'>name</span>, <span class='st'>"Jabba"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>jabba_text</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>1100</span>, y <span class='op'>=</span> <span class='fl'>120</span><span class='op'>)</span>
@@ -2747,7 +2752,7 @@ sample estimates:
 <p>This is the culprit! We have a massive outlier, in all senses of the word “massive.” At this point it is fair to say, Jabba the Hutt could use some workout to loose weight. Luckily, there is another method to asses correlation. Spearman’s method is more resistant to outliers, because the data is transformed into ranks first, which negates the massive effect of outliers. Visually, this is what the points look like after rank transformation:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>spearman</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>starwars</span><span class='op'>$</span><span class='va'>mass</span>, <span class='va'>starwars</span><span class='op'>$</span><span class='va'>height</span>,
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>spearman</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>starwars</span><span class='op'>$</span><span class='va'>mass</span>, <span class='va'>starwars</span><span class='op'>$</span><span class='va'>height</span>,
                 method <span class='op'>=</span> <span class='st'>"spearman"</span>,
                 use <span class='op'>=</span> <span class='st'>"complete.obs"</span><span class='op'>)</span>
 
@@ -2772,23 +2777,23 @@ sample estimates:
 <p>In the <code>data</code> folder we find the IMDB ratings for 10 Star Wars movies (plus more features).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>starwars_movies</span> <span class='op'>&lt;-</span> <span class='fu'>read_rds</span><span class='op'>(</span><span class='st'>"data/starwars_movies.rds"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>starwars_movies</span> <span class='op'>&lt;-</span> <span class='fu'>read_rds</span><span class='op'>(</span><span class='st'>"data/starwars_movies.rds"</span><span class='op'>)</span>
 <span class='va'>starwars_movies</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 10 x 25
-   Title Rated Released   Runtime Genre Director Writer Actors Plot 
-   &lt;chr&gt; &lt;chr&gt; &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;
- 1 Star… PG    1977-05-25 121 min Acti… George … Georg… Mark … Luke…
- 2 Star… PG    1980-06-20 124 min Acti… Irvin K… Leigh… Mark … Afte…
- 3 Star… PG    1983-05-25 131 min Acti… Richard… Lawre… Mark … Afte…
- 4 Star… PG-13 2015-12-18 138 min Acti… J.J. Ab… Lawre… Harri… As a…
- 5 Star… PG    1999-05-19 136 min Acti… George … Georg… Liam … Two …
- 6 Star… PG-13 2005-05-19 140 min Acti… George … Georg… Ewan … Thre…
- 7 Star… PG    2002-05-16 142 min Acti… George … Georg… Ewan … Ten …
- 8 Star… PG-13 2017-12-15 152 min Acti… Rian Jo… Rian … Mark … Rey …
- 9 Rogu… PG-13 2016-12-16 133 min Acti… Gareth … Chris… Felic… The …
-10 Star… PG-13 2019-12-20 141 min Acti… J.J. Ab… Chris… Carri… The …
+   Title  Rated Released   Runtime Genre  Director Writer Actors Plot 
+   &lt;chr&gt;  &lt;chr&gt; &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;
+ 1 Star … PG    1977-05-25 121 min Actio… George … Georg… Mark … Luke…
+ 2 Star … PG    1980-06-20 124 min Actio… Irvin K… Leigh… Mark … Afte…
+ 3 Star … PG    1983-05-25 131 min Actio… Richard… Lawre… Mark … Afte…
+ 4 Star … PG-13 2015-12-18 138 min Actio… J.J. Ab… Lawre… Harri… As a…
+ 5 Star … PG    1999-05-19 136 min Actio… George … Georg… Liam … Two …
+ 6 Star … PG-13 2005-05-19 140 min Actio… George … Georg… Ewan … Thre…
+ 7 Star … PG    2002-05-16 142 min Actio… George … Georg… Ewan … Ten …
+ 8 Star … PG-13 2017-12-15 152 min Actio… Rian Jo… Rian … Mark … Rey …
+ 9 Rogue… PG-13 2016-12-16 133 min Actio… Gareth … Chris… Felic… The …
+10 Star … PG-13 2019-12-20 141 min Actio… J.J. Ab… Chris… Carri… The …
 # … with 16 more variables: Language &lt;chr&gt;, Country &lt;chr&gt;,
 #   Awards &lt;chr&gt;, Poster &lt;chr&gt;, Ratings &lt;list&gt;, Metascore &lt;chr&gt;,
 #   imdbRating &lt;dbl&gt;, imdbVotes &lt;dbl&gt;, imdbID &lt;chr&gt;, Type &lt;chr&gt;,
@@ -2798,7 +2803,7 @@ sample estimates:
 <p>We can fit a linear model to see if the production year has an effect on the rating.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>imdbRating</span> <span class='op'>~</span> <span class='va'>year</span>, data <span class='op'>=</span> <span class='va'>starwars_movies</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>imdbRating</span> <span class='op'>~</span> <span class='va'>year</span>, data <span class='op'>=</span> <span class='va'>starwars_movies</span><span class='op'>)</span>
 
 <span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/augment.html'>augment</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>imdbRating</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2817,7 +2822,7 @@ sample estimates:
 </blockquote>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 2 x 5
@@ -2830,7 +2835,7 @@ sample estimates:
 <p>One thing however is the same between correlation and linear regression, and that is the <span class="math inline">\(R^2\)</span> value we get from both calculations:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>
@@ -2858,7 +2863,7 @@ F-statistic: 5.412 on 1 and 8 DF,  p-value: 0.04843</code></pre>
 <p>Let’s take classical Michaelis-Menten-Kinetics There is a dataset for enzyme reaction rates included in R. But we convert it from a dataframe to a tibble so that it prints nicer:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>Puromycin</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>Puromycin</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 23 x 3
@@ -2879,7 +2884,7 @@ F-statistic: 5.412 on 1 and 8 DF,  p-value: 0.04843</code></pre>
 <p>The initial rate <span class="math inline">\(v_0\)</span> of the an enzymatic reaction was measured for a control and a sample treated with puromycin at different substrate concentrations. For every concentration we have two replicates except for one missing replicate. We can make this explicit so that we can keep track of the replicates:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>puro</span> <span class='op'>&lt;-</span> <span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>Puromycin</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>puro</span> <span class='op'>&lt;-</span> <span class='fu'>as_tibble</span><span class='op'>(</span><span class='va'>Puromycin</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>conc</span>, <span class='va'>state</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>mutate</span><span class='op'>(</span>rep <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>ungroup</span><span class='op'>(</span><span class='op'>)</span>
@@ -2889,7 +2894,7 @@ F-statistic: 5.412 on 1 and 8 DF,  p-value: 0.04843</code></pre>
 <p>Now we can plot the individual curves.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>puro</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>puro</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>conc</span>, <span class='va'>rate</span>,
              group <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='va'>rep</span>, <span class='va'>state</span><span class='op'>)</span>,
              color <span class='op'>=</span> <span class='va'>state</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2904,7 +2909,7 @@ F-statistic: 5.412 on 1 and 8 DF,  p-value: 0.04843</code></pre>
 <p>To make it easier to work with, let’s turn it into a function:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>rate</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>conc</span>, <span class='va'>Vm</span>, <span class='va'>K</span><span class='op'>)</span> <span class='op'>{</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>rate</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>conc</span>, <span class='va'>Vm</span>, <span class='va'>K</span><span class='op'>)</span> <span class='op'>{</span>
   <span class='op'>(</span><span class='va'>Vm</span> <span class='op'>*</span> <span class='va'>conc</span><span class='op'>)</span> <span class='op'>/</span> <span class='op'>(</span><span class='va'>K</span> <span class='op'>+</span> <span class='va'>conc</span><span class='op'>)</span>
 <span class='op'>}</span>
 </code></pre>
@@ -2913,7 +2918,7 @@ F-statistic: 5.412 on 1 and 8 DF,  p-value: 0.04843</code></pre>
 <p>Let’s pick some arbitrary starting values. For example, we see that the maximal velocity could be around 200. We also know that K is the concentration at which the half-maximal velocity is reached.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>puro</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>puro</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>conc</span>, <span class='va'>rate</span>,
              color <span class='op'>=</span> <span class='va'>state</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>geom_line</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>group <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='va'>rep</span>, <span class='va'>state</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2927,7 +2932,7 @@ F-statistic: 5.412 on 1 and 8 DF,  p-value: 0.04843</code></pre>
 <p><code>geom_function</code> expects a function of x or an anonymous function where the first argument is the values on the x-axis, so this is what we did. Well, I bet we can do better than guessing the function! What R can do for us is the same it did for linear least squares and that is minimizing the distance of our curve to the datapoints. This is the job of the <code>nls</code> function, which stands for <strong>Nonlinear Least Squares</strong>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/nls.html'>nls</a></span><span class='op'>(</span><span class='va'>rate</span> <span class='op'>~</span> <span class='fu'>rate</span><span class='op'>(</span><span class='va'>conc</span>, <span class='va'>Vm</span>, <span class='va'>K</span><span class='op'>)</span>,
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/nls.html'>nls</a></span><span class='op'>(</span><span class='va'>rate</span> <span class='op'>~</span> <span class='fu'>rate</span><span class='op'>(</span><span class='va'>conc</span>, <span class='va'>Vm</span>, <span class='va'>K</span><span class='op'>)</span>,
     data <span class='op'>=</span> <span class='va'>puro</span>,
     subset <span class='op'>=</span> <span class='va'>state</span> <span class='op'>==</span> <span class='st'>"treated"</span>,
     start <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>K <span class='op'>=</span> <span class='fl'>0.1</span>, Vm <span class='op'>=</span> <span class='fl'>200</span><span class='op'>)</span><span class='op'>)</span>
@@ -2953,7 +2958,7 @@ Achieved convergence tolerance: 6.108e-06</code></pre>
 <p>There are now multiple ways of displaying our model. With <code>broom::augments</code> we can add the predictions to the original data (which is just the treated state):</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/augment.html'>augment</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/augment.html'>augment</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>conc</span>, <span class='va'>rate</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
   <span class='fu'>geom_line</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>.fitted</span><span class='op'>)</span><span class='op'>)</span>
@@ -2964,7 +2969,7 @@ Achieved convergence tolerance: 6.108e-06</code></pre>
 <p>But this has the obvious disadvantage of only adding a point (or a nick in the line) where we previously had datapoints. We have the parameters and the complete function, so we can calculate an arbitrary amount of values in between to make a smooth function.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 2 x 5
@@ -2976,7 +2981,7 @@ Achieved convergence tolerance: 6.108e-06</code></pre>
 <p>So we could pull the estimates of K and Vm out with broom and then use them in our function. Or, we make use of the <code>predict</code> function. It takes a model and some new data and generates the predicions. If we don’t give it new data, we just get predictions for the data that we used to fit the model.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code> [1]  50.56606  50.56606 102.81102 102.81102 134.36165 134.36165
@@ -2984,7 +2989,7 @@ Achieved convergence tolerance: 6.108e-06</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>predictions</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>predictions</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>
   conc <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span>, by <span class='op'>=</span> <span class='fl'>0.01</span><span class='op'>)</span>,
   rate <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>model</span>, newdata <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>conc <span class='op'>=</span>  <span class='va'>conc</span><span class='op'>)</span><span class='op'>)</span>
 <span class='op'>)</span>
@@ -3001,7 +3006,7 @@ Achieved convergence tolerance: 6.108e-06</code></pre>
 <p>We can also use a combination of this and <code>geom_function</code>, which I think feel pretty natural once you are comfortable with writing functions on the fly.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>puro</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>puro</span> <span class='op'>%&gt;%</span> 
   <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>state</span> <span class='op'>==</span> <span class='st'>"treated"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>conc</span>, <span class='va'>rate</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
@@ -3015,8 +3020,8 @@ Achieved convergence tolerance: 6.108e-06</code></pre>
 <p>Now, what if we want to fit the model for both states? We can resort back to our trusty <code>purrr</code> package like we did in an earlier lecture.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>puro_models</span> <span class='op'>&lt;-</span> <span class='va'>puro</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'>nest</span><span class='op'>(</span><span class='op'>-</span><span class='va'>state</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>puro_models</span> <span class='op'>&lt;-</span> <span class='va'>puro</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>nest</span><span class='op'>(</span>data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>state</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'># updated to reflect new `nest` syntax</span>
   <span class='fu'>mutate</span><span class='op'>(</span>
     model <span class='op'>=</span> <span class='fu'>map</span><span class='op'>(</span><span class='va'>data</span>, <span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/stats/nls.html'>nls</a></span><span class='op'>(</span><span class='va'>rate</span> <span class='op'>~</span> <span class='fu'>rate</span><span class='op'>(</span><span class='va'>conc</span>, <span class='va'>Vm</span>, <span class='va'>K</span><span class='op'>)</span>, data <span class='op'>=</span> <span class='va'>.x</span>,
                             start <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>Vm <span class='op'>=</span> <span class='fl'>200</span>, K <span class='op'>=</span> <span class='fl'>0.1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>,
@@ -3036,7 +3041,7 @@ Achieved convergence tolerance: 6.108e-06</code></pre>
 <p>Now we can inspect the estimated parameters with ease:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>puro_models</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>puro_models</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>unnest</span><span class='op'>(</span><span class='va'>tidy</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -3051,22 +3056,22 @@ Achieved convergence tolerance: 6.108e-06</code></pre>
 <p>And check how the models performed. Unfortunately, I can’t get into these performance metrics because time is short.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>puro_models</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>puro_models</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>unnest</span><span class='op'>(</span><span class='va'>glance</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 2 x 13
-  state data  model tidy  sigma isConv  finTol logLik   AIC   BIC
-  &lt;fct&gt; &lt;lis&gt; &lt;lis&gt; &lt;lis&gt; &lt;dbl&gt; &lt;lgl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 trea… &lt;tib… &lt;nls&gt; &lt;tib… 10.9  TRUE   6.09e-6  -44.6  95.3  96.7
-2 untr… &lt;tib… &lt;nls&gt; &lt;tib…  9.77 TRUE   2.31e-6  -39.6  85.2  86.4
+  state  data    model  tidy   sigma isConv  finTol logLik   AIC   BIC
+  &lt;fct&gt;  &lt;list&gt;  &lt;list&gt; &lt;list&gt; &lt;dbl&gt; &lt;lgl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 treat… &lt;tibbl… &lt;nls&gt;  &lt;tibb… 10.9  TRUE   6.09e-6  -44.6  95.3  96.7
+2 untre… &lt;tibbl… &lt;nls&gt;  &lt;tibb…  9.77 TRUE   2.31e-6  -39.6  85.2  86.4
 # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;,
 #   nobs &lt;int&gt;</code></pre>
 </div>
 <p>Now, we could use the estimated parameters to or the models with <code>predict</code> to plot all (well, both) model fit lines over the original data, but there is an easier way. <code>geom_smooth</code> can take “nls” as a method as well, we just need to make sure to pass the correct arguments. And it can be confusing, because when we are specifying the formula in <code>geom_smooth</code>, it always needs to be a formula of <code>y ~ x</code>, whereas in the normal <code>nls</code> we did earlier, we specified the variables in terms of their actual names (<code>rate</code> and <code>conc</code>).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>puro</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>puro</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>conc</span>, <span class='va'>rate</span>, color <span class='op'>=</span> <span class='va'>state</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>geom_smooth</span><span class='op'>(</span>
@@ -3086,7 +3091,7 @@ Achieved convergence tolerance: 6.108e-06</code></pre>
 <p>The Datasaurus Dozen <span class="citation" data-cites="matejka2017">(<a href="#ref-matejka2017" role="doc-biblioref">Matejka and Fitzmaurice 2017</a>)</span> is a dataset crafted to illustrate certain concepts. It can be accessed from R via the <code>datasauRus</code> package.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>datasauRus</span><span class='fu'>::</span><span class='va'><a href='https://itsalocke.com/datasauRus/reference/datasaurus_dozen.html'>datasaurus_dozen</a></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>datasauRus</span><span class='fu'>::</span><span class='va'>datasaurus_dozen</span>
 </code></pre>
 </div>
 </div>
@@ -3100,7 +3105,7 @@ Achieved convergence tolerance: 6.108e-06</code></pre>
 <p>There is another dataset in the package to illustrate a different point:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'>datasauRus</span><span class='fu'>::</span><span class='va'><a href='https://itsalocke.com/datasauRus/reference/box_plots.html'>box_plots</a></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>datasauRus</span><span class='fu'>::</span><span class='va'>box_plots</span>
 </code></pre>
 </div>
 </div>

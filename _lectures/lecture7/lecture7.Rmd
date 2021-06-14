@@ -708,7 +708,7 @@ we did in an earlier lecture.
 
 ```{r}
 puro_models <- puro %>% 
-  nest(-state) %>% 
+  nest(data = c(-state)) %>% # updated to reflect new `nest` syntax
   mutate(
     model = map(data, ~ nls(rate ~ rate(conc, Vm, K), data = .x,
                             start = list(Vm = 200, K = 0.1))),

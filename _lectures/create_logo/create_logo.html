@@ -23,6 +23,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -53,35 +54,35 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #545454; font-weight: bold; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #a1024a; } /* BaseN */
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007faa; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #008000; } /* Char */
-code span.cn { color: #d91e18; } /* Constant */
-code span.co { color: #545454; } /* Comment */
-code span.cv { color: #545454; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #aa5d00; } /* DataType */
-code span.dv { color: #a1024a; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #a1024a; } /* Float */
-code span.fu { color: #4254a7; } /* Function */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
-code span.in { color: #545454; font-weight: bold; } /* Information */
-code span.kw { color: #007faa; font-weight: bold; } /* Keyword */
-code span.op { color: #696969; } /* Operator */
-code span.ot { color: #007faa; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #008000; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #008000; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #008000; } /* VerbatimString */
-code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warning */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
@@ -115,7 +116,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["create_logo_files/bowser-1.9.3/bowser.min.js","create_logo_files/distill-2.2.21/template.v2.js","create_logo_files/figure-html5/generate-logo-1.png","create_logo_files/figure-html5/unnamed-chunk-1-1.png","create_logo_files/header-attrs-2.3/header-attrs.js","create_logo_files/jquery-1.11.3/jquery.min.js","create_logo_files/webcomponents-2.0.0/webcomponents.js","dataIntro20.png"]}
+  {"type":"character","attributes":{},"value":["create_logo_files/anchor-4.2.2/anchor.min.js","create_logo_files/bowser-1.9.3/bowser.min.js","create_logo_files/distill-2.2.21/template.v2.js","create_logo_files/figure-html5/generate-logo-1.png","create_logo_files/figure-html5/unnamed-chunk-1-1.png","create_logo_files/header-attrs-2.3/header-attrs.js","create_logo_files/jquery-1.11.3/jquery.min.js","create_logo_files/webcomponents-2.0.0/webcomponents.js","dataIntro20.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -141,6 +142,18 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 
   .pagedtable-footer {
     font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
   }
 
   .authors-affiliations .orcid-id {
@@ -251,7 +264,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
   d-article pre,
   d-article div.sourceCode,
   d-article div.sourceCode pre {
-    overflow: hidden;
+    overflow: auto;
   }
 
   d-article div.sourceCode {
@@ -293,6 +306,11 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
   d-article pre a:hover {
     border-bottom: none;
     text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
   }
 
   @media(min-width: 768px) {
@@ -337,7 +355,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
   }
 
   @media(min-width: 1000px) {
-    .d-contents {
+    .d-contents.d-contents-float {
       height: 0;
       grid-column-start: 1;
       grid-column-end: 4;
@@ -451,6 +469,17 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
     margin-left: 1em; text-indent: -1em;
   }
 
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
 
   /* Tweak 1000px media break to show more text */
 
@@ -525,6 +554,78 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
     word-wrap: break-word;
   }
 
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
 
   /* Anchor.js */
 
@@ -592,6 +693,211 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 
   .custom p {
     margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
   }
 
 
@@ -723,6 +1029,12 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
     hyphens: none;
   }
 
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
   </style>
 
   <script type="application/javascript">
@@ -833,7 +1145,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
       var layout = $(this).attr('data-layout');
 
       // apply layout to markdown level block elements
-      var elements = $(this).children().not('div.sourceCode, pre, script');
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
       elements.each(function(i, el) {
         var layout_div = $('<div class="' + layout + '"></div>');
         if (layout_div.hasClass('shaded')) {
@@ -941,9 +1253,27 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
         grid.children('h3:contains("Affiliations")').text('Affiliation');
       }
 
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
       // move appendix-bottom entries to the bottom
       $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
       $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
 
       // clear polling timer
       clearInterval(tid);
@@ -1104,8 +1434,12 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="create_logo_files/header-attrs-2.3/header-attrs.js"></script>
+  <script src="create_logo_files/header-attrs-2.8/header-attrs.js"></script>
   <script src="create_logo_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="create_logo_files/popper-2.6.0/popper.min.js"></script>
+  <link href="create_logo_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="create_logo_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="create_logo_files/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="create_logo_files/anchor-4.2.2/anchor.min.js"></script>
   <script src="create_logo_files/bowser-1.9.3/bowser.min.js"></script>
   <script src="create_logo_files/webcomponents-2.0.0/webcomponents.js"></script>
@@ -1150,7 +1484,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <p>We need a favicon for this site. So why not do it in R straight away?</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/GuangchuangYu/hexSticker'>hexSticker</a></span><span class='op'>)</span>
 
 <span class='co'># install.packages("remotes")</span>
@@ -1159,33 +1493,39 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'>hilbeRt</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/hilbeRt/man/get_hilbert_paths.html'>get_hilbert_paths</a></span><span class='op'>(</span><span class='fl'>4</span><span class='op'>)</span>
 <span class='va'>plt</span> <span class='op'>&lt;-</span> <span class='va'>df</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, color <span class='op'>=</span> <span class='va'>index</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_path</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>5</span>, show.legend <span class='op'>=</span> <span class='cn'>FALSE</span>, lineend <span class='op'>=</span> <span class='st'>"round"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_path</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>5</span>, show.legend <span class='op'>=</span> <span class='cn'>FALSE</span>,
+            lineend <span class='op'>=</span> <span class='st'>"round"</span>,
+            color <span class='op'>=</span> <span class='st'>"#3465a4"</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>theme_void</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>coord_equal</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_color_gradient2</span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"#002ab5"</span>,
-                        mid <span class='op'>=</span> <span class='st'>"#8a00b5"</span>,
-                        high <span class='op'>=</span> <span class='st'>"#002ab5"</span><span class='op'>)</span>
+  <span class='co'># scale_color_gradient2(low = "#002ab5",</span>
+  <span class='co'>#                       mid = "#8a00b5",</span>
+  <span class='co'>#                       high = "#002ab5")</span>
+  <span class='fu'>scale_color_gradient2</span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"#BF616A"</span>,
+                        mid <span class='op'>=</span> <span class='st'>"#EBCB8B"</span>,
+                        high <span class='op'>=</span> <span class='st'>"#D08770"</span><span class='op'>)</span>
 <span class='va'>plt</span>
 </code></pre>
 </div>
 <img src="create_logo_files/figure-html5/generate-logo-1.png" width="480" />
 <div class="sourceCode">
-<pre><code><span class='fu'>ggsave</span><span class='op'>(</span><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/here/man/here.html'>here</a></span><span class='op'>(</span><span class='st'>"images/favicon.png"</span><span class='op'>)</span>, <span class='va'>plt</span>, bg <span class='op'>=</span> <span class='st'>"transparent"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggsave</span><span class='op'>(</span><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"images/favicon.png"</span><span class='op'>)</span>, <span class='va'>plt</span>, bg <span class='op'>=</span> <span class='st'>"transparent"</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>hex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/hexSticker/man/sticker.html'>sticker</a></span><span class='op'>(</span><span class='va'>plt</span>,
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>hex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/hexSticker/man/sticker.html'>sticker</a></span><span class='op'>(</span><span class='va'>plt</span>,
              s_x <span class='op'>=</span> <span class='fl'>1</span>,
              s_y <span class='op'>=</span> <span class='fl'>1</span>,
-             h_color <span class='op'>=</span> <span class='st'>"#002ab5"</span>,
-             h_fill <span class='op'>=</span> <span class='st'>"white"</span>,
+             h_color <span class='op'>=</span> <span class='st'>"black"</span>,
+             h_size <span class='op'>=</span> <span class='fl'>1.6</span>,
+             h_fill <span class='op'>=</span> <span class='st'>"#ECEFF4"</span>,
              s_width <span class='op'>=</span> <span class='fl'>1.2</span>,
              s_height <span class='op'>=</span> <span class='fl'>1.2</span>,
              u_size <span class='op'>=</span> <span class='fl'>3.5</span>,
              p_color <span class='op'>=</span> <span class='st'>"black"</span>,
-             p_size <span class='op'>=</span> <span class='fl'>10.1</span>,
+             p_size <span class='op'>=</span> <span class='fl'>6.5</span>,
              p_y <span class='op'>=</span> <span class='fl'>1.7</span>,
              url <span class='op'>=</span> <span class='st'>"jmbuhr.de/dataIntro20/"</span>,
              package <span class='op'>=</span> <span class='st'>"dataIntro20"</span><span class='op'>)</span>
@@ -1195,7 +1535,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <img src="create_logo_files/figure-html5/unnamed-chunk-1-1.png" width="480" data-distill-preview=1 />
 <div class="sourceCode">
-<pre><code><span class='fu'>ggsave</span><span class='op'>(</span><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/here/man/here.html'>here</a></span><span class='op'>(</span><span class='st'>"images/hex.png"</span><span class='op'>)</span>, dpi <span class='op'>=</span> <span class='fl'>72</span>, scale <span class='op'>=</span> <span class='fl'>2</span>, <span class='va'>hex</span>, bg <span class='op'>=</span> <span class='st'>"transparent"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggsave</span><span class='op'>(</span><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"images/hex.png"</span><span class='op'>)</span>, dpi <span class='op'>=</span> <span class='fl'>72</span>, scale <span class='op'>=</span> <span class='fl'>2</span>, <span class='va'>hex</span>, bg <span class='op'>=</span> <span class='st'>"transparent"</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
